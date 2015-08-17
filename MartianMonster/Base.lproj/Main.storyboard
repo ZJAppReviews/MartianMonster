@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-Pd-n83">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-Pd-n83">
                                 <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
@@ -24,8 +25,11 @@
                                     <color key="titleColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onMiddleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S9e-hx-4zz"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-M6-8UC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-M6-8UC">
                                 <rect key="frame" x="0.0" y="400" width="600" height="200"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.14509803921568629" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
@@ -33,8 +37,11 @@
                                     <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onBottomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rFM-4W-lSZ"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-K1-kET">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-K1-kET">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                 <color key="backgroundColor" red="0.29019607843137257" green="0.63137254901960782" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
@@ -42,10 +49,32 @@
                                     <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hzv-HD-xbp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="0Vw-5l-R31"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="height" secondItem="Rdg-M6-8UC" secondAttribute="height" id="1RN-oh-BCH"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="9CZ-K1-kET" secondAttribute="bottom" id="2bh-AG-txE"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="4Fm-bf-2qf"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="GQl-LO-foZ"/>
+                            <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="Vxb-h8-mMv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rdg-M6-8UC" secondAttribute="trailing" constant="-16" id="W2j-Fq-IF0"/>
+                            <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="jwY-5Z-3rD"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="width" secondItem="Rdg-M6-8UC" secondAttribute="width" id="lyb-qf-MXb"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="p7C-Ff-S75"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9CZ-K1-kET" secondAttribute="trailing" constant="-16" id="tUS-6Z-O21"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="yu5-ad-M6F"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="Rdg-M6-8UC" id="hFN-ky-ucL"/>
+                        <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>
+                        <outlet property="topButton" destination="9CZ-K1-kET" id="pZd-W0-AHy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

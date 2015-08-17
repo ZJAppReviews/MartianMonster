@@ -14,6 +14,9 @@
 		93B8E3491B818926008ECB47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3481B818926008ECB47 /* Images.xcassets */; };
 		93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E34A1B818926008ECB47 /* LaunchScreen.xib */; };
 		93B8E3581B818926008ECB47 /* MartianMonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3571B818926008ECB47 /* MartianMonsterTests.m */; };
+		93B8E3651B8197C6008ECB47 /* BlastOffBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3621B818975008ECB47 /* BlastOffBite.m4a */; };
+		93B8E3661B8197C8008ECB47 /* SpeedOfYourRocketBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3631B818979008ECB47 /* SpeedOfYourRocketBite.m4a */; };
+		93B8E3671B8197CB008ECB47 /* TripIsShortBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3641B81897E008ECB47 /* TripIsShortBite.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,7 +217,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
+				93B8E3651B8197C6008ECB47 /* BlastOffBite.m4a in Resources */,
+				93B8E3671B8197CB008ECB47 /* TripIsShortBite.m4a in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
+				93B8E3661B8197C8008ECB47 /* SpeedOfYourRocketBite.m4a in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
