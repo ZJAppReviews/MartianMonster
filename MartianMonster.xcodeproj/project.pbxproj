@@ -40,6 +40,9 @@
 		93B8E3511B818926008ECB47 /* MartianMonsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartianMonsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B8E3561B818926008ECB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B8E3571B818926008ECB47 /* MartianMonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MartianMonsterTests.m; sourceTree = "<group>"; };
+		93B8E3621B818975008ECB47 /* BlastOffBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlastOffBite.m4a; sourceTree = "<group>"; };
+		93B8E3631B818979008ECB47 /* SpeedOfYourRocketBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpeedOfYourRocketBite.m4a; sourceTree = "<group>"; };
+		93B8E3641B81897E008ECB47 /* TripIsShortBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TripIsShortBite.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		93B8E33A1B818926008ECB47 /* MartianMonster */ = {
 			isa = PBXGroup;
 			children = (
+				93B8E3611B818953008ECB47 /* Sound Bites */,
 				93B8E33F1B818926008ECB47 /* AppDelegate.h */,
 				93B8E3401B818926008ECB47 /* AppDelegate.m */,
 				93B8E3421B818926008ECB47 /* ViewController.h */,
@@ -117,6 +121,16 @@
 				93B8E3561B818926008ECB47 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93B8E3611B818953008ECB47 /* Sound Bites */ = {
+			isa = PBXGroup;
+			children = (
+				93B8E3621B818975008ECB47 /* BlastOffBite.m4a */,
+				93B8E3631B818979008ECB47 /* SpeedOfYourRocketBite.m4a */,
+				93B8E3641B81897E008ECB47 /* TripIsShortBite.m4a */,
+			);
+			name = "Sound Bites";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
