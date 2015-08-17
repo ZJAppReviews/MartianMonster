@@ -38,7 +38,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onBottomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rFM-4W-lSZ"/>
+                                    <action selector="onBottomRightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w0h-eP-aaE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-K1-kET">
@@ -61,6 +61,9 @@
                                     <color key="titleColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onBottomLeftButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="REa-0i-bS7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -85,7 +88,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomButton" destination="Rdg-M6-8UC" id="hFN-ky-ucL"/>
+                        <outlet property="bottomLeftButton" destination="jQG-vt-OJ4" id="YUQ-qL-Tx9"/>
+                        <outlet property="bottomRightButton" destination="Rdg-M6-8UC" id="Jdj-Fb-8mY"/>
                         <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>
                         <outlet property="topButton" destination="9CZ-K1-kET" id="pZd-W0-AHy"/>
                     </connections>

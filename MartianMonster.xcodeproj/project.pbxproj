@@ -14,9 +14,11 @@
 		93B8E3491B818926008ECB47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3481B818926008ECB47 /* Images.xcassets */; };
 		93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E34A1B818926008ECB47 /* LaunchScreen.xib */; };
 		93B8E3581B818926008ECB47 /* MartianMonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3571B818926008ECB47 /* MartianMonsterTests.m */; };
-		93B8E3651B8197C6008ECB47 /* BlastOffBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3621B818975008ECB47 /* BlastOffBite.m4a */; };
-		93B8E3661B8197C8008ECB47 /* SpeedOfYourRocketBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3631B818979008ECB47 /* SpeedOfYourRocketBite.m4a */; };
-		93B8E3671B8197CB008ECB47 /* TripIsShortBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3641B81897E008ECB47 /* TripIsShortBite.m4a */; };
+		93B8E36D1B81AE61008ECB47 /* RadarBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3681B81AE61008ECB47 /* RadarBite.m4a */; };
+		93B8E36E1B81AE61008ECB47 /* SirenBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3691B81AE61008ECB47 /* SirenBite.m4a */; };
+		93B8E36F1B81AE61008ECB47 /* IncredibleSpeedBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36A1B81AE61008ECB47 /* IncredibleSpeedBite.m4a */; };
+		93B8E3701B81AE61008ECB47 /* TripShortBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36B1B81AE61008ECB47 /* TripShortBite.m4a */; };
+		93B8E3711B81AE61008ECB47 /* BlastOffBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36C1B81AE61008ECB47 /* BlastOffBite.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +45,11 @@
 		93B8E3511B818926008ECB47 /* MartianMonsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartianMonsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B8E3561B818926008ECB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B8E3571B818926008ECB47 /* MartianMonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MartianMonsterTests.m; sourceTree = "<group>"; };
-		93B8E3621B818975008ECB47 /* BlastOffBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlastOffBite.m4a; sourceTree = "<group>"; };
-		93B8E3631B818979008ECB47 /* SpeedOfYourRocketBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpeedOfYourRocketBite.m4a; sourceTree = "<group>"; };
-		93B8E3641B81897E008ECB47 /* TripIsShortBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TripIsShortBite.m4a; sourceTree = "<group>"; };
+		93B8E3681B81AE61008ECB47 /* RadarBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RadarBite.m4a; sourceTree = "<group>"; };
+		93B8E3691B81AE61008ECB47 /* SirenBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SirenBite.m4a; sourceTree = "<group>"; };
+		93B8E36A1B81AE61008ECB47 /* IncredibleSpeedBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = IncredibleSpeedBite.m4a; sourceTree = "<group>"; };
+		93B8E36B1B81AE61008ECB47 /* TripShortBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TripShortBite.m4a; sourceTree = "<group>"; };
+		93B8E36C1B81AE61008ECB47 /* BlastOffBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlastOffBite.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +133,11 @@
 		93B8E3611B818953008ECB47 /* Sound Bites */ = {
 			isa = PBXGroup;
 			children = (
-				93B8E3621B818975008ECB47 /* BlastOffBite.m4a */,
-				93B8E3631B818979008ECB47 /* SpeedOfYourRocketBite.m4a */,
-				93B8E3641B81897E008ECB47 /* TripIsShortBite.m4a */,
+				93B8E3681B81AE61008ECB47 /* RadarBite.m4a */,
+				93B8E3691B81AE61008ECB47 /* SirenBite.m4a */,
+				93B8E36A1B81AE61008ECB47 /* IncredibleSpeedBite.m4a */,
+				93B8E36B1B81AE61008ECB47 /* TripShortBite.m4a */,
+				93B8E36C1B81AE61008ECB47 /* BlastOffBite.m4a */,
 			);
 			name = "Sound Bites";
 			sourceTree = "<group>";
@@ -216,12 +222,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B8E36E1B81AE61008ECB47 /* SirenBite.m4a in Resources */,
+				93B8E36F1B81AE61008ECB47 /* IncredibleSpeedBite.m4a in Resources */,
+				93B8E3701B81AE61008ECB47 /* TripShortBite.m4a in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
-				93B8E3651B8197C6008ECB47 /* BlastOffBite.m4a in Resources */,
-				93B8E3671B8197CB008ECB47 /* TripIsShortBite.m4a in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
-				93B8E3661B8197C8008ECB47 /* SpeedOfYourRocketBite.m4a in Resources */,
+				93B8E3711B81AE61008ECB47 /* BlastOffBite.m4a in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
+				93B8E36D1B81AE61008ECB47 /* RadarBite.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +446,7 @@
 				93B8E35D1B818926008ECB47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		93B8E35E1B818926008ECB47 /* Build configuration list for PBXNativeTarget "MartianMonsterTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +455,7 @@
 				93B8E3601B818926008ECB47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

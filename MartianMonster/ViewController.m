@@ -13,7 +13,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *topButton;
 @property (strong, nonatomic) IBOutlet UIButton *middleButton;
-@property (strong, nonatomic) IBOutlet UIButton *bottomButton;
+@property (strong, nonatomic) IBOutlet UIButton *bottomLeftButton;
+@property (strong, nonatomic) IBOutlet UIButton *bottomRightButton;
 
 @end
 
@@ -25,13 +26,10 @@
 {
     [super viewDidLoad];
 
-    self.middleButton.titleLabel.numberOfLines = 1;
-    self.middleButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.middleButton.titleLabel.lineBreakMode = NSLineBreakByClipping;
-
-    self.bottomButton.titleLabel.numberOfLines = 1;
-    self.bottomButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.bottomButton.titleLabel.lineBreakMode = NSLineBreakByClipping;
+    [self formatButtonLabel:self.topButton];
+    [self formatButtonLabel:self.middleButton];
+    [self formatButtonLabel:self.bottomLeftButton];
+    [self formatButtonLabel:self.bottomRightButton];
 
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
@@ -44,15 +42,20 @@
 
 - (IBAction)onTopButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"BlastOffBite"];
+    [self playSoundWithName:@"SirenBite"];
 }
 
 - (IBAction)onMiddleButtonTapped:(UIButton *)sender
 {
+    [self playSoundWithName:@"BlastOffBite"];
+}
+
+- (IBAction)onBottomLeftButtonTapped:(UIButton *)sender
+{
     [self playSoundWithName:@"SpeedOfYourRocketBite"];
 }
 
-- (IBAction)onBottomButtonTapped:(UIButton *)sender
+- (IBAction)onBottomRightButtonTapped:(UIButton *)sender
 {
     [self playSoundWithName:@"TripIsShortBite"];
 }
@@ -63,6 +66,13 @@
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
     AudioServicesPlaySystemSound(soundEffect);
+}
+
+-(void)formatButtonLabel:(UIButton *)button
+{
+    button.titleLabel.numberOfLines = 1;
+    button.titleLabel.adjustsFontSizeToFitWidth = YES;
+    button.titleLabel.lineBreakMode = NSLineBreakByClipping;
 }
 
 @end
