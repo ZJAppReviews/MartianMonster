@@ -59,12 +59,12 @@
 
 - (IBAction)onBottomLeftButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"SpeedOfYourRocketBite"];
+    [self playSoundWithName:@"IncredibleSpeedBite"];
 }
 
 - (IBAction)onBottomRightButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"TripIsShortBite"];
+    [self playSoundWithName:@"TripShortBite"];
 }
 
 -(void)playSoundWithName:(NSString *)soundName

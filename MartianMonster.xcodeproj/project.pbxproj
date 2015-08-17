@@ -195,6 +195,7 @@
 					};
 					93B8E3501B818926008ECB47 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 3DJPBY6593;
 						TestTargetID = 93B8E3371B818925008ECB47;
 					};
 				};
@@ -386,6 +387,7 @@
 				INFOPLIST_FILE = MartianMonster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6397772a-98e8-4ffb-b540-4297d860b650";
 			};
 			name = Debug;
 		};
@@ -397,6 +399,7 @@
 				INFOPLIST_FILE = MartianMonster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6397772a-98e8-4ffb-b540-4297d860b650";
 			};
 			name = Release;
 		};
@@ -404,6 +407,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -415,6 +420,7 @@
 				INFOPLIST_FILE = MartianMonsterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianMonster.app/MartianMonster";
 			};
 			name = Debug;
@@ -423,6 +429,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -430,6 +438,7 @@
 				INFOPLIST_FILE = MartianMonsterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianMonster.app/MartianMonster";
 			};
 			name = Release;
