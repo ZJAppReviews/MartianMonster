@@ -31,7 +31,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-M6-8UC">
                                 <rect key="frame" x="300" y="400" width="300" height="200"/>
-                                <color key="backgroundColor" red="0.9137254901960784" green="0.14509803921568629" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.58431372550000005" green="0.0" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                 <state key="normal" title="TRIP">
                                     <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,20 +42,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-K1-kET">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                                <color key="backgroundColor" red="0.29019607843137257" green="0.63137254901960782" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="300" y="0.0" width="300" height="200"/>
+                                <color key="backgroundColor" red="0.83529411764705885" green="0.0" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="eeeoooeeeooo">
+                                <state key="normal" title="(siren)">
                                     <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hzv-HD-xbp"/>
+                                    <action selector="onTopRightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OBm-xn-N9L"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQG-vt-OJ4">
                                 <rect key="frame" x="0.0" y="400" width="300" height="200"/>
-                                <color key="backgroundColor" red="0.99607843137254903" green="0.56992648154626446" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.46666666666666667" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                 <state key="normal" title="SPEED">
                                     <color key="titleColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,33 +65,50 @@
                                     <action selector="onBottomLeftButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="REa-0i-bS7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q28-31-zUr">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.63137254899999995" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
+                                <state key="normal" title="(radar)">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTopLeftButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWi-Dg-5hE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="4st-aP-8rG"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="Aad-3w-CtZ"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="width" secondItem="jQG-vt-OJ4" secondAttribute="width" id="Dgw-UH-bTG"/>
-                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Hb5-aw-fLx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9CZ-K1-kET" secondAttribute="trailing" constant="-16" id="KSS-Jl-Apc"/>
-                            <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="Kpf-y6-eHQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="Oen-xT-wHy"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="9CZ-K1-kET" secondAttribute="bottom" id="P5b-5K-3NP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xzd-Pd-n83" secondAttribute="trailing" constant="-16" id="SHZ-At-EWi"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="VFj-qF-nbp"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="WOC-aG-pw7"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="av6-Ih-mri"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="beD-Rd-esf"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="height" secondItem="xzd-Pd-n83" secondAttribute="height" id="u7T-BS-vUy"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="x9W-tT-U8k"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Rdg-M6-8UC" secondAttribute="trailing" constant="-16" id="xKU-vr-1WY"/>
-                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="xca-md-iqC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rdg-M6-8UC" secondAttribute="trailing" constant="-16" id="3ZD-Ca-teP"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="width" secondItem="jQG-vt-OJ4" secondAttribute="width" id="4mX-EI-cZe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9CZ-K1-kET" secondAttribute="trailing" constant="-16" id="80j-wK-mgC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xzd-Pd-n83" secondAttribute="trailing" constant="-16" id="Coo-if-M6z"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="width" secondItem="q28-31-zUr" secondAttribute="width" id="DN8-ZD-eul"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="Fhu-8N-Yeb"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="q28-31-zUr" secondAttribute="bottom" id="Gqd-1n-mvA"/>
+                            <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="Ib0-Yj-GeF"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="height" secondItem="jQG-vt-OJ4" secondAttribute="height" id="OSe-cQ-RxC"/>
+                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="TSB-zI-9Ol"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="height" secondItem="q28-31-zUr" secondAttribute="height" id="Vyj-gB-4w0"/>
+                            <constraint firstItem="q28-31-zUr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="W5X-47-FIr"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="YrV-M3-SLw"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="height" secondItem="jQG-vt-OJ4" secondAttribute="height" id="Ys9-sI-N6c"/>
+                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dyB-Qp-ADz"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="q28-31-zUr" secondAttribute="trailing" id="hQz-bS-Wta"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hhs-DR-A2E"/>
+                            <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="kzQ-LI-xTk"/>
+                            <constraint firstItem="q28-31-zUr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="nfF-Jy-2bd"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="o19-9b-jUz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="zY5-cQ-VOp"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomLeftButton" destination="jQG-vt-OJ4" id="YUQ-qL-Tx9"/>
                         <outlet property="bottomRightButton" destination="Rdg-M6-8UC" id="Jdj-Fb-8mY"/>
                         <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>
-                        <outlet property="topButton" destination="9CZ-K1-kET" id="pZd-W0-AHy"/>
+                        <outlet property="topLeftButton" destination="q28-31-zUr" id="3cx-mA-PRe"/>
+                        <outlet property="topRightButton" destination="9CZ-K1-kET" id="ZZ9-h5-iJz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

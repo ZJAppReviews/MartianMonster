@@ -11,7 +11,8 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) IBOutlet UIButton *topButton;
+@property (strong, nonatomic) IBOutlet UIButton *topLeftButton;
+@property (strong, nonatomic) IBOutlet UIButton *topRightButton;
 @property (strong, nonatomic) IBOutlet UIButton *middleButton;
 @property (strong, nonatomic) IBOutlet UIButton *bottomLeftButton;
 @property (strong, nonatomic) IBOutlet UIButton *bottomRightButton;
@@ -26,7 +27,8 @@
 {
     [super viewDidLoad];
 
-    [self formatButtonLabel:self.topButton];
+    [self formatButtonLabel:self.topLeftButton];
+    [self formatButtonLabel:self.topRightButton];
     [self formatButtonLabel:self.middleButton];
     [self formatButtonLabel:self.bottomLeftButton];
     [self formatButtonLabel:self.bottomRightButton];
@@ -40,7 +42,12 @@
     return YES;
 }
 
-- (IBAction)onTopButtonTapped:(UIButton *)sender
+- (IBAction)onTopLeftButtonTapped:(UIButton *)sender
+{
+    [self playSoundWithName:@"RadarBite"];
+}
+
+- (IBAction)onTopRightButtonTapped:(UIButton *)sender
 {
     [self playSoundWithName:@"SirenBite"];
 }
