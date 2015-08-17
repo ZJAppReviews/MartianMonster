@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="INCREDIBLE SPEED">
+                                <state key="normal" title="BLAST OFF">
                                     <color key="titleColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -30,10 +30,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-M6-8UC">
-                                <rect key="frame" x="0.0" y="400" width="600" height="200"/>
+                                <rect key="frame" x="300" y="400" width="300" height="200"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.14509803921568629" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="TRIP IS SHORT">
+                                <state key="normal" title="TRIP">
                                     <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                 <color key="backgroundColor" red="0.29019607843137257" green="0.63137254901960782" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="BLAST OFF">
+                                <state key="normal" title="eeeoooeeeooo">
                                     <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -53,21 +53,35 @@
                                     <action selector="onTopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hzv-HD-xbp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQG-vt-OJ4">
+                                <rect key="frame" x="0.0" y="400" width="300" height="200"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.56992648154626446" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
+                                <state key="normal" title="SPEED">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="0Vw-5l-R31"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="height" secondItem="Rdg-M6-8UC" secondAttribute="height" id="1RN-oh-BCH"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="9CZ-K1-kET" secondAttribute="bottom" id="2bh-AG-txE"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="4Fm-bf-2qf"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="GQl-LO-foZ"/>
-                            <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="Vxb-h8-mMv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Rdg-M6-8UC" secondAttribute="trailing" constant="-16" id="W2j-Fq-IF0"/>
-                            <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="jwY-5Z-3rD"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="width" secondItem="Rdg-M6-8UC" secondAttribute="width" id="lyb-qf-MXb"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="p7C-Ff-S75"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9CZ-K1-kET" secondAttribute="trailing" constant="-16" id="tUS-6Z-O21"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="yu5-ad-M6F"/>
+                            <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="4st-aP-8rG"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="Aad-3w-CtZ"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="width" secondItem="jQG-vt-OJ4" secondAttribute="width" id="Dgw-UH-bTG"/>
+                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Hb5-aw-fLx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9CZ-K1-kET" secondAttribute="trailing" constant="-16" id="KSS-Jl-Apc"/>
+                            <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="Kpf-y6-eHQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="Oen-xT-wHy"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="9CZ-K1-kET" secondAttribute="bottom" id="P5b-5K-3NP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xzd-Pd-n83" secondAttribute="trailing" constant="-16" id="SHZ-At-EWi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="VFj-qF-nbp"/>
+                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="WOC-aG-pw7"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="av6-Ih-mri"/>
+                            <constraint firstItem="xzd-Pd-n83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="beD-Rd-esf"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="height" secondItem="xzd-Pd-n83" secondAttribute="height" id="u7T-BS-vUy"/>
+                            <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="x9W-tT-U8k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rdg-M6-8UC" secondAttribute="trailing" constant="-16" id="xKU-vr-1WY"/>
+                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="xca-md-iqC"/>
                         </constraints>
                     </view>
                     <connections>
