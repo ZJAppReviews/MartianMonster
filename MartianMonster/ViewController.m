@@ -82,4 +82,9 @@
     button.titleLabel.lineBreakMode = NSLineBreakByClipping;
 }
 
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return (int) UIInterfaceOrientationMaskAll;
+}
+
 @end
