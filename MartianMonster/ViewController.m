@@ -21,6 +21,13 @@
 
 @end
 
+static NSString * const kAudioBlip = @"Blip";
+static NSString * const kAudioUFO = @"UFO";
+static NSString * const kAudioSpeed = @"Speed";
+static NSString * const kAudioTrip = @"Trip";
+static NSString * const kAudioBlastOff = @"BlastOff";
+static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/album/chilling-thrilling-sounds/id272258499?at=10lu5f&mt=1&app=music";
+
 @implementation ViewController {
     SystemSoundID soundEffect;
 }
@@ -52,7 +59,7 @@
     self.bannerVerticalConstraint.constant += 50;
     [self.bannerButton setNeedsUpdateConstraints];
 
-    [UIView animateWithDuration:2.0f animations:^{
+    [UIView animateWithDuration:1.0f animations:^{
         [self.bannerButton layoutIfNeeded];
     }];
 }
@@ -64,27 +71,27 @@
 
 - (IBAction)onTopLeftButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"RadarBite"];
+    [self playSoundWithName:kAudioBlip];
 }
 
 - (IBAction)onTopRightButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"SirenBite"];
+    [self playSoundWithName:kAudioUFO];
 }
 
 - (IBAction)onMiddleButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"BlastOffBite"];
+    [self playSoundWithName:kAudioBlastOff];
 }
 
 - (IBAction)onBottomLeftButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"IncredibleSpeedBite"];
+    [self playSoundWithName:kAudioSpeed];
 }
 
 - (IBAction)onBottomRightButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:@"TripShortBite"];
+    [self playSoundWithName:kAudioTrip];
 }
 
 -(void)playSoundWithName:(NSString *)soundName
@@ -97,9 +104,7 @@
 
 - (IBAction)onLinkButtonTapped:(UIButton *)sender
 {
-
-    NSString *iTunesLink = @"https://geo.itunes.apple.com/us/album/chilling-thrilling-sounds/id272258499?at=10lu5f&mt=1&app=music";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kURLiTunesAlbum]];
 }
 
 -(void)formatButtonLabel:(UIButton *)button

@@ -14,11 +14,11 @@
 		93B8E3491B818926008ECB47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3481B818926008ECB47 /* Images.xcassets */; };
 		93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E34A1B818926008ECB47 /* LaunchScreen.xib */; };
 		93B8E3581B818926008ECB47 /* MartianMonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3571B818926008ECB47 /* MartianMonsterTests.m */; };
-		93B8E36D1B81AE61008ECB47 /* RadarBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3681B81AE61008ECB47 /* RadarBite.m4a */; };
-		93B8E36E1B81AE61008ECB47 /* SirenBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3691B81AE61008ECB47 /* SirenBite.m4a */; };
-		93B8E36F1B81AE61008ECB47 /* IncredibleSpeedBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36A1B81AE61008ECB47 /* IncredibleSpeedBite.m4a */; };
-		93B8E3701B81AE61008ECB47 /* TripShortBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36B1B81AE61008ECB47 /* TripShortBite.m4a */; };
-		93B8E3711B81AE61008ECB47 /* BlastOffBite.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36C1B81AE61008ECB47 /* BlastOffBite.m4a */; };
+		93B8E36D1B81AE61008ECB47 /* Blip.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3681B81AE61008ECB47 /* Blip.m4a */; };
+		93B8E36E1B81AE61008ECB47 /* UFO.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3691B81AE61008ECB47 /* UFO.m4a */; };
+		93B8E36F1B81AE61008ECB47 /* Speed.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36A1B81AE61008ECB47 /* Speed.m4a */; };
+		93B8E3701B81AE61008ECB47 /* Trip.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36B1B81AE61008ECB47 /* Trip.m4a */; };
+		93B8E3711B81AE61008ECB47 /* BlastOff.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36C1B81AE61008ECB47 /* BlastOff.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +45,11 @@
 		93B8E3511B818926008ECB47 /* MartianMonsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartianMonsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B8E3561B818926008ECB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B8E3571B818926008ECB47 /* MartianMonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MartianMonsterTests.m; sourceTree = "<group>"; };
-		93B8E3681B81AE61008ECB47 /* RadarBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RadarBite.m4a; sourceTree = "<group>"; };
-		93B8E3691B81AE61008ECB47 /* SirenBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SirenBite.m4a; sourceTree = "<group>"; };
-		93B8E36A1B81AE61008ECB47 /* IncredibleSpeedBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = IncredibleSpeedBite.m4a; sourceTree = "<group>"; };
-		93B8E36B1B81AE61008ECB47 /* TripShortBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TripShortBite.m4a; sourceTree = "<group>"; };
-		93B8E36C1B81AE61008ECB47 /* BlastOffBite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlastOffBite.m4a; sourceTree = "<group>"; };
+		93B8E3681B81AE61008ECB47 /* Blip.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blip.m4a; sourceTree = "<group>"; };
+		93B8E3691B81AE61008ECB47 /* UFO.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = UFO.m4a; sourceTree = "<group>"; };
+		93B8E36A1B81AE61008ECB47 /* Speed.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Speed.m4a; sourceTree = "<group>"; };
+		93B8E36B1B81AE61008ECB47 /* Trip.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Trip.m4a; sourceTree = "<group>"; };
+		93B8E36C1B81AE61008ECB47 /* BlastOff.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlastOff.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +133,11 @@
 		93B8E3611B818953008ECB47 /* Sound Bites */ = {
 			isa = PBXGroup;
 			children = (
-				93B8E3681B81AE61008ECB47 /* RadarBite.m4a */,
-				93B8E3691B81AE61008ECB47 /* SirenBite.m4a */,
-				93B8E36A1B81AE61008ECB47 /* IncredibleSpeedBite.m4a */,
-				93B8E36B1B81AE61008ECB47 /* TripShortBite.m4a */,
-				93B8E36C1B81AE61008ECB47 /* BlastOffBite.m4a */,
+				93B8E3681B81AE61008ECB47 /* Blip.m4a */,
+				93B8E3691B81AE61008ECB47 /* UFO.m4a */,
+				93B8E36A1B81AE61008ECB47 /* Speed.m4a */,
+				93B8E36B1B81AE61008ECB47 /* Trip.m4a */,
+				93B8E36C1B81AE61008ECB47 /* BlastOff.m4a */,
 			);
 			name = "Sound Bites";
 			sourceTree = "<group>";
@@ -224,14 +224,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93B8E36E1B81AE61008ECB47 /* SirenBite.m4a in Resources */,
-				93B8E36F1B81AE61008ECB47 /* IncredibleSpeedBite.m4a in Resources */,
-				93B8E3701B81AE61008ECB47 /* TripShortBite.m4a in Resources */,
+				93B8E36E1B81AE61008ECB47 /* UFO.m4a in Resources */,
+				93B8E36F1B81AE61008ECB47 /* Speed.m4a in Resources */,
+				93B8E3701B81AE61008ECB47 /* Trip.m4a in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
-				93B8E3711B81AE61008ECB47 /* BlastOffBite.m4a in Resources */,
+				93B8E3711B81AE61008ECB47 /* BlastOff.m4a in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
-				93B8E36D1B81AE61008ECB47 /* RadarBite.m4a in Resources */,
+				93B8E36D1B81AE61008ECB47 /* Blip.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +388,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6397772a-98e8-4ffb-b540-4297d860b650";
 			};
 			name = Debug;
 		};
@@ -401,7 +401,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6397772a-98e8-4ffb-b540-4297d860b650";
 			};
 			name = Release;
 		};
