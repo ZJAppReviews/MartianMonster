@@ -44,7 +44,7 @@
 
 -(void)delayBanner
 {
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
 }
 
 -(void)showBanner
@@ -93,11 +93,6 @@
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
     AudioServicesPlaySystemSound(soundEffect);
-}
-
--(void)animateLinkBanner
-{
-    
 }
 
 - (IBAction)onLinkButtonTapped:(UIButton *)sender
