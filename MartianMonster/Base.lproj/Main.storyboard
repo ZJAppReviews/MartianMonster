@@ -77,6 +77,21 @@
                                     <action selector="onTopLeftButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWi-Dg-5hE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUV-tS-wDc">
+                                <rect key="frame" x="0.0" y="-50" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ahE-Vp-Ovr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="20"/>
+                                <state key="normal" title="  Download &quot;Chilling, Thrilling Sounds of The Haunted House&quot;">
+                                    <color key="titleColor" red="0.12549019607843137" green="0.3411764705882353" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLinkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXy-7M-8ri"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -89,6 +104,7 @@
                             <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="q28-31-zUr" secondAttribute="bottom" id="Gqd-1n-mvA"/>
                             <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="Ib0-Yj-GeF"/>
                             <constraint firstItem="xzd-Pd-n83" firstAttribute="height" secondItem="jQG-vt-OJ4" secondAttribute="height" id="OSe-cQ-RxC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WUV-tS-wDc" secondAttribute="trailing" constant="-16" id="QIm-Sb-iig"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="TSB-zI-9Ol"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="height" secondItem="q28-31-zUr" secondAttribute="height" id="Vyj-gB-4w0"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="W5X-47-FIr"/>
@@ -97,13 +113,17 @@
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dyB-Qp-ADz"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="q28-31-zUr" secondAttribute="trailing" id="hQz-bS-Wta"/>
                             <constraint firstItem="xzd-Pd-n83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hhs-DR-A2E"/>
+                            <constraint firstItem="WUV-tS-wDc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-50" id="jBC-8V-x0d"/>
                             <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="kzQ-LI-xTk"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="nfF-Jy-2bd"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="o19-9b-jUz"/>
+                            <constraint firstItem="WUV-tS-wDc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="oG8-do-0u4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="zY5-cQ-VOp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerButton" destination="WUV-tS-wDc" id="Sd5-Mh-U2k"/>
+                        <outlet property="bannerVerticalConstraint" destination="jBC-8V-x0d" id="cWY-A7-hD2"/>
                         <outlet property="bottomLeftButton" destination="jQG-vt-OJ4" id="YUQ-qL-Tx9"/>
                         <outlet property="bottomRightButton" destination="Rdg-M6-8UC" id="Jdj-Fb-8mY"/>
                         <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>

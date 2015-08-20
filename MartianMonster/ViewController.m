@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *middleButton;
 @property (strong, nonatomic) IBOutlet UIButton *bottomLeftButton;
 @property (strong, nonatomic) IBOutlet UIButton *bottomRightButton;
+@property (strong, nonatomic) IBOutlet UIButton *bannerButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *bannerVerticalConstraint;
 
 @end
 
@@ -32,9 +34,27 @@
     [self formatButtonLabel:self.middleButton];
     [self formatButtonLabel:self.bottomLeftButton];
     [self formatButtonLabel:self.bottomRightButton];
+    [self formatButtonLabel:self.bannerButton];
 
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
+
+    [self delayBanner];
+}
+
+-(void)delayBanner
+{
+    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
+}
+
+-(void)showBanner
+{
+    self.bannerVerticalConstraint.constant += 50;
+    [self.bannerButton setNeedsUpdateConstraints];
+
+    [UIView animateWithDuration:2.0f animations:^{
+        [self.bannerButton layoutIfNeeded];
+    }];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -73,6 +93,18 @@
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
     AudioServicesPlaySystemSound(soundEffect);
+}
+
+-(void)animateLinkBanner
+{
+    
+}
+
+- (IBAction)onLinkButtonTapped:(UIButton *)sender
+{
+
+    NSString *iTunesLink = @"https://geo.itunes.apple.com/us/album/chilling-thrilling-sounds/id272258499?at=10lu5f&mt=1&app=music";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
 }
 
 -(void)formatButtonLabel:(UIButton *)button
