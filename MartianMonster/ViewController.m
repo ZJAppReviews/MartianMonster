@@ -21,11 +21,6 @@
 
 @end
 
-static NSString * const kAudioBlip = @"Blip";
-static NSString * const kAudioUFO = @"UFO";
-static NSString * const kAudioSpeed = @"Speed";
-static NSString * const kAudioTrip = @"Trip";
-static NSString * const kAudioBlastOff = @"BlastOff";
 static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/album/chilling-thrilling-sounds/id272258499?at=10lu5f&mt=1&app=music";
 
 @implementation ViewController {
