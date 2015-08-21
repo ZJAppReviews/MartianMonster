@@ -71,29 +71,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     return YES;
 }
 
-- (IBAction)onTopLeftButtonTapped:(UIButton *)sender
+//Audio files' names correlate to a button's tag
+- (IBAction)onAudioButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:kAudioBlip];
-}
-
-- (IBAction)onTopRightButtonTapped:(UIButton *)sender
-{
-    [self playSoundWithName:kAudioUFO];
-}
-
-- (IBAction)onMiddleButtonTapped:(UIButton *)sender
-{
-    [self playSoundWithName:kAudioBlastOff];
-}
-
-- (IBAction)onBottomLeftButtonTapped:(UIButton *)sender
-{
-    [self playSoundWithName:kAudioSpeed];
-}
-
-- (IBAction)onBottomRightButtonTapped:(UIButton *)sender
-{
-    [self playSoundWithName:kAudioTrip];
+    [self playSoundWithName:[@(sender.tag) stringValue]];
 }
 
 -(void)playSoundWithName:(NSString *)soundName
