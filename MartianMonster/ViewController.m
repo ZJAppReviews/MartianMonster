@@ -36,12 +36,13 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 {
     [super viewDidLoad];
 
-    [self formatButtonLabel:self.topLeftButton];
-    [self formatButtonLabel:self.topRightButton];
-    [self formatButtonLabel:self.middleButton];
-    [self formatButtonLabel:self.bottomLeftButton];
-    [self formatButtonLabel:self.bottomRightButton];
-    [self formatButtonLabel:self.bannerButton];
+    for (UIButton *button in self.view.subviews)
+    {
+        if ([button isKindOfClass:[UIButton class]])
+        {
+            [self formatButtonLabel:button];
+        }
+    }
 
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
@@ -54,6 +55,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
 }
 
+//The bannerButton's vertical constant is set to -50 in Storyboard
 -(void)showBanner
 {
     self.bannerVerticalConstraint.constant += 50;
@@ -107,6 +109,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kURLiTunesAlbum]];
 }
 
+//Formats text of button's textLabel to adjust to size
 -(void)formatButtonLabel:(UIButton *)button
 {
     button.titleLabel.numberOfLines = 1;
@@ -114,6 +117,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     button.titleLabel.lineBreakMode = NSLineBreakByClipping;
 }
 
+//Enables upside-down orientation
 -(NSUInteger)supportedInterfaceOrientations
 {
     return (int) UIInterfaceOrientationMaskAll;
