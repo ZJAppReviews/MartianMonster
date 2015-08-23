@@ -25,6 +25,11 @@
 
 @property (nonatomic, strong) AVAudioEngine *engine;
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNode;
+
+@property (nonatomic, strong) AVAudioPlayerNode *middleAudioPlayerNode;
+@property (nonatomic, strong) AVAudioPlayerNode *bottomLeftAudioPlayerNode;
+@property (nonatomic, strong) AVAudioPlayerNode *bottomRightAudioPlayerNode;
+
 @property (nonatomic, strong) AVAudioFile *audioFile;
 
 @property (strong, nonatomic) IBOutlet UISlider *slider;
@@ -89,7 +94,6 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     }];
 }
 
-
 -(void)shimmer
 {
     FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
@@ -120,23 +124,21 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
 - (IBAction)onMiddleButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:[@(sender.tag) stringValue]];
+    [self playMiddleSoundEffect];
 }
 
 - (IBAction)onBottomLeftButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:[@(sender.tag) stringValue]];
+    [self playBottomLeftSoundEffect];
 }
 
 - (IBAction)onBottomRightButtonTapped:(UIButton *)sender
 {
-    [self playSoundWithName:[@(sender.tag) stringValue]];
+    [self playBottomRightSoundEffect];
 }
 
 -(void)playSoundWithoutEffectsWithName:(NSString *)soundName
 {
-//    [self.audioPlayerNode stop];
-
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"m4a"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
@@ -177,17 +179,17 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [self.audioPlayerNode play];
 }
 
--(void)playSoundWithName:(NSString *)soundName
+-(void)playBottomRightSoundEffect
 {
-    //    [self.audioPlayerNode stop];
+    [self.bottomRightAudioPlayerNode stop];
 
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"m4a"];
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"4" ofType:@"m4a"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
 
     // Prepare AVAudioPlayerNode
-    self.audioPlayerNode = [AVAudioPlayerNode new];
-    [self.engine attachNode:self.audioPlayerNode];
+    self.bottomRightAudioPlayerNode = [AVAudioPlayerNode new];
+    [self.engine attachNode:self.bottomRightAudioPlayerNode];
 
     // Pitch
     AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
@@ -198,7 +200,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
     [self.engine attachNode:utPitch];
 
-    [self.engine connect:self.audioPlayerNode
+    [self.engine connect:self.bottomRightAudioPlayerNode
                       to:utPitch
                   format:self.audioFile.processingFormat];
 
@@ -213,12 +215,100 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     }
 
     // Schedule playing audio file
-    [self.audioPlayerNode scheduleFile:self.audioFile
+    [self.bottomRightAudioPlayerNode scheduleFile:self.audioFile
                                 atTime:nil
                      completionHandler:nil];
 
     // Start playback
-    [self.audioPlayerNode play];
+    [self.bottomRightAudioPlayerNode play];
+}
+
+-(void)playBottomLeftSoundEffect
+{
+    [self.bottomLeftAudioPlayerNode stop];
+
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"3" ofType:@"m4a"];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
+
+    // Prepare AVAudioPlayerNode
+    self.bottomLeftAudioPlayerNode = [AVAudioPlayerNode new];
+    [self.engine attachNode:self.bottomLeftAudioPlayerNode];
+
+    // Pitch
+    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
+    utPitch.pitch = selectedPitch;
+    utPitch.rate = 1.0;
+
+    // Connect Nodes
+    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
+    [self.engine attachNode:utPitch];
+
+    [self.engine connect:self.bottomLeftAudioPlayerNode
+                      to:utPitch
+                  format:self.audioFile.processingFormat];
+
+    //Pitch connection
+    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
+
+    // Start engine
+    NSError *error;
+    [self.engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
+    }
+
+    // Schedule playing audio file
+    [self.bottomLeftAudioPlayerNode scheduleFile:self.audioFile
+                                           atTime:nil
+                                completionHandler:nil];
+
+    // Start playback
+    [self.bottomLeftAudioPlayerNode play];
+}
+
+-(void)playMiddleSoundEffect
+{
+    [self.middleAudioPlayerNode stop];
+
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"m4a"];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
+
+    // Prepare AVAudioPlayerNode
+    self.middleAudioPlayerNode = [AVAudioPlayerNode new];
+    [self.engine attachNode:self.middleAudioPlayerNode];
+
+    // Pitch
+    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
+    utPitch.pitch = selectedPitch;
+    utPitch.rate = 1.0;
+
+    // Connect Nodes
+    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
+    [self.engine attachNode:utPitch];
+
+    [self.engine connect:self.middleAudioPlayerNode
+                      to:utPitch
+                  format:self.audioFile.processingFormat];
+
+    //Pitch connection
+    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
+
+    // Start engine
+    NSError *error;
+    [self.engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
+    }
+
+    // Schedule playing audio file
+    [self.middleAudioPlayerNode scheduleFile:self.audioFile
+                                          atTime:nil
+                               completionHandler:nil];
+
+    // Start playback
+    [self.middleAudioPlayerNode play];
 }
 
 - (IBAction)onSliderMoved:(UISlider *)sender
