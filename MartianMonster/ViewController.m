@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "FBShimmeringView.h"
 
 @interface ViewController ()
 
@@ -43,6 +44,35 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
                                             withAnimation:UIStatusBarAnimationFade];
 
     [self delayBanner];
+
+    [self shimmer];
+}
+
+-(void)shimmer
+{
+
+    FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
+    shimmeringView.alpha = 0.33;
+    [self.bannerButton addSubview:shimmeringView];
+
+    UIView * v = [[UIView alloc] initWithFrame:shimmeringView.bounds];
+    [v setBackgroundColor:[UIColor blueColor]];
+
+
+    shimmeringView.contentView = v;
+
+    // Start shimmering.
+    shimmeringView.shimmering = YES;
+//    FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:shimmeringView];
+//
+//    UILabel *loadingLabel = [[UILabel alloc] initWithFrame:shimmeringView.bounds];
+//    loadingLabel.textAlignment = NSTextAlignmentCenter;
+//    loadingLabel.text = NSLocalizedString(@"Shimmer", nil);
+//    shimmeringView.contentView = loadingLabel;
+//
+//    // Start shimmering.
+//    shimmeringView.shimmering = YES;
 }
 
 -(void)delayBanner
