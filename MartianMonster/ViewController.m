@@ -53,7 +53,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 #pragma mark - Banner Button
 -(void)delayBanner
 {
-    [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
 }
 
 //The bannerButton's vertical constant is set to -50 in Storyboard
@@ -66,6 +66,17 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
         [self.bannerButton layoutIfNeeded];
     }];
 }
+
+-(void)hideBanner
+{
+    self.bannerVerticalConstraint.constant -= 50;
+    [self.bannerButton setNeedsUpdateConstraints];
+
+    [UIView animateWithDuration:1.0f animations:^{
+        [self.bannerButton layoutIfNeeded];
+    }];
+}
+
 
 -(void)shimmer
 {
@@ -118,15 +129,21 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     button.titleLabel.lineBreakMode = NSLineBreakByClipping;
 }
 
+//Enables upside-down orientation
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return (int) UIInterfaceOrientationMaskAll;
+}
+
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
 }
 
-//Enables upside-down orientation
--(NSUInteger)supportedInterfaceOrientations
+#pragma mark - Easter Eggs
+- (IBAction)onTripButtonHeldDown:(UILongPressGestureRecognizer *)sender
 {
-    return (int) UIInterfaceOrientationMaskAll;
+    [self hideBanner];
 }
 
 @end

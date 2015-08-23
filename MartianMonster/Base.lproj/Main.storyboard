@@ -31,6 +31,7 @@
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-M6-8UC">
                                 <rect key="frame" x="300" y="400" width="300" height="200"/>
                                 <color key="backgroundColor" red="0.58431372550000005" green="0.0" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                 <state key="normal" title="TRIP">
                                     <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,6 +39,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZr-EG-5gT"/>
+                                    <outletCollection property="gestureRecognizers" destination="dyF-Dp-KJE" appends="YES" id="NDt-PQ-8w7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-K1-kET">
@@ -131,6 +133,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="dyF-Dp-KJE">
+                    <connections>
+                        <action selector="onTripButtonHeldDown:" destination="BYZ-38-t0r" id="wQl-UZ-KTN"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
         </scene>
     </scenes>
