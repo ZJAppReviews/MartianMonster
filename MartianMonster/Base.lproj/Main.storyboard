@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -94,7 +95,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-2400" maxValue="2400" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-2F-jg8">
-                                <rect key="frame" x="20" y="550" width="572" height="31"/>
+                                <rect key="frame" x="20" y="551.5" width="572" height="31"/>
                                 <color key="tintColor" red="0.99215686274509807" green="0.89411764705882357" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CBW-Vv-LS7"/>
@@ -118,9 +119,9 @@
                             <constraint firstItem="xzd-Pd-n83" firstAttribute="height" secondItem="jQG-vt-OJ4" secondAttribute="height" id="OSe-cQ-RxC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WUV-tS-wDc" secondAttribute="trailing" constant="-16" id="QIm-Sb-iig"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="TSB-zI-9Ol"/>
+                            <constraint firstAttribute="centerY" secondItem="dE2-2F-jg8" secondAttribute="centerY" multiplier="9:17" id="VM6-WG-bRl"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="height" secondItem="q28-31-zUr" secondAttribute="height" id="Vyj-gB-4w0"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="W5X-47-FIr"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dE2-2F-jg8" secondAttribute="bottom" constant="20" id="Yoi-UY-uGJ"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="YrV-M3-SLw"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="height" secondItem="jQG-vt-OJ4" secondAttribute="height" id="Ys9-sI-N6c"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dyB-Qp-ADz"/>
