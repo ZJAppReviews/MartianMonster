@@ -24,7 +24,7 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *bannerVerticalConstraint;
 
 @property (nonatomic, strong) AVAudioEngine *engine;
-@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNode;
+//@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNode;
 
 @property (nonatomic, strong) AVAudioPlayerNode *middleAudioPlayerNode;
 @property (nonatomic, strong) AVAudioPlayerNode *bottomLeftAudioPlayerNode;
@@ -157,8 +157,8 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
 
     // Prepare AVAudioPlayerNode
-    self.audioPlayerNode = [AVAudioPlayerNode new];
-    [self.engine attachNode:self.audioPlayerNode];
+    AVAudioPlayerNode *audioPlayerNode = [AVAudioPlayerNode new];
+    [self.engine attachNode:audioPlayerNode];
 
     // Pitch
     AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
@@ -169,7 +169,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
     [self.engine attachNode:utPitch];
 
-    [self.engine connect:self.audioPlayerNode
+    [self.engine connect:audioPlayerNode
                       to:utPitch
                   format:self.audioFile.processingFormat];
 
@@ -184,12 +184,12 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     }
 
     // Schedule playing audio file
-    [self.audioPlayerNode scheduleFile:self.audioFile
+    [audioPlayerNode scheduleFile:self.audioFile
                                 atTime:nil
                      completionHandler:nil];
 
     // Start playback
-    [self.audioPlayerNode play];
+    [audioPlayerNode play];
 }
 
 -(void)playBottomRightSoundEffect
@@ -334,6 +334,9 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 {
     NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
     [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateNormal];
+    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateSelected];
+    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateSelected | UIControlStateHighlighted];
+    [self.middleButton setTitleColor:[UIColor colorWithRed:53.0/255.0 green:50.0/255.0 blue:25.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
 }
 
 //Formats text of a button's textLabel to adjust to size
@@ -353,12 +356,6 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
-}
-
-#pragma mark - Easter Eggs
-- (IBAction)onTripButtonHeldDown:(UILongPressGestureRecognizer *)sender
-{
-    [self hideBanner];
 }
 
 @end

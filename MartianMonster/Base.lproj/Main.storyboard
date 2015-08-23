@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-Pd-n83">
+                            <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-Pd-n83">
                                 <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
@@ -40,7 +40,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onBottomRightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C3Z-e5-3Fb"/>
-                                    <outletCollection property="gestureRecognizers" destination="dyF-Dp-KJE" appends="YES" id="NDt-PQ-8w7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-K1-kET">
@@ -69,7 +68,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q28-31-zUr">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.63137254899999995" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.23921568627450981" green="0.58039215686274515" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                 <state key="normal" title="(blip)">
                                     <color key="titleColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -95,7 +94,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-2400" maxValue="2400" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-2F-jg8">
-                                <rect key="frame" x="20" y="551.5" width="572" height="31"/>
+                                <rect key="frame" x="20" y="551" width="572" height="31"/>
                                 <color key="tintColor" red="0.99215686274509807" green="0.89411764705882357" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CBW-Vv-LS7"/>
@@ -148,11 +147,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="dyF-Dp-KJE">
-                    <connections>
-                        <action selector="onTripButtonHeldDown:" destination="BYZ-38-t0r" id="wQl-UZ-KTN"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
         </scene>
     </scenes>
