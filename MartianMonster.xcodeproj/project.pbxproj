@@ -22,6 +22,7 @@
 		93B8E36F1B81AE61008ECB47 /* 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36A1B81AE61008ECB47 /* 3.m4a */; };
 		93B8E3701B81AE61008ECB47 /* 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36B1B81AE61008ECB47 /* 4.m4a */; };
 		93B8E3711B81AE61008ECB47 /* 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E36C1B81AE61008ECB47 /* 2.m4a */; };
+		93F1D7BF1B89BE8D00979365 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		93B8E36A1B81AE61008ECB47 /* 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3.m4a; sourceTree = "<group>"; };
 		93B8E36B1B81AE61008ECB47 /* 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.m4a; sourceTree = "<group>"; };
 		93B8E36C1B81AE61008ECB47 /* 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.m4a; sourceTree = "<group>"; };
+		93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9E2A7AF30461C1F38DA58AC9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F1D7BF1B89BE8D00979365 /* AVFoundation.framework in Frameworks */,
 				50F6B88851FD9DA9DE5EB0F1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +95,7 @@
 		542DBB955BE42D672F6E022F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */,
 				420633267ED81D220BB85E6E /* libPods.a */,
 			);
 			name = Frameworks;

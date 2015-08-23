@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
-#import <AudioToolbox/AudioToolbox.h>
+//#import <AudioToolbox/AudioToolbox.h>
 #import "FBShimmeringView.h"
 #import "UIImage+animatedGif.h"
+
+@import AVFoundation;
 
 @interface ViewController ()
 
@@ -20,6 +22,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *bottomRightButton;
 @property (strong, nonatomic) IBOutlet UIButton *bannerButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *bannerVerticalConstraint;
+
+@property (nonatomic, strong) AVAudioEngine *engine;
+@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNode;
+@property (nonatomic, strong) AVAudioFile *audioFile;
 
 @end
 
@@ -48,6 +54,8 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [self addMiddleButtonGIF];
     [self delayBanner];
     [self shimmer];
+
+    self.engine = [AVAudioEngine new];
 }
 
 #pragma mark - Banner Button
@@ -108,10 +116,46 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
 -(void)playSoundWithName:(NSString *)soundName
 {
+//    [self.audioPlayerNode stop];
+
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"m4a"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-    AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
-    AudioServicesPlaySystemSound(soundEffect);
+    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
+
+    // Prepare AVAudioPlayerNode
+    self.audioPlayerNode = [AVAudioPlayerNode new];
+    [self.engine attachNode:self.audioPlayerNode];
+
+    // Pitch
+    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
+    utPitch.pitch = 1200;
+    utPitch.rate = 2;
+
+    // Connect Nodes
+    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
+    [self.engine attachNode:utPitch];
+
+    [self.engine connect:self.audioPlayerNode
+                      to:utPitch
+                  format:self.audioFile.processingFormat];
+
+    //Pitch connection
+    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
+
+    // Start engine
+    NSError *error;
+    [self.engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
+    }
+
+    // Schedule playing audio file
+    [self.audioPlayerNode scheduleFile:self.audioFile
+                                atTime:nil
+                     completionHandler:nil];
+
+    // Start playback
+    [self.audioPlayerNode play];
 }
 
 #pragma mark - Formatting
