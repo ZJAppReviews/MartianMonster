@@ -50,29 +50,17 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
 -(void)shimmer
 {
-
     FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
-    shimmeringView.alpha = 0.33;
+    shimmeringView.alpha = 0.25;
     [self.bannerButton addSubview:shimmeringView];
 
-    UIView * v = [[UIView alloc] initWithFrame:shimmeringView.bounds];
-    [v setBackgroundColor:[UIColor blueColor]];
+    UIView *cView = [[UIView alloc] initWithFrame:shimmeringView.bounds];
+    [cView setBackgroundColor:[UIColor blueColor]];
+    shimmeringView.contentView = cView;
 
-
-    shimmeringView.contentView = v;
-
-    // Start shimmering.
+    // Start shimmering
     shimmeringView.shimmering = YES;
-//    FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.view.bounds];
-//    [self.view addSubview:shimmeringView];
-//
-//    UILabel *loadingLabel = [[UILabel alloc] initWithFrame:shimmeringView.bounds];
-//    loadingLabel.textAlignment = NSTextAlignmentCenter;
-//    loadingLabel.text = NSLocalizedString(@"Shimmer", nil);
-//    shimmeringView.contentView = loadingLabel;
-//
-//    // Start shimmering.
-//    shimmeringView.shimmering = YES;
+    shimmeringView.userInteractionEnabled = NO;
 }
 
 -(void)delayBanner
