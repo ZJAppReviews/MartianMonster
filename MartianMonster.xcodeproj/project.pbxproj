@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		50F6B88851FD9DA9DE5EB0F1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 420633267ED81D220BB85E6E /* libPods.a */; };
+		9302748C1B897169007F7F18 /* space.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9302748B1B897169007F7F18 /* space.gif */; };
+		9302748F1B8971E5007F7F18 /* UIImage+animatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 9302748D1B8971E5007F7F18 /* UIImage+animatedGif.m */; };
 		93B8E33E1B818926008ECB47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E33D1B818926008ECB47 /* main.m */; };
 		93B8E3411B818926008ECB47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3401B818926008ECB47 /* AppDelegate.m */; };
 		93B8E3441B818926008ECB47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3431B818926008ECB47 /* ViewController.m */; };
@@ -35,6 +37,9 @@
 /* Begin PBXFileReference section */
 		195028CCD55922EDFC325EFA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		420633267ED81D220BB85E6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9302748B1B897169007F7F18 /* space.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = space.gif; sourceTree = "<group>"; };
+		9302748D1B8971E5007F7F18 /* UIImage+animatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGif.m"; sourceTree = "<group>"; };
+		9302748E1B8971E5007F7F18 /* UIImage+animatedGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGif.h"; sourceTree = "<group>"; };
 		93B8E3381B818926008ECB47 /* MartianMonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartianMonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B8E33C1B818926008ECB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B8E33D1B818926008ECB47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,6 +127,9 @@
 				93B8E3431B818926008ECB47 /* ViewController.m */,
 				93B8E3451B818926008ECB47 /* Main.storyboard */,
 				93B8E3481B818926008ECB47 /* Images.xcassets */,
+				9302748E1B8971E5007F7F18 /* UIImage+animatedGif.h */,
+				9302748D1B8971E5007F7F18 /* UIImage+animatedGif.m */,
+				9302748B1B897169007F7F18 /* space.gif */,
 				93B8E34A1B818926008ECB47 /* LaunchScreen.xib */,
 				93B8E33B1B818926008ECB47 /* Supporting Files */,
 			);
@@ -251,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93B8E36E1B81AE61008ECB47 /* 1.m4a in Resources */,
+				9302748C1B897169007F7F18 /* space.gif in Resources */,
 				93B8E36F1B81AE61008ECB47 /* 3.m4a in Resources */,
 				93B8E3701B81AE61008ECB47 /* 4.m4a in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
@@ -309,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93B8E3441B818926008ECB47 /* ViewController.m in Sources */,
+				9302748F1B8971E5007F7F18 /* UIImage+animatedGif.m in Sources */,
 				93B8E3411B818926008ECB47 /* AppDelegate.m in Sources */,
 				93B8E33E1B818926008ECB47 /* main.m in Sources */,
 			);

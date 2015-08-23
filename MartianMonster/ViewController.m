@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "FBShimmeringView.h"
+#import "UIImage+animatedGif.h"
 
 @interface ViewController ()
 
@@ -43,26 +44,9 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
 
+    [self addMiddleButtonGIF];
     [self delayBanner];
-
     [self shimmer];
-}
-
--(void)shimmer
-{
-    FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
-    shimmeringView.alpha = 0.50;
-    shimmeringView.shimmeringSpeed = 230;
-    shimmeringView.shimmeringPauseDuration = 0;
-    [self.bannerButton addSubview:shimmeringView];
-
-    UIView *cView = [[UIView alloc] initWithFrame:shimmeringView.bounds];
-    [cView setBackgroundColor:[UIColor blueColor]];
-    shimmeringView.contentView = cView;
-
-    // Start shimmering
-    shimmeringView.shimmering = YES;
-    shimmeringView.userInteractionEnabled = NO;
 }
 
 -(void)delayBanner
@@ -81,9 +65,28 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     }];
 }
 
-- (BOOL)prefersStatusBarHidden
+-(void)shimmer
 {
-    return YES;
+    FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
+    shimmeringView.alpha = 0.50;
+    shimmeringView.shimmeringSpeed = 230;
+    shimmeringView.shimmeringPauseDuration = 0;
+    [self.bannerButton addSubview:shimmeringView];
+
+    UIView *cView = [[UIView alloc] initWithFrame:shimmeringView.bounds];
+    [cView setBackgroundColor:[UIColor blueColor]];
+    shimmeringView.contentView = cView;
+
+    shimmeringView.shimmering = YES;
+    shimmeringView.userInteractionEnabled = NO;
+}
+
+-(void)addMiddleButtonGIF
+{
+    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
+    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateNormal];
+//    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateSelected];
+//    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateSelected | UIControlStateHighlighted];
 }
 
 //Audio files' names correlate to a button's tag
@@ -105,12 +108,17 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kURLiTunesAlbum]];
 }
 
-//Formats text of button's textLabel to adjust to size
+//Formats text of a button's textLabel to adjust to size
 -(void)formatButtonLabel:(UIButton *)button
 {
     button.titleLabel.numberOfLines = 1;
     button.titleLabel.adjustsFontSizeToFitWidth = YES;
     button.titleLabel.lineBreakMode = NSLineBreakByClipping;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 //Enables upside-down orientation
