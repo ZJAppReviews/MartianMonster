@@ -7,11 +7,9 @@
 //
 
 #import "ViewController.h"
-//#import <AudioToolbox/AudioToolbox.h>
-#import "FBShimmeringView.h"
-#import "UIImage+animatedGif.h"
-
 @import AVFoundation;
+#import "UIImage+animatedGif.h"
+#import "FBShimmeringView.h"
 
 @interface ViewController ()
 
@@ -29,23 +27,23 @@
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeOne;
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeTwo;
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeThree;
-//@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeFour;
+@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeFour;
 
 @property (nonatomic, strong) AVAudioFile *audioFileZero;
 @property (nonatomic, strong) AVAudioFile *audioFileOne;
 @property (nonatomic, strong) AVAudioFile *audioFileTwo;
 @property (nonatomic, strong) AVAudioFile *audioFileThree;
-//@property (nonatomic, strong) AVAudioFile *audioFileFour;
+@property (nonatomic, strong) AVAudioFile *audioFileFour;
 
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferZero;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferOne;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferTwo;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferThree;
-//@property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferFour;
+@property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferFour;
 
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchTwo;
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchThree;
-//@property (nonatomic, strong) AVAudioUnitTimePitch *utPitchFour;
+@property (nonatomic, strong) AVAudioUnitTimePitch *utPitchFour;
 
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 
@@ -185,7 +183,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
 - (IBAction)onBottomRightButtonTapped:(UIButton *)sender
 {
-//    [self playBottomRightSoundEffect];
+    [self playFour];
 }
 
 -(void)audioSetUp
@@ -207,15 +205,15 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.audioFileTwo = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathTwo]
                                                       error:nil];
 
-//    // Prepare AVAudioFile Three
+    // Prepare AVAudioFile Three
     NSString *pathThree = [[NSBundle mainBundle] pathForResource:@"3" ofType:@"m4a"];
     self.audioFileThree = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathThree]
                                                       error:nil];
-//
-//    // Prepare AVAudioFile Four
-//    NSString *pathFour = [[NSBundle mainBundle] pathForResource:@"4" ofType:@"m4a"];
-//    self.audioFileFour = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathFour]
-//                                                        error:nil];
+
+    // Prepare AVAudioFile Four
+    NSString *pathFour = [[NSBundle mainBundle] pathForResource:@"4" ofType:@"m4a"];
+    self.audioFileFour = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathFour]
+                                                        error:nil];
     // Prepare Buffer Zero
     AVAudioFormat *audioFormatZero = self.audioFileZero.processingFormat;
     AVAudioFrameCount lengthZero = (AVAudioFrameCount)self.audioFileZero.length;
@@ -234,17 +232,17 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.audioPCMBufferTwo = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatTwo frameCapacity:lengthTwo];
     [self.audioFileTwo readIntoBuffer:self.audioPCMBufferTwo error:nil];
 
-//    // Prepare Buffer Three
+    // Prepare Buffer Three
     AVAudioFormat *audioFormatThree = self.audioFileThree.processingFormat;
     AVAudioFrameCount lengthThree = (AVAudioFrameCount)self.audioFileThree.length;
     self.audioPCMBufferThree = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatThree frameCapacity:lengthThree];
     [self.audioFileThree readIntoBuffer:self.audioPCMBufferThree error:nil];
-//
-//    // Prepare Buffer Four
-//    AVAudioFormat *audioFormatFour = self.audioFileFour.processingFormat;
-//    AVAudioFrameCount lengthFour = (AVAudioFrameCount)self.audioFileFour.length;
-//    self.audioPCMBufferFour = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatFour frameCapacity:lengthFour];
-//    [self.audioFileFour readIntoBuffer:self.audioPCMBufferFour error:nil];
+
+    // Prepare Buffer Four
+    AVAudioFormat *audioFormatFour = self.audioFileFour.processingFormat;
+    AVAudioFrameCount lengthFour = (AVAudioFrameCount)self.audioFileFour.length;
+    self.audioPCMBufferFour = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatFour frameCapacity:lengthFour];
+    [self.audioFileFour readIntoBuffer:self.audioPCMBufferFour error:nil];
 
     // Prepare AVAudioPlayerNode Zero
     self.audioPlayerNodeZero = [AVAudioPlayerNode new];
@@ -258,13 +256,13 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.audioPlayerNodeTwo = [AVAudioPlayerNode new];
     [self.engine attachNode:self.audioPlayerNodeTwo];
 
-//    // Prepare AVAudioPlayerNode Three
+    // Prepare AVAudioPlayerNode Three
     self.audioPlayerNodeThree = [AVAudioPlayerNode new];
     [self.engine attachNode:self.audioPlayerNodeThree];
-//
-//    // Prepare AVAudioPlayerNode Four
-//    self.audioPlayerNodeFour = [AVAudioPlayerNode new];
-//    [self.engine attachNode:self.audioPlayerNodeFour];
+
+    // Prepare AVAudioPlayerNode Four
+    self.audioPlayerNodeFour = [AVAudioPlayerNode new];
+    [self.engine attachNode:self.audioPlayerNodeFour];
 
     self.utPitchTwo = [AVAudioUnitTimePitch new];
     self.utPitchTwo.pitch = 0.0;
@@ -275,6 +273,11 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.utPitchThree.pitch = 0.0;
     self.utPitchThree.rate = 1.0;
     [self.engine attachNode:self.utPitchThree];
+
+    self.utPitchFour = [AVAudioUnitTimePitch new];
+    self.utPitchFour.pitch = 0.0;
+    self.utPitchFour.rate = 1.0;
+    [self.engine attachNode:self.utPitchFour];
 
     // Connect Nodes
     AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
@@ -294,21 +297,20 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
                       to:mixerNode
                   format:self.audioFileTwo.processingFormat];
 
-//    //3
+    //3
     [self.engine connect:self.audioPlayerNodeThree
                       to:self.utPitchThree
                   format:self.audioFileThree.processingFormat];
     [self.engine connect:self.utPitchThree
                       to:mixerNode
                   format:self.audioFileThree.processingFormat];
-//
-//    //4
-//    [self.engine connect:self.audioPlayerNodeFour
-//                      to:self.utPitch
-//                  format:self.audioFileFour.processingFormat];
-//    [self.engine connect:self.utPitch
-//                      to:mixerNode
-//                  format:self.audioFileFour.processingFormat];
+    //4
+    [self.engine connect:self.audioPlayerNodeFour
+                      to:self.utPitchFour
+                  format:self.audioFileFour.processingFormat];
+    [self.engine connect:self.utPitchFour
+                      to:mixerNode
+                  format:self.audioFileFour.processingFormat];
 
     // Start engine
     NSError *error;
@@ -370,184 +372,24 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [self.audioPlayerNodeThree play];
 }
 
-//-(void)playSoundWithoutEffectsWithName:(NSString *)soundName
-//{
-//    NSString *soundPath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"m4a"];
-//    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-//    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
-//
-//    // Prepare AVAudioPlayerNode
-//    AVAudioPlayerNode *audioPlayerNode = [AVAudioPlayerNode new];
-//    [self.engine attachNode:audioPlayerNode];
-//
-//    // Pitch
-//    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
-//    utPitch.pitch = 0;
-//    utPitch.rate = 1;
-//
-//    // Connect Nodes
-//    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
-//    [self.engine attachNode:utPitch];
-//
-//    [self.engine connect:audioPlayerNode
-//                      to:utPitch
-//                  format:self.audioFile.processingFormat];
-//
-//    //Pitch connection
-//    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
-//
-//    // Start engine
-//    NSError *error;
-//    [self.engine startAndReturnError:&error];
-//    if (error) {
-//        NSLog(@"error:%@", error);
-//    }
-//
-//    // Schedule playing audio file
-//    [audioPlayerNode scheduleFile:self.audioFile
-//                                atTime:nil
-//                     completionHandler:nil];
-//
-//    // Start playback
-//    [audioPlayerNode play];
-//}
+- (void)playFour
+{
+    // Schedule playing audio buffer
 
-//-(void)playBottomRightSoundEffect
-//{
-//    [self.bottomRightAudioPlayerNode stop];
-//
-//    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"4" ofType:@"m4a"];
-//    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-//    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
-//
-//    // Prepare AVAudioPlayerNode
-//    self.bottomRightAudioPlayerNode = [AVAudioPlayerNode new];
-//    [self.engine attachNode:self.bottomRightAudioPlayerNode];
-//
-//    // Pitch
-//    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
-//    utPitch.pitch = selectedPitch;
-//    utPitch.rate = 1.0;
-//
-//    // Connect Nodes
-//    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
-//    [self.engine attachNode:utPitch];
-//
-//    [self.engine connect:self.bottomRightAudioPlayerNode
-//                      to:utPitch
-//                  format:self.audioFile.processingFormat];
-//
-//    //Pitch connection
-//    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
-//
-//    // Start engine
-//    NSError *error;
-//    [self.engine startAndReturnError:&error];
-//    if (error) {
-//        NSLog(@"error:%@", error);
-//    }
-//
-//    // Schedule playing audio file
-//    [self.bottomRightAudioPlayerNode scheduleFile:self.audioFile
-//                                atTime:nil
-//                     completionHandler:nil];
-//
-//    // Start playback
-//    [self.bottomRightAudioPlayerNode play];
-//}
-//
-//-(void)playBottomLeftSoundEffect
-//{
-//    [self.bottomLeftAudioPlayerNode stop];
-//
-//    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"3" ofType:@"m4a"];
-//    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-//    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
-//
-//    // Prepare AVAudioPlayerNode
-//    self.bottomLeftAudioPlayerNode = [AVAudioPlayerNode new];
-//    [self.engine attachNode:self.bottomLeftAudioPlayerNode];
-//
-//    // Pitch
-//    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
-//    utPitch.pitch = selectedPitch;
-//    utPitch.rate = 1.0;
-//
-//    // Connect Nodes
-//    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
-//    [self.engine attachNode:utPitch];
-//
-//    [self.engine connect:self.bottomLeftAudioPlayerNode
-//                      to:utPitch
-//                  format:self.audioFile.processingFormat];
-//
-//    //Pitch connection
-//    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
-//
-//    // Start engine
-//    NSError *error;
-//    [self.engine startAndReturnError:&error];
-//    if (error) {
-//        NSLog(@"error:%@", error);
-//    }
-//
-//    // Schedule playing audio file
-//    [self.bottomLeftAudioPlayerNode scheduleFile:self.audioFile
-//                                           atTime:nil
-//                                completionHandler:nil];
-//
-//    // Start playback
-//    [self.bottomLeftAudioPlayerNode play];
-//}
+    [self.audioPlayerNodeFour scheduleBuffer:self.audioPCMBufferFour
+                                       atTime:nil
+                                      options:AVAudioPlayerNodeBufferInterrupts
+                            completionHandler:nil];
 
-//-(void)playMiddleSoundEffect
-//{
-//    [self.middleAudioPlayerNode stop];
-//
-//    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"m4a"];
-//    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-//    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
-//
-//    // Prepare AVAudioPlayerNode
-//    self.middleAudioPlayerNode = [AVAudioPlayerNode new];
-//    [self.engine attachNode:self.middleAudioPlayerNode];
-//
-//    // Pitch
-//    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
-//    utPitch.pitch = selectedPitch;
-//    utPitch.rate = 1.0;
-//
-//    // Connect Nodes
-//    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
-//    [self.engine attachNode:utPitch];
-//
-//    [self.engine connect:self.middleAudioPlayerNode
-//                      to:utPitch
-//                  format:self.audioFile.processingFormat];
-//
-//    //Pitch connection
-//    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
-//
-//    // Start engine
-//    NSError *error;
-//    [self.engine startAndReturnError:&error];
-//    if (error) {
-//        NSLog(@"error:%@", error);
-//    }
-//
-//    // Schedule playing audio file
-//    [self.middleAudioPlayerNode scheduleFile:self.audioFile
-//                                          atTime:nil
-//                               completionHandler:nil];
-//
-//    // Start playback
-//    [self.middleAudioPlayerNode play];
-//}
+    // Start playback
+    [self.audioPlayerNodeFour play];
+}
 
 - (IBAction)onSliderMoved:(UISlider *)sender
 {
     self.utPitchTwo.pitch = sender.value;
     self.utPitchThree.pitch = sender.value;
+    self.utPitchFour.pitch = sender.value;
 }
 
 #pragma mark - Formatting
