@@ -51,7 +51,9 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 -(void)shimmer
 {
     FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
-    shimmeringView.alpha = 0.25;
+    shimmeringView.alpha = 0.50;
+    shimmeringView.shimmeringSpeed = 230;
+    shimmeringView.shimmeringPauseDuration = 0;
     [self.bannerButton addSubview:shimmeringView];
 
     UIView *cView = [[UIView alloc] initWithFrame:shimmeringView.bounds];
@@ -65,7 +67,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
 -(void)delayBanner
 {
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
 }
 
 //The bannerButton's vertical constant is set to -50 in Storyboard
