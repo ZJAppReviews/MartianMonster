@@ -97,6 +97,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		930274901B897996007F7F18 /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				9302748E1B8971E5007F7F18 /* UIImage+animatedGif.h */,
+				9302748D1B8971E5007F7F18 /* UIImage+animatedGif.m */,
+				9302748B1B897169007F7F18 /* space.gif */,
+			);
+			name = GIF;
+			sourceTree = "<group>";
+		};
 		93B8E32F1B818925008ECB47 = {
 			isa = PBXGroup;
 			children = (
@@ -127,9 +137,7 @@
 				93B8E3431B818926008ECB47 /* ViewController.m */,
 				93B8E3451B818926008ECB47 /* Main.storyboard */,
 				93B8E3481B818926008ECB47 /* Images.xcassets */,
-				9302748E1B8971E5007F7F18 /* UIImage+animatedGif.h */,
-				9302748D1B8971E5007F7F18 /* UIImage+animatedGif.m */,
-				9302748B1B897169007F7F18 /* space.gif */,
+				930274901B897996007F7F18 /* GIF */,
 				93B8E34A1B818926008ECB47 /* LaunchScreen.xib */,
 				93B8E33B1B818926008ECB47 /* Supporting Files */,
 			);

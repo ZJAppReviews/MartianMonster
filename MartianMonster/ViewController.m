@@ -29,6 +29,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     SystemSoundID soundEffect;
 }
 
+#pragma mark - View Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,6 +50,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [self shimmer];
 }
 
+#pragma mark - Banner Button
 -(void)delayBanner
 {
     [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
@@ -81,14 +83,12 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     shimmeringView.userInteractionEnabled = NO;
 }
 
--(void)addMiddleButtonGIF
+- (IBAction)onLinkButtonTapped:(UIButton *)sender
 {
-    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
-    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateNormal];
-//    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateSelected];
-//    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateSelected | UIControlStateHighlighted];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kURLiTunesAlbum]];
 }
 
+#pragma mark - Audio
 //Audio files' names correlate to a button's tag
 - (IBAction)onAudioButtonTapped:(UIButton *)sender
 {
@@ -103,9 +103,11 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     AudioServicesPlaySystemSound(soundEffect);
 }
 
-- (IBAction)onLinkButtonTapped:(UIButton *)sender
+#pragma mark - Formatting
+-(void)addMiddleButtonGIF
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kURLiTunesAlbum]];
+    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
+    [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateNormal];
 }
 
 //Formats text of a button's textLabel to adjust to size
