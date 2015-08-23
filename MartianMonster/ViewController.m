@@ -21,8 +21,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *bannerButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *bannerVerticalConstraint;
 
+//One audio engine to manage many nodes
 @property (nonatomic, strong) AVAudioEngine *engine;
 
+//Many audioPlayer nodes to control each sound effect independently
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeZero;
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeOne;
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeTwo;
@@ -41,6 +43,7 @@
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferThree;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferFour;
 
+//A utPitch object for each audio file that needs pitch manipulation
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchTwo;
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchThree;
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchFour;
@@ -71,27 +74,28 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
 
-    [self addMiddleButtonGIF];
-    [self delayBanner];
-    [self scheduleBanner];
+    [self addGIFtoMiddleButton];
+    [self initiateBannerPresentation];
+    [self hideAndShowBannerEvery15secs];
     [self shimmer];
     [self audioSetUp];
 }
 
 #pragma mark - Banner Button
--(void)delayBanner
+-(void)initiateBannerPresentation
 {
     [NSTimer scheduledTimerWithTimeInterval:2.75 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
 }
 
--(void)scheduleBanner
+//Shows and hides banner every 15 seconds
+-(void)hideAndShowBannerEvery15secs
 {
     [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(hideBanner) userInfo:nil repeats:YES];
 
-    [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(scheduleBannerTwo) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(showBannerEvery15secs) userInfo:nil repeats:NO];
 }
 
--(void)scheduleBannerTwo
+-(void)showBannerEvery15secs
 {
     [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(showBanner) userInfo:nil repeats:YES];
 }
@@ -123,6 +127,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     }
 }
 
+//FBShimmeringView installed via cocoapod: https://github.com/facebook/Shimmer
 -(void)shimmer
 {
     FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
@@ -139,7 +144,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     shimmeringView.userInteractionEnabled = NO;
 }
 
-- (IBAction)onLinkButtonTapped:(UIButton *)sender
+- (IBAction)onBannerButtonTapped:(UIButton *)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kURLiTunesAlbum]];
 }
@@ -148,7 +153,6 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 //Audio files' names correlate to a button's tag
 - (IBAction)onTopRowButtonTapped:(UIButton *)sender
 {
-//    [self playSoundWithoutEffectsWithName:[@(sender.tag) stringValue]];
     if (sender.tag == 0)
     {
         if (self.audioPlayerNodeZero.isPlaying)
@@ -279,32 +283,31 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.utPitchFour.rate = 1.0;
     [self.engine attachNode:self.utPitchFour];
 
-    // Connect Nodes
+    //Connect Nodes
     AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
     //0
     [self.engine connect:self.audioPlayerNodeZero
                       to:mixerNode
                   format:self.audioFileZero.processingFormat];
-    //1
+    // 1
     [self.engine connect:self.audioPlayerNodeOne
                       to:mixerNode
                   format:self.audioFileOne.processingFormat];
-    //2
+    // 2
     [self.engine connect:self.audioPlayerNodeTwo
                       to:self.utPitchTwo
                   format:self.audioFileTwo.processingFormat];
     [self.engine connect:self.utPitchTwo
                       to:mixerNode
                   format:self.audioFileTwo.processingFormat];
-
-    //3
+    // 3
     [self.engine connect:self.audioPlayerNodeThree
                       to:self.utPitchThree
                   format:self.audioFileThree.processingFormat];
     [self.engine connect:self.utPitchThree
                       to:mixerNode
                   format:self.audioFileThree.processingFormat];
-    //4
+    // 4
     [self.engine connect:self.audioPlayerNodeFour
                       to:self.utPitchFour
                   format:self.audioFileFour.processingFormat];
@@ -393,7 +396,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 }
 
 #pragma mark - Formatting
--(void)addMiddleButtonGIF
+-(void)addGIFtoMiddleButton
 {
     NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
     [self.middleButton setBackgroundImage:[UIImage animatedImageWithAnimatedGIFURL:gifURL] forState:UIControlStateNormal];

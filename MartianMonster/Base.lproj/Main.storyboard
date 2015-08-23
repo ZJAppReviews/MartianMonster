@@ -90,7 +90,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onLinkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXy-7M-8ri"/>
+                                    <action selector="onBannerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QkU-3t-eiu"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-2400" maxValue="2400" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-2F-jg8">
