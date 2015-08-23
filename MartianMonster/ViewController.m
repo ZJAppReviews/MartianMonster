@@ -62,6 +62,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
     [self addMiddleButtonGIF];
     [self delayBanner];
+    [self scheduleBanner];
     [self shimmer];
 
     self.engine = [AVAudioEngine new];
@@ -71,6 +72,18 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 -(void)delayBanner
 {
     [NSTimer scheduledTimerWithTimeInterval:2.75 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
+}
+
+-(void)scheduleBanner
+{
+    [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(hideBanner) userInfo:nil repeats:YES];
+
+    [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(scheduleBannerTwo) userInfo:nil repeats:NO];
+}
+
+-(void)scheduleBannerTwo
+{
+    [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(showBanner) userInfo:nil repeats:YES];
 }
 
 //The bannerButton's vertical constant is set to -50 in Storyboard
