@@ -27,12 +27,16 @@
 @property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNode;
 @property (nonatomic, strong) AVAudioFile *audioFile;
 
+@property (strong, nonatomic) IBOutlet UISlider *slider;
+
 @end
 
 static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/album/chilling-thrilling-sounds/id272258499?at=10lu5f&mt=1&app=music";
 
 @implementation ViewController {
     SystemSoundID soundEffect;
+
+    float selectedPitch;
 }
 
 #pragma mark - View Lifecycle
@@ -109,12 +113,27 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
 #pragma mark - Audio
 //Audio files' names correlate to a button's tag
-- (IBAction)onAudioButtonTapped:(UIButton *)sender
+- (IBAction)onTopRowButtonTapped:(UIButton *)sender
+{
+    [self playSoundWithoutEffectsWithName:[@(sender.tag) stringValue]];
+}
+
+- (IBAction)onMiddleButtonTapped:(UIButton *)sender
 {
     [self playSoundWithName:[@(sender.tag) stringValue]];
 }
 
--(void)playSoundWithName:(NSString *)soundName
+- (IBAction)onBottomLeftButtonTapped:(UIButton *)sender
+{
+    [self playSoundWithName:[@(sender.tag) stringValue]];
+}
+
+- (IBAction)onBottomRightButtonTapped:(UIButton *)sender
+{
+    [self playSoundWithName:[@(sender.tag) stringValue]];
+}
+
+-(void)playSoundWithoutEffectsWithName:(NSString *)soundName
 {
 //    [self.audioPlayerNode stop];
 
@@ -128,8 +147,8 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
     // Pitch
     AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
-    utPitch.pitch = 1200;
-    utPitch.rate = 2;
+    utPitch.pitch = 0;
+    utPitch.rate = 1;
 
     // Connect Nodes
     AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
@@ -156,6 +175,55 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
     // Start playback
     [self.audioPlayerNode play];
+}
+
+-(void)playSoundWithName:(NSString *)soundName
+{
+    //    [self.audioPlayerNode stop];
+
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"m4a"];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    self.audioFile = [[AVAudioFile alloc] initForReading:soundURL error:nil];
+
+    // Prepare AVAudioPlayerNode
+    self.audioPlayerNode = [AVAudioPlayerNode new];
+    [self.engine attachNode:self.audioPlayerNode];
+
+    // Pitch
+    AVAudioUnitTimePitch *utPitch = [AVAudioUnitTimePitch new];
+    utPitch.pitch = selectedPitch;
+    utPitch.rate = 1.0;
+
+    // Connect Nodes
+    AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
+    [self.engine attachNode:utPitch];
+
+    [self.engine connect:self.audioPlayerNode
+                      to:utPitch
+                  format:self.audioFile.processingFormat];
+
+    //Pitch connection
+    [self.engine connect:utPitch to:mixerNode format:self.audioFile.processingFormat];
+
+    // Start engine
+    NSError *error;
+    [self.engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
+    }
+
+    // Schedule playing audio file
+    [self.audioPlayerNode scheduleFile:self.audioFile
+                                atTime:nil
+                     completionHandler:nil];
+
+    // Start playback
+    [self.audioPlayerNode play];
+}
+
+- (IBAction)onSliderMoved:(UISlider *)sender
+{
+    selectedPitch = sender.value;
 }
 
 #pragma mark - Formatting

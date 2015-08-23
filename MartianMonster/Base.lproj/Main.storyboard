@@ -25,7 +25,7 @@
                                     <color key="titleColor" red="0.99215686274509807" green="0.89411764705882357" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2WV-x9-8tT"/>
+                                    <action selector="onMiddleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G9P-Uh-Izf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-M6-8UC">
@@ -38,7 +38,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZr-EG-5gT"/>
+                                    <action selector="onBottomRightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C3Z-e5-3Fb"/>
                                     <outletCollection property="gestureRecognizers" destination="dyF-Dp-KJE" appends="YES" id="NDt-PQ-8w7"/>
                                 </connections>
                             </button>
@@ -51,7 +51,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZu-Pf-rWq"/>
+                                    <action selector="onTopRowButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d2l-gK-tda"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQG-vt-OJ4">
@@ -63,7 +63,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qhi-If-1OT"/>
+                                    <action selector="onBottomLeftButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hKa-Rb-bYr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q28-31-zUr">
@@ -75,7 +75,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Quv-Lp-CCF"/>
+                                    <action selector="onTopRowButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jzq-ev-Kzl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUV-tS-wDc">
@@ -93,12 +93,23 @@
                                     <action selector="onLinkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXy-7M-8ri"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-2400" maxValue="2400" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-2F-jg8">
+                                <rect key="frame" x="14" y="560" width="572" height="31"/>
+                                <color key="tintColor" red="0.99215686274509807" green="0.89411764705882357" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CBW-Vv-LS7"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="5S7-cf-q3U"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Rdg-M6-8UC" secondAttribute="trailing" constant="-16" id="3ZD-Ca-teP"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="width" secondItem="jQG-vt-OJ4" secondAttribute="width" id="4mX-EI-cZe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9CZ-K1-kET" secondAttribute="trailing" constant="-16" id="80j-wK-mgC"/>
+                            <constraint firstItem="dE2-2F-jg8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Acj-sV-sOe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xzd-Pd-n83" secondAttribute="trailing" constant="-16" id="Coo-if-M6z"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="width" secondItem="q28-31-zUr" secondAttribute="width" id="DN8-ZD-eul"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="Fhu-8N-Yeb"/>
@@ -109,6 +120,7 @@
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="TSB-zI-9Ol"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="height" secondItem="q28-31-zUr" secondAttribute="height" id="Vyj-gB-4w0"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="W5X-47-FIr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dE2-2F-jg8" secondAttribute="bottom" constant="10" id="Yoi-UY-uGJ"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="YrV-M3-SLw"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="height" secondItem="jQG-vt-OJ4" secondAttribute="height" id="Ys9-sI-N6c"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dyB-Qp-ADz"/>
@@ -117,6 +129,7 @@
                             <constraint firstItem="WUV-tS-wDc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-50" id="jBC-8V-x0d"/>
                             <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="kzQ-LI-xTk"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="nfF-Jy-2bd"/>
+                            <constraint firstItem="dE2-2F-jg8" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nhi-g2-QyT"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="o19-9b-jUz"/>
                             <constraint firstItem="WUV-tS-wDc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="oG8-do-0u4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="zY5-cQ-VOp"/>
@@ -128,6 +141,7 @@
                         <outlet property="bottomLeftButton" destination="jQG-vt-OJ4" id="YUQ-qL-Tx9"/>
                         <outlet property="bottomRightButton" destination="Rdg-M6-8UC" id="Jdj-Fb-8mY"/>
                         <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>
+                        <outlet property="slider" destination="dE2-2F-jg8" id="jWR-6x-UBp"/>
                         <outlet property="topLeftButton" destination="q28-31-zUr" id="3cx-mA-PRe"/>
                         <outlet property="topRightButton" destination="9CZ-K1-kET" id="ZZ9-h5-iJz"/>
                     </connections>
