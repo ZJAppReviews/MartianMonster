@@ -53,7 +53,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 #pragma mark - Banner Button
 -(void)delayBanner
 {
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.75 target:self selector:@selector(showBanner) userInfo:nil repeats:NO];
 }
 
 //The bannerButton's vertical constant is set to -50 in Storyboard
