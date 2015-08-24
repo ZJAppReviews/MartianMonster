@@ -37,13 +37,14 @@
 @property (nonatomic, strong) AVAudioFile *audioFileThree;
 @property (nonatomic, strong) AVAudioFile *audioFileFour;
 
+
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferZero;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferOne;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferTwo;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferThree;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferFour;
 
-//A utPitch object for each audio file that needs pitch manipulation
+//A unitTimePitch object for each audio file that needs pitch manipulation
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchTwo;
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchThree;
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchFour;
@@ -70,9 +71,6 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
             [self formatButtonLabel:button];
         }
     }
-
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                            withAnimation:UIStatusBarAnimationFade];
 
     [self addGIFtoMiddleButton];
     [self initiateBannerPresentation];
@@ -250,10 +248,12 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
     // Prepare AVAudioPlayerNode Zero
     self.audioPlayerNodeZero = [AVAudioPlayerNode new];
+    self.audioPlayerNodeZero.volume = 0.55;
     [self.engine attachNode:self.audioPlayerNodeZero];
 
     // Prepare AVAudioPlayerNode One
     self.audioPlayerNodeOne = [AVAudioPlayerNode new];
+    self.audioPlayerNodeOne.volume = 0.55;
     [self.engine attachNode:self.audioPlayerNodeOne];
 
     // Prepare AVAudioPlayerNode Two
@@ -326,12 +326,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 - (void)playZero
 {
     // Schedule playing audio buffer
-
     [self.audioPlayerNodeZero scheduleBuffer:self.audioPCMBufferZero
                                       atTime:nil
                                      options:AVAudioPlayerNodeBufferLoops
                            completionHandler:nil];
-
     // Start playback
     [self.audioPlayerNodeZero play];
 }
@@ -339,12 +337,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 - (void)playOne
 {
     // Schedule playing audio buffer
-
     [self.audioPlayerNodeOne scheduleBuffer:self.audioPCMBufferOne
                                       atTime:nil
                                      options:AVAudioPlayerNodeBufferLoops
                            completionHandler:nil];
-
     // Start playback
     [self.audioPlayerNodeOne play];
 }
@@ -352,12 +348,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 - (void)playTwo
 {
     // Schedule playing audio buffer
-
     [self.audioPlayerNodeTwo scheduleBuffer:self.audioPCMBufferTwo
                                      atTime:nil
                                     options:AVAudioPlayerNodeBufferInterrupts
                           completionHandler:nil];
-
     // Start playback
     [self.audioPlayerNodeTwo play];
 }
@@ -365,12 +359,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 - (void)playThree
 {
     // Schedule playing audio buffer
-
     [self.audioPlayerNodeThree scheduleBuffer:self.audioPCMBufferThree
                                      atTime:nil
                                     options:AVAudioPlayerNodeBufferInterrupts
                           completionHandler:nil];
-
     // Start playback
     [self.audioPlayerNodeThree play];
 }
@@ -378,12 +370,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 - (void)playFour
 {
     // Schedule playing audio buffer
-
     [self.audioPlayerNodeFour scheduleBuffer:self.audioPCMBufferFour
                                        atTime:nil
                                       options:AVAudioPlayerNodeBufferInterrupts
                             completionHandler:nil];
-
     // Start playback
     [self.audioPlayerNodeFour play];
 }
