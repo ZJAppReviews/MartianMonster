@@ -154,9 +154,13 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
         if (self.audioPlayerNodeZero.isPlaying)
         {
             [self.audioPlayerNodeZero stop];
-//            [self playZero];
-        } else {
+            self.pauseZeroImageView.alpha = 0;
+            [sender setTitle:@"(blip)" forState:UIControlStateNormal];
+        } else
+        {
             [self playZero];
+            [sender setTitle:@" " forState:UIControlStateNormal];
+            self.pauseZeroImageView.alpha = 1;
         }
     }
     else
@@ -164,39 +168,43 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
         if (self.audioPlayerNodeOne.isPlaying)
         {
             [self.audioPlayerNodeOne stop];
-//            [self playOne];
-        } else {
+            self.pauseOneImageView.alpha = 0;
+            [sender setTitle:@"(ufo)" forState:UIControlStateNormal];
+        } else
+        {
             [self playOne];
+            [sender setTitle:@" " forState:UIControlStateNormal];
+            self.pauseOneImageView.alpha = 1;
         }
     }
 
     //Toggle button between its title and "stop"
-    if (![sender.titleLabel.text isEqualToString:@" "])
-    {
-        [sender setTitle:@" " forState:UIControlStateNormal];
-
-        if (sender.tag == 0)
-        {
-            self.pauseZeroImageView.alpha = 1;
-        }
-        else
-        {
-            self.pauseOneImageView.alpha = 1;
-        }
-    }
-    else
-    {
-        if (sender.tag == 0)
-        {
-            [sender setTitle:@"(blip)" forState:UIControlStateNormal];
-            self.pauseZeroImageView.alpha = 0;
-        }
-        else
-        {
-            [sender setTitle:@"(ufo)" forState:UIControlStateNormal];
-            self.pauseOneImageView.alpha = 0;
-        }
-    }
+//    if (![sender.titleLabel.text isEqualToString:@" "])
+//    {
+//        [sender setTitle:@" " forState:UIControlStateNormal];
+//
+//        if (sender.tag == 0)
+//        {
+//            self.pauseZeroImageView.alpha = 1;
+//        }
+//        else
+//        {
+//            self.pauseOneImageView.alpha = 1;
+//        }
+//    }
+//    else
+//    {
+//        if (sender.tag == 0)
+//        {
+//            [sender setTitle:@"(blip)" forState:UIControlStateNormal];
+//            self.pauseZeroImageView.alpha = 0;
+//        }
+//        else
+//        {
+//            [sender setTitle:@"(ufo)" forState:UIControlStateNormal];
+//            self.pauseOneImageView.alpha = 0;
+//        }
+//    }
 }
 
 - (IBAction)onMiddleButtonTapped:(UIButton *)sender
