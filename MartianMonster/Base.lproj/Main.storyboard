@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -94,7 +94,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-2400" maxValue="2400" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-2F-jg8">
-                                <rect key="frame" x="14" y="545.5" width="572" height="31"/>
+                                <rect key="frame" x="14" y="545" width="572" height="31"/>
                                 <color key="tintColor" red="0.99215686274509807" green="0.89411764705882357" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CBW-Vv-LS7"/>
@@ -103,11 +103,33 @@
                                     <action selector="onSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="5S7-cf-q3U"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIv-vZ-d2V">
+                                <rect key="frame" x="127" y="148" width="30" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause" translatesAutoresizingMaskIntoConstraints="NO" id="zm1-zK-H3l">
+                                <rect key="frame" x="102" y="71" width="97" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="Dww-og-0LI"/>
+                                    <constraint firstAttribute="width" constant="97" id="VLs-IW-Kse"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause" translatesAutoresizingMaskIntoConstraints="NO" id="yjZ-Yp-IxJ">
+                                <rect key="frame" x="402" y="71" width="97" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="8DJ-Uy-rbw"/>
+                                    <constraint firstAttribute="height" constant="57" id="8mx-sx-fES"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Rdg-M6-8UC" secondAttribute="trailing" constant="-16" id="3ZD-Ca-teP"/>
+                            <constraint firstItem="q28-31-zUr" firstAttribute="centerX" secondItem="zm1-zK-H3l" secondAttribute="centerX" constant="-0.5" id="4LG-5c-nWU"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="width" secondItem="jQG-vt-OJ4" secondAttribute="width" id="4mX-EI-cZe"/>
+                            <constraint firstItem="q28-31-zUr" firstAttribute="centerY" secondItem="zm1-zK-H3l" secondAttribute="centerY" constant="0.5" id="7wV-vb-7ca"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9CZ-K1-kET" secondAttribute="trailing" constant="-16" id="80j-wK-mgC"/>
                             <constraint firstItem="dE2-2F-jg8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Acj-sV-sOe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xzd-Pd-n83" secondAttribute="trailing" constant="-16" id="Coo-if-M6z"/>
@@ -124,6 +146,7 @@
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="YrV-M3-SLw"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="height" secondItem="jQG-vt-OJ4" secondAttribute="height" id="Ys9-sI-N6c"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dyB-Qp-ADz"/>
+                            <constraint firstItem="yjZ-Yp-IxJ" firstAttribute="centerY" secondItem="9CZ-K1-kET" secondAttribute="centerY" constant="-0.5" id="fki-ET-RRh"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="q28-31-zUr" secondAttribute="trailing" id="hQz-bS-Wta"/>
                             <constraint firstItem="xzd-Pd-n83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hhs-DR-A2E"/>
                             <constraint firstItem="WUV-tS-wDc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-50" id="jBC-8V-x0d"/>
@@ -131,6 +154,7 @@
                             <constraint firstItem="q28-31-zUr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="nfF-Jy-2bd"/>
                             <constraint firstItem="dE2-2F-jg8" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nhi-g2-QyT"/>
                             <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="o19-9b-jUz"/>
+                            <constraint firstItem="yjZ-Yp-IxJ" firstAttribute="centerX" secondItem="9CZ-K1-kET" secondAttribute="centerX" constant="0.5" id="oAW-5a-tLp"/>
                             <constraint firstItem="WUV-tS-wDc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="oG8-do-0u4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="zY5-cQ-VOp"/>
                         </constraints>
@@ -141,6 +165,8 @@
                         <outlet property="bottomLeftButton" destination="jQG-vt-OJ4" id="YUQ-qL-Tx9"/>
                         <outlet property="bottomRightButton" destination="Rdg-M6-8UC" id="Jdj-Fb-8mY"/>
                         <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>
+                        <outlet property="pauseOneImageView" destination="yjZ-Yp-IxJ" id="Wna-fO-p0a"/>
+                        <outlet property="pauseZeroImageView" destination="zm1-zK-H3l" id="Feq-mn-Xs8"/>
                         <outlet property="slider" destination="dE2-2F-jg8" id="jWR-6x-UBp"/>
                         <outlet property="topLeftButton" destination="q28-31-zUr" id="3cx-mA-PRe"/>
                         <outlet property="topRightButton" destination="9CZ-K1-kET" id="ZZ9-h5-iJz"/>
@@ -150,4 +176,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause" width="42" height="46"/>
+    </resources>
 </document>

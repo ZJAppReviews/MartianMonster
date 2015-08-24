@@ -51,6 +51,9 @@
 
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 
+@property (strong, nonatomic) IBOutlet UIImageView *pauseZeroImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *pauseOneImageView;
+
 @end
 
 static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/album/chilling-thrilling-sounds/id272258499?at=10lu5f&mt=1&app=music";
@@ -169,6 +172,34 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 //            [self playOne];
         } else {
             [self playOne];
+        }
+    }
+
+    //Toggle button between its title and "stop"
+    if (![sender.titleLabel.text isEqualToString:@" "])
+    {
+        [sender setTitle:@" " forState:UIControlStateNormal];
+
+        if (sender.tag == 0)
+        {
+            self.pauseZeroImageView.alpha = 1;
+        }
+        else
+        {
+            self.pauseOneImageView.alpha = 1;
+        }
+    }
+    else
+    {
+        if (sender.tag == 0)
+        {
+            [sender setTitle:@"(blip)" forState:UIControlStateNormal];
+            self.pauseZeroImageView.alpha = 0;
+        }
+        else
+        {
+            [sender setTitle:@"(ufo)" forState:UIControlStateNormal];
+            self.pauseOneImageView.alpha = 0;
         }
     }
 }
