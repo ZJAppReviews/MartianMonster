@@ -91,13 +91,8 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 //Shows and hides banner every 15 seconds
 -(void)hideAndShowBannerEvery15secs
 {
-    [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(hideBanner) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(hideBanner) userInfo:nil repeats:YES];
 
-    [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(showBannerEvery15secs) userInfo:nil repeats:NO];
-}
-
--(void)showBannerEvery15secs
-{
     [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(showBanner) userInfo:nil repeats:YES];
 }
 
