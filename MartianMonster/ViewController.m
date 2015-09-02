@@ -128,11 +128,15 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 {
     FBShimmeringView *shimmeringView =  [FBShimmeringView new];
 
+//    CGRect rect = CGRectMake(self.bannerButton.frame.origin.x, self.bannerButton.frame.origin.y, self.bannerButton.frame.size.width + 200, self.bannerButton.frame.size.height);
+
     shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
     shimmeringView.alpha = 0.50;
     shimmeringView.shimmeringSpeed = 230;
     shimmeringView.shimmeringPauseDuration = 0;
     [self.bannerButton addSubview:shimmeringView];
+
+    [self constrainSubview:shimmeringView toSuperview:self.bannerButton];
 
     UIView *cView = [[UIView alloc] initWithFrame:shimmeringView.bounds];
     [cView setBackgroundColor:[UIColor blueColor]];
@@ -140,6 +144,48 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 
     shimmeringView.shimmering = YES;
     shimmeringView.userInteractionEnabled = NO;
+}
+
+-(void)constrainSubview:(UIView *)subview toSuperview:(UIView *)superview {
+    subview.translatesAutoresizingMaskIntoConstraints = NO;
+    // initialize
+
+    NSLayoutConstraint *width =[NSLayoutConstraint
+                                constraintWithItem:subview
+                                attribute:NSLayoutAttributeWidth
+                                relatedBy:0
+                                toItem:superview
+                                attribute:NSLayoutAttributeWidth
+                                multiplier:1.0
+                                constant:0];
+    NSLayoutConstraint *height =[NSLayoutConstraint
+                                 constraintWithItem:subview
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:0
+                                 toItem:superview
+                                 attribute:NSLayoutAttributeHeight
+                                 multiplier:1.0
+                                 constant:0];
+    NSLayoutConstraint *top = [NSLayoutConstraint
+                               constraintWithItem:subview
+                               attribute:NSLayoutAttributeTop
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:superview
+                               attribute:NSLayoutAttributeTop
+                               multiplier:1.0f
+                               constant:0.f];
+    NSLayoutConstraint *leading = [NSLayoutConstraint
+                                   constraintWithItem:subview
+                                   attribute:NSLayoutAttributeLeading
+                                   relatedBy:NSLayoutRelationEqual
+                                   toItem:superview
+                                   attribute:NSLayoutAttributeLeading
+                                   multiplier:1.0f
+                                   constant:0.f];
+    [superview addConstraint:width];
+    [superview addConstraint:height];
+    [superview addConstraint:top];
+    [superview addConstraint:leading];
 }
 
 - (IBAction)onBannerButtonTapped:(UIButton *)sender
