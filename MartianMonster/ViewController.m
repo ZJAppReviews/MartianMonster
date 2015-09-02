@@ -126,7 +126,9 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
 //FBShimmeringView installed via cocoapod: https://github.com/facebook/Shimmer
 -(void)shimmer
 {
-    FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
+    FBShimmeringView *shimmeringView =  [FBShimmeringView new];
+
+    shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bannerButton.bounds];
     shimmeringView.alpha = 0.50;
     shimmeringView.shimmeringSpeed = 230;
     shimmeringView.shimmeringPauseDuration = 0;
