@@ -80,6 +80,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [self hideAndShowBannerEvery15secs];
     [self shimmer];
     [self audioSetUp];
+    [self createAudioSessionForBackgroundPlay];
 }
 
 #pragma mark - Banner Button
@@ -437,6 +438,13 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.utPitchTwo.pitch = sender.value;
     self.utPitchThree.pitch = sender.value;
     self.utPitchFour.pitch = sender.value;
+}
+
+-(void)createAudioSessionForBackgroundPlay
+{
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&sessionError];
+    [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
 }
 
 #pragma mark - Formatting
