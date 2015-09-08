@@ -194,7 +194,7 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kURLiTunesAlbum]];
 }
 
-#pragma mark - Audio
+#pragma mark - Actions
 //Audio files' names correlate to a button's tag
 - (IBAction)onTopRowButtonTapped:(UIButton *)sender
 {
@@ -243,19 +243,37 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [self playFour];
 }
 
+
+#pragma mark - Audio
 -(void)audioSetUp
 {
     self.engine = [AVAudioEngine new];
 
+    [self prepareAudioFiles];
+    [self prepareBuffers];
+    [self prepareNodes];
+    [self controlPitch];
+    [self connectNodes];
+
+    // Start engine
+    NSError *error;
+    [self.engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
+    }
+}
+
+-(void)prepareAudioFiles
+{
     // Prepare AVAudioFile Zero
     NSString *pathZero = [[NSBundle mainBundle] pathForResource:@"0" ofType:@"m4a"];
     self.audioFileZero = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]
-                                                   error:nil];
+                                                       error:nil];
 
     // Prepare AVAudioFile One
     NSString *pathOne = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"m4a"];
     self.audioFileOne = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathOne]
-                                                       error:nil];
+                                                      error:nil];
 
     // Prepare AVAudioFile Two
     NSString *pathTwo = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"m4a"];
@@ -265,12 +283,16 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     // Prepare AVAudioFile Three
     NSString *pathThree = [[NSBundle mainBundle] pathForResource:@"3" ofType:@"m4a"];
     self.audioFileThree = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathThree]
-                                                      error:nil];
+                                                        error:nil];
 
     // Prepare AVAudioFile Four
     NSString *pathFour = [[NSBundle mainBundle] pathForResource:@"4" ofType:@"m4a"];
     self.audioFileFour = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathFour]
-                                                        error:nil];
+                                                       error:nil];
+}
+
+-(void)prepareBuffers
+{
     // Prepare Buffer Zero
     AVAudioFormat *audioFormatZero = self.audioFileZero.processingFormat;
     AVAudioFrameCount lengthZero = (AVAudioFrameCount)self.audioFileZero.length;
@@ -300,7 +322,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     AVAudioFrameCount lengthFour = (AVAudioFrameCount)self.audioFileFour.length;
     self.audioPCMBufferFour = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatFour frameCapacity:lengthFour];
     [self.audioFileFour readIntoBuffer:self.audioPCMBufferFour error:nil];
+}
 
+-(void)prepareNodes
+{
     // Prepare AVAudioPlayerNode Zero
     self.audioPlayerNodeZero = [AVAudioPlayerNode new];
     self.audioPlayerNodeZero.volume = 0.55;
@@ -322,7 +347,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     // Prepare AVAudioPlayerNode Four
     self.audioPlayerNodeFour = [AVAudioPlayerNode new];
     [self.engine attachNode:self.audioPlayerNodeFour];
+}
 
+-(void)controlPitch
+{
     self.utPitchTwo = [AVAudioUnitTimePitch new];
     self.utPitchTwo.pitch = 0.0;
     self.utPitchTwo.rate = 1.0;
@@ -337,7 +365,10 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     self.utPitchFour.pitch = 0.0;
     self.utPitchFour.rate = 1.0;
     [self.engine attachNode:self.utPitchFour];
+}
 
+-(void)connectNodes
+{
     //Connect Nodes
     AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
     //0
@@ -369,13 +400,6 @@ static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/albu
     [self.engine connect:self.utPitchFour
                       to:mixerNode
                   format:self.audioFileFour.processingFormat];
-
-    // Start engine
-    NSError *error;
-    [self.engine startAndReturnError:&error];
-    if (error) {
-        NSLog(@"error:%@", error);
-    }
 }
 
 - (void)playZero
