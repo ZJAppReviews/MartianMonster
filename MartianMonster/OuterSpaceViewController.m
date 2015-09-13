@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 vikzilla. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "OuterSpaceViewController.h"
 @import AVFoundation;
 #import "UIImage+animatedGif.h"
 #import "FBShimmeringView.h"
 
-@interface ViewController ()
+@interface OuterSpaceViewController ()
 
 @property (strong, nonatomic) IBOutlet UIButton *topLeftButton;
 @property (strong, nonatomic) IBOutlet UIButton *topRightButton;
@@ -58,7 +58,7 @@
 
 static NSString * const kURLiTunesAlbum = @"https://geo.itunes.apple.com/us/album/chilling-thrilling-sounds/id272258499?at=10lu5f&mt=1&app=music";
 
-@implementation ViewController {
+@implementation OuterSpaceViewController {
     SystemSoundID soundEffect;
 }
 
