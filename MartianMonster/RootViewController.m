@@ -13,7 +13,9 @@
 
 @end
 
-@implementation RootViewController
+@implementation RootViewController {
+    NSInteger lastPageBeforeRotate;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +40,7 @@
     return self.view.frame.size;
 }
 
+#pragma mark - Orientation
 - (void)viewWillLayoutSubviews;
 {
     [super viewWillLayoutSubviews];
@@ -46,6 +49,23 @@
     flowLayout.itemSize = self.view.frame.size;
 
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    int pageWidth = self.collectionView.contentSize.width / 3;
+    int scrolledX = self.collectionView.contentOffset.x;
+    lastPageBeforeRotate = 0;
+
+    if (pageWidth > 0) {
+        lastPageBeforeRotate = scrolledX / pageWidth;
+    }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (lastPageBeforeRotate != -1) {
+        self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
+        lastPageBeforeRotate = -1;
+    }
 }
 
 @end
