@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IDw-lP-XpV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -169,7 +170,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eL0-sg-hWD">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="-0.5" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fat-oN-Qdi">
                                     <size key="itemSize" width="599.5" height="600"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -177,7 +178,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SampleCell" id="96M-fY-PFM">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SampleCell" id="96M-fY-PFM" customClass="SoundboardCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -260,6 +261,13 @@
                                             <constraint firstAttribute="trailing" secondItem="5uC-rO-tYU" secondAttribute="trailing" id="R74-U3-ZxO"/>
                                             <constraint firstItem="5uC-rO-tYU" firstAttribute="leading" secondItem="96M-fY-PFM" secondAttribute="leading" id="oB0-8J-xsW"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="bottomLeftButton" destination="Xfa-rt-8dG" id="IVc-bO-crc"/>
+                                            <outlet property="bottomRightButton" destination="Mbx-Hv-5DT" id="LmU-h1-eow"/>
+                                            <outlet property="middleButton" destination="kq5-JB-Ng8" id="8Hn-Pf-Hll"/>
+                                            <outlet property="topLeftButton" destination="scI-5W-0x3" id="sIl-ze-XLd"/>
+                                            <outlet property="topRightButton" destination="Lat-qh-6SR" id="qea-9M-2Sr"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -267,22 +275,32 @@
                                     <outlet property="delegate" destination="IDw-lP-XpV" id="JMg-rC-Nco"/>
                                 </connections>
                             </collectionView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-xS-ORU">
+                                <rect key="frame" x="6" y="545" width="587.5" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qUg-pt-6yj"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="top" id="Kl9-yX-8nr"/>
                             <constraint firstAttribute="trailing" secondItem="eL0-sg-hWD" secondAttribute="trailing" id="Z8Z-6z-QIa"/>
+                            <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="Vg5-xS-ORU" secondAttribute="bottom" constant="25" id="drd-oy-yDE"/>
+                            <constraint firstItem="Vg5-xS-ORU" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-8" id="oIl-dI-FMy"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leading" id="r8d-zt-cZA"/>
                             <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="eL0-sg-hWD" secondAttribute="bottom" id="ru5-lG-15f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vg5-xS-ORU" secondAttribute="trailing" constant="-7.5" id="tb2-Cr-OoE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="eL0-sg-hWD" id="eLB-Mj-8dN"/>
+                        <outlet property="slider" destination="Vg5-xS-ORU" id="lkA-9Y-fSx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-tz-uej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-424" y="58"/>
+            <point key="canvasLocation" x="-404" y="70"/>
         </scene>
     </scenes>
     <resources>

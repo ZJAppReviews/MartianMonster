@@ -8,18 +8,22 @@
 
 #import "RootViewController.h"
 
-@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UISlider *slider;
 
 @end
 
 @implementation RootViewController {
     NSInteger lastPageBeforeRotate;
+//    UIPanGestureRecognizer *scrollViewPanGestureRecognzier;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
+
+//    self.slider.exclusiveTouch = YES;
 }
 
 #pragma mark - UICollectionView
