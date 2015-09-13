@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, SampleType) {
+    OuterSpace,
+    Creatures,
+    Phun
+};
+
 @interface OuterSpaceViewController : UIViewController
+
+@property SampleType sampleType;
 
 @end
 

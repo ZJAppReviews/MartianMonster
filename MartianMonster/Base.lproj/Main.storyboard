@@ -104,21 +104,6 @@
                                     <constraint firstAttribute="height" constant="57" id="8mx-sx-fES"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUV-tS-wDc">
-                                <rect key="frame" x="0.0" y="-50" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="JEh-UC-cr8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="20"/>
-                                <state key="normal" title="  Download &quot;Chilling, Thrilling Sounds of The Haunted House&quot;">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onBannerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QkU-3t-eiu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -130,7 +115,6 @@
                             <constraint firstItem="q28-31-zUr" firstAttribute="height" secondItem="9CZ-K1-kET" secondAttribute="height" id="8Fo-vp-mTw"/>
                             <constraint firstAttribute="trailing" secondItem="Rdg-M6-8UC" secondAttribute="trailing" id="B8I-Gr-9aX"/>
                             <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="CMe-f3-o1O"/>
-                            <constraint firstItem="WUV-tS-wDc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="D6s-zn-Dwo"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DfL-G0-es1"/>
                             <constraint firstAttribute="trailing" secondItem="xzd-Pd-n83" secondAttribute="trailing" id="DiG-7o-7KQ"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="F2v-rE-h2q"/>
@@ -143,13 +127,11 @@
                             <constraint firstItem="xzd-Pd-n83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RhI-js-jJ4"/>
                             <constraint firstAttribute="trailing" secondItem="9CZ-K1-kET" secondAttribute="trailing" id="UBX-qd-W6A"/>
                             <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Vil-3B-w5C"/>
-                            <constraint firstAttribute="trailing" secondItem="WUV-tS-wDc" secondAttribute="trailing" id="X2O-Sk-0Ev"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z6w-e3-6Aw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="a38-yc-8ox"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="width" secondItem="Rdg-M6-8UC" secondAttribute="width" id="aht-dm-4Ey"/>
                             <constraint firstItem="q28-31-zUr" firstAttribute="height" secondItem="xzd-Pd-n83" secondAttribute="height" id="dHn-53-cLh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="eZS-dT-Lc0"/>
-                            <constraint firstItem="WUV-tS-wDc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-50" id="exT-2W-JqQ"/>
                             <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="q28-31-zUr" secondAttribute="bottom" id="i8E-XP-mTS"/>
                             <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="ki4-SK-97J"/>
                             <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="lXp-xL-LKd"/>
@@ -160,8 +142,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bannerButton" destination="WUV-tS-wDc" id="Sd5-Mh-U2k"/>
-                        <outlet property="bannerVerticalConstraint" destination="exT-2W-JqQ" id="QuQ-n2-hEx"/>
                         <outlet property="bottomLeftButton" destination="jQG-vt-OJ4" id="YUQ-qL-Tx9"/>
                         <outlet property="bottomRightButton" destination="Rdg-M6-8UC" id="Jdj-Fb-8mY"/>
                         <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>
@@ -176,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="865" y="58"/>
         </scene>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="q6a-Bp-FKf">
             <objects>
-                <viewController id="IDw-lP-XpV" sceneMemberID="viewController">
+                <viewController id="IDw-lP-XpV" customClass="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sgl-1t-d2M"/>
                         <viewControllerLayoutGuide type="bottom" id="glG-z2-xZ6"/>
@@ -208,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="-424" y="58"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Samples Page View Controller-->
         <scene sceneID="eHA-Rb-y8x">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Q6g-g9-zoi" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Q6g-g9-zoi" customClass="SamplesPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egt-cX-gPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="220" y="58"/>
