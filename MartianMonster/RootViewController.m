@@ -38,6 +38,8 @@
     NSArray *buttonTitlesArray3 =  @[@"vacuum", @"whale", @"BOMB", @"bell", @"drill"];
     self.buttonTitlesArrays = @[buttonTitlesArray1, buttonTitlesArray2, buttonTitlesArray3];
 
+    self.engine = [AVAudioEngine new];
+
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 }
 
@@ -51,35 +53,6 @@
     return cell;
 }
 
--(void)setButtonTitlesForCell:(SoundboardCollectionViewCell *)cell withIndexPath:(NSIndexPath *)indexPath
-{
-    NSArray *titlesArray = self.buttonTitlesArrays[indexPath.row];
-
-    [cell.topLeftButton setTitle:titlesArray[0] forState:UIControlStateNormal];
-    [cell.topRightButton setTitle:titlesArray[1] forState:UIControlStateNormal];
-    [cell.middleButton setTitle:titlesArray[2] forState:UIControlStateNormal];
-    [cell.bottomLeftButton setTitle:titlesArray[3] forState:UIControlStateNormal];
-    [cell.bottomRightButton setTitle:titlesArray[4] forState:UIControlStateNormal];
-
-    cell.topLeftButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i0", (int)indexPath.row]
-                                                                                    ofType:@"m4a"];
-    cell.topRightButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i1", (int)indexPath.row]
-                                                                   ofType:@"m4a"];
-    cell.middleButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i2", (int)indexPath.row]
-                                                                   ofType:@"m4a"];
-    cell.bottomLeftButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i3", (int)indexPath.row]
-                                                                   ofType:@"m4a"];
-    cell.bottomRightButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i4", (int)indexPath.row]
-                                                                   ofType:@"m4a"];
-}
-
--(AVAudioFile *)audioFileWithName:(NSString *)name
-{
-    NSString *pathZero = [[NSBundle mainBundle] pathForResource:name ofType:@"m4a"];
-    return [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]
-                                                       error:nil];
-}
-
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.buttonTitlesArrays.count;
@@ -90,10 +63,98 @@
     return self.view.frame.size;
 }
 
-#pragma mark - SoundboardCollectionViewCell
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(UIButton *)button
+#pragma mark - Helpers for cell setup
+-(void)setButtonTitlesForCell:(SoundboardCollectionViewCell *)cell withIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *titlesArray = self.buttonTitlesArrays[indexPath.row];
+
+    [cell.topLeftButton setTitle:titlesArray[0] forState:UIControlStateNormal];
+    [cell.topRightButton setTitle:titlesArray[1] forState:UIControlStateNormal];
+    [cell.middleButton setTitle:titlesArray[2] forState:UIControlStateNormal];
+    [cell.bottomLeftButton setTitle:titlesArray[3] forState:UIControlStateNormal];
+    [cell.bottomRightButton setTitle:titlesArray[4] forState:UIControlStateNormal];
+
+    if (cell.topLeftButton.audioFile == nil)
+    {
+        // Prepare audio file
+        cell.topLeftButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i0", (int)indexPath.row]
+                                                                       ofType:@"m4a"];
+        // Prepare Buffer Zero
+        AVAudioFormat *audioFormatZero = cell.topLeftButton.audioFile.processingFormat;
+        AVAudioFrameCount lengthZero = (AVAudioFrameCount)cell.topLeftButton.audioFile.length;
+        cell.topLeftButton.audioPCMBuffer = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatZero frameCapacity:lengthZero];
+        [cell.topLeftButton.audioFile readIntoBuffer:cell.topLeftButton.audioPCMBuffer error:nil];
+
+        // Prepare AVAudioPlayerNode Zero
+        cell.topLeftButton.playerNode = [AVAudioPlayerNode new];
+        cell.topLeftButton.playerNode.volume = 0.55;
+        [self.engine attachNode:cell.topLeftButton.playerNode];
+
+        //Pitches
+        cell.topLeftButton.utPitch = [AVAudioUnitTimePitch new];
+        cell.topLeftButton.utPitch.pitch = 0.0;
+        cell.topLeftButton.utPitch.rate = 1.0;
+        [self.engine attachNode:cell.topLeftButton.utPitch];
+
+        //Connect Nodes
+        AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
+        //0
+        [self.engine connect:cell.topLeftButton.playerNode
+                          to:mixerNode
+                      format:cell.topLeftButton.audioFile.processingFormat];
+
+//        // Schedule playing audio buffer
+//        [cell.topLeftButton.playerNode scheduleBuffer:cell.topLeftButton.audioPCMBuffer
+//                                          atTime:nil
+//                                         options:AVAudioPlayerNodeBufferInterrupts
+//                               completionHandler:nil];
+
+
+        cell.topRightButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i1", (int)indexPath.row]
+                                                                        ofType:@"m4a"];
+        cell.middleButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i2", (int)indexPath.row]
+                                                                      ofType:@"m4a"];
+        cell.bottomLeftButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i3", (int)indexPath.row]
+                                                                          ofType:@"m4a"];
+        cell.bottomRightButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i4", (int)indexPath.row]
+                                                                           ofType:@"m4a"];
+
+        // Start engine
+        NSError *error;
+        [self.engine startAndReturnError:&error];
+        if (error) {
+            NSLog(@"error:%@", error);
+        }
+    }
+}
+
+-(void)doAllTheAudioThingsToButton:(SoundboardButton *)button
 {
 
+}
+
+#pragma mark - SoundboardCollectionViewCellDelegate
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(SoundboardButton *)button
+{
+
+//    if ([button.playerNode isPlaying])
+//    {
+//        [button.playerNode stop];
+//    }
+//    else
+//    {
+        // Schedule playing audio buffer
+        [button.playerNode scheduleBuffer:button.audioPCMBuffer
+                                   atTime:nil
+                                  options:AVAudioPlayerNodeBufferInterrupts
+                        completionHandler:nil];
+        
+        [button.playerNode play];
+//    }
+}
+
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(SoundboardButton *)button
+{
 }
 
 #pragma mark - Orientation

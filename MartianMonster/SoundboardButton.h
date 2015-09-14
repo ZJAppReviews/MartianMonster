@@ -12,5 +12,8 @@
 @interface SoundboardButton : UIButton
 
 @property AVAudioFile *audioFile;
+@property AVAudioPCMBuffer *audioPCMBuffer;
+@property AVAudioPlayerNode *playerNode;
+@property AVAudioUnitTimePitch *utPitch;
 
 @end
