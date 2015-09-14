@@ -49,7 +49,11 @@
     SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SampleCell" forIndexPath:indexPath];
     cell.delegate = self;
 
-    [self configureAudioForCell:cell atIndexPath:indexPath];
+    //TODO: Use a more reliable condition here to check if cell has already been set up
+    //Tried simply checking if cell == nil but was condition was not satisfied
+    if (cell.topLeftButton.audioFile == nil) {
+        [self configureAudioForCell:cell atIndexPath:indexPath];
+    }
 
     return cell;
 }
@@ -134,20 +138,20 @@
 #pragma mark - SoundboardCollectionViewCellDelegate
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(SoundboardButton *)button
 {
-//    if ([button.playerNode isPlaying])
-//    {
-//        [button.playerNode stop];
-//    }
-//    else
-//    {
+    if ([button.playerNode isPlaying])
+    {
+        [button.playerNode stop];
+    }
+    else
+    {
         // Schedule playing audio buffer
         [button.playerNode scheduleBuffer:button.audioPCMBuffer
                                    atTime:nil
-                                  options:AVAudioPlayerNodeBufferInterrupts
+                                  options:AVAudioPlayerNodeBufferLoops
                         completionHandler:nil];
         
         [button.playerNode play];
-//    }
+    }
 }
 
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(SoundboardButton *)button
