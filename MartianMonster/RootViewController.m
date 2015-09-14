@@ -125,12 +125,50 @@
         if (error) {
             NSLog(@"error:%@", error);
         }
+
+        [self configureAudioForCell:cell atIndexPath:indexPath withLoop:NO];
     }
 }
 
--(void)doAllTheAudioThingsToButton:(SoundboardButton *)button
+-(void)configureAudioForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withLoop:(BOOL)audioLoops
 {
+    UIView *cellSuperview = cell.contentView.subviews.lastObject;
 
+    for (UIView *view in cellSuperview.subviews)
+    {
+        if ([view isKindOfClass:[SoundboardButton class]])
+        {
+            SoundboardButton *button = (SoundboardButton *) view;
+            NSLog(@"%@",button.titleLabel.text);
+
+            // Prepare audio file
+            button.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i0", (int)indexPath.row]
+                                                                           ofType:@"m4a"];
+            // Prepare Buffer Zero
+            AVAudioFormat *audioFormatZero = button.audioFile.processingFormat;
+            AVAudioFrameCount lengthZero = (AVAudioFrameCount)button.audioFile.length;
+            button.audioPCMBuffer = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatZero frameCapacity:lengthZero];
+            [button.audioFile readIntoBuffer:button.audioPCMBuffer error:nil];
+
+            // Prepare AVAudioPlayerNode Zero
+            button.playerNode = [AVAudioPlayerNode new];
+            button.playerNode.volume = 0.55;
+            [self.engine attachNode:button.playerNode];
+
+            //Pitches
+            button.utPitch = [AVAudioUnitTimePitch new];
+            button.utPitch.pitch = 0.0;
+            button.utPitch.rate = 1.0;
+            [self.engine attachNode:button.utPitch];
+
+            //Connect Nodes
+            AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
+            //0
+            [self.engine connect:button.playerNode
+                              to:mixerNode
+                          format:button.audioFile.processingFormat];
+        }
+    }
 }
 
 #pragma mark - SoundboardCollectionViewCellDelegate
