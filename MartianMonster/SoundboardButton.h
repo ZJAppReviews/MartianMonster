@@ -15,5 +15,7 @@
 @property AVAudioPCMBuffer *audioPCMBuffer;
 @property AVAudioPlayerNode *playerNode;
 @property AVAudioUnitTimePitch *utPitch;
+@property AVAudioPlayerNodeBufferOptions bufferOption;
+@property BOOL pitchEffect;
 
 @end

@@ -49,7 +49,8 @@
     SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SampleCell" forIndexPath:indexPath];
     cell.delegate = self;
 
-    [self setButtonTitlesForCell:cell withIndexPath:indexPath];
+    [self configureAudioForCell:cell atIndexPath:indexPath];
+
     return cell;
 }
 
@@ -64,81 +65,19 @@
 }
 
 #pragma mark - Helpers for cell setup
--(void)setButtonTitlesForCell:(SoundboardCollectionViewCell *)cell withIndexPath:(NSIndexPath *)indexPath
+-(void)configureAudioForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *titlesArray = self.buttonTitlesArrays[indexPath.row];
 
-    [cell.topLeftButton setTitle:titlesArray[0] forState:UIControlStateNormal];
-    [cell.topRightButton setTitle:titlesArray[1] forState:UIControlStateNormal];
-    [cell.middleButton setTitle:titlesArray[2] forState:UIControlStateNormal];
-    [cell.bottomLeftButton setTitle:titlesArray[3] forState:UIControlStateNormal];
-    [cell.bottomRightButton setTitle:titlesArray[4] forState:UIControlStateNormal];
-
-    if (cell.topLeftButton.audioFile == nil)
-    {
-        // Prepare audio file
-        cell.topLeftButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i0", (int)indexPath.row]
-                                                                       ofType:@"m4a"];
-        // Prepare Buffer Zero
-        AVAudioFormat *audioFormatZero = cell.topLeftButton.audioFile.processingFormat;
-        AVAudioFrameCount lengthZero = (AVAudioFrameCount)cell.topLeftButton.audioFile.length;
-        cell.topLeftButton.audioPCMBuffer = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatZero frameCapacity:lengthZero];
-        [cell.topLeftButton.audioFile readIntoBuffer:cell.topLeftButton.audioPCMBuffer error:nil];
-
-        // Prepare AVAudioPlayerNode Zero
-        cell.topLeftButton.playerNode = [AVAudioPlayerNode new];
-        cell.topLeftButton.playerNode.volume = 0.55;
-        [self.engine attachNode:cell.topLeftButton.playerNode];
-
-        //Pitches
-        cell.topLeftButton.utPitch = [AVAudioUnitTimePitch new];
-        cell.topLeftButton.utPitch.pitch = 0.0;
-        cell.topLeftButton.utPitch.rate = 1.0;
-        [self.engine attachNode:cell.topLeftButton.utPitch];
-
-        //Connect Nodes
-        AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
-        //0
-        [self.engine connect:cell.topLeftButton.playerNode
-                          to:mixerNode
-                      format:cell.topLeftButton.audioFile.processingFormat];
-
-//        // Schedule playing audio buffer
-//        [cell.topLeftButton.playerNode scheduleBuffer:cell.topLeftButton.audioPCMBuffer
-//                                          atTime:nil
-//                                         options:AVAudioPlayerNodeBufferInterrupts
-//                               completionHandler:nil];
-
-
-        cell.topRightButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i1", (int)indexPath.row]
-                                                                        ofType:@"m4a"];
-        cell.middleButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i2", (int)indexPath.row]
-                                                                      ofType:@"m4a"];
-        cell.bottomLeftButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i3", (int)indexPath.row]
-                                                                          ofType:@"m4a"];
-        cell.bottomRightButton.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i4", (int)indexPath.row]
-                                                                           ofType:@"m4a"];
-
-        // Start engine
-        NSError *error;
-        [self.engine startAndReturnError:&error];
-        if (error) {
-            NSLog(@"error:%@", error);
-        }
-
-        [self configureAudioForCell:cell atIndexPath:indexPath withLoop:NO];
-    }
-}
-
--(void)configureAudioForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withLoop:(BOOL)audioLoops
-{
     UIView *cellSuperview = cell.contentView.subviews.lastObject;
 
+    int i = 0;
     for (UIView *view in cellSuperview.subviews)
     {
         if ([view isKindOfClass:[SoundboardButton class]])
         {
             SoundboardButton *button = (SoundboardButton *) view;
+            [button setTitle:titlesArray[i] forState:UIControlStateNormal];
             NSLog(@"%@",button.titleLabel.text);
 
             // Prepare audio file
@@ -155,26 +94,46 @@
             button.playerNode.volume = 0.55;
             [self.engine attachNode:button.playerNode];
 
-            //Pitches
-            button.utPitch = [AVAudioUnitTimePitch new];
-            button.utPitch.pitch = 0.0;
-            button.utPitch.rate = 1.0;
-            [self.engine attachNode:button.utPitch];
-
-            //Connect Nodes
+            // Set pitch (if applicable) and connect nodes
             AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
-            //0
-            [self.engine connect:button.playerNode
-                              to:mixerNode
-                          format:button.audioFile.processingFormat];
+            if (button.pitchEffect)
+            {
+                //pitches
+                button.utPitch = [AVAudioUnitTimePitch new];
+                button.utPitch.pitch = 0.0;
+                button.utPitch.rate = 1.0;
+                [self.engine attachNode:button.utPitch];
+
+                //connect Nodes
+                [self.engine connect:button.playerNode
+                                  to:button.utPitch
+                              format:button.audioFile.processingFormat];
+                [self.engine connect:button.utPitch
+                                  to:mixerNode
+                              format:button.audioFile.processingFormat];
+            }
+            else
+            {
+                //only connect nodes (no pitches)
+                [self.engine connect:button.playerNode
+                                  to:mixerNode
+                              format:button.audioFile.processingFormat];
+            }
         }
+        i++;
+    }
+
+    // Start engine
+    NSError *error;
+    [self.engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
     }
 }
 
 #pragma mark - SoundboardCollectionViewCellDelegate
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(SoundboardButton *)button
 {
-
 //    if ([button.playerNode isPlaying])
 //    {
 //        [button.playerNode stop];
