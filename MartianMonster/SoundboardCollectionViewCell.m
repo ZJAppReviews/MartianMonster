@@ -10,4 +10,9 @@
 
 @implementation SoundboardCollectionViewCell
 
+- (IBAction)didTapMiddleButton:(UIButton *)sender
+{
+    [self.delegate soundboardCollectionViewCell:self didTapMiddleButton:sender];
+}
+
 @end

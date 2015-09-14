@@ -21,25 +21,24 @@
 //One audio engine to manage many nodes
 @property (nonatomic, strong) AVAudioEngine *engine;
 
-//Many audioPlayer nodes to control each sound effect independently
-@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeZero;
-@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeOne;
-@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeTwo;
-@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeThree;
-@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeFour;
-
 @property (nonatomic, strong) AVAudioFile *audioFileZero;
 @property (nonatomic, strong) AVAudioFile *audioFileOne;
 @property (nonatomic, strong) AVAudioFile *audioFileTwo;
 @property (nonatomic, strong) AVAudioFile *audioFileThree;
 @property (nonatomic, strong) AVAudioFile *audioFileFour;
 
-
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferZero;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferOne;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferTwo;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferThree;
 @property (nonatomic, strong) AVAudioPCMBuffer *audioPCMBufferFour;
+
+//Many audioPlayer nodes to control each sound effect independently
+@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeZero;
+@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeOne;
+@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeTwo;
+@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeThree;
+@property (nonatomic, strong) AVAudioPlayerNode *audioPlayerNodeFour;
 
 //A unitTimePitch object for each audio file that needs pitch manipulation
 @property (nonatomic, strong) AVAudioUnitTimePitch *utPitchTwo;
