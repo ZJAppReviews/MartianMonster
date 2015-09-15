@@ -89,12 +89,6 @@
 
     [cell.middleButton setTitle:si.displayText forState:UIControlStateNormal];
 
-    //TODO: Use a more reliable condition here to check if cell has already been set up
-    //Tried simply checking if cell == nil but was condition was not satisfied
-//    if (cell.topLeftButton.audioFile == nil) {
-//        [self configureAudioForCell:cell atIndexPath:indexPath];
-//    }
-
     return cell;
 }
 
