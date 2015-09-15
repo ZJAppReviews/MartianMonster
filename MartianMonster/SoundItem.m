@@ -10,4 +10,19 @@
 
 @implementation SoundItem
 
+- (instancetype)initWithDictionary:(NSDictionary *)dict
+{
+    self.displayText = dict[@"displayText"];
+
+    self.bufferOption = AVAudioPlayerNodeBufferInterrupts;
+    if (dict[@"loops"])
+    {
+        self.bufferOption = AVAudioPlayerNodeBufferLoops;
+    }
+
+    self.pitchEffect = [dict[@"pitchEffect"] boolValue];
+
+    return self;
+}
+
 @end

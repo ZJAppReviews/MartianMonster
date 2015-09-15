@@ -12,6 +12,7 @@
 @interface SoundItem : NSObject
 
 @property NSString *displayText;
+@property AVAudioPlayerNodeBufferOptions bufferOption;
 
 @property AVAudioFile *audioFile;
 @property AVAudioPCMBuffer *audioPCMBuffer;
@@ -19,6 +20,7 @@
 @property AVAudioUnitTimePitch *utPitch;
 
 @property BOOL pitchEffect;
-@property AVAudioPlayerNodeBufferOptions bufferOption;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 @end

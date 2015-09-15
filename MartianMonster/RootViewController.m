@@ -43,6 +43,25 @@
     [self setupAudioForSoundboards];
 
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
+
+    [self extractSoundInfoFromPlist];
+}
+
+-(void)extractSoundInfoFromPlist
+{
+    NSURL *path = [[NSBundle mainBundle] URLForResource:@"SoundInfo" withExtension:@"plist"];
+    NSArray *soundListsArray = [NSArray arrayWithContentsOfURL:path];
+
+//    NSLog(@"%@", soundListsArray);
+
+    for (NSArray *soundList in soundListsArray)
+    {
+        for (NSDictionary *soundDict in soundList)
+        {
+            SoundItem *soundItem = [[SoundItem alloc] initWithDictionary:soundDict];
+            NSLog(@"%i", soundItem.pitchEffect);
+        }
+    }
 }
 
 -(void)setupDisplayTextArrays
