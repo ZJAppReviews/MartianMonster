@@ -81,9 +81,9 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>MEOW</string>
+			<string>big, beautiful</string>
 			<key>fileName</key>
-			<string>meowLoud.m4a</string>
+			<string>yourCat.m4a</string>
 			<key>loops</key>
 			<false/>
 		</dict>
@@ -92,25 +92,25 @@
 	<array>
 		<dict>
 			<key>displayText</key>
-			<string>vacuum</string>
+			<string>once</string>
 			<key>fileName</key>
-			<string>vacuum.m4a</string>
+			<string>treyOnce.m4a</string>
 			<key>loops</key>
 			<false/>
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>whale</string>
+			<string>space</string>
 			<key>fileName</key>
-			<string>whale.m4a</string>
+			<string>treySpace.m4a</string>
 			<key>loops</key>
 			<false/>
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>CACTUS BOMB</string>
+			<string>jib</string>
 			<key>fileName</key>
-			<string>cactusBomb.m4a</string>
+			<string>treyJibboo.m4a</string>
 			<key>loops</key>
 			<false/>
 		</dict>
@@ -118,7 +118,7 @@
 			<key>displayText</key>
 			<string>BELL</string>
 			<key>fileName</key>
-			<string>fightBell.m4a</string>
+			<string>mikeFightBell.mp3</string>
 			<key>loops</key>
 			<false/>
 		</dict>
@@ -126,7 +126,7 @@
 			<key>displayText</key>
 			<string>DRILL</string>
 			<key>fileName</key>
-			<string>powerDrill.m4a</string>
+			<string>mikeDrillTap.m4a</string>
 			<key>loops</key>
 			<false/>
 		</dict>
