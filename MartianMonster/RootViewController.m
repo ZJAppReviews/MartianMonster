@@ -11,10 +11,13 @@
 #import "AVAudioFile+Constructors.h"
 #import "SoundboardCollectionViewCell.h"
 #import "SoundboardButton.h"
+#import "Soundboard.h"
+#import "SoundItem.h"
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SoundboardCollectionViewCellDelegate>
 #pragma mark - info
 @property NSArray *buttonTitlesArrays;
+@property NSArray *soundboardsArray;
 
 #pragma  mark - audio properties
 @property (nonatomic, strong) AVAudioEngine *engine;
@@ -33,14 +36,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *buttonTitlesArray1 =  @[@"(blip)", @"(ufo)", @"BLAST OFF!", @"SPEED", @"TRIP"];
-    NSArray *buttonTitlesArray2 =  @[@"oOoOo", @"ahhHH", @"THEY ATTACK!", @"meow", @"MEOW"];
-    NSArray *buttonTitlesArray3 =  @[@"vacuum", @"whale", @"BOMB", @"bell", @"drill"];
-    self.buttonTitlesArrays = @[buttonTitlesArray1, buttonTitlesArray2, buttonTitlesArray3];
 
     self.engine = [AVAudioEngine new];
+    [self setupDisplayTextArrays];
+    [self setupSoundboardArrays];
+    [self setupAudioForSoundboards];
 
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
+}
+
+-(void)setupDisplayTextArrays
+{
+    NSArray *buttonTitlesArray0 =  @[@"(blip)", @"(ufo)", @"BLAST OFF!", @"SPEED", @"TRIP"];
+    NSArray *buttonTitlesArray1 =  @[@"oOoOo", @"ahhHH", @"THEY ATTACK!", @"meow", @"MEOW"];
+    NSArray *buttonTitlesArray2 =  @[@"vacuum", @"whale", @"BOMB", @"bell", @"drill"];
+    self.buttonTitlesArrays = @[buttonTitlesArray0, buttonTitlesArray1, buttonTitlesArray2];
+}
+
+-(void)setupSoundboardArrays
+{
+    Soundboard *sb0 = [[Soundboard alloc] initWithDisplayTexts:self.buttonTitlesArrays[0]];
+    Soundboard *sb1 = [[Soundboard alloc] initWithDisplayTexts:self.buttonTitlesArrays[1]];
+    Soundboard *sb2 = [[Soundboard alloc] initWithDisplayTexts:self.buttonTitlesArrays[2]];
+    self.soundboardsArray = @[sb0, sb1, sb2];
+}
+
+-(void)setupAudioForSoundboards
+{
+    for (Soundboard *sb in self.soundboardsArray)
+    {
+        for (NSString *text in sb.displayTexts)
+        {
+            SoundItem *si = [SoundItem new];
+            si.displayText = text;
+            
+
+
+            [sb.soundItems addObject:si];
+        }
+    }
+    [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionView
@@ -49,11 +84,16 @@
     SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SampleCell" forIndexPath:indexPath];
     cell.delegate = self;
 
+    Soundboard *sb = self.soundboardsArray[indexPath.row];
+    SoundItem *si = sb.soundItems[2];
+
+    [cell.middleButton setTitle:si.displayText forState:UIControlStateNormal];
+
     //TODO: Use a more reliable condition here to check if cell has already been set up
     //Tried simply checking if cell == nil but was condition was not satisfied
-    if (cell.topLeftButton.audioFile == nil) {
-        [self configureAudioForCell:cell atIndexPath:indexPath];
-    }
+//    if (cell.topLeftButton.audioFile == nil) {
+//        [self configureAudioForCell:cell atIndexPath:indexPath];
+//    }
 
     return cell;
 }

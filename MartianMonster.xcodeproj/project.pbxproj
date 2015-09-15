@@ -25,6 +25,9 @@
 		9363217D1BA66CE6004CB7D6 /* 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321701BA66947004CB7D6 /* 13.m4a */; };
 		9363217E1BA66CE9004CB7D6 /* 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9363216F1BA6693D004CB7D6 /* 12.m4a */; };
 		9363217F1BA66CEB004CB7D6 /* 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9363216E1BA66932004CB7D6 /* 11.m4a */; };
+		936321881BA78C0B004CB7D6 /* Soundboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 936321871BA78C0B004CB7D6 /* Soundboard.m */; };
+		9363218B1BA78C1D004CB7D6 /* SoundItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363218A1BA78C1D004CB7D6 /* SoundItem.m */; };
+		9363218E1BA7CAF3004CB7D6 /* SoundInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9363218D1BA7CAF3004CB7D6 /* SoundInfo.plist */; };
 		93B8E33E1B818926008ECB47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E33D1B818926008ECB47 /* main.m */; };
 		93B8E3411B818926008ECB47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3401B818926008ECB47 /* AppDelegate.m */; };
 		93B8E3441B818926008ECB47 /* OuterSpaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3431B818926008ECB47 /* OuterSpaceViewController.m */; };
@@ -74,6 +77,11 @@
 		936321741BA6696D004CB7D6 /* 22.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 22.m4a; sourceTree = "<group>"; };
 		936321751BA66976004CB7D6 /* 24.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 24.m4a; sourceTree = "<group>"; };
 		936321761BA6697B004CB7D6 /* 23.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 23.m4a; sourceTree = "<group>"; };
+		936321861BA78C0B004CB7D6 /* Soundboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Soundboard.h; sourceTree = "<group>"; };
+		936321871BA78C0B004CB7D6 /* Soundboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soundboard.m; sourceTree = "<group>"; };
+		936321891BA78C1D004CB7D6 /* SoundItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundItem.h; sourceTree = "<group>"; };
+		9363218A1BA78C1D004CB7D6 /* SoundItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundItem.m; sourceTree = "<group>"; };
+		9363218D1BA7CAF3004CB7D6 /* SoundInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SoundInfo.plist; sourceTree = "<group>"; };
 		93B8E3381B818926008ECB47 /* MartianMonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartianMonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B8E33C1B818926008ECB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B8E33D1B818926008ECB47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,6 +151,17 @@
 			name = GIF;
 			sourceTree = "<group>";
 		};
+		9363218C1BA78C23004CB7D6 /* Sound Model */ = {
+			isa = PBXGroup;
+			children = (
+				936321861BA78C0B004CB7D6 /* Soundboard.h */,
+				936321871BA78C0B004CB7D6 /* Soundboard.m */,
+				936321891BA78C1D004CB7D6 /* SoundItem.h */,
+				9363218A1BA78C1D004CB7D6 /* SoundItem.m */,
+			);
+			name = "Sound Model";
+			sourceTree = "<group>";
+		};
 		93B8E32F1B818925008ECB47 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +198,7 @@
 				936321671BA6608E004CB7D6 /* SoundboardButton.m */,
 				936321691BA66337004CB7D6 /* AVAudioFile+Constructors.h */,
 				9363216A1BA66337004CB7D6 /* AVAudioFile+Constructors.m */,
+				9363218C1BA78C23004CB7D6 /* Sound Model */,
 				93B8E3451B818926008ECB47 /* Main.storyboard */,
 				93B8E3481B818926008ECB47 /* Images.xcassets */,
 				930274901B897996007F7F18 /* GIF */,
@@ -192,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				93B8E33C1B818926008ECB47 /* Info.plist */,
+				9363218D1BA7CAF3004CB7D6 /* SoundInfo.plist */,
 				93B8E33D1B818926008ECB47 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -330,6 +351,7 @@
 				9363217F1BA66CEB004CB7D6 /* 11.m4a in Resources */,
 				9363217D1BA66CE6004CB7D6 /* 13.m4a in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
+				9363218E1BA7CAF3004CB7D6 /* SoundInfo.plist in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
 				93B8E3711B81AE61008ECB47 /* 02.m4a in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
@@ -391,6 +413,8 @@
 			files = (
 				93B8E3441B818926008ECB47 /* OuterSpaceViewController.m in Sources */,
 				935D44341BA510F7005A024A /* RootViewController.m in Sources */,
+				9363218B1BA78C1D004CB7D6 /* SoundItem.m in Sources */,
+				936321881BA78C0B004CB7D6 /* Soundboard.m in Sources */,
 				9363216B1BA66337004CB7D6 /* AVAudioFile+Constructors.m in Sources */,
 				936321681BA6608E004CB7D6 /* SoundboardButton.m in Sources */,
 				9302748F1B8971E5007F7F18 /* UIImage+animatedGif.m in Sources */,
