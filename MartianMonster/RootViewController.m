@@ -8,7 +8,6 @@
 
 #import "RootViewController.h"
 @import AVFoundation;
-#import "AVAudioFile+Constructors.h"
 #import "SoundboardCollectionViewCell.h"
 #import "SoundManager.h"
 #import "Soundboard.h"
@@ -72,12 +71,7 @@
 }
 
 #pragma mark - SoundboardCollectionViewCellDelegate
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(UIButton *)button
-{
-    [self playAudioForButton:button];
-}
-
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(UIButton *)button
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
 {
     [self playAudioForButton:button];
 }
