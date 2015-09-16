@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SoundboardButton.h"
 @class SoundboardCollectionViewCell;
 
 @protocol SoundboardCollectionViewCellDelegate <NSObject>
 
 @required
 
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(SoundboardButton *)button;
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(UIButton *)button;
 
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(SoundboardButton *)button;
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(UIButton *)button;
 
 @end
 
@@ -24,10 +23,10 @@
 
 @property id<SoundboardCollectionViewCellDelegate> delegate;
 
-@property (strong, nonatomic) IBOutlet SoundboardButton *topLeftButton;
-@property (strong, nonatomic) IBOutlet SoundboardButton *topRightButton;
-@property (strong, nonatomic) IBOutlet SoundboardButton *middleButton;
-@property (strong, nonatomic) IBOutlet SoundboardButton *bottomLeftButton;
-@property (strong, nonatomic) IBOutlet SoundboardButton *bottomRightButton;
+@property (strong, nonatomic) IBOutlet UIButton *topLeftButton;
+@property (strong, nonatomic) IBOutlet UIButton *topRightButton;
+@property (strong, nonatomic) IBOutlet UIButton *middleButton;
+@property (strong, nonatomic) IBOutlet UIButton *bottomLeftButton;
+@property (strong, nonatomic) IBOutlet UIButton *bottomRightButton;
 
 @end

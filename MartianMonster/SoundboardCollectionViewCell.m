@@ -10,12 +10,12 @@
 
 @implementation SoundboardCollectionViewCell
 
-- (IBAction)didTapTopLeftButton:(SoundboardButton *)sender
+- (IBAction)didTapTopLeftButton:(UIButton *)sender
 {
     [self.delegate soundboardCollectionViewCell:self didTapTopLeftButton:sender];
 }
 
-- (IBAction)didTapMiddleButton:(SoundboardButton *)sender
+- (IBAction)didTapMiddleButton:(UIButton *)sender
 {
     [self.delegate soundboardCollectionViewCell:self didTapMiddleButton:sender];
 }

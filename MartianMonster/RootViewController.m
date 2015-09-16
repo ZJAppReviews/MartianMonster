@@ -10,7 +10,6 @@
 @import AVFoundation;
 #import "AVAudioFile+Constructors.h"
 #import "SoundboardCollectionViewCell.h"
-#import "SoundboardButton.h"
 #import "SoundManager.h"
 #import "Soundboard.h"
 #import "SoundItem.h"
@@ -40,7 +39,6 @@
 
     self.engine = [AVAudioEngine new];
     self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlistforEngine:self.engine];
-//    NSLog(@"%@", self.soundboardsArray);
 
     // Start engine
     NSError *error;
@@ -60,21 +58,6 @@
 
     currentRow = indexPath.row;
 
-    NSArray *soundItems = self.soundboardsArray[indexPath.row];
-
-    UIView *cellSuperview = cell.contentView.subviews.lastObject;
-
-    int i = 0;
-    for (UIView *view in cellSuperview.subviews)
-    {
-        if ([view isKindOfClass:[SoundboardButton class]])
-        {
-            SoundboardButton *button = (SoundboardButton *) view;
-            button.soundItem = soundItems[i];
-            i++;
-        }
-    }
-
     return cell;
 }
 
@@ -89,47 +72,50 @@
 }
 
 #pragma mark - SoundboardCollectionViewCellDelegate
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(SoundboardButton *)button
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(UIButton *)button
+{
+    [self playAudioForButton:button];
+}
+
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(UIButton *)button
+{
+    [self playAudioForButton:button];
+}
+
+//Helper
+-(void)playAudioForButton:(UIButton *)button
 {
     [self.collectionView reloadData];
+
     NSArray *soundItems = self.soundboardsArray[currentRow];
     SoundItem *soundItem = soundItems[button.tag];
 
-    if ([soundItem.playerNode isPlaying])
+    if (soundItem.bufferOption == AVAudioPlayerNodeBufferLoops)
     {
-        [soundItem.playerNode stop];
+        if ([soundItem.playerNode isPlaying])
+        {
+            [soundItem.playerNode stop];
+        }
+        else
+        {
+            [self scheduleAndPlaySoundItem:soundItem];
+        }
     }
     else
     {
-        // Schedule playing audio buffer
-        [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
-                                      atTime:nil
-                                     options:soundItem.bufferOption
-                           completionHandler:nil];
-
-        [soundItem.playerNode play];
+        [self scheduleAndPlaySoundItem:soundItem];
     }
 }
 
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(SoundboardButton *)button
+-(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem
 {
-    NSArray *soundItems = self.soundboardsArray[currentRow];
-    SoundItem *soundItem = soundItems[button.tag];
+    // Schedule playing audio buffer
+    [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
+                                  atTime:nil
+                                 options:soundItem.bufferOption
+                       completionHandler:nil];
 
-    if ([soundItem.playerNode isPlaying])
-    {
-        [soundItem.playerNode stop];
-    }
-    else
-    {
-        // Schedule playing audio buffer
-        [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
-                                      atTime:nil
-                                     options:soundItem.bufferOption
-                           completionHandler:nil];
-
-        [soundItem.playerNode play];
-    }
+    [soundItem.playerNode play];
 }
 
 #pragma mark - Orientation

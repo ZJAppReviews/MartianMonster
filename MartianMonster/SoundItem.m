@@ -16,7 +16,7 @@
     self.displayText = dict[@"displayText"];
 
     self.bufferOption = AVAudioPlayerNodeBufferInterrupts;
-    if (dict[@"loops"])
+    if ([dict[@"loops"] boolValue])
     {
         self.bufferOption = AVAudioPlayerNodeBufferLoops;
     }

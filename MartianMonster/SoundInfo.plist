@@ -159,7 +159,7 @@
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
-			<false/>
+			<true/>
 			<key>pitchEffect</key>
 			<false/>
 		</dict>
