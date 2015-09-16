@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 @import AVFoundation;
+#import "SoundItem.h"
 
 @interface SoundManager : NSObject
 
 +(NSMutableArray *)arrayOfSoundboardsFromPlistforEngine:(AVAudioEngine *)engine;
+
++(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem;
 
 @end

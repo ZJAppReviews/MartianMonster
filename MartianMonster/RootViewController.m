@@ -115,24 +115,13 @@
         }
         else
         {
-            [self scheduleAndPlaySoundItem:soundItem];
+            [SoundManager scheduleAndPlaySoundItem:soundItem];
         }
     }
     else
     {
-        [self scheduleAndPlaySoundItem:soundItem];
+        [SoundManager scheduleAndPlaySoundItem:soundItem];
     }
-}
-
--(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem
-{
-    // Schedule playing audio buffer
-    [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
-                                  atTime:nil
-                                 options:soundItem.bufferOption
-                       completionHandler:nil];
-
-    [soundItem.playerNode play];
 }
 
 #pragma mark - Scrollview delegate
@@ -140,6 +129,17 @@
 {
     CGFloat pageWidth = self.collectionView.frame.size.width;
     self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
+}
+
+#pragma mark - Slider
+- (IBAction)onSliderMoved:(UISlider *)sender
+{
+    NSArray *soundItems = self.soundboardsArray[currentRow];
+
+    for (SoundItem *soundItem in soundItems)
+    {
+        soundItem.utPitch.pitch = sender.value;
+    }
 }
 
 #pragma mark - Orientation
@@ -159,14 +159,16 @@
     int scrolledX = self.collectionView.contentOffset.x;
     lastPageBeforeRotate = 0;
 
-    if (pageWidth > 0) {
+    if (pageWidth > 0)
+    {
         lastPageBeforeRotate = scrolledX / pageWidth;
     }
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (lastPageBeforeRotate != -1) {
+    if (lastPageBeforeRotate != -1)
+    {
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
         lastPageBeforeRotate = -1;
     }

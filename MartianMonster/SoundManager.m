@@ -33,4 +33,15 @@
     return soundboardsArray;
 }
 
++(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem
+{
+    // Schedule playing audio buffer
+    [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
+                                  atTime:nil
+                                 options:soundItem.bufferOption
+                       completionHandler:nil];
+
+    [soundItem.playerNode play];
+}
+
 @end

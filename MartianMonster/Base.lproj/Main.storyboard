@@ -149,12 +149,15 @@
                                     <outlet property="delegate" destination="IDw-lP-XpV" id="JMg-rC-Nco"/>
                                 </connections>
                             </collectionView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-xS-ORU">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-1200" maxValue="1200" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-xS-ORU">
                                 <rect key="frame" x="6" y="535" width="587.5" height="31"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="90D-Ek-G16"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="onSliderMoved:" destination="IDw-lP-XpV" eventType="valueChanged" id="uFI-hC-wNu"/>
+                                </connections>
                             </slider>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="az5-A8-DCd">
                                 <rect key="frame" x="280" y="570" width="39" height="37"/>
