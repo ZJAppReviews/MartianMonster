@@ -10,6 +10,6 @@
 
 @interface AVAudioFile (Constructors)
 
-- (instancetype)initWithPathNamed:(NSString *)name ofType:(NSString *)type;
+- (instancetype)initWithPathNamed:(NSString *)name;
 
 @end

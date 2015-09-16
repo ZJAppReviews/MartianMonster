@@ -22,5 +22,6 @@
 @property BOOL pitchEffect;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
+-(void)setUpAudioWithEngine:(AVAudioEngine *)engine;
 
 @end

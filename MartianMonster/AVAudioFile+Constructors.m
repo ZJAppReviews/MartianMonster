@@ -10,9 +10,9 @@
 
 @implementation AVAudioFile (Constructors)
 
-- (instancetype)initWithPathNamed:(NSString *)name ofType:(NSString *)type;
+- (instancetype)initWithPathNamed:(NSString *)name;
 {
-    NSString *pathZero = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    NSString *pathZero = [[NSBundle mainBundle] pathForResource:name ofType:nil];
     return [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]
                                          error:nil];
 }

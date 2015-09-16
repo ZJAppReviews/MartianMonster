@@ -5,9 +5,11 @@
 	<array>
 		<dict>
 			<key>displayText</key>
-			<string>(ufo)</string>
+			<string>(blip)</string>
 			<key>fileName</key>
-			<string>ufo.m4a</string>
+			<string>blip</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<true/>
 			<key>pitchEffect</key>
@@ -15,9 +17,11 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>(blip)</string>
+			<string>(ufo)</string>
 			<key>fileName</key>
-			<string>blip.m4a</string>
+			<string>ufo</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<true/>
 			<key>pitchEffect</key>
@@ -27,17 +31,9 @@
 			<key>displayText</key>
 			<string>BLAST OFF</string>
 			<key>fileName</key>
-			<string>blastOff.m4a</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>TRIP</string>
-			<key>fileName</key>
-			<string>tripIsShort.m4a</string>
+			<string>blastOff</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -47,11 +43,25 @@
 			<key>displayText</key>
 			<string>SPEED</string>
 			<key>fileName</key>
-			<string>incredibleSpeed.m4a</string>
+			<string>incredibleSpeed</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
 			<false/>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>TRIP</string>
+			<key>fileName</key>
+			<string>tripIsShort</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
 		</dict>
 	</array>
 	<array>
@@ -59,7 +69,9 @@
 			<key>displayText</key>
 			<string>ahhHH</string>
 			<key>fileName</key>
-			<string>screamAh.m4a</string>
+			<string>screamAh</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -69,7 +81,9 @@
 			<key>displayText</key>
 			<string>oOoOo</string>
 			<key>fileName</key>
-			<string>spookyOh.m4a</string>
+			<string>spookyOh</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -79,7 +93,9 @@
 			<key>displayText</key>
 			<string>THEY ATTACK</string>
 			<key>fileName</key>
-			<string>theyAttack.m4a</string>
+			<string>theyAttack</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -89,7 +105,9 @@
 			<key>displayText</key>
 			<string>big, beautiful</string>
 			<key>fileName</key>
-			<string>yourCat.m4a</string>
+			<string>yourCat</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -99,7 +117,9 @@
 			<key>displayText</key>
 			<string>meow</string>
 			<key>fileName</key>
-			<string>meowSoft.m4a</string>
+			<string>meowSoft</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -111,7 +131,9 @@
 			<key>displayText</key>
 			<string>space</string>
 			<key>fileName</key>
-			<string>treySpace.m4a</string>
+			<string>treySpace</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -121,7 +143,9 @@
 			<key>displayText</key>
 			<string>once</string>
 			<key>fileName</key>
-			<string>treyOnce.m4a</string>
+			<string>treyOnce</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -131,7 +155,9 @@
 			<key>displayText</key>
 			<string>jib</string>
 			<key>fileName</key>
-			<string>treyJibboo.m4a</string>
+			<string>treyJibboo</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -141,7 +167,9 @@
 			<key>displayText</key>
 			<string>DRILL</string>
 			<key>fileName</key>
-			<string>mikeDrillTap.m4a</string>
+			<string>mikeDrillTap</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -151,7 +179,9 @@
 			<key>displayText</key>
 			<string>BELL</string>
 			<key>fileName</key>
-			<string>mikeFightBell.mp3</string>
+			<string>mikeFightBell</string>
+			<key>fileExtension</key>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>

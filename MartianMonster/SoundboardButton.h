@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@import AVFoundation;
+#import "SoundItem.h"
+#import "Soundboard.h"
 
 @interface SoundboardButton : UIButton
 
-@property AVAudioFile *audioFile;
-@property AVAudioPCMBuffer *audioPCMBuffer;
-@property AVAudioPlayerNode *playerNode;
-@property AVAudioUnitTimePitch *utPitch;
-@property AVAudioPlayerNodeBufferOptions bufferOption;
-@property BOOL pitchEffect;
+@property Soundboard *soundboard;
+@property SoundItem *soundItem;
 
 @end

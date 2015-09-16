@@ -11,13 +11,13 @@
 #import "AVAudioFile+Constructors.h"
 #import "SoundboardCollectionViewCell.h"
 #import "SoundboardButton.h"
+#import "SoundManager.h"
 #import "Soundboard.h"
 #import "SoundItem.h"
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SoundboardCollectionViewCellDelegate>
 #pragma mark - info
-@property NSArray *buttonTitlesArrays;
-@property NSArray *soundboardsArray;
+@property NSMutableArray *soundboardsArray;
 
 #pragma  mark - audio properties
 @property (nonatomic, strong) AVAudioEngine *engine;
@@ -30,6 +30,7 @@
 
 @implementation RootViewController
 {
+    NSInteger currentRow;
     NSInteger lastPageBeforeRotate;
 }
 
@@ -38,63 +39,17 @@
     [super viewDidLoad];
 
     self.engine = [AVAudioEngine new];
-    [self setupDisplayTextArrays];
-    [self setupSoundboardArrays];
-    [self setupAudioForSoundboards];
+    self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlistforEngine:self.engine];
+//    NSLog(@"%@", self.soundboardsArray);
+
+    // Start engine
+    NSError *error;
+    [self.engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
+    }
 
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
-
-    [self extractSoundInfoFromPlist];
-}
-
--(void)extractSoundInfoFromPlist
-{
-    NSURL *path = [[NSBundle mainBundle] URLForResource:@"SoundInfo" withExtension:@"plist"];
-    NSArray *soundListsArray = [NSArray arrayWithContentsOfURL:path];
-
-//    NSLog(@"%@", soundListsArray);
-
-    for (NSArray *soundList in soundListsArray)
-    {
-        for (NSDictionary *soundDict in soundList)
-        {
-            SoundItem *soundItem = [[SoundItem alloc] initWithDictionary:soundDict];
-            NSLog(@"%i", soundItem.pitchEffect);
-        }
-    }
-}
-
--(void)setupDisplayTextArrays
-{
-    NSArray *buttonTitlesArray0 =  @[@"(blip)", @"(ufo)", @"BLAST OFF!", @"SPEED", @"TRIP"];
-    NSArray *buttonTitlesArray1 =  @[@"oOoOo", @"ahhHH", @"THEY ATTACK!", @"meow", @"MEOW"];
-    NSArray *buttonTitlesArray2 =  @[@"vacuum", @"whale", @"BOMB", @"bell", @"drill"];
-    self.buttonTitlesArrays = @[buttonTitlesArray0, buttonTitlesArray1, buttonTitlesArray2];
-}
-
--(void)setupSoundboardArrays
-{
-    Soundboard *sb0 = [[Soundboard alloc] initWithDisplayTexts:self.buttonTitlesArrays[0]];
-    Soundboard *sb1 = [[Soundboard alloc] initWithDisplayTexts:self.buttonTitlesArrays[1]];
-    Soundboard *sb2 = [[Soundboard alloc] initWithDisplayTexts:self.buttonTitlesArrays[2]];
-    self.soundboardsArray = @[sb0, sb1, sb2];
-}
-
--(void)setupAudioForSoundboards
-{
-    for (Soundboard *sb in self.soundboardsArray)
-    {
-        for (NSString *text in sb.displayTexts)
-        {
-            SoundItem *si = [SoundItem new];
-            si.displayText = text;
-            
-
-
-            [sb.soundItems addObject:si];
-        }
-    }
-    [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionView
@@ -103,28 +58,9 @@
     SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SampleCell" forIndexPath:indexPath];
     cell.delegate = self;
 
-    Soundboard *sb = self.soundboardsArray[indexPath.row];
-    SoundItem *si = sb.soundItems[2];
+    currentRow = indexPath.row;
 
-    [cell.middleButton setTitle:si.displayText forState:UIControlStateNormal];
-
-    return cell;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return self.buttonTitlesArrays.count;
-}
-
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return self.view.frame.size;
-}
-
-#pragma mark - Helpers for cell setup
--(void)configureAudioForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    NSArray *titlesArray = self.buttonTitlesArrays[indexPath.row];
+    NSArray *soundItems = self.soundboardsArray[indexPath.row];
 
     UIView *cellSuperview = cell.contentView.subviews.lastObject;
 
@@ -134,81 +70,66 @@
         if ([view isKindOfClass:[SoundboardButton class]])
         {
             SoundboardButton *button = (SoundboardButton *) view;
-            [button setTitle:titlesArray[i] forState:UIControlStateNormal];
-            NSLog(@"%@",button.titleLabel.text);
-
-            // Prepare audio file
-            button.audioFile = [[AVAudioFile alloc] initWithPathNamed:[NSString stringWithFormat:@"%i0", (int)indexPath.row]
-                                                                           ofType:@"m4a"];
-            // Prepare Buffer Zero
-            AVAudioFormat *audioFormatZero = button.audioFile.processingFormat;
-            AVAudioFrameCount lengthZero = (AVAudioFrameCount)button.audioFile.length;
-            button.audioPCMBuffer = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatZero frameCapacity:lengthZero];
-            [button.audioFile readIntoBuffer:button.audioPCMBuffer error:nil];
-
-            // Prepare AVAudioPlayerNode Zero
-            button.playerNode = [AVAudioPlayerNode new];
-            button.playerNode.volume = 0.55;
-            [self.engine attachNode:button.playerNode];
-
-            // Set pitch (if applicable) and connect nodes
-            AVAudioMixerNode *mixerNode = [self.engine mainMixerNode];
-            if (button.pitchEffect)
-            {
-                //pitches
-                button.utPitch = [AVAudioUnitTimePitch new];
-                button.utPitch.pitch = 0.0;
-                button.utPitch.rate = 1.0;
-                [self.engine attachNode:button.utPitch];
-
-                //connect Nodes
-                [self.engine connect:button.playerNode
-                                  to:button.utPitch
-                              format:button.audioFile.processingFormat];
-                [self.engine connect:button.utPitch
-                                  to:mixerNode
-                              format:button.audioFile.processingFormat];
-            }
-            else
-            {
-                //only connect nodes (no pitches)
-                [self.engine connect:button.playerNode
-                                  to:mixerNode
-                              format:button.audioFile.processingFormat];
-            }
+            button.soundItem = soundItems[i];
+            i++;
         }
-        i++;
     }
 
-    // Start engine
-    NSError *error;
-    [self.engine startAndReturnError:&error];
-    if (error) {
-        NSLog(@"error:%@", error);
-    }
+    return cell;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.soundboardsArray.count;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.view.frame.size;
 }
 
 #pragma mark - SoundboardCollectionViewCellDelegate
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapTopLeftButton:(SoundboardButton *)button
 {
-    if ([button.playerNode isPlaying])
+    [self.collectionView reloadData];
+    NSArray *soundItems = self.soundboardsArray[currentRow];
+    SoundItem *soundItem = soundItems[button.tag];
+
+    if ([soundItem.playerNode isPlaying])
     {
-        [button.playerNode stop];
+        [soundItem.playerNode stop];
     }
     else
     {
         // Schedule playing audio buffer
-        [button.playerNode scheduleBuffer:button.audioPCMBuffer
-                                   atTime:nil
-                                  options:AVAudioPlayerNodeBufferLoops
-                        completionHandler:nil];
-        
-        [button.playerNode play];
+        [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
+                                      atTime:nil
+                                     options:soundItem.bufferOption
+                           completionHandler:nil];
+
+        [soundItem.playerNode play];
     }
 }
 
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapMiddleButton:(SoundboardButton *)button
 {
+    NSArray *soundItems = self.soundboardsArray[currentRow];
+    SoundItem *soundItem = soundItems[button.tag];
+
+    if ([soundItem.playerNode isPlaying])
+    {
+        [soundItem.playerNode stop];
+    }
+    else
+    {
+        // Schedule playing audio buffer
+        [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
+                                      atTime:nil
+                                     options:soundItem.bufferOption
+                           completionHandler:nil];
+
+        [soundItem.playerNode play];
+    }
 }
 
 #pragma mark - Orientation
