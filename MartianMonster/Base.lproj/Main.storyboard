@@ -6,157 +6,6 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Outer Space View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="OuterSpaceViewController" id="BYZ-38-t0r" customClass="OuterSpaceViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-Pd-n83">
-                                <rect key="frame" x="0.0" y="200" width="600" height="200"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="BLAST OFF">
-                                    <color key="titleColor" red="0.99215686274509807" green="0.89411764705882357" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onMiddleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G9P-Uh-Izf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-M6-8UC">
-                                <rect key="frame" x="300" y="400" width="300" height="200"/>
-                                <color key="backgroundColor" red="0.58431372550000005" green="0.0" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="TRIP">
-                                    <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onBottomRightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C3Z-e5-3Fb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-K1-kET">
-                                <rect key="frame" x="300" y="0.0" width="300" height="200"/>
-                                <color key="backgroundColor" red="0.83529411764705885" green="0.0" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="(ufo)">
-                                    <color key="titleColor" red="0.99607843137254903" green="0.90196078431372551" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTopRowButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d2l-gK-tda"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQG-vt-OJ4">
-                                <rect key="frame" x="0.0" y="400" width="300" height="200"/>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.46666666666666667" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="SPEED">
-                                    <color key="titleColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onBottomLeftButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hKa-Rb-bYr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q28-31-zUr">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                <color key="backgroundColor" red="0.23921568627450981" green="0.58039215686274515" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
-                                <state key="normal" title="(blip)">
-                                    <color key="titleColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTopRowButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jzq-ev-Kzl"/>
-                                </connections>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-2400" maxValue="2400" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-2F-jg8">
-                                <rect key="frame" x="14" y="542" width="572" height="31"/>
-                                <color key="tintColor" red="0.99215686274509807" green="0.89411764705882357" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="onSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="5S7-cf-q3U"/>
-                                </connections>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIv-vZ-d2V">
-                                <rect key="frame" x="127" y="148" width="30" height="30"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause" translatesAutoresizingMaskIntoConstraints="NO" id="zm1-zK-H3l">
-                                <rect key="frame" x="102" y="71" width="97" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="Dww-og-0LI"/>
-                                    <constraint firstAttribute="width" constant="97" id="VLs-IW-Kse"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause" translatesAutoresizingMaskIntoConstraints="NO" id="yjZ-Yp-IxJ">
-                                <rect key="frame" x="402" y="71" width="97" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="8DJ-Uy-rbw"/>
-                                    <constraint firstAttribute="height" constant="57" id="8mx-sx-fES"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yjZ-Yp-IxJ" firstAttribute="centerX" secondItem="9CZ-K1-kET" secondAttribute="centerX" constant="0.5" id="02j-iU-ZuP"/>
-                            <constraint firstItem="zm1-zK-H3l" firstAttribute="centerX" secondItem="q28-31-zUr" secondAttribute="centerX" constant="0.5" id="0GR-pW-eS4"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="2mg-Ae-Ipr"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="q28-31-zUr" secondAttribute="bottom" id="4bX-6J-080"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="q28-31-zUr" secondAttribute="trailing" id="6sh-qV-GQA"/>
-                            <constraint firstItem="q28-31-zUr" firstAttribute="height" secondItem="9CZ-K1-kET" secondAttribute="height" id="8Fo-vp-mTw"/>
-                            <constraint firstAttribute="trailing" secondItem="Rdg-M6-8UC" secondAttribute="trailing" id="B8I-Gr-9aX"/>
-                            <constraint firstAttribute="centerY" secondItem="xzd-Pd-n83" secondAttribute="centerY" id="CMe-f3-o1O"/>
-                            <constraint firstItem="q28-31-zUr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DfL-G0-es1"/>
-                            <constraint firstAttribute="trailing" secondItem="xzd-Pd-n83" secondAttribute="trailing" id="DiG-7o-7KQ"/>
-                            <constraint firstItem="q28-31-zUr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="F2v-rE-h2q"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="Muk-Ch-liT"/>
-                            <constraint firstItem="q28-31-zUr" firstAttribute="width" secondItem="9CZ-K1-kET" secondAttribute="width" id="Nix-bf-HPB"/>
-                            <constraint firstItem="yjZ-Yp-IxJ" firstAttribute="centerY" secondItem="9CZ-K1-kET" secondAttribute="centerY" constant="-0.5" id="OJi-8Q-wIK"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="leading" secondItem="q28-31-zUr" secondAttribute="trailing" id="Ouf-AJ-8lv"/>
-                            <constraint firstItem="Rdg-M6-8UC" firstAttribute="leading" secondItem="jQG-vt-OJ4" secondAttribute="trailing" id="P54-EX-hev"/>
-                            <constraint firstAttribute="centerY" secondItem="dE2-2F-jg8" secondAttribute="centerY" multiplier="0.555" constant="-9" id="PcN-hm-n9q"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RhI-js-jJ4"/>
-                            <constraint firstAttribute="trailing" secondItem="9CZ-K1-kET" secondAttribute="trailing" id="UBX-qd-W6A"/>
-                            <constraint firstItem="9CZ-K1-kET" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Vil-3B-w5C"/>
-                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z6w-e3-6Aw"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rdg-M6-8UC" secondAttribute="bottom" id="a38-yc-8ox"/>
-                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="width" secondItem="Rdg-M6-8UC" secondAttribute="width" id="aht-dm-4Ey"/>
-                            <constraint firstItem="q28-31-zUr" firstAttribute="height" secondItem="xzd-Pd-n83" secondAttribute="height" id="dHn-53-cLh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jQG-vt-OJ4" secondAttribute="bottom" id="eZS-dT-Lc0"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="q28-31-zUr" secondAttribute="bottom" id="i8E-XP-mTS"/>
-                            <constraint firstItem="jQG-vt-OJ4" firstAttribute="top" secondItem="xzd-Pd-n83" secondAttribute="bottom" id="ki4-SK-97J"/>
-                            <constraint firstAttribute="centerX" secondItem="xzd-Pd-n83" secondAttribute="centerX" id="lXp-xL-LKd"/>
-                            <constraint firstItem="xzd-Pd-n83" firstAttribute="top" secondItem="9CZ-K1-kET" secondAttribute="bottom" id="m3x-Mp-3uf"/>
-                            <constraint firstAttribute="trailing" secondItem="dE2-2F-jg8" secondAttribute="trailing" constant="16" id="m4t-Qp-6Nu"/>
-                            <constraint firstItem="dE2-2F-jg8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="qiP-kZ-5ds"/>
-                            <constraint firstItem="zm1-zK-H3l" firstAttribute="centerY" secondItem="q28-31-zUr" secondAttribute="centerY" constant="-0.5" id="tbU-bN-olm"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="bottomLeftButton" destination="jQG-vt-OJ4" id="YUQ-qL-Tx9"/>
-                        <outlet property="bottomRightButton" destination="Rdg-M6-8UC" id="Jdj-Fb-8mY"/>
-                        <outlet property="middleButton" destination="xzd-Pd-n83" id="Pnr-UC-0Eh"/>
-                        <outlet property="pauseOneImageView" destination="yjZ-Yp-IxJ" id="Wna-fO-p0a"/>
-                        <outlet property="pauseZeroImageView" destination="zm1-zK-H3l" id="Feq-mn-Xs8"/>
-                        <outlet property="slider" destination="dE2-2F-jg8" id="jWR-6x-UBp"/>
-                        <outlet property="topLeftButton" destination="q28-31-zUr" id="3cx-mA-PRe"/>
-                        <outlet property="topRightButton" destination="9CZ-K1-kET" id="ZZ9-h5-iJz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="269" y="70"/>
-        </scene>
         <!--Root View Controller-->
         <scene sceneID="q6a-Bp-FKf">
             <objects>
@@ -190,8 +39,10 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scI-5W-0x3">
                                                             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                                            <color key="backgroundColor" red="0.20432502650000001" green="0.56125350870000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.23921568630000001" green="0.58039215690000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                                             <state key="normal" title="Button">
+                                                                <color key="titleColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -200,8 +51,10 @@
                                                         </button>
                                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-qh-6SR">
                                                             <rect key="frame" x="299" y="0.0" width="300" height="200"/>
-                                                            <color key="backgroundColor" red="0.99607843139999996" green="0.0" blue="0.086234309970000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.83529411760000005" green="0.0" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                                             <state key="normal" title="Button">
+                                                                <color key="titleColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -210,8 +63,10 @@
                                                         </button>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq5-JB-Ng8">
                                                             <rect key="frame" x="0.0" y="200" width="599.5" height="200"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                                             <state key="normal" title="Button">
+                                                                <color key="titleColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -220,8 +75,10 @@
                                                         </button>
                                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-rt-8dG">
                                                             <rect key="frame" x="0.0" y="400" width="300" height="200"/>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                                             <state key="normal" title="Button">
+                                                                <color key="titleColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -230,8 +87,10 @@
                                                         </button>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbx-Hv-5DT">
                                                             <rect key="frame" x="299" y="400" width="300" height="200"/>
-                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="55"/>
                                                             <state key="normal" title="Button">
+                                                                <color key="titleColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -239,7 +98,7 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="Xfa-rt-8dG" firstAttribute="leading" secondItem="5uC-rO-tYU" secondAttribute="leading" id="1ns-WH-hxY"/>
                                                         <constraint firstItem="kq5-JB-Ng8" firstAttribute="height" secondItem="scI-5W-0x3" secondAttribute="height" id="5bd-hC-OtL"/>
@@ -318,7 +177,4 @@
             <point key="canvasLocation" x="-404" y="70"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pause" width="42" height="46"/>
-    </resources>
 </document>

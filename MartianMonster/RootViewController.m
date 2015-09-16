@@ -57,7 +57,28 @@
 
     currentRow = indexPath.row;
 
+    [self setUpViewsForCell:cell atIndexPath:indexPath];
+
     return cell;
+}
+
+#pragma mark - View setup
+-(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *soundItems = self.soundboardsArray[currentRow];
+
+    UIView *cellSuperview = cell.contentView.subviews.lastObject;
+
+    for (UIView *view in cellSuperview.subviews)
+    {
+        if ([view isKindOfClass:[UIButton class]])
+        {
+            UIButton *button = (UIButton *) view;
+            SoundItem *soundItem = soundItems[button.tag];
+            [button setTitle:soundItem.displayText forState:UIControlStateNormal];
+        }
+    }
+
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -76,7 +97,7 @@
     [self playAudioForButton:button];
 }
 
-#pragma mark - Play helpers
+#pragma mark - Play audio helpers
 -(void)playAudioForButton:(UIButton *)button
 {
     [self.collectionView reloadData];
