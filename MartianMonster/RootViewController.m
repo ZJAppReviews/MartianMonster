@@ -13,7 +13,7 @@
 #import "Soundboard.h"
 #import "SoundItem.h"
 
-@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SoundboardCollectionViewCellDelegate>
+@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate>
 #pragma mark - info
 @property NSMutableArray *soundboardsArray;
 
@@ -23,6 +23,7 @@
 #pragma  mark - view outlets
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -133,6 +134,13 @@
     [soundItem.playerNode play];
 }
 
+#pragma mark - Scrollview delegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    CGFloat pageWidth = self.collectionView.frame.size.width;
+    self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
+}
+
 #pragma mark - Orientation
 - (void)viewWillLayoutSubviews;
 {
@@ -159,6 +167,12 @@
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
         lastPageBeforeRotate = -1;
     }
+}
+
+//Enables upside-down orientation
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return (int) UIInterfaceOrientationMaskAll;
 }
 
 @end

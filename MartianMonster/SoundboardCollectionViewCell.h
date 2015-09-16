@@ -21,10 +21,6 @@
 
 @property id<SoundboardCollectionViewCellDelegate> delegate;
 
-@property (strong, nonatomic) IBOutlet UIButton *topLeftButton;
-@property (strong, nonatomic) IBOutlet UIButton *topRightButton;
-@property (strong, nonatomic) IBOutlet UIButton *middleButton;
-@property (strong, nonatomic) IBOutlet UIButton *bottomLeftButton;
-@property (strong, nonatomic) IBOutlet UIButton *bottomRightButton;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 @end
