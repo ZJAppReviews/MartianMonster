@@ -206,7 +206,6 @@
                                                             </state>
                                                             <connections>
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="Yeb-3D-uuX"/>
-                                                                <action selector="didTapTopRightButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="uxg-Zf-6WZ"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq5-JB-Ng8">
@@ -226,7 +225,6 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="didTapBottomLeftButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="vch-2Y-9xR"/>
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="i27-3p-HfB"/>
                                                             </connections>
                                                         </button>
@@ -237,7 +235,6 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="didTapBottomLeftButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="3db-BK-QhW"/>
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="tKt-oT-1Mv"/>
                                                             </connections>
                                                         </button>

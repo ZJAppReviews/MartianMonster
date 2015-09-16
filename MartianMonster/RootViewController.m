@@ -76,7 +76,7 @@
     [self playAudioForButton:button];
 }
 
-//Helper
+#pragma mark - Play helpers
 -(void)playAudioForButton:(UIButton *)button
 {
     [self.collectionView reloadData];
