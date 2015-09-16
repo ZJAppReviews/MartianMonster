@@ -235,7 +235,6 @@
 		93B8E33A1B818926008ECB47 /* MartianMonster */ = {
 			isa = PBXGroup;
 			children = (
-				93B8E3611B818953008ECB47 /* Sound Bites */,
 				93B8E33F1B818926008ECB47 /* AppDelegate.h */,
 				93B8E3401B818926008ECB47 /* AppDelegate.m */,
 				9317F4D11BA9524300B092F4 /* Controller */,
@@ -253,8 +252,9 @@
 		93B8E33B1B818926008ECB47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				93B8E33C1B818926008ECB47 /* Info.plist */,
 				9317F4CC1BA8D8AA00B092F4 /* SoundInfo.plist */,
+				93B8E3611B818953008ECB47 /* Sound Bites */,
+				93B8E33C1B818926008ECB47 /* Info.plist */,
 				93B8E33D1B818926008ECB47 /* main.m */,
 			);
 			name = "Supporting Files";
