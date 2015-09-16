@@ -22,7 +22,6 @@
 
     self.pitchEffect = [dict[@"pitchEffect"] boolValue];
 
-    NSLog(@"%@", dict[@"fileName"]);
     NSString *pathZero = [[NSBundle mainBundle] pathForResource:dict[@"fileName"] ofType:dict[@"fileExtension"]];
     self.audioFile = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]
                                          error:nil];

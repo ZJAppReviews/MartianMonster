@@ -47,6 +47,7 @@
         NSLog(@"error:%@", error);
     }
 
+    self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 }
 
@@ -152,7 +153,8 @@
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
     int pageWidth = self.collectionView.contentSize.width / 3;
     int scrolledX = self.collectionView.contentOffset.x;
     lastPageBeforeRotate = 0;
@@ -162,7 +164,8 @@
     }
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
     if (lastPageBeforeRotate != -1) {
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
         lastPageBeforeRotate = -1;
