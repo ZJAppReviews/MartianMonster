@@ -10,7 +10,6 @@
 
 @interface Soundboard : NSObject
 
-@property NSArray *displayTexts;
 @property NSMutableArray *soundItems;
 
 - (instancetype)initWithDisplayTexts:(NSArray *)displayTexts;
