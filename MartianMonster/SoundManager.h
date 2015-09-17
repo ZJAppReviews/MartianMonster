@@ -16,4 +16,8 @@
 
 +(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem;
 
++(void)startEngine:(AVAudioEngine *)engine;
+
++(void)activateAudioSessionForBackgroundPlay;
+
 @end

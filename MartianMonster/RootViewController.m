@@ -41,12 +41,8 @@
     self.engine = [AVAudioEngine new];
     self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlistforEngine:self.engine];
 
-    // Start engine
-    NSError *error;
-    [self.engine startAndReturnError:&error];
-    if (error) {
-        NSLog(@"error:%@", error);
-    }
+    [SoundManager startEngine:self.engine];
+    [SoundManager activateAudioSessionForBackgroundPlay];
 
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;

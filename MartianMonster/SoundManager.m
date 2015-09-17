@@ -44,4 +44,21 @@
     [soundItem.playerNode play];
 }
 
++(void)startEngine:(AVAudioEngine *)engine
+{
+    // Start engine
+    NSError *error;
+    [engine startAndReturnError:&error];
+    if (error) {
+        NSLog(@"error:%@", error);
+    }
+}
+
++(void)activateAudioSessionForBackgroundPlay
+{
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&sessionError];
+    [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
+}
+
 @end
