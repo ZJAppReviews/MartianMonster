@@ -130,7 +130,9 @@
     CGFloat pageWidth = self.collectionView.frame.size.width;
     self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 
-    [self onSliderMoved:self.slider]; //Resets pitch appropriately when moving back to a previous screen
+    [self onSliderMoved:self.slider]; // Resets pitch appropriately when moving back to a previous screen
+
+    [self.collectionView reloadData]; // Assures that correct soundboard is selected in self.soundboardsArray
 }
 
 #pragma mark - Slider

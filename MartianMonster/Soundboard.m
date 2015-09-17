@@ -12,7 +12,6 @@
 
 - (instancetype)initWithDisplayTexts:(NSArray *)displayTexts
 {
-    self.displayTexts = displayTexts;
     self.soundItems = [NSMutableArray new];
     return self;
 }
