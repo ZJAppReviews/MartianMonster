@@ -67,9 +67,9 @@
 	<array>
 		<dict>
 			<key>displayText</key>
-			<string>ahhHH</string>
+			<string>oOoOo</string>
 			<key>fileName</key>
-			<string>screamAh</string>
+			<string>spookyOh</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -79,9 +79,9 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>oOoOo</string>
+			<string>ahhHH</string>
 			<key>fileName</key>
-			<string>spookyOh</string>
+			<string>screamAh</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>

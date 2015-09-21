@@ -98,8 +98,6 @@
 #pragma mark - Play audio helpers
 -(void)playAudioForButton:(UIButton *)button
 {
-    [self.collectionView reloadData];
-
     NSArray *soundItems = self.soundboardsArray[currentRow];
     SoundItem *soundItem = soundItems[button.tag];
 
@@ -124,11 +122,9 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat pageWidth = self.collectionView.frame.size.width;
-    self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
+    currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 
     [self onSliderMoved:self.slider]; // Resets pitch appropriately when moving back to a previous screen
-
-    [self.collectionView reloadData]; // Assures that correct soundboard is selected in self.soundboardsArray
 }
 
 #pragma mark - Slider
