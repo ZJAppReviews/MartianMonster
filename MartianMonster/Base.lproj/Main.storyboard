@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IDw-lP-XpV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -98,26 +97,12 @@
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="tKt-oT-1Mv"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause" translatesAutoresizingMaskIntoConstraints="NO" id="0cX-Tu-KYT">
-                                                            <rect key="frame" x="115" y="60" width="70" height="79"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="0cX-Tu-KYT" secondAttribute="height" multiplier="70:79" id="V9a-KN-Obm"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause" translatesAutoresizingMaskIntoConstraints="NO" id="RXW-2k-YNx">
-                                                            <rect key="frame" x="414" y="60" width="70" height="79"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="RXW-2k-YNx" secondAttribute="height" multiplier="70:79" id="6xe-4W-I49"/>
-                                                            </constraints>
-                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="Xfa-rt-8dG" firstAttribute="leading" secondItem="5uC-rO-tYU" secondAttribute="leading" id="1ns-WH-hxY"/>
-                                                        <constraint firstItem="0cX-Tu-KYT" firstAttribute="width" secondItem="scI-5W-0x3" secondAttribute="width" priority="750" constant="-230" id="2Qf-Pq-dCZ"/>
                                                         <constraint firstItem="kq5-JB-Ng8" firstAttribute="height" secondItem="scI-5W-0x3" secondAttribute="height" id="5bd-hC-OtL"/>
                                                         <constraint firstAttribute="trailing" secondItem="Mbx-Hv-5DT" secondAttribute="trailing" id="FRO-1m-7YN"/>
-                                                        <constraint firstItem="RXW-2k-YNx" firstAttribute="centerY" secondItem="Lat-qh-6SR" secondAttribute="centerY" constant="-0.5" id="G67-9y-o7Q"/>
                                                         <constraint firstItem="kq5-JB-Ng8" firstAttribute="height" secondItem="Xfa-rt-8dG" secondAttribute="height" id="G8Q-kj-pGf"/>
                                                         <constraint firstItem="Mbx-Hv-5DT" firstAttribute="width" secondItem="Xfa-rt-8dG" secondAttribute="width" id="Hfj-ld-KYW"/>
                                                         <constraint firstItem="Xfa-rt-8dG" firstAttribute="top" secondItem="kq5-JB-Ng8" secondAttribute="bottom" id="I5t-cJ-JYW"/>
@@ -127,18 +112,14 @@
                                                         <constraint firstItem="Mbx-Hv-5DT" firstAttribute="top" secondItem="kq5-JB-Ng8" secondAttribute="bottom" id="QUd-tP-bc9"/>
                                                         <constraint firstItem="Lat-qh-6SR" firstAttribute="height" secondItem="scI-5W-0x3" secondAttribute="height" id="Z9g-vo-3oW"/>
                                                         <constraint firstItem="scI-5W-0x3" firstAttribute="width" secondItem="Lat-qh-6SR" secondAttribute="width" id="ZhE-FL-Mwj"/>
-                                                        <constraint firstItem="RXW-2k-YNx" firstAttribute="width" secondItem="Lat-qh-6SR" secondAttribute="width" priority="750" constant="-230" id="bPe-oE-Dkp"/>
-                                                        <constraint firstItem="0cX-Tu-KYT" firstAttribute="centerX" secondItem="scI-5W-0x3" secondAttribute="centerX" id="dvY-TP-LYn"/>
                                                         <constraint firstAttribute="centerY" secondItem="kq5-JB-Ng8" secondAttribute="centerY" id="gqU-Ho-RtD"/>
                                                         <constraint firstItem="kq5-JB-Ng8" firstAttribute="leading" secondItem="5uC-rO-tYU" secondAttribute="leading" id="h1c-77-2TD"/>
                                                         <constraint firstItem="Mbx-Hv-5DT" firstAttribute="leading" secondItem="Xfa-rt-8dG" secondAttribute="trailing" constant="-1" id="jFc-iN-wwL"/>
                                                         <constraint firstItem="kq5-JB-Ng8" firstAttribute="top" secondItem="Lat-qh-6SR" secondAttribute="bottom" id="jYS-Om-dK5"/>
                                                         <constraint firstAttribute="centerX" secondItem="kq5-JB-Ng8" secondAttribute="centerX" id="kSe-NO-pn0"/>
                                                         <constraint firstItem="scI-5W-0x3" firstAttribute="top" secondItem="5uC-rO-tYU" secondAttribute="top" id="lJj-h7-BQL"/>
-                                                        <constraint firstItem="0cX-Tu-KYT" firstAttribute="centerY" secondItem="scI-5W-0x3" secondAttribute="centerY" constant="-0.5" id="lOI-lf-fnv"/>
                                                         <constraint firstAttribute="trailing" secondItem="kq5-JB-Ng8" secondAttribute="trailing" id="lb1-hF-scE"/>
                                                         <constraint firstAttribute="bottom" secondItem="Mbx-Hv-5DT" secondAttribute="bottom" id="mLo-1w-M4y"/>
-                                                        <constraint firstItem="RXW-2k-YNx" firstAttribute="centerX" secondItem="Lat-qh-6SR" secondAttribute="centerX" id="nfE-pm-8iK"/>
                                                         <constraint firstItem="Lat-qh-6SR" firstAttribute="leading" secondItem="scI-5W-0x3" secondAttribute="trailing" constant="-1" id="pu2-5z-mxm"/>
                                                         <constraint firstItem="kq5-JB-Ng8" firstAttribute="top" secondItem="scI-5W-0x3" secondAttribute="bottom" id="teO-F4-ZLV"/>
                                                         <constraint firstItem="Mbx-Hv-5DT" firstAttribute="height" secondItem="Xfa-rt-8dG" secondAttribute="height" id="wBC-Gw-Cq7"/>
@@ -206,7 +187,4 @@
             <point key="canvasLocation" x="-404" y="70"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pause" width="42" height="46"/>
-    </resources>
 </document>

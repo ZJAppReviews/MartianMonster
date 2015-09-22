@@ -106,10 +106,15 @@
         if ([soundItem.playerNode isPlaying])
         {
             [soundItem.playerNode stop];
+            [button setTitle:soundItem.displayText forState:UIControlStateNormal];
+            [button setImage:nil forState:UIControlStateNormal];
         }
         else
         {
             [SoundManager scheduleAndPlaySoundItem:soundItem];
+            [button setTitle:@"" forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+            button.tintColor = [UIColor whiteColor];
         }
     }
     else
