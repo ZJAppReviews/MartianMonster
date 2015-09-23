@@ -103,7 +103,7 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>big, beautiful</string>
+			<string>CAT</string>
 			<key>fileName</key>
 			<string>yourCat</string>
 			<key>fileExtension</key>
@@ -115,7 +115,7 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>meow</string>
+			<string>MEOW</string>
 			<key>fileName</key>
 			<string>meowSoft</string>
 			<key>fileExtension</key>
@@ -124,68 +124,6 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>displayText</key>
-			<string>space</string>
-			<key>fileName</key>
-			<string>treySpace</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>once</string>
-			<key>fileName</key>
-			<string>treyOnce</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>jib</string>
-			<key>fileName</key>
-			<string>treyJibboo</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<true/>
-			<key>pitchEffect</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>DRILL</string>
-			<key>fileName</key>
-			<string>mikeDrillTap</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>BELL</string>
-			<key>fileName</key>
-			<string>mikeFightBell</string>
-			<key>fileExtension</key>
-			<string>mp3</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<false/>
 		</dict>
 	</array>
 </array>

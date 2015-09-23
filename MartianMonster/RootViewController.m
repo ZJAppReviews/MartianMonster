@@ -13,7 +13,9 @@
 #import "Soundboard.h"
 #import "SoundItem.h"
 
-@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate>
+#import "BubbularMenuView.h"
+
+@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, BubbularMenuViewDelegate>
 
 #pragma mark - info
 @property NSMutableArray *soundboardsArray;
@@ -46,6 +48,38 @@
 
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
+
+    [self addBubbularMenuView];
+}
+
+-(void)addBubbularMenuView
+{
+    BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:self.view.frame.size.width / 7.25];
+    menuView.delegate = self;
+    menuView.spacing = self.view.frame.size.width / 3.5;
+    menuView.direction = BubbularDirectionHorizontal;
+    menuView.images = [self menuImages];
+//    menuView.buttonBorderColor = [self customRedColor];
+    menuView.buttonBackgroundColor = [UIColor grayColor];
+    menuView.alpha = 1.0;
+    menuView.buttonBorderWidth = 0;
+
+    [self.view addSubview:menuView];
+}
+
+-(NSArray *)menuImages
+{
+    UIImage *image1 = [UIImage imageNamed:@"play"];
+    UIImage *image4 = [UIImage imageNamed:@"rocket"];
+    UIImage *image2 = [UIImage imageNamed:@"cat"];
+    UIImage *image3 = [UIImage imageNamed:@"ghost"];
+
+    return @[image1,image2,image3,image4];
+}
+
+-(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)menuButton
+{
+
 }
 
 #pragma mark - UICollectionView
@@ -75,6 +109,19 @@
             UIButton *button = (UIButton *) view;
             SoundItem *soundItem = soundItems[button.tag];
             [button setTitle:soundItem.displayText forState:UIControlStateNormal];
+
+            if (soundItem.bufferOption == AVAudioPlayerNodeBufferLoops)
+            {
+                if ([soundItem.playerNode isPlaying])
+                {
+                    [button setTitle:@"" forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [button setTitle:soundItem.displayText forState:UIControlStateNormal];
+                    [button setImage:nil forState:UIControlStateNormal];
+                }
+            }
         }
     }
 }
