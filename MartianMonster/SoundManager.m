@@ -11,9 +11,9 @@
 
 @implementation SoundManager
 
-+(NSMutableArray *)arrayOfSoundboardsFromPlistforEngine:(AVAudioEngine *)engine
++(NSMutableArray *)arrayOfSoundboardsFromPlist:(NSString *)plist forEngine:(AVAudioEngine *)engine
 {
-    NSURL *path = [[NSBundle mainBundle] URLForResource:@"SoundInfo" withExtension:@"plist"];
+    NSURL *path = [[NSBundle mainBundle] URLForResource:plist withExtension:@"plist"];
     NSArray *soundListsArray = [NSArray arrayWithContentsOfURL:path];
 
     NSMutableArray *soundboardsArray = [NSMutableArray new];

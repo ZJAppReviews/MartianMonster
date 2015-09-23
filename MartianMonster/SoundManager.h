@@ -12,7 +12,7 @@
 
 @interface SoundManager : NSObject
 
-+(NSMutableArray *)arrayOfSoundboardsFromPlistforEngine:(AVAudioEngine *)engine;
++(NSMutableArray *)arrayOfSoundboardsFromPlist:(NSString *)plist forEngine:(AVAudioEngine *)engine;
 
 +(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem;
 

@@ -18,7 +18,8 @@
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, BubbularMenuViewDelegate>
 
 #pragma mark - info
-@property NSMutableArray *soundboardsArray;
+@property NSMutableArray *soundboardsArray; //holds all the soundbites for each button
+@property NSMutableArray *bgSoundItems; //holds the songs that can be played in background
 
 #pragma  mark - audio properties
 @property (nonatomic, strong) AVAudioEngine *engine;
@@ -29,6 +30,9 @@
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
+
+NSString *const kPlistSoundInfo = @"SoundInfo";
+NSString *const kPlistBgSongInfo = @"BgSongInfo";
 
 @implementation RootViewController
 {
@@ -41,7 +45,9 @@
     [super viewDidLoad];
 
     self.engine = [AVAudioEngine new];
-    self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlistforEngine:self.engine];
+
+    self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlist:kPlistSoundInfo forEngine:self.engine];
+    self.bgSoundItems = [[SoundManager arrayOfSoundboardsFromPlist:kPlistBgSongInfo forEngine:self.engine] firstObject];
 
     [SoundManager startEngine:self.engine];
     [SoundManager activateAudioSessionForBackgroundPlay];
@@ -69,17 +75,46 @@
 
 -(NSArray *)menuImages
 {
-    UIImage *image1 = [UIImage imageNamed:@"play"];
-    UIImage *image4 = [UIImage imageNamed:@"rocket"];
+    UIImage *image0 = [UIImage imageNamed:@"play"];
+    UIImage *image1 = [UIImage imageNamed:@"rocket"];
     UIImage *image2 = [UIImage imageNamed:@"cat"];
     UIImage *image3 = [UIImage imageNamed:@"ghost"];
 
-    return @[image1,image2,image3,image4];
+    return @[image0,image1,image2,image3];
 }
 
--(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)menuButton
+-(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)button
 {
+    if (button.tag == 0)
+    {
+        //play or pause the currently playing bg song
+        //change this buttons image between play and pause button
+    }
+    else
+    {
+        [self stopAllBGsongs];
+        SoundItem *soundItem = self.bgSoundItems[button.tag - 1];
 
+        if (![soundItem.playerNode isPlaying])
+        {
+            [SoundManager scheduleAndPlaySoundItem:soundItem];
+        }
+        else
+        {
+            [soundItem.playerNode stop];
+        }
+    }
+}
+
+-(void)stopAllBGsongs
+{
+    for (SoundItem *soundItem in self.bgSoundItems)
+    {
+        if ([soundItem.playerNode isPlaying])
+        {
+            [soundItem.playerNode stop];
+        }
+    }
 }
 
 #pragma mark - UICollectionView

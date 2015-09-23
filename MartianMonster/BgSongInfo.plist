@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>displayText</key>
+			<string>MM</string>
+			<key>fileName</key>
+			<string>MMLoop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>YPC</string>
+			<key>fileName</key>
+			<string>PetCatLoop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>GST</string>
+			<key>fileName</key>
+			<string>GhostLoop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+		</dict>
+	</array>
+</array>
+</plist>
