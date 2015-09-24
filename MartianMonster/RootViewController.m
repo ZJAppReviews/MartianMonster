@@ -29,6 +29,9 @@
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
+@property BubbularMenuView *menuView;
+@property CABasicAnimation *pulseAnimation;
+
 @end
 
 NSString *const kPlistSoundInfo = @"SoundInfo";
@@ -56,21 +59,32 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 
     [self addBubbularMenuView];
+    [self setupPulsateAnimation];
 }
 
 -(void)addBubbularMenuView
 {
-    BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:self.view.frame.size.width / 7.25];
-    menuView.delegate = self;
-    menuView.spacing = self.view.frame.size.width / 3.5;
-    menuView.direction = BubbularDirectionHorizontal;
-    menuView.images = [self menuImages];
+    self.menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:self.view.frame.size.width / 7.25];
+    self.menuView.delegate = self;
+    self.menuView.spacing = self.view.frame.size.width / 3.5;
+    self.menuView.direction = BubbularDirectionHorizontal;
+    self.menuView.images = [self menuImages];
 //    menuView.buttonBorderColor = [self customRedColor];
-    menuView.buttonBackgroundColor = [UIColor grayColor];
-    menuView.alpha = 1.0;
-    menuView.buttonBorderWidth = 0;
+    self.menuView.buttonBackgroundColor = [UIColor grayColor];
+    self.menuView.alpha = 1.0;
+    self.menuView.buttonBorderWidth = 0;
 
-    [self.view addSubview:menuView];
+    [self.view addSubview:self.menuView];
+}
+
+-(void)setupPulsateAnimation
+{
+    self.pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    self.pulseAnimation.duration = .5;
+    self.pulseAnimation.toValue = [NSNumber numberWithFloat:1.1];
+    self.pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    self.pulseAnimation.autoreverses = YES;
+    self.pulseAnimation.repeatCount = FLT_MAX;
 }
 
 -(NSArray *)menuImages
@@ -98,10 +112,12 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         {
             [self stopAllBGsongs];
             [SoundManager scheduleAndPlaySoundItem:soundItem];
+            [button.layer addAnimation:self.pulseAnimation forKey:nil];
         }
         else
         {
             [soundItem.playerNode stop];
+            [button.layer removeAllAnimations];
         }
     }
 }
@@ -114,6 +130,11 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         {
             [soundItem.playerNode stop];
         }
+    }
+
+    for (UIButton *button in self.menuView.subviews)
+    {
+        [button.layer removeAllAnimations];
     }
 }
 
