@@ -92,7 +92,6 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     }
     else
     {
-        [self stopAllBGsongs];
         SoundItem *soundItem = self.bgSoundItems[button.tag - 1];
 
         if (![soundItem.playerNode isPlaying])
@@ -101,7 +100,8 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         }
         else
         {
-            [soundItem.playerNode stop];
+//            [soundItem.playerNode stop];
+            [self stopAllBGsongs];
         }
     }
 }
