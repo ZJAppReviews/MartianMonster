@@ -96,12 +96,12 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 
         if (![soundItem.playerNode isPlaying])
         {
+            [self stopAllBGsongs];
             [SoundManager scheduleAndPlaySoundItem:soundItem];
         }
         else
         {
-//            [soundItem.playerNode stop];
-            [self stopAllBGsongs];
+            [soundItem.playerNode stop];
         }
     }
 }
