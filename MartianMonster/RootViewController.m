@@ -52,14 +52,59 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlist:kPlistSoundInfo forEngine:self.engine];
     self.bgSoundItems = [[SoundManager arrayOfSoundboardsFromPlist:kPlistBgSongInfo forEngine:self.engine] firstObject];
 
-    [SoundManager startEngine:self.engine];
-    [SoundManager activateAudioSessionForBackgroundPlay];
+    [self didBecomeActive];
 
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 
     [self addBubbularMenuView];
     [self setupPulsateAnimation];
+
+    [self handleAppReentrance];
+    [self handleAppExit];
+}
+
+-(void)handleAppReentrance
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didBecomeActive)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+}
+
+-(void)didBecomeActive
+{
+    [self.collectionView reloadData];
+    [SoundManager startEngine:self.engine];
+    [SoundManager activateAudioSessionForBackgroundPlay];
+}
+
+-(void)handleAppExit
+{
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(applicationWillResign)
+     name:UIApplicationWillResignActiveNotification
+     object:nil];
+}
+
+-(void)applicationWillResign
+{
+//    [self.engine stop];
+    [self stopPlayingAllNodes];
+    [self stopAllBGsongs];
+    [self.engine stop];
+}
+
+-(void)stopPlayingAllNodes
+{
+    for (NSArray *sb in self.soundboardsArray)
+    {
+        for (SoundItem *si in sb)
+        {
+            [si.playerNode stop];
+        }
+    }
 }
 
 -(void)addBubbularMenuView
