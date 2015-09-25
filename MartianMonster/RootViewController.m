@@ -161,7 +161,6 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     return @[image0,image1,image2,image3];
 }
 
-
 -(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)button
 {
     if (button.tag == 0)
