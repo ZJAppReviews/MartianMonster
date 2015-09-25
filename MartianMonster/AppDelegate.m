@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -15,9 +16,24 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Initialize Parse.
+    [self parseSetup];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     return YES;
+}
+
+-(void)parseSetup
+{
+    //Private Keys in Keys.plist (hidden via gitignore)
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"]];
+    NSString *applicationId = [dictionary objectForKey:@"parseAppId"];
+    NSString *clientKey = [dictionary objectForKey:@"parseClientKey"];
+
+    [Parse setApplicationId:applicationId
+                  clientKey:clientKey];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
