@@ -43,6 +43,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     NSInteger lastPageBeforeRotate;
 }
 
+#pragma  mark - view lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -62,125 +63,6 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 
     [self handleAppReentrance];
     [self handleAppExit];
-}
-
--(void)handleAppReentrance
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didBecomeActive)
-                                                 name:UIApplicationDidBecomeActiveNotification
-                                               object:nil];
-}
-
--(void)didBecomeActive
-{
-    [self.collectionView reloadData];
-    [SoundManager startEngine:self.engine];
-    [SoundManager activateAudioSessionForBackgroundPlay];
-}
-
--(void)handleAppExit
-{
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(applicationWillResign)
-     name:UIApplicationWillResignActiveNotification
-     object:nil];
-}
-
--(void)applicationWillResign
-{
-//    [self.engine stop];
-    [self stopPlayingAllNodes];
-    [self stopAllBGsongs];
-    [self.engine stop];
-}
-
--(void)stopPlayingAllNodes
-{
-    for (NSArray *sb in self.soundboardsArray)
-    {
-        for (SoundItem *si in sb)
-        {
-            [si.playerNode stop];
-        }
-    }
-}
-
--(void)addBubbularMenuView
-{
-    self.menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:self.view.frame.size.width / 7.25];
-    self.menuView.delegate = self;
-    self.menuView.spacing = self.view.frame.size.width / 3.5;
-    self.menuView.direction = BubbularDirectionHorizontal;
-    self.menuView.images = [self menuImages];
-//    menuView.buttonBorderColor = [self customRedColor];
-    self.menuView.buttonBackgroundColor = [UIColor grayColor];
-    self.menuView.alpha = 1.0;
-    self.menuView.buttonBorderWidth = 0;
-
-    [self.view addSubview:self.menuView];
-}
-
--(void)setupPulsateAnimation
-{
-    self.pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    self.pulseAnimation.duration = .5;
-    self.pulseAnimation.toValue = [NSNumber numberWithFloat:1.1];
-    self.pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    self.pulseAnimation.autoreverses = YES;
-    self.pulseAnimation.repeatCount = FLT_MAX;
-}
-
--(NSArray *)menuImages
-{
-    UIImage *image0 = [UIImage imageNamed:@"play"];
-    UIImage *image1 = [UIImage imageNamed:@"rocket"];
-    UIImage *image2 = [UIImage imageNamed:@"cat"];
-    UIImage *image3 = [UIImage imageNamed:@"ghost"];
-
-    return @[image0,image1,image2,image3];
-}
-
--(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)button
-{
-    if (button.tag == 0)
-    {
-        //play or pause the currently playing bg song
-        //change this buttons image between play and pause button
-    }
-    else
-    {
-        SoundItem *soundItem = self.bgSoundItems[button.tag - 1];
-
-        if (![soundItem.playerNode isPlaying])
-        {
-            [self stopAllBGsongs];
-            [SoundManager scheduleAndPlaySoundItem:soundItem];
-            [button.layer addAnimation:self.pulseAnimation forKey:nil];
-        }
-        else
-        {
-            [soundItem.playerNode stop];
-            [button.layer removeAllAnimations];
-        }
-    }
-}
-
--(void)stopAllBGsongs
-{
-    for (SoundItem *soundItem in self.bgSoundItems)
-    {
-        if ([soundItem.playerNode isPlaying])
-        {
-            [soundItem.playerNode stop];
-        }
-    }
-
-    for (UIButton *button in self.menuView.subviews)
-    {
-        [button.layer removeAllAnimations];
-    }
 }
 
 #pragma mark - UICollectionView
@@ -243,7 +125,101 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     [self playAudioForButton:button];
 }
 
-#pragma mark - Play audio helpers
+#pragma  mark - bubbular menu view
+-(void)addBubbularMenuView
+{
+    self.menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:self.view.frame.size.width / 7.25];
+    self.menuView.delegate = self;
+    self.menuView.spacing = self.view.frame.size.width / 3.5;
+    self.menuView.direction = BubbularDirectionHorizontal;
+    self.menuView.images = [self menuImages];
+    //    menuView.buttonBorderColor = [self customRedColor];
+    self.menuView.buttonBackgroundColor = [UIColor grayColor];
+    self.menuView.alpha = 1.0;
+    self.menuView.buttonBorderWidth = 0;
+
+    [self.view addSubview:self.menuView];
+}
+
+-(void)setupPulsateAnimation
+{
+    self.pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    self.pulseAnimation.duration = .5;
+    self.pulseAnimation.toValue = [NSNumber numberWithFloat:1.1];
+    self.pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    self.pulseAnimation.autoreverses = YES;
+    self.pulseAnimation.repeatCount = FLT_MAX;
+}
+
+-(NSArray *)menuImages
+{
+    UIImage *image0 = [UIImage imageNamed:@"play"];
+    UIImage *image1 = [UIImage imageNamed:@"rocket"];
+    UIImage *image2 = [UIImage imageNamed:@"cat"];
+    UIImage *image3 = [UIImage imageNamed:@"ghost"];
+
+    return @[image0,image1,image2,image3];
+}
+
+-(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)button
+{
+    if (button.tag == 0)
+    {
+        //play or pause the currently playing bg song
+        //change this buttons image between play and pause button
+    }
+    else
+    {
+        SoundItem *soundItem = self.bgSoundItems[button.tag - 1];
+
+        if (![soundItem.playerNode isPlaying])
+        {
+            [self stopAllBGsongs];
+            [SoundManager scheduleAndPlaySoundItem:soundItem];
+            [button.layer addAnimation:self.pulseAnimation forKey:nil];
+        }
+        else
+        {
+            [soundItem.playerNode stop];
+            [button.layer removeAllAnimations];
+        }
+    }
+}
+
+#pragma  mark - app exit / reentrance
+-(void)handleAppReentrance
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didBecomeActive)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+}
+
+-(void)didBecomeActive
+{
+    [self.collectionView reloadData];
+    [SoundManager startEngine:self.engine];
+    [SoundManager activateAudioSessionForBackgroundPlay];
+}
+
+-(void)handleAppExit
+{
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(applicationWillResign)
+     name:UIApplicationWillResignActiveNotification
+     object:nil];
+}
+
+-(void)applicationWillResign
+{
+    //    [self.engine stop];
+    [self stopPlayingAllNodes];
+    [self stopAllBGsongs];
+    [self.engine stop];
+}
+
+#pragma mark - play / stop audio helpers
 -(void)playAudioForButton:(UIButton *)button
 {
     NSArray *soundItems = self.soundboardsArray[currentRow];
@@ -268,6 +244,33 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     else
     {
         [SoundManager scheduleAndPlaySoundItem:soundItem];
+    }
+}
+
+-(void)stopPlayingAllNodes
+{
+    for (NSArray *sb in self.soundboardsArray)
+    {
+        for (SoundItem *si in sb)
+        {
+            [si.playerNode stop];
+        }
+    }
+}
+
+-(void)stopAllBGsongs
+{
+    for (SoundItem *soundItem in self.bgSoundItems)
+    {
+        if ([soundItem.playerNode isPlaying])
+        {
+            [soundItem.playerNode stop];
+        }
+    }
+
+    for (UIButton *button in self.menuView.subviews)
+    {
+        [button.layer removeAllAnimations];
     }
 }
 
