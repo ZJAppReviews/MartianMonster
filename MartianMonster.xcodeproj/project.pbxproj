@@ -13,6 +13,8 @@
 		930648631BA55C5D00BE0EE8 /* SoundboardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 930648621BA55C5D00BE0EE8 /* SoundboardCollectionViewCell.m */; };
 		930955401BB30951007F6EFC /* SoundInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9317F4CC1BA8D8AA00B092F4 /* SoundInfo.plist */; };
 		93157A6B1B8A7F5F0095F25F /* ufo.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93157A6A1B8A7F5F0095F25F /* ufo.m4a */; };
+		9315822E1BB6EB0E00EC9CA2 /* shortBlip.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9315822C1BB6EB0E00EC9CA2 /* shortBlip.m4a */; };
+		9315822F1BB6EB0E00EC9CA2 /* poof.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9315822D1BB6EB0E00EC9CA2 /* poof.m4a */; };
 		9317F4D01BA93A3C00B092F4 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9317F4CF1BA93A3C00B092F4 /* SoundManager.m */; };
 		932A47E61BB07816005805D3 /* BubbularMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A47E51BB07816005805D3 /* BubbularMenuView.m */; };
 		935D44341BA510F7005A024A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D44331BA510F7005A024A /* RootViewController.m */; };
@@ -61,6 +63,8 @@
 		930648611BA55C5D00BE0EE8 /* SoundboardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundboardCollectionViewCell.h; sourceTree = "<group>"; };
 		930648621BA55C5D00BE0EE8 /* SoundboardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundboardCollectionViewCell.m; sourceTree = "<group>"; };
 		93157A6A1B8A7F5F0095F25F /* ufo.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ufo.m4a; sourceTree = "<group>"; };
+		9315822C1BB6EB0E00EC9CA2 /* shortBlip.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shortBlip.m4a; sourceTree = "<group>"; };
+		9315822D1BB6EB0E00EC9CA2 /* poof.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = poof.m4a; sourceTree = "<group>"; };
 		9317F4CC1BA8D8AA00B092F4 /* SoundInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SoundInfo.plist; sourceTree = "<group>"; };
 		9317F4CE1BA93A3C00B092F4 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		9317F4CF1BA93A3C00B092F4 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 				9302748B1B897169007F7F18 /* space.gif */,
 			);
 			name = GIF;
+			sourceTree = "<group>";
+		};
+		9315822B1BB6EB0000EC9CA2 /* Notification Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9315822C1BB6EB0E00EC9CA2 /* shortBlip.m4a */,
+				9315822D1BB6EB0E00EC9CA2 /* poof.m4a */,
+			);
+			name = "Notification Sounds";
 			sourceTree = "<group>";
 		};
 		9317F4D11BA9524300B092F4 /* Controller */ = {
@@ -286,6 +299,7 @@
 				93BE3DC41BB36545009D603C /* Background */,
 				9363218F1BA7CEEF004CB7D6 /* One */,
 				936321901BA7CEFC004CB7D6 /* Two */,
+				9315822B1BB6EB0000EC9CA2 /* Notification Sounds */,
 			);
 			name = "Sound Bites";
 			sourceTree = "<group>";
@@ -390,7 +404,9 @@
 				9363219B1BA7E6E7004CB7D6 /* yourCat.m4a in Resources */,
 				93711AFA1BB602DF002A7225 /* Keys.plist in Resources */,
 				93BE3DC91BB3655A009D603C /* MMLoop.m4a in Resources */,
+				9315822E1BB6EB0E00EC9CA2 /* shortBlip.m4a in Resources */,
 				93B8E3701B81AE61008ECB47 /* tripIsShort.m4a in Resources */,
+				9315822F1BB6EB0E00EC9CA2 /* poof.m4a in Resources */,
 				93BE3DC31BB36520009D603C /* BgSongInfo.plist in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
 				930955401BB30951007F6EFC /* SoundInfo.plist in Resources */,
@@ -600,7 +616,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "55d0046a-7e2b-4a36-943c-bfe453e1a93b";
+				PROVISIONING_PROFILE = "54cfa38b-f4c6-4827-8874-ca48d6cc8fc5";
 			};
 			name = Debug;
 		};
@@ -614,7 +630,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "55d0046a-7e2b-4a36-943c-bfe453e1a93b";
+				PROVISIONING_PROFILE = "54cfa38b-f4c6-4827-8874-ca48d6cc8fc5";
 			};
 			name = Release;
 		};
