@@ -22,8 +22,11 @@
     [self parseSetup];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
-    // Push
+    // APNs
     [self pushSetup:application];
+
+    // PFuser
+    [self saveUserToParse];
 
     return YES;
 }
@@ -48,6 +51,19 @@
                                                                              categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
+}
+
+-(void)saveUserToParse // need user objects to track retention analytics (will create new user app deleted / redownloaded but this works)
+{
+    if (![PFUser currentUser])
+    {
+        PFUser *user = [PFUser new];
+        NSString *uniqueString = [[[UIDevice currentDevice] identifierForVendor] UUIDString];;
+        user.username = [uniqueString substringFromIndex:uniqueString.length - 5];
+        user.password = user.username;
+
+        [user signUpInBackground];
+    }
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
