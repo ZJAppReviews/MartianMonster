@@ -134,8 +134,8 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     self.menuView.direction = BubbularDirectionHorizontal;
     self.menuView.images = [self menuImages];
     //    menuView.buttonBorderColor = [self customRedColor];
-    self.menuView.buttonBackgroundColor = [UIColor grayColor];
-    self.menuView.alpha = 1.0;
+    self.menuView.buttonBackgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+
     self.menuView.buttonBorderWidth = 0;
 
     [self.view addSubview:self.menuView];
@@ -177,6 +177,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
             [self stopAllBGsongs];
             [SoundManager scheduleAndPlaySoundItem:soundItem];
             [button.layer addAnimation:self.pulseAnimation forKey:nil];
+            button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
         }
         else
         {
@@ -271,6 +272,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     for (UIButton *button in self.menuView.subviews)
     {
         [button.layer removeAllAnimations];
+        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
     }
 }
 

@@ -200,4 +200,14 @@
     }
 }
 
+-(void)setButtonBackgroundAlpha:(float)buttonBackgroundAlpha
+{
+    _buttonBackgroundAlpha = buttonBackgroundAlpha;
+
+    for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
+    {
+        menuButton.alpha = self.buttonBackgroundAlpha;
+    }
+}
+
 @end

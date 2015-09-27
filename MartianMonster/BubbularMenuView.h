@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, BubbularDirection) {
 @property (nonatomic) UIColor *buttonBorderColor;
 @property (nonatomic) UIColor *buttonBackgroundColor;
 @property (nonatomic) float buttonBorderWidth;
+@property (nonatomic) float buttonBackgroundAlpha;
 
 @property int buttonCount;
 @property CGFloat buttonCircumference;

@@ -248,13 +248,13 @@
 		93B8E33A1B818926008ECB47 /* MartianMonster */ = {
 			isa = PBXGroup;
 			children = (
+				93B8E3451B818926008ECB47 /* Main.storyboard */,
 				93B8E33F1B818926008ECB47 /* AppDelegate.h */,
 				93B8E3401B818926008ECB47 /* AppDelegate.m */,
 				9317F4D11BA9524300B092F4 /* Controller */,
 				9363218C1BA78C23004CB7D6 /* Model */,
 				9317F4D21BA9525000B092F4 /* Cells */,
 				93587D111BAB535600822D68 /* Custom Views */,
-				93B8E3451B818926008ECB47 /* Main.storyboard */,
 				93B8E3481B818926008ECB47 /* Images.xcassets */,
 				930274901B897996007F7F18 /* GIF */,
 				93B8E34A1B818926008ECB47 /* LaunchScreen.xib */,
