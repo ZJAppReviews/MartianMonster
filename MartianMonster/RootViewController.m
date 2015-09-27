@@ -277,8 +277,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 #pragma mark - Scrollview delegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    CGFloat pageWidth = self.collectionView.frame.size.width;
-    currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
+    [self updateCurrentRowBasedOnOrientation];
 
     [self onSliderMoved:self.slider]; // Resets pitch appropriately when moving back to a previous screen
 }
@@ -323,7 +322,14 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     {
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
         lastPageBeforeRotate = -1;
+        [self updateCurrentRowBasedOnOrientation];
     }
+}
+
+-(void)updateCurrentRowBasedOnOrientation
+{
+    CGFloat pageWidth = self.collectionView.frame.size.width;
+    currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 }
 
 //Enables upside-down orientation
