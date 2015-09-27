@@ -183,6 +183,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         {
             [soundItem.playerNode stop];
             [button.layer removeAllAnimations];
+            self.menuView.buttonBackgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
         }
     }
 }
