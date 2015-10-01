@@ -178,7 +178,7 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
                                 <rect key="frame" x="170" y="10" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -195,7 +195,7 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
                                 <rect key="frame" x="330" y="10" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -229,7 +229,7 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-5V-BIL">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-5V-BIL" userLabel="Spacer View">
                                 <rect key="frame" x="290" y="0.0" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -243,7 +243,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MAk-HR-nK8" firstAttribute="centerY" secondItem="SQL-ip-dgJ" secondAttribute="centerY" id="4qN-eE-wl4"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-6" id="J1v-kZ-dhM"/>
+                            <constraint firstItem="Vz2-VH-27L" firstAttribute="leading" secondItem="SQL-ip-dgJ" secondAttribute="trailing" constant="59" id="JZj-eM-eTD"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="top" id="Kl9-yX-8nr"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="10" id="LWn-Hv-RZc"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="blL-G7-mdc" secondAttribute="height" id="Lzl-PD-bdM"/>
@@ -251,6 +253,7 @@
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.177" constant="-6" id="Rzr-EC-E5x"/>
                             <constraint firstAttribute="centerX" secondItem="FRw-5V-BIL" secondAttribute="centerX" id="SYf-eh-oQB"/>
                             <constraint firstAttribute="bottomMargin" secondItem="az5-A8-DCd" secondAttribute="bottom" constant="-7" id="Taj-cP-xOS"/>
+                            <constraint firstItem="blL-G7-mdc" firstAttribute="leading" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="60" id="VMn-uQ-cPR"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="SQL-ip-dgJ" secondAttribute="width" id="WZE-mx-YOm"/>
                             <constraint firstAttribute="trailing" secondItem="eL0-sg-hWD" secondAttribute="trailing" id="Z8Z-6z-QIa"/>
                             <constraint firstItem="FRw-5V-BIL" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" id="eBl-i6-NtI"/>
@@ -264,7 +267,10 @@
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="Vz2-VH-27L" secondAttribute="height" id="q1E-K8-OQg"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leading" id="r8d-zt-cZA"/>
                             <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="eL0-sg-hWD" secondAttribute="bottom" id="ru5-lG-15f"/>
+                            <constraint firstItem="SQL-ip-dgJ" firstAttribute="leading" secondItem="FRw-5V-BIL" secondAttribute="trailing" constant="20" id="sAr-Tl-IH6"/>
                             <constraint firstAttribute="centerX" secondItem="az5-A8-DCd" secondAttribute="centerX" id="snA-2Q-bEf"/>
+                            <constraint firstItem="FRw-5V-BIL" firstAttribute="leading" secondItem="blL-G7-mdc" secondAttribute="trailing" constant="20" id="tUv-9B-Y5o"/>
+                            <constraint firstItem="MAk-HR-nK8" firstAttribute="centerY" secondItem="blL-G7-mdc" secondAttribute="centerY" id="yfq-wA-TGY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -272,6 +278,9 @@
                         <outlet property="pageControl" destination="az5-A8-DCd" id="chA-A2-s3B"/>
                         <outlet property="slider" destination="Vg5-xS-ORU" id="lkA-9Y-fSx"/>
                         <outletCollection property="menuButtons" destination="MAk-HR-nK8" id="hTj-HU-iXT"/>
+                        <outletCollection property="menuButtons" destination="blL-G7-mdc" id="FaE-so-cBJ"/>
+                        <outletCollection property="menuButtons" destination="SQL-ip-dgJ" id="ZtJ-4W-9ZX"/>
+                        <outletCollection property="menuButtons" destination="Vz2-VH-27L" id="nQz-Fe-Yh6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-tz-uej" userLabel="First Responder" sceneMemberID="firstResponder"/>

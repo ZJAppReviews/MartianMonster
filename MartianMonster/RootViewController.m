@@ -30,7 +30,6 @@
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) IBOutletCollection(RoundButton) NSArray *menuButtons;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *roundButtonequalWidthsConstraint;
 
 @property CABasicAnimation *pulseAnimation;
 
