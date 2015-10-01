@@ -17,7 +17,18 @@
 {
     self.clipsToBounds = YES;
     self.layer.cornerRadius = self.bounds.size.width / 2;
+    [self formatImageView];
 }
 
+-(void)formatImageView
+{
+    self.contentMode = UIViewContentModeScaleAspectFill;
+    self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+    self.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+
+    float edgeInset = self.bounds.size.width / 6;
+    self.imageEdgeInsets = UIEdgeInsetsMake(edgeInset, edgeInset, edgeInset, edgeInset);
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+}
 
 @end

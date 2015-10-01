@@ -160,7 +160,7 @@
                                     <action selector="onSliderMoved:" destination="IDw-lP-XpV" eventType="valueChanged" id="uFI-hC-wNu"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-HR-nK8" customClass="RoundButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-HR-nK8" customClass="RoundButton">
                                 <rect key="frame" x="10" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -168,7 +168,7 @@
                                     <constraint firstAttribute="width" constant="75" id="UXx-8D-pR1"/>
                                     <constraint firstAttribute="height" constant="75" id="aPH-YT-ylG"/>
                                 </constraints>
-                                <state key="normal">
+                                <state key="normal" image="rocket">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -181,14 +181,14 @@
                                     <rect key="frame" x="10" y="5" width="64.5" height="64.5"/>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
                                 <rect key="frame" x="170" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="3pU-ng-6Gd"/>
                                     <constraint firstAttribute="height" constant="75" id="waE-MM-qmx"/>
                                 </constraints>
-                                <state key="normal">
+                                <state key="normal" image="cat">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -201,14 +201,14 @@
                                     <rect key="frame" x="134" y="5" width="64.5" height="64.5"/>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
                                 <rect key="frame" x="330" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Igr-cZ-s7P"/>
                                     <constraint firstAttribute="height" constant="75" id="UCH-P0-lpW"/>
                                 </constraints>
-                                <state key="normal">
+                                <state key="normal" image="ghost">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -221,30 +221,30 @@
                                     <rect key="frame" x="259" y="5" width="65" height="64.5"/>
                                 </variation>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-ao-IEb">
-                                <rect key="frame" x="118" y="50" width="44" height="25"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-ao-IEb" userLabel="Spacer View">
+                                <rect key="frame" x="46" y="50" width="140" height="25"/>
+                                <color key="backgroundColor" red="0.90980398654937744" green="0.93333339691162109" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06n-HV-tCS">
-                                <rect key="frame" x="278" y="50" width="44" height="25"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06n-HV-tCS" userLabel="Spacer View">
+                                <rect key="frame" x="244" y="50" width="110" height="25"/>
+                                <color key="backgroundColor" red="0.90980398654937744" green="0.93333339691162109" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" priority="750" constant="44" id="41E-8Z-Hiw"/>
+                                    <constraint firstAttribute="width" priority="750" constant="110" id="41E-8Z-Hiw"/>
                                     <constraint firstAttribute="height" priority="750" constant="25" id="s6E-hM-Bgc"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfJ-cy-ghT">
-                                <rect key="frame" x="438" y="50" width="44" height="25"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfJ-cy-ghT" userLabel="Spacer View">
+                                <rect key="frame" x="420" y="50" width="111" height="25"/>
+                                <color key="backgroundColor" red="0.90980398654937744" green="0.93333339691162109" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-VH-27L" customClass="RoundButton">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-VH-27L" customClass="RoundButton">
                                 <rect key="frame" x="489" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="47J-Uc-K9O"/>
                                     <constraint firstAttribute="height" constant="75" id="n75-KA-jQq"/>
                                 </constraints>
-                                <state key="normal">
+                                <state key="normal" image="share">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -265,12 +265,12 @@
                         <constraints>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="centerY" secondItem="MXE-ao-IEb" secondAttribute="centerY" id="0hT-Yh-0h7"/>
                             <constraint firstItem="SQL-ip-dgJ" firstAttribute="height" secondItem="MAk-HR-nK8" secondAttribute="height" id="4XI-xL-RqL"/>
-                            <constraint firstItem="SQL-ip-dgJ" firstAttribute="leading" secondItem="06n-HV-tCS" secondAttribute="trailing" constant="8" id="4iO-5j-9fV"/>
+                            <constraint firstItem="SQL-ip-dgJ" firstAttribute="leading" secondItem="06n-HV-tCS" secondAttribute="trailing" constant="-24" id="4iO-5j-9fV"/>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="centerY" secondItem="NfJ-cy-ghT" secondAttribute="centerY" id="8vk-RY-Wex"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="centerY" secondItem="blL-G7-mdc" secondAttribute="centerY" id="BA8-BF-28J"/>
                             <constraint firstItem="SQL-ip-dgJ" firstAttribute="width" secondItem="MAk-HR-nK8" secondAttribute="width" id="DSi-8X-Spv"/>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="top" secondItem="Sgl-1t-d2M" secondAttribute="bottom" constant="30" id="EaG-ee-wWk"/>
-                            <constraint firstItem="06n-HV-tCS" firstAttribute="width" secondItem="MXE-ao-IEb" secondAttribute="width" id="Ejd-30-Z9L"/>
+                            <constraint firstItem="06n-HV-tCS" firstAttribute="width" secondItem="MXE-ao-IEb" secondAttribute="width" constant="-30" id="Ejd-30-Z9L"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-6" id="J1v-kZ-dhM"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="top" id="Kl9-yX-8nr"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="5" id="LWn-Hv-RZc"/>
@@ -278,17 +278,17 @@
                             <constraint firstItem="Vg5-xS-ORU" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-8" id="MOM-w6-wwg"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.177" constant="-6" id="Rzr-EC-E5x" userLabel="*Equal Widths - (-6) - Button - View"/>
                             <constraint firstAttribute="bottomMargin" secondItem="az5-A8-DCd" secondAttribute="bottom" constant="-7" id="Taj-cP-xOS"/>
-                            <constraint firstItem="Vz2-VH-27L" firstAttribute="leading" secondItem="NfJ-cy-ghT" secondAttribute="trailing" constant="7" id="ULc-fc-Uja"/>
-                            <constraint firstItem="MXE-ao-IEb" firstAttribute="leading" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="8" id="VN8-Ym-QiH"/>
+                            <constraint firstItem="Vz2-VH-27L" firstAttribute="leading" secondItem="NfJ-cy-ghT" secondAttribute="trailing" constant="-42" id="ULc-fc-Uja"/>
+                            <constraint firstItem="MXE-ao-IEb" firstAttribute="leading" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="-64" id="VN8-Ym-QiH"/>
                             <constraint firstAttribute="trailing" secondItem="eL0-sg-hWD" secondAttribute="trailing" id="Z8Z-6z-QIa"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="blL-G7-mdc" secondAttribute="height" id="dTM-9V-0Rl"/>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="height" secondItem="MXE-ao-IEb" secondAttribute="height" id="gET-tj-dGd"/>
-                            <constraint firstItem="06n-HV-tCS" firstAttribute="leading" secondItem="blL-G7-mdc" secondAttribute="trailing" constant="8" id="htd-RZ-8bl"/>
+                            <constraint firstItem="06n-HV-tCS" firstAttribute="leading" secondItem="blL-G7-mdc" secondAttribute="trailing" constant="-26" id="htd-RZ-8bl"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Vz2-VH-27L" secondAttribute="width" id="lWF-cV-Io4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vz2-VH-27L" secondAttribute="trailing" constant="-5" id="mER-9j-eOd"/>
                             <constraint firstItem="Vz2-VH-27L" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="5" id="nE1-40-4aH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vg5-xS-ORU" secondAttribute="trailing" constant="-7.5" id="nLP-Dv-sND"/>
-                            <constraint firstItem="blL-G7-mdc" firstAttribute="leading" secondItem="MXE-ao-IEb" secondAttribute="trailing" constant="8" id="o6V-84-BZN"/>
+                            <constraint firstItem="blL-G7-mdc" firstAttribute="leading" secondItem="MXE-ao-IEb" secondAttribute="trailing" constant="-16" id="o6V-84-BZN"/>
                             <constraint firstAttribute="centerY" secondItem="Vg5-xS-ORU" secondAttribute="centerY" multiplier="0.555" constant="-5.25" id="oYM-gO-MkN"/>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="height" secondItem="NfJ-cy-ghT" secondAttribute="height" id="opB-vD-Ws2"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="Vz2-VH-27L" secondAttribute="height" id="q1E-K8-OQg"/>
@@ -296,9 +296,9 @@
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.1" id="rn4-bg-fjZ" userLabel="**Equal Widths - Button - View"/>
                             <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="eL0-sg-hWD" secondAttribute="bottom" id="ru5-lG-15f"/>
                             <constraint firstAttribute="centerX" secondItem="az5-A8-DCd" secondAttribute="centerX" id="snA-2Q-bEf"/>
-                            <constraint firstItem="06n-HV-tCS" firstAttribute="width" secondItem="NfJ-cy-ghT" secondAttribute="width" id="u4N-Aq-c3O"/>
-                            <constraint firstItem="NfJ-cy-ghT" firstAttribute="leading" secondItem="SQL-ip-dgJ" secondAttribute="trailing" constant="8" id="u8h-SG-k78"/>
-                            <constraint firstAttribute="centerX" secondItem="06n-HV-tCS" secondAttribute="centerX" id="zlZ-ch-aHx"/>
+                            <constraint firstItem="06n-HV-tCS" firstAttribute="width" secondItem="NfJ-cy-ghT" secondAttribute="width" constant="-1" id="u4N-Aq-c3O"/>
+                            <constraint firstItem="NfJ-cy-ghT" firstAttribute="leading" secondItem="SQL-ip-dgJ" secondAttribute="trailing" constant="-10" id="u8h-SG-k78"/>
+                            <constraint firstAttribute="centerX" secondItem="06n-HV-tCS" secondAttribute="centerX" constant="1" id="zlZ-ch-aHx"/>
                             <constraint firstItem="SQL-ip-dgJ" firstAttribute="centerY" secondItem="MAk-HR-nK8" secondAttribute="centerY" id="ztb-L8-2h3"/>
                         </constraints>
                         <variation key="default">
@@ -328,4 +328,10 @@
             <point key="canvasLocation" x="-389" y="60"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cat" width="24" height="31"/>
+        <image name="ghost" width="50" height="50"/>
+        <image name="rocket" width="28" height="41"/>
+        <image name="share" width="13" height="19"/>
+    </resources>
 </document>
