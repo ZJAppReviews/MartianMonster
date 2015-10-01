@@ -29,6 +29,21 @@
     float edgeInset = self.bounds.size.width / 6;
     self.imageEdgeInsets = UIEdgeInsetsMake(edgeInset, edgeInset, edgeInset, edgeInset);
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
+    [self addTarget:self action:@selector(setBgColorForButton:) forControlEvents:UIControlEventTouchDown];
+    [self addTarget:self action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchDragExit];
+}
+
+#pragma  mark - highlight backgroundcolor selectors
+-(void)setBgColorForButton:(UIButton*)sender
+{
+    [sender setBackgroundColor:[UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8]];
+
+}
+
+-(void)clearBgColorForButton:(UIButton*)sender
+{
+    [sender setBackgroundColor:[UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33]];
 }
 
 @end

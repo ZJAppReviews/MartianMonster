@@ -180,8 +180,11 @@
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="10" y="5" width="64.5" height="64.5"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onMenuButtonTapped:" destination="IDw-lP-XpV" eventType="touchUpInside" id="ey7-qC-7uV"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
                                 <rect key="frame" x="170" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -200,8 +203,11 @@
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="134" y="5" width="64.5" height="64.5"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onMenuButtonTapped:" destination="IDw-lP-XpV" eventType="touchUpInside" id="Q54-eG-jjJ"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
                                 <rect key="frame" x="330" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -220,6 +226,9 @@
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="259" y="5" width="65" height="64.5"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onMenuButtonTapped:" destination="IDw-lP-XpV" eventType="touchUpInside" id="fiE-cn-Pfh"/>
+                                </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-ao-IEb" userLabel="Spacer View">
                                 <rect key="frame" x="46" y="50" width="140" height="25"/>
@@ -237,7 +246,7 @@
                                 <rect key="frame" x="420" y="50" width="111" height="25"/>
                                 <color key="backgroundColor" red="0.90980398654937744" green="0.93333339691162109" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-VH-27L" customClass="RoundButton">
+                            <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-VH-27L" customClass="RoundButton">
                                 <rect key="frame" x="489" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -256,6 +265,9 @@
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="383" y="5" width="64.5" height="64.5"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onMenuButtonTapped:" destination="IDw-lP-XpV" eventType="touchUpInside" id="AzZ-dn-Yn9"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="az5-A8-DCd">
                                 <rect key="frame" x="280" y="570" width="39" height="37"/>

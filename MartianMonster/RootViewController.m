@@ -65,6 +65,32 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     [self handleAppExit];
 }
 
+#pragma mark - Menu Buttons
+- (IBAction)onMenuButtonTapped:(RoundButton *)button
+{
+    if (button.tag == 3)
+    {
+        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+        return;
+    }
+    
+    SoundItem *soundItem = self.bgSoundItems[button.tag];
+
+    if (![soundItem.playerNode isPlaying])
+    {
+        [self stopAllBGsongs];
+        [SoundManager scheduleAndPlaySoundItem:soundItem];
+        [button.layer addAnimation:self.pulseAnimation forKey:nil];
+        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
+    }
+    else
+    {
+        [soundItem.playerNode stop];
+        [button.layer removeAllAnimations];
+        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+    }
+}
+
 #pragma mark - UICollectionView
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -134,17 +160,6 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     self.pulseAnimation.autoreverses = YES;
     self.pulseAnimation.repeatCount = FLT_MAX;
 }
-
--(NSArray *)menuImages
-{
-    UIImage *image0 = [UIImage imageNamed:@"rocket"];
-    UIImage *image1 = [UIImage imageNamed:@"cat"];
-    UIImage *image2 = [UIImage imageNamed:@"ghost"];
-    UIImage *image3 = [UIImage imageNamed:@"share"];
-
-    return @[image0,image1,image2,image3];
-}
-
 
 #pragma  mark - app exit / reentrance
 -(void)handleAppReentrance
