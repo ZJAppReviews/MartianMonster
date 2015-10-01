@@ -38,7 +38,7 @@
         if (i == 0)
         {
             self.mainButton = menuItemButton;
-            [self.mainButton addTarget:self action:@selector(contractMenuButtons:) forControlEvents:UIControlEventTouchUpInside];
+//            [self.mainButton addTarget:self action:@selector(contractMenuButtons:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
 

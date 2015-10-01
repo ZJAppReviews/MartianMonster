@@ -139,6 +139,8 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     self.menuView.buttonBorderWidth = 0;
 
     [self.view addSubview:self.menuView];
+    
+    [self.menuView expandMenuButtons];
 }
 
 -(void)setupPulsateAnimation
@@ -153,24 +155,24 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 
 -(NSArray *)menuImages
 {
-    UIImage *image0 = [UIImage imageNamed:@"play"];
-    UIImage *image1 = [UIImage imageNamed:@"rocket"];
-    UIImage *image2 = [UIImage imageNamed:@"cat"];
-    UIImage *image3 = [UIImage imageNamed:@"ghost"];
+    UIImage *image0 = [UIImage imageNamed:@"rocket"];
+    UIImage *image1 = [UIImage imageNamed:@"cat"];
+    UIImage *image2 = [UIImage imageNamed:@"ghost"];
+    UIImage *image3 = [UIImage imageNamed:@"share"];
 
     return @[image0,image1,image2,image3];
 }
 
 -(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)button
 {
-    if (button.tag == 0)
+    if (button.tag == [self menuImages].count - 1)
     {
         //play or pause the currently playing bg song
         //change this buttons image between play and pause button
     }
     else
     {
-        SoundItem *soundItem = self.bgSoundItems[button.tag - 1];
+        SoundItem *soundItem = self.bgSoundItems[button.tag];
 
         if (![soundItem.playerNode isPlaying])
         {
