@@ -13,9 +13,9 @@
 #import "Soundboard.h"
 #import "SoundItem.h"
 
-#import "BubbularMenuView.h"
+#import "RoundButton.h"
 
-@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, BubbularMenuViewDelegate>
+@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate>
 
 #pragma mark - info
 @property NSMutableArray *soundboardsArray; //holds all the soundbites for each button
@@ -29,7 +29,9 @@
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
-@property BubbularMenuView *menuView;
+@property (strong, nonatomic) IBOutletCollection(RoundButton) NSArray *menuButtons;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *roundButtonequalWidthsConstraint;
+
 @property CABasicAnimation *pulseAnimation;
 
 @end
@@ -58,7 +60,6 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 
-    [self addBubbularMenuView];
     [self setupPulsateAnimation];
 
     [self handleAppReentrance];
@@ -125,24 +126,6 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     [self playAudioForButton:button];
 }
 
-#pragma  mark - bubbular menu view
--(void)addBubbularMenuView
-{
-    self.menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:self.view.frame.size.width / 7.25];
-    self.menuView.delegate = self;
-    self.menuView.spacing = self.view.frame.size.width / 3.5;
-    self.menuView.direction = BubbularDirectionHorizontal;
-    self.menuView.images = [self menuImages];
-    //    menuView.buttonBorderColor = [self customRedColor];
-    self.menuView.buttonBackgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
-
-    self.menuView.buttonBorderWidth = 0;
-
-    [self.view addSubview:self.menuView];
-    
-    [self.menuView expandMenuButtons];
-}
-
 -(void)setupPulsateAnimation
 {
     self.pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
@@ -163,33 +146,6 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     return @[image0,image1,image2,image3];
 }
 
--(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)button
-{
-    if (button.tag == [self menuImages].count - 1)
-    {
-        [button setBackgroundColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20]];
-        //play or pause the currently playing bg song
-        //change this buttons image between play and pause button
-    }
-    else
-    {
-        SoundItem *soundItem = self.bgSoundItems[button.tag];
-
-        if (![soundItem.playerNode isPlaying])
-        {
-            [self stopAllBGsongs];
-            [SoundManager scheduleAndPlaySoundItem:soundItem];
-            [button.layer addAnimation:self.pulseAnimation forKey:nil];
-            button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
-        }
-        else
-        {
-            [soundItem.playerNode stop];
-            [button.layer removeAllAnimations];
-            self.menuView.buttonBackgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
-        }
-    }
-}
 
 #pragma  mark - app exit / reentrance
 -(void)handleAppReentrance
@@ -273,11 +229,11 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         }
     }
 
-    for (UIButton *button in self.menuView.subviews)
-    {
-        [button.layer removeAllAnimations];
-        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
-    }
+//    for (UIButton *button in self.menuView.subviews)
+//    {
+//        [button.layer removeAllAnimations];
+//        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+//    }
 }
 
 #pragma mark - Scrollview delegate
@@ -329,6 +285,12 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
         lastPageBeforeRotate = -1;
         [self updateCurrentRowBasedOnOrientation];
+    }
+
+    // adjust round buttons accordingly
+    for (RoundButton *button in self.menuButtons)
+    {
+        button.layer.cornerRadius = button.bounds.size.width / 2;
     }
 }
 
