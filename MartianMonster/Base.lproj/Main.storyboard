@@ -161,7 +161,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-HR-nK8" customClass="RoundButton">
-                                <rect key="frame" x="10" y="10" width="100" height="100"/>
+                                <rect key="frame" x="10" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MAk-HR-nK8" secondAttribute="height" multiplier="1:1" id="PMH-x3-ghT"/>
@@ -177,9 +177,12 @@
                                         <exclude reference="aPH-YT-ylG"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="10" y="5" width="64.5" height="64.5"/>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
-                                <rect key="frame" x="170" y="10" width="100" height="100"/>
+                                <rect key="frame" x="170" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="3pU-ng-6Gd"/>
@@ -194,9 +197,12 @@
                                         <exclude reference="waE-MM-qmx"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="134" y="5" width="64.5" height="64.5"/>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
-                                <rect key="frame" x="330" y="10" width="100" height="100"/>
+                                <rect key="frame" x="330" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Igr-cZ-s7P"/>
@@ -211,9 +217,12 @@
                                         <exclude reference="UCH-P0-lpW"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="259" y="5" width="65" height="64.5"/>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-VH-27L" customClass="RoundButton">
-                                <rect key="frame" x="489" y="10" width="100" height="100"/>
+                                <rect key="frame" x="489" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="47J-Uc-K9O"/>
@@ -228,6 +237,9 @@
                                         <exclude reference="n75-KA-jQq"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="383" y="5" width="64.5" height="64.5"/>
+                                </variation>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-5V-BIL" userLabel="Spacer View">
                                 <rect key="frame" x="290" y="0.0" width="20" height="20"/>
@@ -236,6 +248,9 @@
                                     <constraint firstAttribute="height" constant="20" id="ZYA-ud-NWC"/>
                                     <constraint firstAttribute="width" constant="20" id="ljg-1P-obU"/>
                                 </constraints>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="219" y="0.0" width="20" height="20"/>
+                                </variation>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="az5-A8-DCd">
                                 <rect key="frame" x="280" y="570" width="39" height="37"/>
@@ -247,7 +262,7 @@
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-6" id="J1v-kZ-dhM"/>
                             <constraint firstItem="Vz2-VH-27L" firstAttribute="leading" secondItem="SQL-ip-dgJ" secondAttribute="trailing" constant="59" id="JZj-eM-eTD"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="top" id="Kl9-yX-8nr"/>
-                            <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="10" id="LWn-Hv-RZc"/>
+                            <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="5" id="LWn-Hv-RZc"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="blL-G7-mdc" secondAttribute="height" id="Lzl-PD-bdM"/>
                             <constraint firstItem="Vg5-xS-ORU" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-8" id="MOM-w6-wwg"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.177" constant="-6" id="Rzr-EC-E5x" userLabel="*Equal Widths - (-6) - Button - View"/>
@@ -261,17 +276,29 @@
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="SQL-ip-dgJ" secondAttribute="height" id="gtn-qb-5HU"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Vz2-VH-27L" secondAttribute="width" id="lWF-cV-Io4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vz2-VH-27L" secondAttribute="trailing" constant="-5" id="mER-9j-eOd"/>
-                            <constraint firstItem="Vz2-VH-27L" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="10" id="nE1-40-4aH"/>
+                            <constraint firstItem="Vz2-VH-27L" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="5" id="nE1-40-4aH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vg5-xS-ORU" secondAttribute="trailing" constant="-7.5" id="nLP-Dv-sND"/>
                             <constraint firstAttribute="centerY" secondItem="Vg5-xS-ORU" secondAttribute="centerY" multiplier="0.555" constant="-5.25" id="oYM-gO-MkN"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="Vz2-VH-27L" secondAttribute="height" id="q1E-K8-OQg"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leading" id="r8d-zt-cZA"/>
+                            <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.1" id="rn4-bg-fjZ" userLabel="**Equal Widths - Button - View"/>
                             <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="eL0-sg-hWD" secondAttribute="bottom" id="ru5-lG-15f"/>
                             <constraint firstItem="SQL-ip-dgJ" firstAttribute="leading" secondItem="FRw-5V-BIL" secondAttribute="trailing" constant="20" id="sAr-Tl-IH6"/>
                             <constraint firstAttribute="centerX" secondItem="az5-A8-DCd" secondAttribute="centerX" id="snA-2Q-bEf"/>
                             <constraint firstItem="FRw-5V-BIL" firstAttribute="leading" secondItem="blL-G7-mdc" secondAttribute="trailing" constant="20" id="tUv-9B-Y5o"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="centerY" secondItem="blL-G7-mdc" secondAttribute="centerY" id="yfq-wA-TGY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rn4-bg-fjZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Rzr-EC-E5x"/>
+                                <include reference="rn4-bg-fjZ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="eL0-sg-hWD" id="eLB-Mj-8dN"/>
