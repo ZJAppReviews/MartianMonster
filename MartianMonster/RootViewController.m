@@ -243,11 +243,11 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         }
     }
 
-//    for (UIButton *button in self.menuView.subviews)
-//    {
-//        [button.layer removeAllAnimations];
-//        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
-//    }
+    for (RoundButton *button in self.menuButtons)
+    {
+        [button.layer removeAllAnimations];
+        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+    }
 }
 
 #pragma mark - Scrollview delegate
