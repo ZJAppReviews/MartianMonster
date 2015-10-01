@@ -7,12 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ROCKET@2x.png"
+      "filename" : "rocket@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "ROCKET@3x.png"
+      "filename" : "rocket@3x.png"
     }
   ],
   "info" : {
