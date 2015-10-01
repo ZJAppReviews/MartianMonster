@@ -250,7 +250,7 @@
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="10" id="LWn-Hv-RZc"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="height" secondItem="blL-G7-mdc" secondAttribute="height" id="Lzl-PD-bdM"/>
                             <constraint firstItem="Vg5-xS-ORU" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-8" id="MOM-w6-wwg"/>
-                            <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.177" constant="-6" id="Rzr-EC-E5x"/>
+                            <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.177" constant="-6" id="Rzr-EC-E5x" userLabel="*Equal Widths - (-6) - Button - View"/>
                             <constraint firstAttribute="centerX" secondItem="FRw-5V-BIL" secondAttribute="centerX" id="SYf-eh-oQB"/>
                             <constraint firstAttribute="bottomMargin" secondItem="az5-A8-DCd" secondAttribute="bottom" constant="-7" id="Taj-cP-xOS"/>
                             <constraint firstItem="blL-G7-mdc" firstAttribute="leading" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="60" id="VMn-uQ-cPR"/>
