@@ -40,6 +40,10 @@
             self.mainButton = menuItemButton;
 //            [self.mainButton addTarget:self action:@selector(contractMenuButtons:) forControlEvents:UIControlEventTouchUpInside];
         }
+
+        // Highlight button with appropriate background colors
+        [menuItemButton addTarget:self action:@selector(setBgColorForButton:) forControlEvents:UIControlEventTouchDown];
+        [menuItemButton addTarget:self action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchDragExit];
     }
 
     [self resizeToFitSubviews];
@@ -47,6 +51,21 @@
     self.dynamicAnimator = [[UIDynamicAnimator alloc]initWithReferenceView:self];
     return self;
 }
+
+
+#pragma  mark - highlight backgroundcolor selectors
+-(void)setBgColorForButton:(UIButton*)sender
+{
+    [sender setBackgroundColor:[UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8]];
+
+}
+
+-(void)clearBgColorForButton:(UIButton*)sender
+{
+    [sender setBackgroundColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20]];
+}
+
+#pragma  mark - expand / contract
 
 -(void)expandMenuButtons
 {
@@ -86,17 +105,21 @@
     self.isExpanded = !self.isExpanded;
 }
 
+
+#pragma  mark - dynamics
 -(void)snapButton:(UIButton *)button toPoint:(CGPoint)point
 {
     UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc]initWithItem:button snapToPoint:point];
     [self.dynamicAnimator addBehavior:snapBehaviour];
 }
 
+#pragma  mark - delegate
 -(void)onMenuButtonTapped:(UIButton *)sender
 {
     [self.delegate bubbularMenuView:self didTapMenuButton:sender];
 }
 
+#pragma  mark - button creation helpers
 -(UIButton *)createButtonWithTitle:(NSString *)title withCircumference:(CGFloat)circ
 {
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, circ, circ)];
@@ -112,6 +135,7 @@
     return button;
 }
 
+#pragma  mark - resizing / formatting
 -(void)resizeToFitSubviews
 {
     CGFloat totalLength = ( (self.buttonCircumference * (self.buttonCount + 1)) + ((self.spacing - self.buttonCircumference) * self.buttonCount) );
@@ -138,6 +162,7 @@
     button.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
+#pragma  mark - override setters
 -(void)setButtonBackgroundColor:(UIColor *)buttonBackgroundColor
 {
     _buttonBackgroundColor = buttonBackgroundColor;

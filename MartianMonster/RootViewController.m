@@ -167,6 +167,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 {
     if (button.tag == [self menuImages].count - 1)
     {
+        [button setBackgroundColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20]];
         //play or pause the currently playing bg song
         //change this buttons image between play and pause button
     }
