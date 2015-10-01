@@ -171,6 +171,7 @@
                                 <state key="normal" image="rocket">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="rocket"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="UXx-8D-pR1"/>
@@ -194,6 +195,7 @@
                                 <state key="normal" image="cat">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="cat"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="3pU-ng-6Gd"/>
@@ -217,6 +219,7 @@
                                 <state key="normal" image="ghost">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="ghost"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Igr-cZ-s7P"/>
@@ -256,6 +259,7 @@
                                 <state key="normal" image="share">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="share"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="47J-Uc-K9O"/>
