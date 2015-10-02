@@ -33,6 +33,8 @@
 
 @property CABasicAnimation *pulseAnimation;
 
+@property UIActivityViewController *activityVC;
+
 @end
 
 NSString *const kPlistSoundInfo = @"SoundInfo";
@@ -63,6 +65,32 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 
     [self handleAppReentrance];
     [self handleAppExit];
+
+    [self setUpShareVC];
+}
+
+-(void)setUpShareVC
+{
+    NSArray *textArray = @[@"My spaceship just blasted off!", @"My trip was short!"];
+    NSUInteger randomIndex = arc4random() % textArray.count;
+    NSString *textSuffix = @"via the Martian Monster App";
+    NSString *shareText = [NSString stringWithFormat:@"♫ %@ %@", [textArray objectAtIndex:randomIndex], textSuffix];
+
+    NSURL *shareURL = [NSURL URLWithString:@"goo.gl/YRPYxc"];
+
+    NSArray *objectsToShare = @[shareText, shareURL];
+
+    self.activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+
+    self.activityVC.excludedActivityTypes = excludeActivities;
 }
 
 #pragma mark - Menu Buttons
@@ -70,6 +98,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 {
     if (button.tag == 3)
     {
+        [self presentViewController:self.activityVC animated:YES completion:nil];
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
         return;
     }
