@@ -58,6 +58,9 @@
                                                                 <color key="titleColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                                <rect key="frame" x="299" y="-14" width="339" height="214"/>
+                                                            </variation>
                                                             <connections>
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="Yeb-3D-uuX"/>
                                                             </connections>
@@ -301,7 +304,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="centerY" secondItem="MXE-ao-IEb" secondAttribute="centerY" id="0hT-Yh-0h7"/>
-                            <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.085" id="3y1-E8-29g"/>
+                            <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.085" id="3y1-E8-29g" userLabel="*(reg cmt) Equal Widths - Button - View"/>
                             <constraint firstItem="SQL-ip-dgJ" firstAttribute="height" secondItem="MAk-HR-nK8" secondAttribute="height" id="4XI-xL-RqL"/>
                             <constraint firstItem="SQL-ip-dgJ" firstAttribute="leading" secondItem="06n-HV-tCS" secondAttribute="trailing" constant="-24" id="4iO-5j-9fV"/>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="centerY" secondItem="NfJ-cy-ghT" secondAttribute="centerY" id="8vk-RY-Wex"/>
@@ -314,6 +317,9 @@
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" constant="5" id="LWn-Hv-RZc"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="blL-G7-mdc" secondAttribute="width" id="LuS-TP-3gS"/>
                             <constraint firstItem="Vg5-xS-ORU" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-8" id="MOM-w6-wwg"/>
+                            <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.07" id="NBw-NC-RLE" userLabel="*(reg reg) Equal Widths - Button - View">
+                                <variation key="heightClass=regular-widthClass=regular" constant="55.5"/>
+                            </constraint>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.177" constant="-6" id="Rzr-EC-E5x" userLabel="*(any any)Equal Widths - (-6) - Button - View"/>
                             <constraint firstAttribute="bottomMargin" secondItem="az5-A8-DCd" secondAttribute="bottom" constant="-7" id="Taj-cP-xOS"/>
                             <constraint firstItem="Vz2-VH-27L" firstAttribute="leading" secondItem="NfJ-cy-ghT" secondAttribute="trailing" constant="-42" id="ULc-fc-Uja"/>
@@ -342,6 +348,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="3y1-E8-29g"/>
+                                <exclude reference="NBw-NC-RLE"/>
                                 <exclude reference="rn4-bg-fjZ"/>
                             </mask>
                         </variation>
@@ -358,6 +365,12 @@
                                 <exclude reference="rn4-bg-fjZ"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="NBw-NC-RLE"/>
+                                <exclude reference="Rzr-EC-E5x"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="eL0-sg-hWD" id="eLB-Mj-8dN"/>
@@ -371,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-tz-uej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-389" y="60"/>
+            <point key="canvasLocation" x="-389.25" y="60"/>
         </scene>
     </scenes>
     <resources>
