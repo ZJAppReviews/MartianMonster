@@ -71,12 +71,12 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 
 -(void)setUpShareVC
 {
-    NSArray *textArray = @[@"My spaceship just blasted off!", @"My trip was short!"];
+    NSArray *textArray = @[@"My spaceship just blasted off", @"My trip was short"];
     NSUInteger randomIndex = arc4random() % textArray.count;
-    NSString *textSuffix = @"via the Martian Monster App";
-    NSString *shareText = [NSString stringWithFormat:@"♫ %@ %@", [textArray objectAtIndex:randomIndex], textSuffix];
+    NSString *textSuffix = @"via the Martian Monster App!";
+    NSString *shareText = [NSString stringWithFormat:@"♫ %@, %@", [textArray objectAtIndex:randomIndex], textSuffix];
 
-    NSURL *shareURL = [NSURL URLWithString:@"goo.gl/YRPYxc"];
+    NSURL *shareURL = [NSURL URLWithString:@"http://goo.gl/YRPYxc"];
 
     NSArray *objectsToShare = @[shareText, shareURL];
 

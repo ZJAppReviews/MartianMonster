@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IDw-lP-XpV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IDw-lP-XpV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -29,7 +30,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SampleCell" id="96M-fY-PFM" customClass="SoundboardCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
@@ -153,7 +154,7 @@
                                     <outlet property="delegate" destination="IDw-lP-XpV" id="JMg-rC-Nco"/>
                                 </connections>
                             </collectionView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-1200" maxValue="1200" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-xS-ORU">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-1200" maxValue="1200" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-xS-ORU">
                                 <rect key="frame" x="6" y="535" width="587.5" height="31"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -163,7 +164,7 @@
                                     <action selector="onSliderMoved:" destination="IDw-lP-XpV" eventType="valueChanged" id="uFI-hC-wNu"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-HR-nK8" customClass="RoundButton">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-HR-nK8" customClass="RoundButton">
                                 <rect key="frame" x="10" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -191,7 +192,7 @@
                                     <action selector="onMenuButtonTapped:" destination="IDw-lP-XpV" eventType="touchUpInside" id="ey7-qC-7uV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blL-G7-mdc" customClass="RoundButton">
                                 <rect key="frame" x="170" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -218,7 +219,7 @@
                                     <action selector="onMenuButtonTapped:" destination="IDw-lP-XpV" eventType="touchUpInside" id="Q54-eG-jjJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-ip-dgJ" customClass="RoundButton">
                                 <rect key="frame" x="330" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -245,14 +246,14 @@
                                     <action selector="onMenuButtonTapped:" destination="IDw-lP-XpV" eventType="touchUpInside" id="fiE-cn-Pfh"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-ao-IEb" userLabel="Spacer View">
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-ao-IEb" userLabel="Spacer View">
                                 <rect key="frame" x="46" y="50" width="140" height="25"/>
                                 <color key="backgroundColor" red="0.90980398654937744" green="0.93333339691162109" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                                 <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
                                     <rect key="frame" x="81" y="50" width="159.5" height="25"/>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06n-HV-tCS" userLabel="Spacer View">
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06n-HV-tCS" userLabel="Spacer View">
                                 <rect key="frame" x="244" y="50" width="110" height="25"/>
                                 <color key="backgroundColor" red="0.90980398654937744" green="0.93333339691162109" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -263,14 +264,14 @@
                                     <rect key="frame" x="334" y="50" width="129" height="25"/>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfJ-cy-ghT" userLabel="Spacer View">
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfJ-cy-ghT" userLabel="Spacer View">
                                 <rect key="frame" x="420" y="50" width="111" height="25"/>
                                 <color key="backgroundColor" red="0.90980398654937744" green="0.93333339691162109" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                                 <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
                                     <rect key="frame" x="565" y="50" width="130.5" height="25"/>
                                 </variation>
                             </view>
-                            <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-VH-27L" customClass="RoundButton">
+                            <button opaque="NO" tag="3" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-VH-27L" customClass="RoundButton">
                                 <rect key="frame" x="489" y="5" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>

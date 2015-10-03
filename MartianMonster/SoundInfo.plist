@@ -5,33 +5,9 @@
 	<array>
 		<dict>
 			<key>displayText</key>
-			<string>(blip)</string>
+			<string>1ST</string>
 			<key>fileName</key>
-			<string>blip</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<true/>
-			<key>pitchEffect</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>(ufo)</string>
-			<key>fileName</key>
-			<string>ufo</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<true/>
-			<key>pitchEffect</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>BLAST OFF</string>
-			<key>fileName</key>
-			<string>blastOff</string>
+			<string>firstAstronaut</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -56,6 +32,30 @@
 			<string>TRIP</string>
 			<key>fileName</key>
 			<string>tripIsShort</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>(ufo)</string>
+			<key>fileName</key>
+			<string>ufo</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>BLAST</string>
+			<key>fileName</key>
+			<string>blastOff</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>

@@ -40,6 +40,7 @@
 		93BE3DC81BB3655A009D603C /* GhostLoop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93BE3DC51BB36559009D603C /* GhostLoop.m4a */; };
 		93BE3DC91BB3655A009D603C /* MMLoop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93BE3DC61BB3655A009D603C /* MMLoop.m4a */; };
 		93BE3DCC1BB375FE009D603C /* PetCatLoop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93BE3DCB1BB375FE009D603C /* PetCatLoop.m4a */; };
+		93C6F20F1BC038F200276D1D /* firstAstronaut.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93C6F20E1BC038F200276D1D /* firstAstronaut.m4a */; settings = {ASSET_TAGS = (); }; };
 		93F1D7BF1B89BE8D00979365 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		93BE3DC51BB36559009D603C /* GhostLoop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = GhostLoop.m4a; sourceTree = "<group>"; };
 		93BE3DC61BB3655A009D603C /* MMLoop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = MMLoop.m4a; sourceTree = "<group>"; };
 		93BE3DCB1BB375FE009D603C /* PetCatLoop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCatLoop.m4a; sourceTree = "<group>"; };
+		93C6F20E1BC038F200276D1D /* firstAstronaut.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = firstAstronaut.m4a; sourceTree = "<group>"; };
 		93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 		9363218F1BA7CEEF004CB7D6 /* One */ = {
 			isa = PBXGroup;
 			children = (
+				93C6F20E1BC038F200276D1D /* firstAstronaut.m4a */,
 				93B8E3681B81AE61008ECB47 /* blip.m4a */,
 				93157A6A1B8A7F5F0095F25F /* ufo.m4a */,
 				93B8E36C1B81AE61008ECB47 /* blastOff.m4a */,
@@ -404,6 +407,7 @@
 				9363219B1BA7E6E7004CB7D6 /* yourCat.m4a in Resources */,
 				93711AFA1BB602DF002A7225 /* Keys.plist in Resources */,
 				93BE3DC91BB3655A009D603C /* MMLoop.m4a in Resources */,
+				93C6F20F1BC038F200276D1D /* firstAstronaut.m4a in Resources */,
 				9315822E1BB6EB0E00EC9CA2 /* shortBlip.m4a in Resources */,
 				93B8E3701B81AE61008ECB47 /* tripIsShort.m4a in Resources */,
 				9315822F1BB6EB0E00EC9CA2 /* poof.m4a in Resources */,
@@ -560,7 +564,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6397772a-98e8-4ffb-b540-4297d860b650";
+				PROVISIONING_PROFILE = "55d0046a-7e2b-4a36-943c-bfe453e1a93b";
 				SDKROOT = iphoneos8.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -599,7 +603,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "6397772a-98e8-4ffb-b540-4297d860b650";
+				PROVISIONING_PROFILE = "55d0046a-7e2b-4a36-943c-bfe453e1a93b";
 				SDKROOT = iphoneos8.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
