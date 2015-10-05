@@ -36,6 +36,7 @@
 
 @property UIActivityViewController *activityVC;
 
+@property float deviceOSversion;
 @property (nonatomic) BOOL isRecording;
 
 @end
@@ -55,6 +56,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 {
     [super viewDidLoad];
 
+    self.deviceOSversion = [[[UIDevice currentDevice] systemVersion] floatValue];
     self.engine = [AVAudioEngine new];
 
     self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlist:kPlistSoundInfo forEngine:self.engine];
@@ -71,6 +73,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     [self handleAppExit];
 
     [self setUpShareVC];
+    [self useShareIconIfEarlierThaniOS9];
 }
 
 -(void)setUpShareVC
@@ -102,9 +105,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 {
     if (button.tag == 3)
     {
-        float deviceOSVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
-
-        if (deviceOSVersion >= 9.0)
+        if (self.deviceOSversion >= 9.0)
         {
             [self setupReplayKit];
             self.isRecording = !self.isRecording;
@@ -113,8 +114,12 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         {
             [self presentViewController:self.activityVC animated:YES completion:nil];
         }
-        
-        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+
+        if (self.deviceOSversion < 9.0)
+        {
+            button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+        }
+
         return;
     }
     
@@ -184,11 +189,23 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 
     if (isRecording)
     {
-        [self.menuButtons.lastObject setImage:[UIImage imageNamed:@"stop"] forState:UIControlStateNormal];
+        [self.menuButtons.lastObject setImageEdgeInsets: UIEdgeInsetsMake(20, 20, 20, 20)];
+
+        [self.menuButtons.lastObject setImage:[UIImage imageNamed:@"redSquare"] forState:UIControlStateNormal];
+        [self.menuButtons.lastObject setBackgroundColor:[UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8]];
     }
     else
     {
         [self.menuButtons.lastObject setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+        [self.menuButtons.lastObject setBackgroundColor:[UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33]];
+    }
+}
+
+-(void)useShareIconIfEarlierThaniOS9
+{
+    if (self.deviceOSversion < 9.0)
+    {
+        [self.menuButtons.lastObject setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
     }
 }
 
