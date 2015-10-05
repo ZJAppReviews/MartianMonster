@@ -22,6 +22,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eL0-sg-hWD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fat-oN-Qdi">
                                     <size key="itemSize" width="599.5" height="600"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -134,6 +135,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="5uC-rO-tYU" secondAttribute="bottom" id="Nef-SG-xzF"/>
                                             <constraint firstItem="5uC-rO-tYU" firstAttribute="top" secondItem="96M-fY-PFM" secondAttribute="top" id="Nsm-u4-m7v"/>
@@ -302,7 +304,7 @@
                                 <rect key="frame" x="280" y="570" width="39" height="37"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="06n-HV-tCS" firstAttribute="centerY" secondItem="MXE-ao-IEb" secondAttribute="centerY" id="0hT-Yh-0h7"/>
                             <constraint firstItem="MAk-HR-nK8" firstAttribute="width" secondItem="Jpf-qf-gzV" secondAttribute="width" multiplier="0.085" id="3y1-E8-29g" userLabel="*(reg cmt) Equal Widths - Button - View"/>

@@ -14,6 +14,7 @@
 #import "SoundItem.h"
 
 #import "RoundButton.h"
+#import "UIImage+animatedGif.h"
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate>
 
@@ -67,6 +68,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     [self handleAppExit];
 
     [self setUpShareVC];
+    [self spaceGifCoastToCoast];
 }
 
 -(void)setUpShareVC
@@ -91,6 +93,16 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
                                    UIActivityTypePostToVimeo];
 
     self.activityVC.excludedActivityTypes = excludeActivities;
+}
+
+-(void)spaceGifCoastToCoast
+{
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+
+    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
+    imageView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
+
+    [self.view insertSubview:imageView atIndex:0];
 }
 
 #pragma mark - Menu Buttons
