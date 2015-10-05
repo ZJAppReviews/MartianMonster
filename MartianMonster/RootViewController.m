@@ -14,8 +14,9 @@
 #import "SoundItem.h"
 
 #import "RoundButton.h"
+#import <ReplayKit/ReplayKit.h>
 
-@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate>
+@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, RPPreviewViewControllerDelegate, RPScreenRecorderDelegate>
 
 #pragma mark - info
 @property NSMutableArray *soundboardsArray; //holds all the soundbites for each button
@@ -35,6 +36,8 @@
 
 @property UIActivityViewController *activityVC;
 
+@property (nonatomic) BOOL isRecording;
+
 @end
 
 NSString *const kPlistSoundInfo = @"SoundInfo";
@@ -44,6 +47,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 {
     NSInteger currentRow;
     NSInteger lastPageBeforeRotate;
+//    BOOL isRecording;
 }
 
 #pragma  mark - view lifecycle
@@ -98,7 +102,18 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 {
     if (button.tag == 3)
     {
-        [self presentViewController:self.activityVC animated:YES completion:nil];
+        float deviceOSVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+
+        if (deviceOSVersion >= 9.0)
+        {
+            [self setupReplayKit];
+            self.isRecording = !self.isRecording;
+        }
+        else
+        {
+            [self presentViewController:self.activityVC animated:YES completion:nil];
+        }
+        
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
         return;
     }
@@ -117,6 +132,63 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         [soundItem.playerNode stop];
         [button.layer removeAllAnimations];
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+    }
+}
+
+#pragma mark - ReplayKit
+
+-(void)setupReplayKit
+{
+    RPScreenRecorder *recorder = [RPScreenRecorder sharedRecorder];
+    recorder.delegate = self;
+
+    if (!self.isRecording)
+    {
+        [recorder startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
+            if (!error)
+            {
+                NSLog(@"SR started recording dude");
+            }
+        }];
+    }
+    else
+    {
+        [recorder stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
+            if (previewViewController)
+            {
+                previewViewController.previewControllerDelegate = self;
+                [self presentViewController:previewViewController animated:YES completion:nil];
+            }
+        }];
+    }
+}
+
+-(void)screenRecorder:(RPScreenRecorder *)screenRecorder didStopRecordingWithError:(NSError *)error previewViewController:(RPPreviewViewController *)previewViewController
+{
+    NSLog(@"SR stopped recording yall");
+}
+
+-(void)screenRecorderDidChangeAvailability:(RPScreenRecorder *)screenRecorder
+{
+    NSLog(@"SR did change availability");
+}
+
+-(void)previewControllerDidFinish:(RPPreviewViewController *)previewController
+{
+    [previewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)setIsRecording:(BOOL)isRecording
+{
+    _isRecording = isRecording;
+
+    if (isRecording)
+    {
+        [self.menuButtons.lastObject setImage:[UIImage imageNamed:@"stop"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.menuButtons.lastObject setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
     }
 }
 

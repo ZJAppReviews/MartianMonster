@@ -41,6 +41,7 @@
 		93BE3DC91BB3655A009D603C /* MMLoop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93BE3DC61BB3655A009D603C /* MMLoop.m4a */; };
 		93BE3DCC1BB375FE009D603C /* PetCatLoop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93BE3DCB1BB375FE009D603C /* PetCatLoop.m4a */; };
 		93C6F20F1BC038F200276D1D /* firstAstronaut.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93C6F20E1BC038F200276D1D /* firstAstronaut.m4a */; settings = {ASSET_TAGS = (); }; };
+		93C6F2121BC1FAC100276D1D /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6F2101BC1F9AB00276D1D /* ReplayKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		93F1D7BF1B89BE8D00979365 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		93BE3DC61BB3655A009D603C /* MMLoop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = MMLoop.m4a; sourceTree = "<group>"; };
 		93BE3DCB1BB375FE009D603C /* PetCatLoop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCatLoop.m4a; sourceTree = "<group>"; };
 		93C6F20E1BC038F200276D1D /* firstAstronaut.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = firstAstronaut.m4a; sourceTree = "<group>"; };
+		93C6F2101BC1F9AB00276D1D /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C6F2121BC1FAC100276D1D /* ReplayKit.framework in Frameworks */,
 				93F1D7BF1B89BE8D00979365 /* AVFoundation.framework in Frameworks */,
 				0912A36EB18938DA1EE283A9 /* libPods.a in Frameworks */,
 			);
@@ -129,6 +132,7 @@
 		542DBB955BE42D672F6E022F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93C6F2101BC1F9AB00276D1D /* ReplayKit.framework */,
 				93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */,
 				34B548A46442F5ADB9E77474 /* libPods.a */,
 			);
