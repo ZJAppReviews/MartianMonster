@@ -68,7 +68,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     [self handleAppExit];
 
     [self setUpShareVC];
-    [self spaceGifCoastToCoast];
+    [self spaceGif];
 }
 
 -(void)setUpShareVC
@@ -95,7 +95,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     self.activityVC.excludedActivityTypes = excludeActivities;
 }
 
--(void)spaceGifCoastToCoast
+-(void)spaceGif
 {
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
 
