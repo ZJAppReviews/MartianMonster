@@ -98,11 +98,13 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 -(void)spaceGif
 {
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
 
     NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
     imageView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
 
-    [self.view insertSubview:imageView atIndex:0];
+    self.collectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
+    [self constrainView:imageView toSuperview:self.view];
 }
 
 #pragma mark - Menu Buttons
@@ -359,6 +361,42 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 -(NSUInteger)supportedInterfaceOrientations
 {
     return (int) UIInterfaceOrientationMaskAll;
+}
+
+//Constraint helper
+-(void)constrainView:(UIView *)containerView toSuperview:(UIView *)superview
+{
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:superview
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                          attribute:NSLayoutAttributeLeading
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:superview
+                                                          attribute:NSLayoutAttributeLeading
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                          attribute:NSLayoutAttributeBottom
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:superview
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                          attribute:NSLayoutAttributeTrailing
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:superview
+                                                          attribute:NSLayoutAttributeTrailing
+                                                         multiplier:1.0
+                                                           constant:0.0]];
 }
 
 @end
