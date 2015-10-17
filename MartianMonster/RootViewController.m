@@ -145,7 +145,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     else {
         // Change Rect to position Popover
         UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:self.activityVC];
-        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width * 0.75, self.view.frame.size.height/8.2, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
 }
 
