@@ -40,6 +40,7 @@
 
 NSString *const kPlistSoundInfo = @"SoundInfo";
 NSString *const kPlistBgSongInfo = @"BgSongInfo";
+NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 @implementation RootViewController
 {
@@ -78,7 +79,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
     NSString *textSuffix = @"via the Martian Monster App!";
     NSString *shareText = [NSString stringWithFormat:@"♫ %@, %@", [textArray objectAtIndex:randomIndex], textSuffix];
 
-    NSURL *shareURL = [NSURL URLWithString:@"http://goo.gl/YRPYxc"];
+    NSURL *shareURL = [NSURL URLWithString:kAppLink];
 
     NSArray *objectsToShare = @[shareText, shareURL];
 
