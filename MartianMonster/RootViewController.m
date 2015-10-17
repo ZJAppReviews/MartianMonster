@@ -112,7 +112,7 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
 {
     if (button.tag == 3)
     {
-        [self presentViewController:self.activityVC animated:YES completion:nil];
+        [self presentActivityViewController];
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
         return;
     }
@@ -131,6 +131,20 @@ NSString *const kPlistBgSongInfo = @"BgSongInfo";
         [soundItem.playerNode stop];
         [button.layer removeAllAnimations];
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+    }
+}
+
+-(void)presentActivityViewController
+{
+    //if iPhone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:self.activityVC animated:YES completion:nil];
+    }
+    //if iPad
+    else {
+        // Change Rect to position Popover
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:self.activityVC];
+        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
 }
 
