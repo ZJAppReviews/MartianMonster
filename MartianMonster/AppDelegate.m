@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -18,84 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Initialize Parse.
-    [self parseSetup];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
-    // APNs
-    [self pushSetup:application];
-
-    // PFuser
-    [self saveUserToParse];
-
     return YES;
-}
-
--(void)parseSetup
-{
-    //Private Keys in Keys.plist (hidden via gitignore)
-    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"]];
-    NSString *applicationId = [dictionary objectForKey:@"parseAppId"];
-    NSString *clientKey = [dictionary objectForKey:@"parseClientKey"];
-
-    [Parse setApplicationId:applicationId
-                  clientKey:clientKey];
-}
-
--(void)pushSetup:(UIApplication *)application
-{
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
-}
-
--(void)saveUserToParse // need user objects to track retention analytics (will create new user app deleted / redownloaded but this works)
-{
-    if (![PFUser currentUser])
-    {
-        PFUser *user = [PFUser new];
-        NSString *uniqueString = [[[UIDevice currentDevice] identifierForVendor] UUIDString];;
-        user.username = [uniqueString substringFromIndex:uniqueString.length - 5];
-        user.password = user.username;
-
-        [user signUpInBackground];
-    }
-}
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    currentInstallation.channels = @[@"global"];
-    [currentInstallation saveInBackground];
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [PFPush handlePush:userInfo];
-}
-
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    if (error.code == 3010) {
-        NSLog(@"Push notifications are not supported in the iOS Simulator.");
-    } else {
-        // show some alert or otherwise handle the failure to register.
-        NSLog(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
-    }
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    if (currentInstallation.badge != 0)
-    {
-        currentInstallation.badge = 0;
-        [currentInstallation saveEventually];
-    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
