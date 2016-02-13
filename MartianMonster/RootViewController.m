@@ -139,6 +139,10 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     } else {
         MenuCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MenuCell" forIndexPath:indexPath];
         cell.delegate = self;
+
+        NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
+        [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
+
         return cell;
     }
 }
@@ -189,6 +193,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         return self.view.frame.size;
     } else {
         MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+        [cell.menuButton setImage:[UIImage imageNamed: @"0"] forState:UIControlStateNormal];
         return cell ? cell.frame.size : CGSizeMake(75, 75);
     }
 }
@@ -226,33 +231,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
     }
 }
-
-#pragma mark - Menu Buttons
-//- (IBAction)onMenuButtonTapped:(RoundButton *)button
-//{
-//    if (button.tag == 3)
-//    {
-//        [self presentActivityViewController];
-//        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
-//        return;
-//    }
-//
-//    SoundItem *soundItem = self.bgSoundItems[button.tag];
-//
-//    if (![soundItem.playerNode isPlaying])
-//    {
-//        [self stopAllBGsongs];
-//        [SoundManager scheduleAndPlaySoundItem:soundItem];
-//        [button.layer addAnimation:self.pulseAnimation forKey:nil];
-//        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
-//    }
-//    else
-//    {
-//        [soundItem.playerNode stop];
-//        [button.layer removeAllAnimations];
-//        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
-//    }
-//}
 
 #pragma mark - Animation helper
 

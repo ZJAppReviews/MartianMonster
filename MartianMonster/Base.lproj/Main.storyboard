@@ -164,7 +164,7 @@
                                     <outlet property="delegate" destination="IDw-lP-XpV" id="JMg-rC-Nco"/>
                                 </connections>
                             </collectionView>
-                            <collectionView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EIC-Ez-b2O" userLabel="Menu Collection View">
+                            <collectionView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EIC-Ez-b2O" userLabel="Menu Collection View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -191,7 +191,7 @@
                                                         <constraint firstAttribute="width" constant="75" id="UXx-8D-pR1"/>
                                                         <constraint firstAttribute="height" constant="75" id="aPH-YT-ylG"/>
                                                     </constraints>
-                                                    <state key="normal" image="ROCKET">
+                                                    <state key="normal" image="0">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="selected" image="rocket"/>
@@ -282,7 +282,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ROCKET" width="28" height="41"/>
+        <image name="0" width="28" height="41"/>
         <image name="rocket" width="28" height="41"/>
     </resources>
 </document>

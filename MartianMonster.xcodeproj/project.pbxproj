@@ -337,9 +337,9 @@
 		93BE3DC41BB36545009D603C /* Background */ = {
 			isa = PBXGroup;
 			children = (
-				93BE3DC51BB36559009D603C /* GhostLoop.m4a */,
 				93BE3DC61BB3655A009D603C /* MMLoop.m4a */,
 				93BE3DCB1BB375FE009D603C /* PetCatLoop.m4a */,
+				93BE3DC51BB36559009D603C /* GhostLoop.m4a */,
 				93B5A5661C6EEB11009DC43D /* MEXIJAMLOOP.m4a */,
 			);
 			name = Background;

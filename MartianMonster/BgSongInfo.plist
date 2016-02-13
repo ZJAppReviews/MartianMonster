@@ -7,7 +7,7 @@
 			<key>displayText</key>
 			<string>MM</string>
 			<key>fileName</key>
-			<string>MEXIJAMLOOP</string>
+			<string>MMLoop</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -44,6 +44,20 @@
 			<false/>
 			<key>volume</key>
 			<real>0.54</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>MEX</string>
+			<key>fileName</key>
+			<string>MEXIJAMLOOP</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+			<key>volume</key>
+			<real>0.48</real>
 		</dict>
 	</array>
 </array>
