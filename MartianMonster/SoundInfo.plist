@@ -15,7 +15,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.65</real>
+			<real>0.71</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -29,7 +29,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.65</real>
+			<real>0.72</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -143,7 +143,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.55</real>
+			<real>0.65</real>
 		</dict>
 	</array>
 	<array>
@@ -201,7 +201,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.65</real>
+			<real>0.7</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -215,7 +215,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.65</real>
+			<real>0.7</real>
 		</dict>
 	</array>
 </array>
