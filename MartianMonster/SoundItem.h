@@ -20,6 +20,7 @@
 @property AVAudioUnitTimePitch *utPitch;
 
 @property BOOL pitchEffect;
+@property float volume;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 -(void)setUpAudioWithEngine:(AVAudioEngine *)engine;

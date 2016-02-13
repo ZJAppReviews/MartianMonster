@@ -14,6 +14,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.65</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -26,6 +28,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.65</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -38,6 +42,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.65</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -50,6 +56,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<false/>
+			<key>volume</key>
+			<real>0.45</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -62,6 +70,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.65</real>
 		</dict>
 	</array>
 	<array>
@@ -76,6 +86,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.65</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -88,6 +100,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.43</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -100,6 +114,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.65</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -112,6 +128,8 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.77</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -124,6 +142,80 @@
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
+			<key>volume</key>
+			<real>0.55</real>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>displayText</key>
+			<string>SHORE</string>
+			<key>fileName</key>
+			<string>SHORE</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>1</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>EROHS</string>
+			<key>fileName</key>
+			<string>SHOREBW</string>
+			<key>fileExtension</key>
+			<string>wav</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>1</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>中国古代</string>
+			<key>fileName</key>
+			<string>CHINESE</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>1</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>FEAR</string>
+			<key>fileName</key>
+			<string>FEAR</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>0.65</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>TALONS</string>
+			<key>fileName</key>
+			<string>TALONS</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>0.65</real>
 		</dict>
 	</array>
 </array>

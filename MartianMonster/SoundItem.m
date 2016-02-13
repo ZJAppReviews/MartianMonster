@@ -21,6 +21,7 @@
     }
 
     self.pitchEffect = [dict[@"pitchEffect"] boolValue];
+    self.volume = [dict[@"volume"] floatValue];
 
     NSString *pathZero = [[NSBundle mainBundle] pathForResource:dict[@"fileName"] ofType:dict[@"fileExtension"]];
     self.audioFile = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]
@@ -39,7 +40,7 @@
 
     // Prepare AVAudioPlayerNode Zero
     self.playerNode = [AVAudioPlayerNode new];
-    self.playerNode.volume = 0.55;
+    self.playerNode.volume = self.volume;
     [engine attachNode:self.playerNode];
 
     // Set pitch (if applicable) and connect nodes
