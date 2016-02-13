@@ -25,10 +25,10 @@
 		9363219A1BA7E6E7004CB7D6 /* meowSoft.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321951BA7E6E7004CB7D6 /* meowSoft.m4a */; };
 		9363219B1BA7E6E7004CB7D6 /* yourCat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321961BA7E6E7004CB7D6 /* yourCat.m4a */; };
 		93AFC6821C6FAE890028F261 /* mute.caf in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6811C6FAD5C0028F261 /* mute.caf */; };
+		93AFC6841C6FBA280028F261 /* SHORE.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6831C6FBA280028F261 /* SHORE.wav */; };
+		93AFC6861C6FBAAB0028F261 /* SHOREBW.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */; };
+		93AFC68A1C6FC1AD0028F261 /* CHINESE.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6891C6FC1870028F261 /* CHINESE.m4a */; };
 		93B5A5571C6EA367009DC43D /* Orbitron Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5561C6EA367009DC43D /* Orbitron Medium.ttf */; };
-		93B5A55D1C6EB823009DC43D /* SHORE.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A55C1C6EB7E0009DC43D /* SHORE.m4a */; };
-		93B5A55F1C6EBBA2009DC43D /* SHOREBW.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A55E1C6EBBA2009DC43D /* SHOREBW.wav */; };
-		93B5A5611C6ECF11009DC43D /* CHINESE.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5601C6ECEB9009DC43D /* CHINESE.m4a */; };
 		93B5A5631C6ED033009DC43D /* FEAR.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5621C6ED033009DC43D /* FEAR.m4a */; };
 		93B5A5651C6ED186009DC43D /* TALONS.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5641C6ED186009DC43D /* TALONS.m4a */; };
 		93B5A5671C6EEB11009DC43D /* MEXIJAMLOOP.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5661C6EEB11009DC43D /* MEXIJAMLOOP.m4a */; };
@@ -86,10 +86,10 @@
 		936321951BA7E6E7004CB7D6 /* meowSoft.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = meowSoft.m4a; sourceTree = "<group>"; };
 		936321961BA7E6E7004CB7D6 /* yourCat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = yourCat.m4a; sourceTree = "<group>"; };
 		93AFC6811C6FAD5C0028F261 /* mute.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mute.caf; sourceTree = "<group>"; };
+		93AFC6831C6FBA280028F261 /* SHORE.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHORE.wav; sourceTree = "<group>"; };
+		93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHOREBW.wav; sourceTree = "<group>"; };
+		93AFC6891C6FC1870028F261 /* CHINESE.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CHINESE.m4a; sourceTree = "<group>"; };
 		93B5A5561C6EA367009DC43D /* Orbitron Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Orbitron Medium.ttf"; path = "../../../../InVision/vik.denic@gmail.com/Fantalytics/Assets/Fonts/Orbitron Medium.ttf"; sourceTree = "<group>"; };
-		93B5A55C1C6EB7E0009DC43D /* SHORE.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SHORE.m4a; sourceTree = "<group>"; };
-		93B5A55E1C6EBBA2009DC43D /* SHOREBW.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHOREBW.wav; sourceTree = "<group>"; };
-		93B5A5601C6ECEB9009DC43D /* CHINESE.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CHINESE.m4a; sourceTree = "<group>"; };
 		93B5A5621C6ED033009DC43D /* FEAR.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FEAR.m4a; sourceTree = "<group>"; };
 		93B5A5641C6ED186009DC43D /* TALONS.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TALONS.m4a; sourceTree = "<group>"; };
 		93B5A5661C6EEB11009DC43D /* MEXIJAMLOOP.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = MEXIJAMLOOP.m4a; sourceTree = "<group>"; };
@@ -230,9 +230,9 @@
 		93B5A5591C6EB706009DC43D /* Three */ = {
 			isa = PBXGroup;
 			children = (
-				93B5A55C1C6EB7E0009DC43D /* SHORE.m4a */,
-				93B5A55E1C6EBBA2009DC43D /* SHOREBW.wav */,
-				93B5A5601C6ECEB9009DC43D /* CHINESE.m4a */,
+				93AFC6891C6FC1870028F261 /* CHINESE.m4a */,
+				93AFC6831C6FBA280028F261 /* SHORE.wav */,
+				93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */,
 				93B5A5621C6ED033009DC43D /* FEAR.m4a */,
 				93B5A5641C6ED186009DC43D /* TALONS.m4a */,
 			);
@@ -425,21 +425,21 @@
 				93B5A5571C6EA367009DC43D /* Orbitron Medium.ttf in Resources */,
 				9315822F1BB6EB0E00EC9CA2 /* poof.m4a in Resources */,
 				93BE3DC31BB36520009D603C /* BgSongInfo.plist in Resources */,
+				93AFC6861C6FBAAB0028F261 /* SHOREBW.wav in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
-				93B5A55F1C6EBBA2009DC43D /* SHOREBW.wav in Resources */,
 				930955401BB30951007F6EFC /* SoundInfo.plist in Resources */,
 				936321971BA7E6E7004CB7D6 /* spookyOh.m4a in Resources */,
+				93AFC68A1C6FC1AD0028F261 /* CHINESE.m4a in Resources */,
 				93B5A5671C6EEB11009DC43D /* MEXIJAMLOOP.m4a in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
 				936321991BA7E6E7004CB7D6 /* theyAttack.m4a in Resources */,
 				93B8E3711B81AE61008ECB47 /* blastOff.m4a in Resources */,
 				93BE3DC81BB3655A009D603C /* GhostLoop.m4a in Resources */,
-				93B5A55D1C6EB823009DC43D /* SHORE.m4a in Resources */,
+				93AFC6841C6FBA280028F261 /* SHORE.wav in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
 				93B8E36D1B81AE61008ECB47 /* blip.m4a in Resources */,
 				936321981BA7E6E7004CB7D6 /* screamAh.m4a in Resources */,
 				93157A6B1B8A7F5F0095F25F /* ufo.m4a in Resources */,
-				93B5A5611C6ECF11009DC43D /* CHINESE.m4a in Resources */,
 				93BE3DCC1BB375FE009D603C /* PetCatLoop.m4a in Resources */,
 				93B5A5631C6ED033009DC43D /* FEAR.m4a in Resources */,
 			);

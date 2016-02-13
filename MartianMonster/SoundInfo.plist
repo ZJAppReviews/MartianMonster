@@ -173,7 +173,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.43</real>
+			<real>0.44</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -195,7 +195,7 @@
 			<key>fileName</key>
 			<string>SHORE</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>wav</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
