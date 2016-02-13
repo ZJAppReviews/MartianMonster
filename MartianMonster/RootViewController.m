@@ -16,6 +16,7 @@
 
 #import "RoundButton.h"
 #import "UIImage+animatedGif.h"
+#import "UICollectionView+CellRetrieval.h"
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, MenuCollectionViewCellDelegate>
 
@@ -347,11 +348,14 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         }
     }
 
-//    for (RoundButton *button in self.menuButtons)
-//    {
-//        [button.layer removeAllAnimations];
-//        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
-//    }
+    NSArray *cells = [self.menuCollectionView allCells];
+
+    for (MenuCollectionViewCell *cell in cells)
+    {
+        RoundButton *button = cell.menuButton;
+        [button.layer removeAllAnimations];
+        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+    }
 }
 
 #pragma mark - Scrollview delegate
@@ -405,11 +409,13 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         [self updateCurrentRowBasedOnOrientation];
     }
 
-    // adjust round buttons accordingly
-//    for (RoundButton *button in self.menuButtons)
-//    {
-//        button.layer.cornerRadius = button.bounds.size.width / 2;
-//    }
+    NSArray *cells = [self.menuCollectionView allCells];
+
+    for (MenuCollectionViewCell *cell in cells)
+    {
+        RoundButton *button = cell.menuButton;
+        button.layer.cornerRadius = button.bounds.size.width / 2;
+    }
 }
 
 -(void)updateCurrentRowBasedOnOrientation
