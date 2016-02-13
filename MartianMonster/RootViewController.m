@@ -17,7 +17,7 @@
 #import "RoundButton.h"
 #import "UIImage+animatedGif.h"
 
-@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate>
+@interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, MenuCollectionViewCellDelegate>
 
 #pragma mark - info
 @property NSMutableArray *soundboardsArray; //holds all the soundbites for each button
@@ -163,7 +163,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         return cell;
     } else {
         MenuCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MenuCell" forIndexPath:indexPath];
-
+        cell.delegate = self;
         return cell;
     }
 }
@@ -223,6 +223,13 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 {
     [self playAudioForButton:button];
 }
+
+#pragma mark - SoundboardCollectionViewCellDelegate
+-(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(UIButton *)button {
+    NSLog(@"yup");
+}
+
+#pragma mark - Animation helper
 
 -(void)setupPulsateAnimation
 {

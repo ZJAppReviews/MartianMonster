@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "RoundButton.h"
+@class MenuCollectionViewCell;
+
+@protocol MenuCollectionViewCellDelegate <NSObject>
+
+@required
+
+-(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(UIButton *)button;
+
+@end
 
 @interface MenuCollectionViewCell : UICollectionViewCell
+
+@property id<MenuCollectionViewCellDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet RoundButton *menuButton;
 

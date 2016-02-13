@@ -10,4 +10,12 @@
 
 @implementation MenuCollectionViewCell
 
+- (IBAction)didTapButton:(id)sender {
+    [self.delegate menuCollectionViewCell:self didTapButton:sender];
+}
+
+//- (void)awakeFromNib {
+//    [super awakeFromNib];
+//}
+
 @end
