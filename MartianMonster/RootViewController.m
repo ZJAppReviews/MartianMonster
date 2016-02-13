@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 @import AVFoundation;
 #import "SoundboardCollectionViewCell.h"
+#import "MenuCollectionViewCell.h"
 #import "SoundManager.h"
 #import "Soundboard.h"
 #import "SoundItem.h"
@@ -30,7 +31,7 @@
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
-@property (strong, nonatomic) IBOutletCollection(RoundButton) NSArray *menuButtons;
+//@property (strong, nonatomic) IBOutletCollection(RoundButton) NSArray *menuButtons;
 
 @property CABasicAnimation *pulseAnimation;
 
@@ -152,14 +153,19 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 #pragma mark - UICollectionView
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SampleCell" forIndexPath:indexPath];
-    cell.delegate = self;
+    if (collectionView.tag == 0) {
+        SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SampleCell" forIndexPath:indexPath];
+        cell.delegate = self;
 
-    currentRow = indexPath.row;
+        currentRow = indexPath.row;
+        [self setUpViewsForCell:cell atIndexPath:indexPath];
 
-    [self setUpViewsForCell:cell atIndexPath:indexPath];
+        return cell;
+    } else {
+        MenuCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MenuCell" forIndexPath:indexPath];
 
-    return cell;
+        return cell;
+    }
 }
 
 #pragma mark - View setup
@@ -195,12 +201,21 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.soundboardsArray.count;
+    if (collectionView.tag == 0) {
+        return self.soundboardsArray.count;
+    } else {
+        return self.bgSoundItems.count;
+    }
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.view.frame.size;
+    if (collectionView.tag == 0) {
+        return self.view.frame.size;
+    } else {
+        MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+        return cell ? cell.frame.size : CGSizeMake(75, 75);
+    }
 }
 
 #pragma mark - SoundboardCollectionViewCellDelegate
@@ -301,11 +316,11 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         }
     }
 
-    for (RoundButton *button in self.menuButtons)
-    {
-        [button.layer removeAllAnimations];
-        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
-    }
+//    for (RoundButton *button in self.menuButtons)
+//    {
+//        [button.layer removeAllAnimations];
+//        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+//    }
 }
 
 #pragma mark - Scrollview delegate
@@ -360,10 +375,10 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     }
 
     // adjust round buttons accordingly
-    for (RoundButton *button in self.menuButtons)
-    {
-        button.layer.cornerRadius = button.bounds.size.width / 2;
-    }
+//    for (RoundButton *button in self.menuButtons)
+//    {
+//        button.layer.cornerRadius = button.bounds.size.width / 2;
+//    }
 }
 
 -(void)updateCurrentRowBasedOnOrientation

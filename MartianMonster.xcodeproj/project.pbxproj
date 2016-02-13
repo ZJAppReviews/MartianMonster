@@ -27,6 +27,7 @@
 		93AFC6841C6FBA280028F261 /* SHORE.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6831C6FBA280028F261 /* SHORE.wav */; };
 		93AFC6861C6FBAAB0028F261 /* SHOREBW.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */; };
 		93AFC68A1C6FC1AD0028F261 /* CHINESE.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6891C6FC1870028F261 /* CHINESE.m4a */; };
+		93AFC68D1C6FD0B70028F261 /* MenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFC68C1C6FD0B70028F261 /* MenuCollectionViewCell.m */; };
 		93B5A5571C6EA367009DC43D /* Orbitron Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5561C6EA367009DC43D /* Orbitron Medium.ttf */; };
 		93B5A5631C6ED033009DC43D /* FEAR.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5621C6ED033009DC43D /* FEAR.m4a */; };
 		93B5A5651C6ED186009DC43D /* TALONS.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5641C6ED186009DC43D /* TALONS.m4a */; };
@@ -87,6 +88,8 @@
 		93AFC6831C6FBA280028F261 /* SHORE.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHORE.wav; sourceTree = "<group>"; };
 		93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHOREBW.wav; sourceTree = "<group>"; };
 		93AFC6891C6FC1870028F261 /* CHINESE.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CHINESE.m4a; sourceTree = "<group>"; };
+		93AFC68B1C6FD0B70028F261 /* MenuCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCollectionViewCell.h; sourceTree = "<group>"; };
+		93AFC68C1C6FD0B70028F261 /* MenuCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCollectionViewCell.m; sourceTree = "<group>"; };
 		93B5A5561C6EA367009DC43D /* Orbitron Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Orbitron Medium.ttf"; path = "../../../../InVision/vik.denic@gmail.com/Fantalytics/Assets/Fonts/Orbitron Medium.ttf"; sourceTree = "<group>"; };
 		93B5A5621C6ED033009DC43D /* FEAR.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FEAR.m4a; sourceTree = "<group>"; };
 		93B5A5641C6ED186009DC43D /* TALONS.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TALONS.m4a; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 			children = (
 				930648611BA55C5D00BE0EE8 /* SoundboardCollectionViewCell.h */,
 				930648621BA55C5D00BE0EE8 /* SoundboardCollectionViewCell.m */,
+				93AFC68B1C6FD0B70028F261 /* MenuCollectionViewCell.h */,
+				93AFC68C1C6FD0B70028F261 /* MenuCollectionViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				936321881BA78C0B004CB7D6 /* Soundboard.m in Sources */,
 				9302748F1B8971E5007F7F18 /* UIImage+animatedGif.m in Sources */,
 				93B8E3411B818926008ECB47 /* AppDelegate.m in Sources */,
+				93AFC68D1C6FD0B70028F261 /* MenuCollectionViewCell.m in Sources */,
 				93B8E33E1B818926008ECB47 /* main.m in Sources */,
 				930648631BA55C5D00BE0EE8 /* SoundboardCollectionViewCell.m in Sources */,
 				9311C2EA1BBDB28D003058AD /* RoundButton.m in Sources */,
