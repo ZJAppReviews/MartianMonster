@@ -30,6 +30,7 @@
 		93B5A5611C6ECF11009DC43D /* CHINESE.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5601C6ECEB9009DC43D /* CHINESE.m4a */; };
 		93B5A5631C6ED033009DC43D /* FEAR.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5621C6ED033009DC43D /* FEAR.m4a */; };
 		93B5A5651C6ED186009DC43D /* TALONS.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5641C6ED186009DC43D /* TALONS.m4a */; };
+		93B5A5671C6EEB11009DC43D /* MEXIJAMLOOP.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93B5A5661C6EEB11009DC43D /* MEXIJAMLOOP.m4a */; };
 		93B8E33E1B818926008ECB47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E33D1B818926008ECB47 /* main.m */; };
 		93B8E3411B818926008ECB47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8E3401B818926008ECB47 /* AppDelegate.m */; };
 		93B8E3471B818926008ECB47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B8E3451B818926008ECB47 /* Main.storyboard */; };
@@ -89,6 +90,7 @@
 		93B5A5601C6ECEB9009DC43D /* CHINESE.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CHINESE.m4a; sourceTree = "<group>"; };
 		93B5A5621C6ED033009DC43D /* FEAR.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FEAR.m4a; sourceTree = "<group>"; };
 		93B5A5641C6ED186009DC43D /* TALONS.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TALONS.m4a; sourceTree = "<group>"; };
+		93B5A5661C6EEB11009DC43D /* MEXIJAMLOOP.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = MEXIJAMLOOP.m4a; sourceTree = "<group>"; };
 		93B8E3381B818926008ECB47 /* MartianMonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartianMonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B8E33C1B818926008ECB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B8E33D1B818926008ECB47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				93BE3DC51BB36559009D603C /* GhostLoop.m4a */,
 				93BE3DC61BB3655A009D603C /* MMLoop.m4a */,
 				93BE3DCB1BB375FE009D603C /* PetCatLoop.m4a */,
+				93B5A5661C6EEB11009DC43D /* MEXIJAMLOOP.m4a */,
 			);
 			name = Background;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				93B5A55F1C6EBBA2009DC43D /* SHOREBW.wav in Resources */,
 				930955401BB30951007F6EFC /* SoundInfo.plist in Resources */,
 				936321971BA7E6E7004CB7D6 /* spookyOh.m4a in Resources */,
+				93B5A5671C6EEB11009DC43D /* MEXIJAMLOOP.m4a in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
 				936321991BA7E6E7004CB7D6 /* theyAttack.m4a in Resources */,
 				93B8E3711B81AE61008ECB47 /* blastOff.m4a in Resources */,
