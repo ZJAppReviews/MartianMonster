@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UICollectionView *menuCollectionView;
 
 //@property (strong, nonatomic) IBOutletCollection(RoundButton) NSArray *menuButtons;
 
@@ -107,33 +108,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
     self.collectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
     [self constrainView:imageView toSuperview:self.view];
-}
-
-#pragma mark - Menu Buttons
-- (IBAction)onMenuButtonTapped:(RoundButton *)button
-{
-    if (button.tag == 3)
-    {
-        [self presentActivityViewController];
-        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
-        return;
-    }
-    
-    SoundItem *soundItem = self.bgSoundItems[button.tag];
-
-    if (![soundItem.playerNode isPlaying])
-    {
-        [self stopAllBGsongs];
-        [SoundManager scheduleAndPlaySoundItem:soundItem];
-        [button.layer addAnimation:self.pulseAnimation forKey:nil];
-        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
-    }
-    else
-    {
-        [soundItem.playerNode stop];
-        [button.layer removeAllAnimations];
-        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
-    }
 }
 
 -(void)presentActivityViewController
@@ -226,8 +200,58 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 #pragma mark - SoundboardCollectionViewCellDelegate
 -(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(UIButton *)button {
-    NSLog(@"yup");
+    if (button.tag == 3)
+    {
+        [self presentActivityViewController];
+        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+        return;
+    }
+
+    NSInteger selectedRow = [[self.menuCollectionView indexPathForCell:cell] row];
+
+    SoundItem *soundItem = self.bgSoundItems[selectedRow];
+
+    if (![soundItem.playerNode isPlaying])
+    {
+        [self stopAllBGsongs];
+        [SoundManager scheduleAndPlaySoundItem:soundItem];
+        [button.layer addAnimation:self.pulseAnimation forKey:nil];
+        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
+    }
+    else
+    {
+        [soundItem.playerNode stop];
+        [button.layer removeAllAnimations];
+        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+    }
 }
+
+#pragma mark - Menu Buttons
+//- (IBAction)onMenuButtonTapped:(RoundButton *)button
+//{
+//    if (button.tag == 3)
+//    {
+//        [self presentActivityViewController];
+//        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+//        return;
+//    }
+//
+//    SoundItem *soundItem = self.bgSoundItems[button.tag];
+//
+//    if (![soundItem.playerNode isPlaying])
+//    {
+//        [self stopAllBGsongs];
+//        [SoundManager scheduleAndPlaySoundItem:soundItem];
+//        [button.layer addAnimation:self.pulseAnimation forKey:nil];
+//        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
+//    }
+//    else
+//    {
+//        [soundItem.playerNode stop];
+//        [button.layer removeAllAnimations];
+//        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+//    }
+//}
 
 #pragma mark - Animation helper
 
