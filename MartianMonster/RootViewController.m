@@ -75,6 +75,12 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     [self spaceGif];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self didBecomeActive];
+}
+
 -(void)setUpShareVC
 {
     NSArray *textArray = @[@"My spaceship just blasted off", @"My trip was short"];
@@ -126,7 +132,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 }
 
 #pragma mark - UICollectionView DataSource
-
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (collectionView.tag == 0) {
@@ -152,6 +157,10 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
         NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
+
+        if (indexPath.row == 0) {
+            [self adjustMenuCollectionViewCellSpacingWithCell:cell];
+        }
 
         return cell;
     }
@@ -201,6 +210,19 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
     }
 }
+
+//#pragma mark - Flow Layout
+
+-(void)adjustMenuCollectionViewCellSpacingWithCell:(MenuCollectionViewCell *)cell {
+    float screenWidth = [UIScreen mainScreen].bounds.size.width;
+    float itemGirth = (self.bgSoundItems.count + 1) * cell.frame.size.width;
+
+    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = (screenWidth - itemGirth) / (self.bgSoundItems.count + 1);
+}
+
+//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 25;
+//}
 
 #pragma mark - SoundboardCell View Helper
 -(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -381,6 +403,9 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
+    MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [self.menuCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    [self adjustMenuCollectionViewCellSpacingWithCell:cell];
+
     if (lastPageBeforeRotate != -1)
     {
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
