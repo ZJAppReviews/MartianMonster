@@ -74,6 +74,17 @@ CGFloat const iphone4Height = 480;
 
 +(float)minimumSpacingForMenuCellItemInLandscape {
     CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if (screenHeight == iphone4Height) {
+        return screenWidth * 0.0552;
+    }
+
+    if ( IDIOM == IPAD ) {
+        return screenWidth * 0.069;
+    }
+
+    NSLog(@"screenWidth %f", screenWidth);
     return screenWidth * 0.1;
 }
 
