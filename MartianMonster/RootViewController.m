@@ -192,6 +192,10 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         return;
     }
 
+    if (![self.engine isRunning]) {
+        [self didBecomeActive];
+    }
+
     NSInteger selectedRow = [[self.menuCollectionView indexPathForCell:cell] row];
 
     SoundItem *soundItem = self.bgSoundItems[selectedRow];
@@ -303,6 +307,10 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 #pragma mark - play / stop audio helpers
 -(void)playAudioForButton:(UIButton *)button
 {
+    if (![self.engine isRunning]) {
+        [self didBecomeActive];
+    }
+
     NSArray *soundItems = self.soundboardsArray[currentRow];
     SoundItem *soundItem = soundItems[button.tag];
 
