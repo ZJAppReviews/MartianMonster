@@ -16,6 +16,9 @@ CGFloat const iphone5Width = 320;
 CGFloat const iphone4Width = 320;
 CGFloat const iphone4Height = 480;
 
+#define IDIOM    UI_USER_INTERFACE_IDIOM()
+#define IPAD     UIUserInterfaceIdiomPad
+
 @implementation LayoutManager
 
 +(CGSize)sizeForMenuCellItem {
@@ -25,6 +28,11 @@ CGFloat const iphone4Height = 480;
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (screenHeight == iphone4Height) {
         cellLength = screenWidth * 0.15;
+        return CGSizeMake(cellLength, cellLength);
+    }
+
+    if ( IDIOM == IPAD ) {
+        cellLength = screenWidth * 0.14;
         return CGSizeMake(cellLength, cellLength);
     }
 
@@ -40,6 +48,10 @@ CGFloat const iphone4Height = 480;
         return UIEdgeInsetsMake(-20, 10, 0, 10);
     } else if (screenWidth == iphone5Width) {
         return UIEdgeInsetsMake(-10, 10, 0, 10);
+    }
+
+    if ( IDIOM == IPAD ) {
+        return UIEdgeInsetsMake(60, 10, 0, 10);
     }
 
     return UIEdgeInsetsMake(10, 10, 0, 10);
