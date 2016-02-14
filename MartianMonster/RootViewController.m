@@ -160,9 +160,10 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
 
         //TODO: Layout something
-//        if (indexPath.row == 0) {
+        if (indexPath.row == 0) {
 //            [self adjustMenuCollectionViewCellSpacingWithCell:cell];
-//        }
+            ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInPortrait];
+        }
 
         return cell;
     }
@@ -190,13 +191,12 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 }
 
 //#pragma mark - Flow Layout
-
--(void)adjustMenuCollectionViewCellSpacingWithCell:(MenuCollectionViewCell *)cell {
-    float screenWidth = [UIScreen mainScreen].bounds.size.width;
-    float itemGirth = (self.bgSoundItems.count + 1) * cell.frame.size.width;
-
-    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = (screenWidth - itemGirth) / (self.bgSoundItems.count + 1);
-}
+//-(void)adjustMenuCollectionViewCellSpacingWithCell:(MenuCollectionViewCell *)cell {
+////    float screenWidth = [UIScreen mainScreen].bounds.size.width;
+////    float itemGirth = (self.bgSoundItems.count + 1) * cell.frame.size.width;
+////
+//    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInPortrait];
+//}
 
 #pragma mark - SoundboardCollectionViewCellDelegate
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
@@ -431,6 +431,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [self.menuCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     //TODO: Layout something
 //    [self adjustMenuCollectionViewCellSpacingWithCell:cell];
+    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
 
     if (lastPageBeforeRotate != -1)
     {

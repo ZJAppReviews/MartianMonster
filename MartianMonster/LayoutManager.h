@@ -15,4 +15,7 @@
 
 +(UIEdgeInsets)edgeInsetsForMenuCellItem;
 
++(float)minimumSpacingForMenuCellItemInPortrait;
++(float)minimumSpacingForMenuCellItemInLandscape;
+
 @end
