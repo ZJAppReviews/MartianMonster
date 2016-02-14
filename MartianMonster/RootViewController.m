@@ -125,7 +125,17 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     }
 }
 
-#pragma mark - UICollectionView
+#pragma mark - UICollectionView DataSource
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if (collectionView.tag == 0) {
+        return self.soundboardsArray.count;
+    } else {
+        return self.bgSoundItems.count + 1;
+    }
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView.tag == 0) {
@@ -147,7 +157,52 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     }
 }
 
-#pragma mark - View setup
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (collectionView.tag == 0) {
+        return self.view.frame.size;
+    } else {
+        MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+        return cell ? cell.frame.size : CGSizeMake(75, 75);
+    }
+}
+
+#pragma mark - SoundboardCollectionViewCellDelegate
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
+{
+    [self playAudioForButton:button];
+}
+
+#pragma mark - MenuCollectionViewCellDelegate
+-(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(UIButton *)button {
+
+    if ([[self.menuCollectionView indexPathForCell:cell] row] == self.bgSoundItems.count)
+    {
+        [self presentActivityViewController];
+        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+        return;
+    }
+
+    NSInteger selectedRow = [[self.menuCollectionView indexPathForCell:cell] row];
+
+    SoundItem *soundItem = self.bgSoundItems[selectedRow];
+
+    if (![soundItem.playerNode isPlaying])
+    {
+        [self stopAllBGsongs];
+        [SoundManager scheduleAndPlaySoundItem:soundItem];
+        [button.layer addAnimation:self.pulseAnimation forKey:nil];
+        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
+    }
+    else
+    {
+        [soundItem.playerNode stop];
+        [button.layer removeAllAnimations];
+        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+    }
+}
+
+#pragma mark - SoundboardCell View Helper
 -(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *soundItems = self.soundboardsArray[currentRow];
@@ -175,60 +230,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
                 }
             }
         }
-    }
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    if (collectionView.tag == 0) {
-        return self.soundboardsArray.count;
-    } else {
-        return self.bgSoundItems.count;
-    }
-}
-
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (collectionView.tag == 0) {
-        return self.view.frame.size;
-    } else {
-        MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
-        [cell.menuButton setImage:[UIImage imageNamed: @"0"] forState:UIControlStateNormal];
-        return cell ? cell.frame.size : CGSizeMake(75, 75);
-    }
-}
-
-#pragma mark - SoundboardCollectionViewCellDelegate
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
-{
-    [self playAudioForButton:button];
-}
-
-#pragma mark - SoundboardCollectionViewCellDelegate
--(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(UIButton *)button {
-    if (button.tag == 3)
-    {
-        [self presentActivityViewController];
-        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
-        return;
-    }
-
-    NSInteger selectedRow = [[self.menuCollectionView indexPathForCell:cell] row];
-
-    SoundItem *soundItem = self.bgSoundItems[selectedRow];
-
-    if (![soundItem.playerNode isPlaying])
-    {
-        [self stopAllBGsongs];
-        [SoundManager scheduleAndPlaySoundItem:soundItem];
-        [button.layer addAnimation:self.pulseAnimation forKey:nil];
-        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
-    }
-    else
-    {
-        [soundItem.playerNode stop];
-        [button.layer removeAllAnimations];
-        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
     }
 }
 
