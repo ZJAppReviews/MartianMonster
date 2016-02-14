@@ -32,6 +32,9 @@
 
     [self addTarget:self action:@selector(setBgColorForButton:) forControlEvents:UIControlEventTouchDown];
     [self addTarget:self action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchDragExit];
+    [self addTarget:self action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchCancel];
+
+    self.adjustsImageWhenHighlighted = NO;
 }
 
 #pragma  mark - highlight backgroundcolor selectors
