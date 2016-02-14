@@ -183,7 +183,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 }
 
 #pragma mark - MenuCollectionViewCellDelegate
--(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(UIButton *)button {
+-(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(RoundButton *)button {
 
     if ([[self.menuCollectionView indexPathForCell:cell] row] == self.bgSoundItems.count)
     {
@@ -205,12 +205,14 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         [self stopAllBGsongs];
         [SoundManager scheduleAndPlaySoundItem:soundItem];
         [button.layer addAnimation:self.pulseAnimation forKey:nil];
+        button.isAnimating = YES;
         button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
     }
     else
     {
         [soundItem.playerNode stop];
         [button.layer removeAllAnimations];
+        button.isAnimating = NO;
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
     }
 }
@@ -363,6 +365,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     {
         RoundButton *button = cell.menuButton;
         [button.layer removeAllAnimations];
+        button.isAnimating = NO;
         button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
     }
 }

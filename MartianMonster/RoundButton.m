@@ -47,7 +47,9 @@
 -(void)clearBgColorForButton:(UIButton*)sender
 {
     //TODO: If button is animating, don't do this
-    [sender setBackgroundColor:[UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33]];
+    if (self.isAnimating == NO) {
+        [sender setBackgroundColor:[UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33]];
+    }
 }
 
 @end

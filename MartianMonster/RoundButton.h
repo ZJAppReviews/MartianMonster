@@ -11,4 +11,6 @@ IB_DESIGNABLE
 
 @interface RoundButton : UIButton
 
+@property BOOL isAnimating;
+
 @end

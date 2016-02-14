@@ -14,7 +14,7 @@
 
 @required
 
--(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(UIButton *)button;
+-(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(RoundButton *)button;
 
 @end
 
