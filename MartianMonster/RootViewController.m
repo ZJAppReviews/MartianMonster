@@ -17,6 +17,7 @@
 #import "RoundButton.h"
 #import "UIImage+animatedGif.h"
 #import "UICollectionView+CellRetrieval.h"
+#import "LayoutManager.h"
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, MenuCollectionViewCellDelegate>
 
@@ -158,13 +159,16 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
 
-        if (indexPath.row == 0) {
-            [self adjustMenuCollectionViewCellSpacingWithCell:cell];
-        }
+        //TODO: Layout something
+//        if (indexPath.row == 0) {
+//            [self adjustMenuCollectionViewCellSpacingWithCell:cell];
+//        }
 
         return cell;
     }
 }
+
+#pragma mark - Flow Layout
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -172,14 +176,37 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         return self.view.frame.size;
     } else {
         MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
-        return cell ? cell.frame.size : CGSizeMake(65, 65);
+
+        return cell ? cell.frame.size : [LayoutManager sizeForMenuCellItem];
     }
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (collectionView.tag == 0) {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    } else {
+        return [LayoutManager edgeInsetsForMenuCellItem];
+    }
+}
+
+//#pragma mark - Flow Layout
+
+-(void)adjustMenuCollectionViewCellSpacingWithCell:(MenuCollectionViewCell *)cell {
+    float screenWidth = [UIScreen mainScreen].bounds.size.width;
+    float itemGirth = (self.bgSoundItems.count + 1) * cell.frame.size.width;
+
+    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = (screenWidth - itemGirth) / (self.bgSoundItems.count + 1);
 }
 
 #pragma mark - SoundboardCollectionViewCellDelegate
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
 {
     [self playAudioForButton:button];
+}
+
+//Not getting called?
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 200;
 }
 
 #pragma mark - MenuCollectionViewCellDelegate
@@ -216,19 +243,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
     }
 }
-
-//#pragma mark - Flow Layout
-
--(void)adjustMenuCollectionViewCellSpacingWithCell:(MenuCollectionViewCell *)cell {
-    float screenWidth = [UIScreen mainScreen].bounds.size.width;
-    float itemGirth = (self.bgSoundItems.count + 1) * cell.frame.size.width;
-
-    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = (screenWidth - itemGirth) / (self.bgSoundItems.count + 1);
-}
-
-//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-//    return 25;
-//}
 
 #pragma mark - SoundboardCell View Helper
 -(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -415,7 +429,8 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [self.menuCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    [self adjustMenuCollectionViewCellSpacingWithCell:cell];
+    //TODO: Layout something
+//    [self adjustMenuCollectionViewCellSpacingWithCell:cell];
 
     if (lastPageBeforeRotate != -1)
     {
