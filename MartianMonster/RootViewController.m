@@ -178,7 +178,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     } else {
         MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
 
-        return cell ? cell.frame.size : [LayoutManager sizeForMenuCellItem];
+        return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
     }
 }
 
