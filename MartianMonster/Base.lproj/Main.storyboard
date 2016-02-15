@@ -39,7 +39,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SampleCell" id="96M-fY-PFM" customClass="SoundboardCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -210,7 +210,7 @@
                                                     <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
                                                         <rect key="frame" x="10" y="5" width="135.5" height="135.5"/>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                         <rect key="frame" x="10" y="5" width="65" height="65"/>
                                                     </variation>
                                                     <connections>
@@ -252,9 +252,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.1" id="6MK-fe-aiW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EIC-Ez-b2O" secondAttribute="trailing" constant="-20" id="Fm2-iq-dZ0"/>
+                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-20" id="JlV-95-Zru"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="top" id="Kl9-yX-8nr"/>
                             <constraint firstItem="Vg5-xS-ORU" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-8" id="MOM-w6-wwg"/>
                             <constraint firstAttribute="bottomMargin" secondItem="az5-A8-DCd" secondAttribute="bottom" constant="-7" id="Taj-cP-xOS"/>
+                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" id="WMi-IR-0rm"/>
                             <constraint firstAttribute="trailing" secondItem="eL0-sg-hWD" secondAttribute="trailing" id="Z8Z-6z-QIa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vg5-xS-ORU" secondAttribute="trailing" constant="-7.5" id="nLP-Dv-sND"/>
                             <constraint firstAttribute="centerY" secondItem="Vg5-xS-ORU" secondAttribute="centerY" multiplier="0.555" constant="-5.25" id="oYM-gO-MkN"/>
@@ -262,6 +266,16 @@
                             <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="eL0-sg-hWD" secondAttribute="bottom" id="ru5-lG-15f"/>
                             <constraint firstAttribute="centerX" secondItem="az5-A8-DCd" secondAttribute="centerX" id="snA-2Q-bEf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6MK-fe-aiW"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="6MK-fe-aiW"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="eL0-sg-hWD" id="eLB-Mj-8dN"/>
