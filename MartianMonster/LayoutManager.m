@@ -89,7 +89,7 @@ CGFloat const iphone4Height = 480;
     }
 
     NSLog(@"screenWidth %f", screenWidth);
-    return screenWidth * 0.12;
+    return screenWidth * 0.121;
 }
 
 @end
