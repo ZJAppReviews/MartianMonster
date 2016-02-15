@@ -311,15 +311,15 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 
-//    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-//
-//        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
-//
-//    } else {
-//        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
-////        [self.menuCollectionView reloadData];
-//    }
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
 
+    } else {
+
+    }
+
+    [self.menuCollectionView reloadData]; //call sizeForCellItem so our constraints take effect
+
+    //main cv stuff
     if (lastPageBeforeRotate != -1)
     {
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);

@@ -16,7 +16,9 @@
 - (void)drawRect:(CGRect)rect
 {
     self.clipsToBounds = YES;
+
     self.layer.cornerRadius = self.bounds.size.width / 2;
+
     [self formatImageView];
 }
 
