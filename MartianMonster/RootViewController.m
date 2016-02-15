@@ -82,7 +82,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 {
     [super viewWillAppear:animated];
     [self didBecomeActive];
-    self.menuOriginalSpacing = ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing;
+//    self.menuOriginalSpacing = ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing;
 }
 
 -(void)setUpShareVC
@@ -168,29 +168,29 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 #pragma mark - Flow Layout
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (collectionView.tag == 0) {
-        return self.view.frame.size;
-    } else {
-        MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+//-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (collectionView.tag == 0) {
+//        return self.view.frame.size;
+//    } else {
+//        MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+//
+//        if ([LayoutManager deviceIsIphone4]) {
+//            NSLog(@"%f", collectionView.frame.size.height * 1.145);
+//            return cell ? cell.frame.size : [LayoutManager iPhone4CellItemSize];
+//        }
+//
+//        return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
+//    }
+//}
 
-        if ([LayoutManager deviceIsIphone4]) {
-            NSLog(@"%f", collectionView.frame.size.height * 1.145);
-            return cell ? cell.frame.size : [LayoutManager iPhone4CellItemSize];
-        }
-
-        return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
-    }
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if (collectionView.tag == 0) {
-        return UIEdgeInsetsMake(0, 0, 0, 0);
-    } else {
-        return [LayoutManager edgeInsetsForMenuCellItem];
-    }
-}
+//-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+//    if (collectionView.tag == 0) {
+//        return UIEdgeInsetsMake(0, 0, 0, 0);
+//    } else {
+//        return [LayoutManager edgeInsetsForMenuCellItem];
+//    }
+//}
 
 //#pragma mark - Flow Layout
 //-(void)adjustMenuCollectionViewCellSpacingWithCell:(MenuCollectionViewCell *)cell {
@@ -311,14 +311,14 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-
-        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
-
-    } else {
-        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
-//        [self.menuCollectionView reloadData];
-    }
+//    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+//
+//        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
+//
+//    } else {
+//        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
+////        [self.menuCollectionView reloadData];
+//    }
 
     if (lastPageBeforeRotate != -1)
     {

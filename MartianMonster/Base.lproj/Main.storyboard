@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uC-rO-tYU">
@@ -164,7 +164,7 @@
                                     <outlet property="delegate" destination="IDw-lP-XpV" id="JMg-rC-Nco"/>
                                 </connections>
                             </collectionView>
-                            <collectionView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EIC-Ez-b2O" userLabel="Menu Collection View">
+                            <collectionView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EIC-Ez-b2O" userLabel="Menu Collection View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yOi-zp-GSN">
@@ -207,7 +207,7 @@
                                                     <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                                         <rect key="frame" x="10" y="5" width="64.5" height="64.5"/>
                                                     </variation>
-                                                    <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                                    <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
                                                         <rect key="frame" x="10" y="5" width="135.5" height="135.5"/>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -252,32 +252,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="EIC-Ez-b2O" secondAttribute="trailing" constant="-20" id="6aL-0M-Xem"/>
-                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-20" id="Hbb-AO-goT"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="top" id="Kl9-yX-8nr"/>
-                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" id="KxY-cZ-d2K"/>
                             <constraint firstItem="Vg5-xS-ORU" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-8" id="MOM-w6-wwg"/>
-                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.0979" id="MYh-U0-fib"/>
                             <constraint firstAttribute="bottomMargin" secondItem="az5-A8-DCd" secondAttribute="bottom" constant="-7" id="Taj-cP-xOS"/>
                             <constraint firstAttribute="trailing" secondItem="eL0-sg-hWD" secondAttribute="trailing" id="Z8Z-6z-QIa"/>
-                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.105" id="lWF-na-oNV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vg5-xS-ORU" secondAttribute="trailing" constant="-7.5" id="nLP-Dv-sND"/>
                             <constraint firstAttribute="centerY" secondItem="Vg5-xS-ORU" secondAttribute="centerY" multiplier="0.555" constant="-5.25" id="oYM-gO-MkN"/>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leading" id="r8d-zt-cZA"/>
                             <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="eL0-sg-hWD" secondAttribute="bottom" id="ru5-lG-15f"/>
                             <constraint firstAttribute="centerX" secondItem="az5-A8-DCd" secondAttribute="centerX" id="snA-2Q-bEf"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="lWF-na-oNV"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <mask key="constraints">
-                                <exclude reference="MYh-U0-fib"/>
-                                <include reference="lWF-na-oNV"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="eL0-sg-hWD" id="eLB-Mj-8dN"/>
