@@ -175,6 +175,11 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     } else {
         MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
 
+        if ([LayoutManager isIphone4]) {
+            NSLog(@"%f", collectionView.frame.size.height * 1.145);
+            return cell ? cell.frame.size : [LayoutManager iPhone4CellItemSize];
+        }
+
         return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
     }
 }

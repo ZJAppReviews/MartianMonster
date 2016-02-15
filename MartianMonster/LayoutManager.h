@@ -18,4 +18,7 @@
 +(float)minimumSpacingForMenuCellItemInPortrait;
 +(float)minimumSpacingForMenuCellItemInLandscape;
 
++(BOOL)isIphone4;
++(CGSize)iPhone4CellItemSize;
+
 @end

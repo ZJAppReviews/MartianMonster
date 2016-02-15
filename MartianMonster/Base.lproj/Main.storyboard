@@ -165,7 +165,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EIC-Ez-b2O" userLabel="Menu Collection View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yOi-zp-GSN">
                                     <size key="itemSize" width="75" height="65"/>

@@ -45,11 +45,9 @@ CGFloat const iphone4Height = 480;
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
 
     if (screenHeight == iphone4Height) {
-        return UIEdgeInsetsMake(-20, 10, 0, 10);
-    } else if (screenWidth == iphone5Width) {
-        return UIEdgeInsetsMake(-10, 10, 0, 10);
+        return UIEdgeInsetsMake(5.5, 10, 0, 10);
     }
-
+    
     if ( IDIOM == IPAD ) {
         return UIEdgeInsetsMake(60, 10, 0, 10);
     }
@@ -68,7 +66,6 @@ CGFloat const iphone4Height = 480;
     if ( IDIOM == IPAD ) {
         return screenWidth * 0.069;
     }
-
     return screenWidth * 0.02415;
 }
 
@@ -76,20 +73,31 @@ CGFloat const iphone4Height = 480;
     CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
 
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    if (screenHeight == iphone4Height) {
-        return screenWidth * 0.0552;
+
+    if (screenWidth == iphone4Height) {
+        return screenWidth * 0.105;
+    } else if (screenHeight == iphone6Width) {
+        return screenWidth * 0.12;
     }
 
     if ( IDIOM == IPAD ) {
         return screenWidth * 0.069;
     }
 
-    if (screenHeight == iphone6Width) {
-        return screenWidth * 0.12;
-    }
-
     NSLog(@"screenWidth %f", screenWidth);
     return screenWidth * 0.121;
+}
+
++(BOOL)isIphone4 {
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if (screenHeight == iphone4Height) {
+        return YES;
+    }
+    return NO;
+}
+
++(CGSize)iPhone4CellItemSize {
+    return CGSizeMake(53.815, 53.815);
 }
 
 @end
