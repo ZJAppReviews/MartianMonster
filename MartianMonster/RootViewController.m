@@ -294,6 +294,11 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     flowLayout.itemSize = self.view.frame.size;
 
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
+
+//    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
+//    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
+//
+//    [menuFlowLayout invalidateLayout]; //force the elements to get laid out again with the new size
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -317,7 +322,12 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
     }
 
-    [self.menuCollectionView reloadData]; //call sizeForCellItem so our constraints take effect
+    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
+//    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
+
+//    [menuFlowLayout invalidateLayout]; //force the elements to get laid out again with the new size
+
+//    [self.menuCollectionView reloadData]; //call sizeForCellItem so our constraints take effect
 
     //main cv stuff
     if (lastPageBeforeRotate != -1)

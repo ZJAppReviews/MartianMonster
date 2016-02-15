@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uC-rO-tYU">
@@ -212,41 +212,41 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="MAk-HR-nK8" secondAttribute="bottom" constant="-8" id="6El-5o-nWz"/>
                                             <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="PzW-go-wCU" secondAttribute="topMargin" constant="-8" id="6jt-Hi-Yt1"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="-8" id="AxX-8C-2Qa"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="-8" id="EAc-qq-u4W"/>
                                             <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="PzW-go-wCU" secondAttribute="topMargin" constant="-8" id="H5L-5e-pD3"/>
+                                            <constraint firstItem="MAk-HR-nK8" firstAttribute="leading" secondItem="PzW-go-wCU" secondAttribute="leadingMargin" constant="-8" id="Mw6-28-hNg"/>
                                             <constraint firstItem="MAk-HR-nK8" firstAttribute="leading" secondItem="PzW-go-wCU" secondAttribute="leadingMargin" constant="-8" id="OKM-UR-PHL"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="MAk-HR-nK8" secondAttribute="bottom" constant="-8" id="UiR-67-wUf"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="-8" id="WA5-vJ-Kzg"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="MAk-HR-nK8" secondAttribute="bottom" constant="-8" id="XaI-IJ-PaW"/>
                                             <constraint firstItem="MAk-HR-nK8" firstAttribute="leading" secondItem="PzW-go-wCU" secondAttribute="leadingMargin" constant="-8" id="bPs-QN-uzO"/>
-                                            <constraint firstItem="MAk-HR-nK8" firstAttribute="leading" secondItem="PzW-go-wCU" secondAttribute="leadingMargin" constant="-8" id="bti-m1-Iwz"/>
-                                            <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="PzW-go-wCU" secondAttribute="topMargin" constant="-8" id="hTy-iP-5Nj"/>
+                                            <constraint firstItem="MAk-HR-nK8" firstAttribute="top" secondItem="PzW-go-wCU" secondAttribute="topMargin" constant="-8" id="cjY-yi-vj7"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="MAk-HR-nK8" secondAttribute="trailing" constant="-8" id="mck-cp-Z1r"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="MAk-HR-nK8" secondAttribute="bottom" constant="-8" id="ts2-zH-jqj"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="6El-5o-nWz"/>
+                                                <exclude reference="AxX-8C-2Qa"/>
                                                 <exclude reference="H5L-5e-pD3"/>
-                                                <exclude reference="WA5-vJ-Kzg"/>
-                                                <exclude reference="XaI-IJ-PaW"/>
+                                                <exclude reference="Mw6-28-hNg"/>
                                                 <exclude reference="bPs-QN-uzO"/>
-                                                <exclude reference="bti-m1-Iwz"/>
-                                                <exclude reference="hTy-iP-5Nj"/>
+                                                <exclude reference="cjY-yi-vj7"/>
                                                 <exclude reference="mck-cp-Z1r"/>
                                                 <exclude reference="ts2-zH-jqj"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <mask key="constraints">
+                                                <include reference="6El-5o-nWz"/>
                                                 <exclude reference="6jt-Hi-Yt1"/>
+                                                <include reference="AxX-8C-2Qa"/>
                                                 <exclude reference="EAc-qq-u4W"/>
+                                                <include reference="Mw6-28-hNg"/>
                                                 <exclude reference="OKM-UR-PHL"/>
                                                 <exclude reference="UiR-67-wUf"/>
-                                                <include reference="WA5-vJ-Kzg"/>
-                                                <include reference="XaI-IJ-PaW"/>
-                                                <include reference="bti-m1-Iwz"/>
-                                                <include reference="hTy-iP-5Nj"/>
+                                                <include reference="cjY-yi-vj7"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=regular">
@@ -302,7 +302,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Vg5-xS-ORU" secondAttribute="trailing" constant="-7.5" id="nLP-Dv-sND"/>
                             <constraint firstAttribute="centerY" secondItem="Vg5-xS-ORU" secondAttribute="centerY" multiplier="0.555" constant="-5.25" id="oYM-gO-MkN"/>
                             <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.15" id="pwI-jU-NVz">
-                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="5"/>
                             </constraint>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leading" id="r8d-zt-cZA"/>
                             <constraint firstItem="glG-z2-xZ6" firstAttribute="top" secondItem="eL0-sg-hWD" secondAttribute="bottom" id="ru5-lG-15f"/>
