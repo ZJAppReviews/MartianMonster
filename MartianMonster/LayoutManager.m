@@ -49,7 +49,7 @@ CGFloat const iphone4Height = 480;
     }
     
     if ( IDIOM == IPAD ) {
-        return UIEdgeInsetsMake(60, 10, 0, 10);
+        return UIEdgeInsetsMake(25, 10, 0, 10);
     }
 
     return UIEdgeInsetsMake(10, 10, 0, 10);
@@ -81,16 +81,23 @@ CGFloat const iphone4Height = 480;
     }
 
     if ( IDIOM == IPAD ) {
-        return screenWidth * 0.069;
+        return screenWidth * 0.1475;
     }
 
     NSLog(@"screenWidth %f", screenWidth);
     return screenWidth * 0.121;
 }
 
-+(BOOL)isIphone4 {
++(BOOL)deviceIsIphone4 {
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (screenHeight == iphone4Height) {
+        return YES;
+    }
+    return NO;
+}
+
++(BOOL)deviceIsIpad {
+    if ( IDIOM == IPAD ) {
         return YES;
     }
     return NO;
