@@ -84,6 +84,10 @@ CGFloat const iphone4Height = 480;
         return screenWidth * 0.069;
     }
 
+    if (screenHeight == iphone6Width) {
+        return screenWidth * 0.12;
+    }
+
     NSLog(@"screenWidth %f", screenWidth);
     return screenWidth * 0.1;
 }

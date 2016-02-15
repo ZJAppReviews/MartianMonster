@@ -25,6 +25,8 @@
 @property NSMutableArray *soundboardsArray; //holds all the soundbites for each button
 @property NSMutableArray *bgSoundItems; //holds the songs that can be played in background
 
+@property float menuOriginalSpacing;
+
 #pragma  mark - audio properties
 @property (nonatomic, strong) AVAudioEngine *engine;
 
@@ -80,6 +82,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 {
     [super viewWillAppear:animated];
     [self didBecomeActive];
+    self.menuOriginalSpacing = ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing;
 }
 
 -(void)setUpShareVC
@@ -162,7 +165,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         //TODO: Layout something
         if (indexPath.row == 0) {
 //            [self adjustMenuCollectionViewCellSpacingWithCell:cell];
-            ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInPortrait];
+            ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
         }
 
         return cell;
@@ -205,9 +208,9 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 }
 
 //Not getting called?
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 200;
-}
+//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 200;
+//}
 
 #pragma mark - MenuCollectionViewCellDelegate
 -(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(RoundButton *)button {
@@ -428,10 +431,15 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [self.menuCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    //TODO: Layout something
-//    [self adjustMenuCollectionViewCellSpacingWithCell:cell];
-    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
+
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+
+        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
+
+    } else {
+        ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
+        [self.menuCollectionView reloadData];
+    }
 
     if (lastPageBeforeRotate != -1)
     {

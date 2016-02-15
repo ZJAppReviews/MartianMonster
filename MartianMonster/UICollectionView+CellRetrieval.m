@@ -16,7 +16,9 @@
     {
         for (NSInteger i = 0; i < [self numberOfItemsInSection:j]; ++i)
         {
-            [cells addObject:[self cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]]];
+            if ([self cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]]) {
+                [cells addObject:[self cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]]];
+            }
         }
     }
     return [cells copy];
