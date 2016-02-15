@@ -162,12 +162,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
 
-        //TODO: Layout something
-        if (indexPath.row == 0) {
-//            [self adjustMenuCollectionViewCellSpacingWithCell:cell];
-            ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
-        }
-
         return cell;
     }
 }
@@ -278,16 +272,82 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     }
 }
 
-#pragma mark - Animation helper
 
--(void)setupPulsateAnimation
+
+
+
+
+
+
+
+#pragma mark - Orientation
+- (void)viewWillLayoutSubviews;
 {
-    self.pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    self.pulseAnimation.duration = .5;
-    self.pulseAnimation.toValue = [NSNumber numberWithFloat:1.1];
-    self.pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    self.pulseAnimation.autoreverses = YES;
-    self.pulseAnimation.repeatCount = FLT_MAX;
+    [super viewWillLayoutSubviews];
+
+    UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
+    flowLayout.itemSize = self.view.frame.size;
+
+    [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    int pageWidth = self.collectionView.contentSize.width / 3;
+    int scrolledX = self.collectionView.contentOffset.x;
+    lastPageBeforeRotate = 0;
+
+    if (pageWidth > 0)
+    {
+        lastPageBeforeRotate = scrolledX / pageWidth;
+    }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+
+        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
+
+    } else {
+        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
+//        [self.menuCollectionView reloadData];
+    }
+
+    if (lastPageBeforeRotate != -1)
+    {
+        self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
+        lastPageBeforeRotate = -1;
+        [self updateCurrentRowBasedOnOrientation];
+    }
+
+    NSArray *cells = [self.menuCollectionView allCells];
+
+    for (MenuCollectionViewCell *cell in cells)
+    {
+        RoundButton *button = cell.menuButton;
+        button.layer.cornerRadius = button.bounds.size.width / 2;
+    }
+}
+
+
+
+
+
+
+
+
+-(void)updateCurrentRowBasedOnOrientation
+{
+    CGFloat pageWidth = self.collectionView.frame.size.width;
+    currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
+}
+
+//Enables upside-down orientation
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return (int) UIInterfaceOrientationMaskAll;
 }
 
 #pragma  mark - app exit / reentrance
@@ -406,67 +466,15 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     }
 }
 
-#pragma mark - Orientation
-- (void)viewWillLayoutSubviews;
+#pragma mark - Animation helper
+-(void)setupPulsateAnimation
 {
-    [super viewWillLayoutSubviews];
-
-    UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
-    flowLayout.itemSize = self.view.frame.size;
-
-    [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    int pageWidth = self.collectionView.contentSize.width / 3;
-    int scrolledX = self.collectionView.contentOffset.x;
-    lastPageBeforeRotate = 0;
-
-    if (pageWidth > 0)
-    {
-        lastPageBeforeRotate = scrolledX / pageWidth;
-    }
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-
-        ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInLandscape];
-
-    } else {
-        ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = self.menuOriginalSpacing;
-        [self.menuCollectionView reloadData];
-    }
-
-    if (lastPageBeforeRotate != -1)
-    {
-        self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
-        lastPageBeforeRotate = -1;
-        [self updateCurrentRowBasedOnOrientation];
-    }
-
-    NSArray *cells = [self.menuCollectionView allCells];
-
-    for (MenuCollectionViewCell *cell in cells)
-    {
-        RoundButton *button = cell.menuButton;
-        button.layer.cornerRadius = button.bounds.size.width / 2;
-    }
-}
-
--(void)updateCurrentRowBasedOnOrientation
-{
-    CGFloat pageWidth = self.collectionView.frame.size.width;
-    currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
-}
-
-//Enables upside-down orientation
--(NSUInteger)supportedInterfaceOrientations
-{
-    return (int) UIInterfaceOrientationMaskAll;
+    self.pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    self.pulseAnimation.duration = .5;
+    self.pulseAnimation.toValue = [NSNumber numberWithFloat:1.1];
+    self.pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    self.pulseAnimation.autoreverses = YES;
+    self.pulseAnimation.repeatCount = FLT_MAX;
 }
 
 //Constraint helper
