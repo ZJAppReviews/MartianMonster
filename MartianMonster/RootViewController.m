@@ -157,6 +157,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         return cell;
     } else {
         MenuCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MenuCell" forIndexPath:indexPath];
+        
         cell.delegate = self;
 
         NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
@@ -295,7 +296,16 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
 
+//    NSArray *cells = [self.menuCollectionView allCells];
+//
+//    for (MenuCollectionViewCell *cell in cells)
+//    {
+//        RoundButton *button = cell.menuButton;
+//        button.layer.cornerRadius = button.bounds.size.width / 2;
+//    }
+
     [self.menuCollectionView reloadData];
+
 
 //    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
 ////    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
@@ -317,7 +327,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-
     if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
 
     } else {
@@ -346,6 +355,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         RoundButton *button = cell.menuButton;
         button.layer.cornerRadius = button.bounds.size.width / 2;
     }
+    [self.menuCollectionView reloadData];
 }
 
 
