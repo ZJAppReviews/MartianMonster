@@ -181,6 +181,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 //        }
 
         return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
+
     }
 }
 
@@ -295,8 +296,10 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
 
+    [self.menuCollectionView reloadData];
+
 //    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
-//    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
+////    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
 //
 //    [menuFlowLayout invalidateLayout]; //force the elements to get laid out again with the new size
 }
@@ -322,7 +325,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
     }
 
-    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
+//    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
 //    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
 
 //    [menuFlowLayout invalidateLayout]; //force the elements to get laid out again with the new size
