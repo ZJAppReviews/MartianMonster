@@ -304,7 +304,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 //        button.layer.cornerRadius = button.bounds.size.width / 2;
 //    }
 
-    [self.menuCollectionView reloadData];
+//    [self.menuCollectionView reloadData];
 
 
 //    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
@@ -323,6 +323,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     {
         lastPageBeforeRotate = scrolledX / pageWidth;
     }
+    [self.menuCollectionView reloadData];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
