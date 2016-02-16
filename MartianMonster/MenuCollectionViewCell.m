@@ -14,8 +14,14 @@
     [self.delegate menuCollectionViewCell:self didTapButton:sender];
 }
 
-//- (void)awakeFromNib {
-//    [super awakeFromNib];
-//}
+-(void)prepareForReuse {
+    [super prepareForReuse];
+
+    if (![self.menuButton isAnimating]) {
+        [self.menuButton.layer removeAllAnimations];
+        self.menuButton.isAnimating = NO;
+        self.menuButton.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+    }
+}
 
 @end
