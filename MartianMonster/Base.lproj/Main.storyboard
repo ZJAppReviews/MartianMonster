@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uC-rO-tYU">
@@ -289,6 +289,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="EIC-Ez-b2O" secondAttribute="trailing" constant="-20" id="5Xw-Ge-q9g"/>
                             <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.098" id="6MK-fe-aiW" userLabel="(w C h R) Menu Collection View.height = 0.098 × height"/>
+                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.1" id="86c-0f-cPW"/>
                             <constraint firstItem="EIC-Ez-b2O" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-20" id="Cwh-TJ-7Qj"/>
                             <constraint firstItem="EIC-Ez-b2O" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" id="E3O-mN-wda"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EIC-Ez-b2O" secondAttribute="trailing" constant="-20" id="Fm2-iq-dZ0"/>
@@ -317,6 +318,7 @@
                             <mask key="constraints">
                                 <exclude reference="5Xw-Ge-q9g"/>
                                 <exclude reference="6MK-fe-aiW"/>
+                                <exclude reference="86c-0f-cPW"/>
                                 <exclude reference="Cwh-TJ-7Qj"/>
                                 <exclude reference="E3O-mN-wda"/>
                                 <exclude reference="g7p-qj-UhO"/>
@@ -351,6 +353,11 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="6MK-fe-aiW"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="86c-0f-cPW"/>
                             </mask>
                         </variation>
                     </view>
