@@ -380,8 +380,8 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 -(void)didBecomeActive
 {
     [self.collectionView reloadData];
-    [SoundManager startEngine:self.engine];
     [SoundManager activateAudioSessionForBackgroundPlay];
+    [SoundManager startEngine:self.engine];
 }
 
 -(void)handleAppExit

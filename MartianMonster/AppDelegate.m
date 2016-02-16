@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SoundManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [SoundManager activateAudioSessionForBackgroundPlay];
     return YES;
 }
 
