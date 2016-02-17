@@ -62,21 +62,10 @@ NSString *const kGifFileName = @"space";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.engine = [AVAudioEngine new];
-
-    self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlist:kPlistSoundInfo forEngine:self.engine];
-    self.bgSoundItems = [[SoundManager arrayOfSoundboardsFromPlist:kPlistBgSongInfo forEngine:self.engine] firstObject];
-
-    [self setUpAudioSessionAndEngine];
-
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 
-    [self handleAppReentrance];
-    [self handleAppExit];
-
-    [self setUpShareVC];
-    [self setUpGif];
+    [self initialLoadSetUps];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -84,6 +73,20 @@ NSString *const kGifFileName = @"space";
     [self setUpAudioSessionAndEngine];
 }
 
+-(void)initialLoadSetUps {
+    self.engine = [AVAudioEngine new];
+
+    self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlist:kPlistSoundInfo forEngine:self.engine];
+    self.bgSoundItems = [[SoundManager arrayOfSoundboardsFromPlist:kPlistBgSongInfo forEngine:self.engine] firstObject];
+
+    [self setUpAudioSessionAndEngine];
+
+    [self setUpDidBecomeActiveNotificationObserver];
+    [self setUpAppExitNotificationObserver];
+
+    [self setUpShareVC];
+    [self setUpGif];
+}
 
 #pragma mark - UICollectionView DataSource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -298,21 +301,15 @@ NSString *const kGifFileName = @"space";
     }
 }
 
-#pragma  mark - app exit / reentrance
--(void)handleAppReentrance {
+#pragma  mark - App exit / ReEntrance
+-(void)setUpDidBecomeActiveNotificationObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setUpAudioSessionAndEngine)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
 }
 
--(void)setUpAudioSessionAndEngine {
-    [self.collectionView reloadData];
-    [SoundManager activateAudioSessionForBackgroundPlay];
-    [SoundManager startEngine:self.engine];
-}
-
--(void)handleAppExit {
+-(void)setUpAppExitNotificationObserver {
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(applicationWillResign)
@@ -325,6 +322,13 @@ NSString *const kGifFileName = @"space";
     [self stopAllBGsongs];
     [self.engine stop];
 }
+
+-(void)setUpAudioSessionAndEngine {
+    [self.collectionView reloadData];
+    [SoundManager activateAudioSessionForBackgroundPlay];
+    [SoundManager startEngine:self.engine];
+}
+
 
 #pragma  mark - Share Activity
 -(void)presentActivityViewController {
