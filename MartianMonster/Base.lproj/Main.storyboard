@@ -362,10 +362,10 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="eL0-sg-hWD" id="eLB-Mj-8dN"/>
                         <outlet property="menuCollectionView" destination="EIC-Ez-b2O" id="Clx-YO-NaA"/>
                         <outlet property="pageControl" destination="az5-A8-DCd" id="chA-A2-s3B"/>
                         <outlet property="slider" destination="Vg5-xS-ORU" id="lkA-9Y-fSx"/>
+                        <outlet property="soundboardCollectionView" destination="eL0-sg-hWD" id="j3b-VA-QxL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-tz-uej" userLabel="First Responder" sceneMemberID="firstResponder"/>

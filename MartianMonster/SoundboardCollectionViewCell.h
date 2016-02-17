@@ -13,11 +13,17 @@
 
 @required
 
+/**
+ *  Notifies the delegate that a button within a particular cell has been tapped
+ *
+ *  @param cell   the cell in which the tapped button resides
+ *  @param button the button that was tapped
+ */
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button;
 
 @end
 
-/** The SoundboardCollectionViewCell is used for to house information about audio from a SoundItem instance. They populate the main collectionView.
+/** The SoundboardCollectionViewCell is used for to house information about audio from a Soundboard instance. They populate the RootViewController's soundboardCollectionView.
  *
  *  @class SoundboardCollectionViewCell
  */

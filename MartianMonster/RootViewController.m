@@ -31,7 +31,7 @@
 @property (nonatomic, strong) AVAudioEngine *engine;
 
 #pragma  mark - IBOutlets
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UICollectionView *soundboardCollectionView;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UICollectionView *menuCollectionView;
@@ -63,7 +63,7 @@ NSString *const kGifFileName = @"space";
     [super viewDidLoad];
 
     self.pageControl.numberOfPages = self.soundboardsArray.count;
-    ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
+    ((UICollectionViewFlowLayout *) self.soundboardCollectionView.collectionViewLayout).minimumLineSpacing = 0;
 
     [self initialLoadSetUps];
 }
@@ -202,7 +202,7 @@ NSString *const kGifFileName = @"space";
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
 
-    UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
+    UICollectionViewFlowLayout *flowLayout = (id)self.soundboardCollectionView.collectionViewLayout;
     flowLayout.itemSize = self.view.frame.size;
 
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
@@ -211,8 +211,8 @@ NSString *const kGifFileName = @"space";
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    int pageWidth = self.collectionView.contentSize.width / 3;
-    int scrolledX = self.collectionView.contentOffset.x;
+    int pageWidth = self.soundboardCollectionView.contentSize.width / 3;
+    int scrolledX = self.soundboardCollectionView.contentOffset.x;
     lastPageBeforeRotate = 0;
 
     if (pageWidth > 0) {
@@ -229,7 +229,7 @@ NSString *const kGifFileName = @"space";
 
     //handle self.collectionView:
     if (lastPageBeforeRotate != -1) {
-        self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
+        self.soundboardCollectionView.contentOffset = CGPointMake(self.soundboardCollectionView.bounds.size.width * lastPageBeforeRotate, 0);
         lastPageBeforeRotate = -1;
         [self updateCurrentRowBasedOnOrientation];
     }
@@ -244,8 +244,8 @@ NSString *const kGifFileName = @"space";
 }
 
 -(void)updateCurrentRowBasedOnOrientation {
-    CGFloat pageWidth = self.collectionView.frame.size.width;
-    currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
+    CGFloat pageWidth = self.soundboardCollectionView.frame.size.width;
+    currentRow = self.pageControl.currentPage = self.soundboardCollectionView.contentOffset.x / pageWidth;
 }
 
 
@@ -271,8 +271,7 @@ NSString *const kGifFileName = @"space";
 
 -(void)stopAllBGsongs {
     for (SoundItem *soundItem in self.bgSoundItems) {
-        if ([soundItem.playerNode isPlaying])
-        {
+        if ([soundItem.playerNode isPlaying]) {
             [soundItem.playerNode stop];
         }
     }
@@ -325,7 +324,7 @@ NSString *const kGifFileName = @"space";
 }
 
 -(void)setUpAudioSessionAndEngine {
-    [self.collectionView reloadData];
+    [self.soundboardCollectionView reloadData];
     [SoundManager activateAudioSessionForBackgroundPlay];
     [SoundManager startEngine:self.engine];
 }
@@ -372,7 +371,7 @@ NSString *const kGifFileName = @"space";
     NSURL *gifURL = [[NSBundle mainBundle] URLForResource:kGifFileName withExtension:@"gif"];
     imageView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
 
-    self.collectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
+    self.soundboardCollectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
 
     [imageView constrainToSuperview:self.view];
 }
