@@ -17,6 +17,8 @@
 #import "RoundButton.h"
 #import "UIImage+animatedGif.h"
 #import "UICollectionView+CellRetrieval.h"
+#import "UIColor+Custom.h"
+#import "UIView+Layout.h"
 #import "LayoutManager.h"
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, MenuCollectionViewCellDelegate>
@@ -24,8 +26,6 @@
 #pragma mark - info
 @property NSMutableArray *soundboardsArray; //holds all the soundbites for each button
 @property NSMutableArray *bgSoundItems; //holds the songs that can be played in background
-
-@property float menuOriginalSpacing;
 
 #pragma  mark - audio properties
 @property (nonatomic, strong) AVAudioEngine *engine;
@@ -36,10 +36,6 @@
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UICollectionView *menuCollectionView;
 
-//@property (strong, nonatomic) IBOutletCollection(RoundButton) NSArray *menuButtons;
-
-@property CABasicAnimation *pulseAnimation;
-
 @property UIActivityViewController *activityVC;
 
 @end
@@ -48,15 +44,13 @@ NSString *const kPlistSoundInfo = @"SoundInfo";
 NSString *const kPlistBgSongInfo = @"BgSongInfo";
 NSString *const kAppLink = @"http://onelink.to/mmapp";
 
-@implementation RootViewController
-{
+@implementation RootViewController {
     NSInteger currentRow;
     NSInteger lastPageBeforeRotate;
 }
 
 #pragma  mark - view lifecycle
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.engine = [AVAudioEngine new];
@@ -69,7 +63,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 
-    [self setupPulsateAnimation];
+//    [self setupPulsateAnimation];
 
     [self handleAppReentrance];
     [self handleAppExit];
@@ -78,15 +72,12 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     [self spaceGif];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self didBecomeActive];
-//    self.menuOriginalSpacing = ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing;
 }
 
--(void)setUpShareVC
-{
+-(void)setUpShareVC {
     NSArray *textArray = @[@"My spaceship just blasted off", @"My trip was short"];
     NSUInteger randomIndex = arc4random() % textArray.count;
     NSString *textSuffix = @"via the Martian Monster App!";
@@ -109,8 +100,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     self.activityVC.excludedActivityTypes = excludeActivities;
 }
 
--(void)spaceGif
-{
+-(void)spaceGif {
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
 
@@ -118,26 +108,22 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     imageView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
 
     self.collectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
-    [self constrainView:imageView toSuperview:self.view];
+
+    [imageView constrainToSuperview:self.view];
 }
 
--(void)presentActivityViewController
-{
+-(void)presentActivityViewController {
     //if iPhone
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self presentViewController:self.activityVC animated:YES completion:nil];
-    }
-    //if iPad
-    else {
-        // Change Rect to position Popover
-        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:self.activityVC];
+    } else { //if iPad
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:self.activityVC]; // Change Rect to position Popover
         [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
 }
 
 #pragma mark - UICollectionView DataSource
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (collectionView.tag == 0) {
         return self.soundboardsArray.count;
     } else {
@@ -163,7 +149,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
 
-        NSLog(@"cellforITEM FOR ROW: %d", (int) [indexPath row]);
         if (indexPath.row < self.bgSoundItems.count) {
             SoundItem *soundItem = self.bgSoundItems[indexPath.row];
             cell.isPlaying = soundItem.playerNode.isPlaying;
@@ -181,31 +166,9 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         return self.view.frame.size;
     } else {
         MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
-//        if ([LayoutManager deviceIsIphone4]) {
-//            NSLog(@"%f", collectionView.frame.size.height * 1.145);
-//            return cell ? cell.frame.size : [LayoutManager iPhone4CellItemSize];
-//        }
-
         return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
-
     }
 }
-
-//-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//    if (collectionView.tag == 0) {
-//        return UIEdgeInsetsMake(0, 0, 0, 0);
-//    } else {
-//        return [LayoutManager edgeInsetsForMenuCellItem];
-//    }
-//}
-
-//#pragma mark - Flow Layout
-//-(void)adjustMenuCollectionViewCellSpacingWithCell:(MenuCollectionViewCell *)cell {
-////    float screenWidth = [UIScreen mainScreen].bounds.size.width;
-////    float itemGirth = (self.bgSoundItems.count + 1) * cell.frame.size.width;
-////
-//    ((UICollectionViewFlowLayout *) self.menuCollectionView.collectionViewLayout).minimumLineSpacing = [LayoutManager minimumSpacingForMenuCellItemInPortrait];
-//}
 
 #pragma mark - SoundboardCollectionViewCellDelegate
 -(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
@@ -213,18 +176,13 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     [self playAudioForButton:button];
 }
 
-//Not getting called?
-//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-//    return 200;
-//}
-
 #pragma mark - MenuCollectionViewCellDelegate
 -(void)menuCollectionViewCell:(MenuCollectionViewCell *)cell didTapButton:(RoundButton *)button {
 
     if ([[self.menuCollectionView indexPathForCell:cell] row] == self.bgSoundItems.count)
     {
         [self presentActivityViewController];
-        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+        button.backgroundColor = [UIColor customTransluscentDark];
         return;
     }
 
@@ -250,28 +208,21 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 }
 
 #pragma mark - SoundboardCell View Helper
--(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
+-(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSArray *soundItems = self.soundboardsArray[currentRow];
 
     UIView *cellSuperview = cell.contentView.subviews.lastObject;
 
-    for (UIView *view in cellSuperview.subviews)
-    {
-        if ([view isKindOfClass:[UIButton class]])
-        {
+    for (UIView *view in cellSuperview.subviews) {
+        if ([view isKindOfClass:[UIButton class]]) {
             UIButton *button = (UIButton *) view;
             SoundItem *soundItem = soundItems[button.tag];
             [button setTitle:soundItem.displayText forState:UIControlStateNormal];
 
-            if (soundItem.bufferOption == AVAudioPlayerNodeBufferLoops)
-            {
-                if ([soundItem.playerNode isPlaying])
-                {
+            if (soundItem.bufferOption == AVAudioPlayerNodeBufferLoops) {
+                if ([soundItem.playerNode isPlaying]) {
                     [button setTitle:@"" forState:UIControlStateNormal];
-                }
-                else
-                {
+                } else {
                     [button setTitle:soundItem.displayText forState:UIControlStateNormal];
                     [button setImage:nil forState:UIControlStateNormal];
                 }
@@ -289,8 +240,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 
 #pragma mark - Orientation
-- (void)viewWillLayoutSubviews;
-{
+- (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
 
     UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
@@ -298,62 +248,40 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
 
-//    NSArray *cells = [self.menuCollectionView allCells];
-//
-//    for (MenuCollectionViewCell *cell in cells)
-//    {
-//        RoundButton *button = cell.menuButton;
-//        button.layer.cornerRadius = button.bounds.size.width / 2;
-//    }
-
     [self.menuCollectionView reloadData]; //need to call this or menu button animation stops when soundboard collectionview is scrolled.
-    NSLog(@"VIEWWILLLAYOUTSUBVIEWS");
-
-
-//    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
-////    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
-//
-//    [menuFlowLayout invalidateLayout]; //force the elements to get laid out again with the new size
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     int pageWidth = self.collectionView.contentSize.width / 3;
     int scrolledX = self.collectionView.contentOffset.x;
     lastPageBeforeRotate = 0;
 
-    if (pageWidth > 0)
-    {
+    if (pageWidth > 0) {
         lastPageBeforeRotate = scrolledX / pageWidth;
     }
-//    [self.menuCollectionView reloadData];
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+//    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+//
+//    } else {
+//
+//    }
 
-    } else {
-
-    }
-    NSLog(@"willROTATEtoInterface");
-
-    //main cv stuff
-    if (lastPageBeforeRotate != -1)
-    {
+    //handle self.collectionView:
+    if (lastPageBeforeRotate != -1) {
         self.collectionView.contentOffset = CGPointMake(self.collectionView.bounds.size.width * lastPageBeforeRotate, 0);
         lastPageBeforeRotate = -1;
         [self updateCurrentRowBasedOnOrientation];
     }
 
+    //handle self.menuCollectionView:
     NSArray *cells = [self.menuCollectionView allCells];
 
-    for (MenuCollectionViewCell *cell in cells)
-    {
+    for (MenuCollectionViewCell *cell in cells) {
         RoundButton *button = cell.menuButton;
         button.layer.cornerRadius = button.bounds.size.width / 2;
     }
-//    [self.menuCollectionView reloadData];
 }
 
 
@@ -363,36 +291,36 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
 
 
--(void)updateCurrentRowBasedOnOrientation
-{
+-(void)updateCurrentRowBasedOnOrientation {
     CGFloat pageWidth = self.collectionView.frame.size.width;
     currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 }
 
 //Enables upside-down orientation
--(NSUInteger)supportedInterfaceOrientations
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#endif 
 {
-    return (int) UIInterfaceOrientationMaskAll;
+    return UIInterfaceOrientationMaskAll;
 }
 
 #pragma  mark - app exit / reentrance
--(void)handleAppReentrance
-{
+-(void)handleAppReentrance {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didBecomeActive)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
 }
 
--(void)didBecomeActive
-{
+-(void)didBecomeActive {
     [self.collectionView reloadData];
     [SoundManager activateAudioSessionForBackgroundPlay];
     [SoundManager startEngine:self.engine];
 }
 
--(void)handleAppExit
-{
+-(void)handleAppExit {
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(applicationWillResign)
@@ -400,50 +328,25 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
      object:nil];
 }
 
--(void)applicationWillResign
-{
-    //    [self.engine stop];
+-(void)applicationWillResign {
     [self stopPlayingAllNodes];
     [self stopAllBGsongs];
     [self.engine stop];
 }
 
 #pragma mark - play / stop audio helpers
--(void)playAudioForButton:(UIButton *)button
-{
+-(void)playAudioForButton:(UIButton *)button {
     if (![self.engine isRunning]) {
         [self didBecomeActive];
     }
 
     NSArray *soundItems = self.soundboardsArray[currentRow];
     SoundItem *soundItem = soundItems[button.tag];
-
-    if (soundItem.bufferOption == AVAudioPlayerNodeBufferLoops)
-    {
-        if ([soundItem.playerNode isPlaying])
-        {
-            [soundItem.playerNode stop];
-            [button setTitle:soundItem.displayText forState:UIControlStateNormal];
-            [button setImage:nil forState:UIControlStateNormal];
-        }
-        else
-        {
-            [SoundManager scheduleAndPlaySoundItem:soundItem];
-            [button setTitle:@"" forState:UIControlStateNormal];
-            [button setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
-            button.tintColor = [UIColor whiteColor];
-        }
-    }
-    else
-    {
-        [SoundManager scheduleAndPlaySoundItem:soundItem];
-    }
+    [SoundManager scheduleAndPlaySoundItem:soundItem];
 }
 
--(void)stopPlayingAllNodes
-{
-    for (NSArray *sb in self.soundboardsArray)
-    {
+-(void)stopPlayingAllNodes {
+    for (NSArray *sb in self.soundboardsArray) {
         for (SoundItem *si in sb)
         {
             [si.playerNode stop];
@@ -451,10 +354,8 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     }
 }
 
--(void)stopAllBGsongs
-{
-    for (SoundItem *soundItem in self.bgSoundItems)
-    {
+-(void)stopAllBGsongs {
+    for (SoundItem *soundItem in self.bgSoundItems) {
         if ([soundItem.playerNode isPlaying])
         {
             [soundItem.playerNode stop];
@@ -462,80 +363,28 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     }
 
     NSArray *cells = [self.menuCollectionView allCells];
-
-    for (MenuCollectionViewCell *cell in cells)
-    {
+    for (MenuCollectionViewCell *cell in cells) {
         RoundButton *button = cell.menuButton;
         [button.layer removeAllAnimations];
         button.isAnimating = NO;
-        button.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+        button.backgroundColor = [UIColor customTransluscentDark];
     }
 }
 
 #pragma mark - Scrollview delegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self updateCurrentRowBasedOnOrientation];
 
-    [self onSliderMoved:self.slider]; // Resets pitch appropriately when moving back to a previous screen
+    [self onSliderMoved:self.slider]; // Resets pitch when moving back to previous screen
 }
 
 #pragma mark - Slider
-- (IBAction)onSliderMoved:(UISlider *)sender
-{
+- (IBAction)onSliderMoved:(UISlider *)sender {
     NSArray *soundItems = self.soundboardsArray[currentRow];
 
-    for (SoundItem *soundItem in soundItems)
-    {
+    for (SoundItem *soundItem in soundItems) {
         soundItem.utPitch.pitch = sender.value;
     }
-}
-
-#pragma mark - Animation helper
--(void)setupPulsateAnimation
-{
-    self.pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    self.pulseAnimation.duration = .5;
-    self.pulseAnimation.toValue = [NSNumber numberWithFloat:1.1];
-    self.pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    self.pulseAnimation.autoreverses = YES;
-    self.pulseAnimation.repeatCount = FLT_MAX;
-}
-
-//Constraint helper
--(void)constrainView:(UIView *)containerView toSuperview:(UIView *)superview
-{
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
-                                                          attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:superview
-                                                          attribute:NSLayoutAttributeTop
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
-                                                          attribute:NSLayoutAttributeLeading
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:superview
-                                                          attribute:NSLayoutAttributeLeading
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
-                                                          attribute:NSLayoutAttributeBottom
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:superview
-                                                          attribute:NSLayoutAttributeBottom
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:containerView
-                                                          attribute:NSLayoutAttributeTrailing
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:superview
-                                                          attribute:NSLayoutAttributeTrailing
-                                                         multiplier:1.0
-                                                           constant:0.0]];
 }
 
 @end

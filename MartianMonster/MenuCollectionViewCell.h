@@ -24,9 +24,9 @@
 @property id<MenuCollectionViewCellDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet RoundButton *menuButton;
-
--(void)setUp;
 @property (nonatomic) BOOL isPlaying;
 @property (nonatomic) CABasicAnimation *pulseAnimation;
+
+-(void)setUp;
 
 @end
