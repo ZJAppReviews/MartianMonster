@@ -11,19 +11,16 @@
 
 @implementation SoundManager
 
-+(NSMutableArray *)arrayOfSoundboardsFromPlist:(NSString *)plist forEngine:(AVAudioEngine *)engine
-{
++(NSMutableArray *)arrayOfSoundboardsFromPlist:(NSString *)plist forEngine:(AVAudioEngine *)engine {
     NSURL *path = [[NSBundle mainBundle] URLForResource:plist withExtension:@"plist"];
     NSArray *soundListsArray = [NSArray arrayWithContentsOfURL:path];
 
     NSMutableArray *soundboardsArray = [NSMutableArray new];
 
-    for (NSArray *soundList in soundListsArray)
-    {
+    for (NSArray *soundList in soundListsArray) {
         NSMutableArray *soundItemArray = [NSMutableArray new];
 
-        for (NSDictionary *soundDict in soundList)
-        {
+        for (NSDictionary *soundDict in soundList) {
             SoundItem *soundItem = [[SoundItem alloc] initWithDictionary:soundDict];
             [soundItem setUpAudioWithEngine:engine];
             [soundItemArray addObject:soundItem];
@@ -33,8 +30,7 @@
     return soundboardsArray;
 }
 
-+(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem
-{
++(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem {
     // Schedule playing audio buffer
     [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
                                   atTime:nil
@@ -44,8 +40,7 @@
     [soundItem.playerNode play];
 }
 
-+(void)startEngine:(AVAudioEngine *)engine
-{
++(void)startEngine:(AVAudioEngine *)engine {
     // Start engine
     NSError *error;
     [engine startAndReturnError:&error];
@@ -54,8 +49,7 @@
     }
 }
 
-+(void)activateAudioSessionForBackgroundPlay
-{
++(void)activateAudioSessionForBackgroundPlay {
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];

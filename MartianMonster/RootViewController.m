@@ -23,14 +23,14 @@
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, MenuCollectionViewCellDelegate>
 
-#pragma mark - info
+#pragma mark - Data
 @property NSMutableArray *soundboardsArray; //holds all the soundbites for each button
 @property NSMutableArray *bgSoundItems; //holds the songs that can be played in background
 
-#pragma  mark - audio properties
+#pragma  mark - Audio
 @property (nonatomic, strong) AVAudioEngine *engine;
 
-#pragma  mark - view outlets
+#pragma  mark - IBOutlets
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -40,9 +40,18 @@
 
 @end
 
+#pragma  mark - Constants
 NSString *const kPlistSoundInfo = @"SoundInfo";
 NSString *const kPlistBgSongInfo = @"BgSongInfo";
+
+NSString *const kShareText1 = @"My spaceship just blasted off";
+NSString *const kShareText2 = @"My trip was short";
+NSString *const kShareTextSuffix = @"via the Martian Monster App!";
 NSString *const kAppLink = @"http://onelink.to/mmapp";
+
+NSString *const kCellSample = @"SampleCell";
+NSString *const kCellMenu = @"MenuCell";
+NSString *const kGifFileName = @"space";
 
 @implementation RootViewController {
     NSInteger currentRow;
@@ -63,8 +72,6 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
 
-//    [self setupPulsateAnimation];
-
     [self handleAppReentrance];
     [self handleAppExit];
 
@@ -78,10 +85,9 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 }
 
 -(void)setUpShareVC {
-    NSArray *textArray = @[@"My spaceship just blasted off", @"My trip was short"];
+    NSArray *textArray = @[kShareText1, kShareText2];
     NSUInteger randomIndex = arc4random() % textArray.count;
-    NSString *textSuffix = @"via the Martian Monster App!";
-    NSString *shareText = [NSString stringWithFormat:@"♫ %@, %@", [textArray objectAtIndex:randomIndex], textSuffix];
+    NSString *shareText = [NSString stringWithFormat:@"♫ %@, %@", [textArray objectAtIndex:randomIndex], kShareTextSuffix];
 
     NSURL *shareURL = [NSURL URLWithString:kAppLink];
 
@@ -104,7 +110,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
 
-    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:@"space" withExtension:@"gif"];
+    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:kGifFileName withExtension:@"gif"];
     imageView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
 
     self.collectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
@@ -134,7 +140,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView.tag == 0) {
-        SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SampleCell" forIndexPath:indexPath];
+        SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellSample forIndexPath:indexPath];
         cell.delegate = self;
 
         currentRow = indexPath.row;
@@ -142,7 +148,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 
         return cell;
     } else {
-        MenuCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MenuCell" forIndexPath:indexPath];
+        MenuCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellMenu forIndexPath:indexPath];
         
         cell.delegate = self;
 

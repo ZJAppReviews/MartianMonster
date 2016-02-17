@@ -10,28 +10,34 @@
 
 @implementation SoundItem
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict
-{
-    self.displayText = dict[@"displayText"];
+#pragma  mark - Constants
+NSString *const kLoopsKey = @"loops";
+NSString *const kDisplayTextKey = @"displayText";
+NSString *const kPitchEffectKey = @"pitchEffect";
+NSString *const kVolumeKey = @"volume";
+NSString *const kFileNameKey = @"fileName";
+NSString *const kFileExtensionKey = @"fileExtension";
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
+    self.displayText = dict[kDisplayTextKey];
 
     self.bufferOption = AVAudioPlayerNodeBufferInterrupts;
-    if ([dict[@"loops"] boolValue])
+    if ([dict[kLoopsKey] boolValue])
     {
         self.bufferOption = AVAudioPlayerNodeBufferLoops;
     }
 
-    self.pitchEffect = [dict[@"pitchEffect"] boolValue];
-    self.volume = [dict[@"volume"] floatValue];
+    self.pitchEffect = [dict[kPitchEffectKey] boolValue];
+    self.volume = [dict[kVolumeKey] floatValue];
 
-    NSString *pathZero = [[NSBundle mainBundle] pathForResource:dict[@"fileName"] ofType:dict[@"fileExtension"]];
+    NSString *pathZero = [[NSBundle mainBundle] pathForResource:dict[kFileNameKey] ofType:dict[kFileExtensionKey]];
     self.audioFile = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]
                                          error:nil];
 
     return self;
 }
 
--(void)setUpAudioWithEngine:(AVAudioEngine *)engine
-{
+-(void)setUpAudioWithEngine:(AVAudioEngine *)engine {
     // Prepare Buffer Zero
     AVAudioFormat *audioFormatZero = self.audioFile.processingFormat;
     AVAudioFrameCount lengthZero = (AVAudioFrameCount)self.audioFile.length;
@@ -45,8 +51,7 @@
 
     // Set pitch (if applicable) and connect nodes
     AVAudioMixerNode *mixerNode = [engine mainMixerNode];
-    if (self.pitchEffect)
-    {
+    if (self.pitchEffect) {
         //pitches
         self.utPitch = [AVAudioUnitTimePitch new];
         self.utPitch.pitch = 0.0;
@@ -60,9 +65,7 @@
         [engine connect:self.utPitch
                           to:mixerNode
                       format:self.audioFile.processingFormat];
-    }
-    else
-    {
+    } else {
         //only connect nodes (no pitches)
         [engine connect:self.playerNode
                           to:mixerNode
