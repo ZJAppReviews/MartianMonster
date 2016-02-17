@@ -28,9 +28,11 @@
         if (self.isPlaying) {
             [self.menuButton.layer addAnimation:[self pulsateAnimation]  forKey:@"pulse"];
             self.menuButton.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
+            self.menuButton.isAnimating = YES;
         } else {
             [self.menuButton.layer removeAllAnimations];
             self.menuButton.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.20];
+            self.menuButton.isAnimating = NO; //used to control highlighting w/ touchevents
         }
     });
 }
