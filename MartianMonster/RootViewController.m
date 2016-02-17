@@ -163,12 +163,18 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
 
+        NSLog(@"cellforITEM FOR ROW: %d", (int) [indexPath row]);
+        if (indexPath.row < self.bgSoundItems.count) {
+            SoundItem *soundItem = self.bgSoundItems[indexPath.row];
+            cell.isPlaying = soundItem.playerNode.isPlaying;
+        } else {
+            cell.isPlaying = NO; //this is the share cell; no soundItem to play
+        }
         return cell;
     }
 }
 
 #pragma mark - Flow Layout
-
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView.tag == 0) {
@@ -234,17 +240,13 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     {
         [self stopAllBGsongs];
         [SoundManager scheduleAndPlaySoundItem:soundItem];
-        [button.layer addAnimation:self.pulseAnimation forKey:nil];
-        button.isAnimating = YES;
-        button.backgroundColor = [UIColor colorWithRed:245/255.0 green:248/255.0 blue:255/255.0 alpha:0.8];
+        cell.isPlaying = YES;
     }
-    else
-    {
+    else {
         [soundItem.playerNode stop];
-        [button.layer removeAllAnimations];
-        button.isAnimating = NO;
-        button.backgroundColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:0.33];
+        cell.isPlaying = NO;
     }
+    [self.menuCollectionView reloadData];
 }
 
 #pragma mark - SoundboardCell View Helper
@@ -304,7 +306,8 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
 //        button.layer.cornerRadius = button.bounds.size.width / 2;
 //    }
 
-//    [self.menuCollectionView reloadData];
+    [self.menuCollectionView reloadData]; //need to call this or menu button animation stops when soundboard collectionview is scrolled.
+    NSLog(@"VIEWWILLLAYOUTSUBVIEWS");
 
 
 //    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
@@ -323,7 +326,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     {
         lastPageBeforeRotate = scrolledX / pageWidth;
     }
-    [self.menuCollectionView reloadData];
+//    [self.menuCollectionView reloadData];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -333,13 +336,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
     } else {
 
     }
-
-//    UICollectionViewFlowLayout *menuFlowLayout = (id)self.menuCollectionView.collectionViewLayout;
-//    menuFlowLayout.itemSize = CGSizeMake(self.menuCollectionView.frame.size.height, self.menuCollectionView.frame.size.height);
-
-//    [menuFlowLayout invalidateLayout]; //force the elements to get laid out again with the new size
-
-//    [self.menuCollectionView reloadData]; //call sizeForCellItem so our constraints take effect
+    NSLog(@"willROTATEtoInterface");
 
     //main cv stuff
     if (lastPageBeforeRotate != -1)
@@ -356,7 +353,7 @@ NSString *const kAppLink = @"http://onelink.to/mmapp";
         RoundButton *button = cell.menuButton;
         button.layer.cornerRadius = button.bounds.size.width / 2;
     }
-    [self.menuCollectionView reloadData];
+//    [self.menuCollectionView reloadData];
 }
 
 

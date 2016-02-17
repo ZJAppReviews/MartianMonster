@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RoundButton.h"
+#import "SoundItem.h"
 @class MenuCollectionViewCell;
 
 @protocol MenuCollectionViewCellDelegate <NSObject>
@@ -23,5 +24,9 @@
 @property id<MenuCollectionViewCellDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet RoundButton *menuButton;
+
+-(void)setUp;
+@property (nonatomic) BOOL isPlaying;
+@property (nonatomic) CABasicAnimation *pulseAnimation;
 
 @end
