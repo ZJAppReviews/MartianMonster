@@ -12,6 +12,7 @@
 
 //Constraint helper
 -(void)constrainToSuperview:(UIView *)superview {
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     [superview addConstraint:[NSLayoutConstraint constraintWithItem:self
                                                           attribute:NSLayoutAttributeTop
                                                           relatedBy:NSLayoutRelationEqual

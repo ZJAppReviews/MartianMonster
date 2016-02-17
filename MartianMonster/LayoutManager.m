@@ -41,7 +41,7 @@ CGFloat const iphone4Height = 480;
 
 +(UIEdgeInsets)edgeInsetsForMenuCellItem {
 
-    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+//    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
 
     if (screenHeight == iphone4Height) {
