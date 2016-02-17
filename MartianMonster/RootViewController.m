@@ -62,10 +62,9 @@ NSString *const kGifFileName = @"space";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self initialLoadSetUps];
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.soundboardCollectionView.collectionViewLayout).minimumLineSpacing = 0;
-
-    [self initialLoadSetUps];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -132,7 +131,9 @@ NSString *const kGifFileName = @"space";
         return self.view.frame.size;
     } else {
         MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
-        return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
+        UICollectionViewFlowLayout *flowLayout = (id) collectionView.collectionViewLayout;
+        CGFloat cellLength = collectionView.frame.size.height - (flowLayout.sectionInset.top + flowLayout.sectionInset.bottom);
+        return cell ? cell.frame.size : CGSizeMake(cellLength, cellLength);
     }
 }
 

@@ -19,7 +19,7 @@
         <!--Root View Controller-->
         <scene sceneID="q6a-Bp-FKf">
             <objects>
-                <viewController id="IDw-lP-XpV" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="IDw-lP-XpV" customClass="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sgl-1t-d2M"/>
                         <viewControllerLayoutGuide type="bottom" id="glG-z2-xZ6"/>
@@ -284,8 +284,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="EIC-Ez-b2O" secondAttribute="trailing" constant="-20" id="5Xw-Ge-q9g"/>
-                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.098" id="6MK-fe-aiW" userLabel="(w C h R) Menu Collection View.height = 0.098 × height"/>
-                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.1" id="86c-0f-cPW"/>
+                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.11207" id="6MK-fe-aiW" userLabel="(w C h R) Menu Collection View.height = 0.098 × height"/>
+                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.1175" id="86c-0f-cPW"/>
                             <constraint firstItem="EIC-Ez-b2O" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leadingMargin" constant="-20" id="Cwh-TJ-7Qj"/>
                             <constraint firstItem="EIC-Ez-b2O" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" id="E3O-mN-wda"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EIC-Ez-b2O" secondAttribute="trailing" constant="-20" id="Fm2-iq-dZ0"/>
@@ -298,7 +298,7 @@
                             <constraint firstItem="EIC-Ez-b2O" firstAttribute="top" secondItem="Jpf-qf-gzV" secondAttribute="topMargin" id="g7p-qj-UhO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vg5-xS-ORU" secondAttribute="trailing" constant="-7.5" id="nLP-Dv-sND"/>
                             <constraint firstAttribute="centerY" secondItem="Vg5-xS-ORU" secondAttribute="centerY" multiplier="0.555" constant="-5.25" id="oYM-gO-MkN"/>
-                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.15" id="pwI-jU-NVz">
+                            <constraint firstItem="EIC-Ez-b2O" firstAttribute="height" secondItem="Jpf-qf-gzV" secondAttribute="height" multiplier="0.17525" id="pwI-jU-NVz">
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="eL0-sg-hWD" firstAttribute="leading" secondItem="Jpf-qf-gzV" secondAttribute="leading" id="r8d-zt-cZA"/>
@@ -357,6 +357,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="menuCollectionView" destination="EIC-Ez-b2O" id="Clx-YO-NaA"/>
                         <outlet property="pageControl" destination="az5-A8-DCd" id="chA-A2-s3B"/>
