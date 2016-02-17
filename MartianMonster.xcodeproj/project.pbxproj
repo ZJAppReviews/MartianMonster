@@ -168,16 +168,6 @@
 			name = Layout;
 			sourceTree = "<group>";
 		};
-		930274901B897996007F7F18 /* GIF */ = {
-			isa = PBXGroup;
-			children = (
-				9302748E1B8971E5007F7F18 /* UIImage+animatedGif.h */,
-				9302748D1B8971E5007F7F18 /* UIImage+animatedGif.m */,
-				9302748B1B897169007F7F18 /* space.gif */,
-			);
-			name = GIF;
-			sourceTree = "<group>";
-		};
 		9311C2EB1BBDB291003058AD /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +247,8 @@
 		93AFC6911C6FEB670028F261 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				9302748E1B8971E5007F7F18 /* UIImage+animatedGif.h */,
+				9302748D1B8971E5007F7F18 /* UIImage+animatedGif.m */,
 				93AFC68E1C6FEB620028F261 /* UICollectionView+CellRetrieval.h */,
 				93AFC68F1C6FEB620028F261 /* UICollectionView+CellRetrieval.m */,
 				93CA568F1C74CC6000D3C430 /* CABasicAnimation+Pulsate.h */,
@@ -311,11 +303,11 @@
 				9317F4D11BA9524300B092F4 /* Controller */,
 				9363218C1BA78C23004CB7D6 /* Model */,
 				9317F4D21BA9525000B092F4 /* Cells */,
+				93CA56981C74DB6600D3C430 /* Audio Resources */,
+				9311C2EB1BBDB291003058AD /* Custom Views */,
+				93AFC6911C6FEB670028F261 /* Categories */,
 				930175C81C70EA8400B0C4CB /* Layout */,
 				93B8E33B1B818926008ECB47 /* Supporting Files */,
-				9311C2EB1BBDB291003058AD /* Custom Views */,
-				930274901B897996007F7F18 /* GIF */,
-				93AFC6911C6FEB670028F261 /* Categories */,
 			);
 			path = MartianMonster;
 			sourceTree = "<group>";
@@ -323,9 +315,7 @@
 		93B8E33B1B818926008ECB47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				93B8E3611B818953008ECB47 /* Sound Bites */,
-				9317F4CC1BA8D8AA00B092F4 /* SoundInfo.plist */,
-				93BE3DC21BB36520009D603C /* BgSongInfo.plist */,
+				9302748B1B897169007F7F18 /* space.gif */,
 				93B5A5561C6EA367009DC43D /* Orbitron Medium.ttf */,
 				93B8E33C1B818926008ECB47 /* Info.plist */,
 				93B8E33D1B818926008ECB47 /* main.m */,
@@ -371,6 +361,16 @@
 				93B5A5661C6EEB11009DC43D /* MEXIJAMLOOP.m4a */,
 			);
 			name = Background;
+			sourceTree = "<group>";
+		};
+		93CA56981C74DB6600D3C430 /* Audio Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93B8E3611B818953008ECB47 /* Sound Bites */,
+				9317F4CC1BA8D8AA00B092F4 /* SoundInfo.plist */,
+				93BE3DC21BB36520009D603C /* BgSongInfo.plist */,
+			);
+			name = "Audio Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

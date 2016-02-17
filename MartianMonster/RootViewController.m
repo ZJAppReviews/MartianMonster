@@ -58,7 +58,7 @@ NSString *const kGifFileName = @"space";
     NSInteger lastPageBeforeRotate;
 }
 
-#pragma  mark - view lifecycle
+#pragma  mark - View Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -67,7 +67,7 @@ NSString *const kGifFileName = @"space";
     self.soundboardsArray = [SoundManager arrayOfSoundboardsFromPlist:kPlistSoundInfo forEngine:self.engine];
     self.bgSoundItems = [[SoundManager arrayOfSoundboardsFromPlist:kPlistBgSongInfo forEngine:self.engine] firstObject];
 
-    [self didBecomeActive];
+    [self setUpAudioSessionAndEngine];
 
     self.pageControl.numberOfPages = self.soundboardsArray.count;
     ((UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
@@ -76,57 +76,14 @@ NSString *const kGifFileName = @"space";
     [self handleAppExit];
 
     [self setUpShareVC];
-    [self spaceGif];
+    [self setUpGif];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self didBecomeActive];
+    [self setUpAudioSessionAndEngine];
 }
 
--(void)setUpShareVC {
-    NSArray *textArray = @[kShareText1, kShareText2];
-    NSUInteger randomIndex = arc4random() % textArray.count;
-    NSString *shareText = [NSString stringWithFormat:@"♫ %@, %@", [textArray objectAtIndex:randomIndex], kShareTextSuffix];
-
-    NSURL *shareURL = [NSURL URLWithString:kAppLink];
-
-    NSArray *objectsToShare = @[shareText, shareURL];
-
-    self.activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
-
-    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
-                                   UIActivityTypePrint,
-                                   UIActivityTypeAssignToContact,
-                                   UIActivityTypeSaveToCameraRoll,
-                                   UIActivityTypeAddToReadingList,
-                                   UIActivityTypePostToFlickr,
-                                   UIActivityTypePostToVimeo];
-
-    self.activityVC.excludedActivityTypes = excludeActivities;
-}
-
--(void)spaceGif {
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-
-    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:kGifFileName withExtension:@"gif"];
-    imageView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
-
-    self.collectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
-
-    [imageView constrainToSuperview:self.view];
-}
-
--(void)presentActivityViewController {
-    //if iPhone
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [self presentViewController:self.activityVC animated:YES completion:nil];
-    } else { //if iPad
-        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:self.activityVC]; // Change Rect to position Popover
-        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
-}
 
 #pragma mark - UICollectionView DataSource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -165,7 +122,7 @@ NSString *const kGifFileName = @"space";
     }
 }
 
-#pragma mark - Flow Layout
+#pragma mark - Flow Layout Delegate
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView.tag == 0) {
@@ -174,12 +131,6 @@ NSString *const kGifFileName = @"space";
         MenuCollectionViewCell *cell = (MenuCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
         return cell ? cell.frame.size : CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
     }
-}
-
-#pragma mark - SoundboardCollectionViewCellDelegate
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
-{
-    [self playAudioForButton:button];
 }
 
 #pragma mark - MenuCollectionViewCellDelegate
@@ -193,7 +144,7 @@ NSString *const kGifFileName = @"space";
     }
 
     if (![self.engine isRunning]) {
-        [self didBecomeActive];
+        [self setUpAudioSessionAndEngine];
     }
 
     NSInteger selectedRow = [[self.menuCollectionView indexPathForCell:cell] row];
@@ -213,7 +164,13 @@ NSString *const kGifFileName = @"space";
     [self.menuCollectionView reloadData];
 }
 
-#pragma mark - SoundboardCell View Helper
+#pragma mark - SoundboardCollectionViewCellDelegate
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
+{
+    [self playAudioForButton:button];
+}
+
+#pragma mark - SoundboardCollectionViewCell Helper
 -(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSArray *soundItems = self.soundboardsArray[currentRow];
 
@@ -237,15 +194,7 @@ NSString *const kGifFileName = @"space";
     }
 }
 
-
-
-
-
-
-
-
-
-#pragma mark - Orientation
+#pragma mark - Orientation Change
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
 
@@ -290,60 +239,16 @@ NSString *const kGifFileName = @"space";
     }
 }
 
-
-
-
-
-
-
-
 -(void)updateCurrentRowBasedOnOrientation {
     CGFloat pageWidth = self.collectionView.frame.size.width;
     currentRow = self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 }
 
-//Enables upside-down orientation
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
-- (NSUInteger)supportedInterfaceOrientations
-#else
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#endif 
-{
-    return UIInterfaceOrientationMaskAll;
-}
 
-#pragma  mark - app exit / reentrance
--(void)handleAppReentrance {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didBecomeActive)
-                                                 name:UIApplicationDidBecomeActiveNotification
-                                               object:nil];
-}
-
--(void)didBecomeActive {
-    [self.collectionView reloadData];
-    [SoundManager activateAudioSessionForBackgroundPlay];
-    [SoundManager startEngine:self.engine];
-}
-
--(void)handleAppExit {
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(applicationWillResign)
-     name:UIApplicationWillResignActiveNotification
-     object:nil];
-}
-
--(void)applicationWillResign {
-    [self stopPlayingAllNodes];
-    [self stopAllBGsongs];
-    [self.engine stop];
-}
-
-#pragma mark - play / stop audio helpers
+#pragma mark - Start / Stop Audio Helpers
 -(void)playAudioForButton:(UIButton *)button {
     if (![self.engine isRunning]) {
-        [self didBecomeActive];
+        [self setUpAudioSessionAndEngine];
     }
 
     NSArray *soundItems = self.soundboardsArray[currentRow];
@@ -391,6 +296,91 @@ NSString *const kGifFileName = @"space";
     for (SoundItem *soundItem in soundItems) {
         soundItem.utPitch.pitch = sender.value;
     }
+}
+
+#pragma  mark - app exit / reentrance
+-(void)handleAppReentrance {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setUpAudioSessionAndEngine)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+}
+
+-(void)setUpAudioSessionAndEngine {
+    [self.collectionView reloadData];
+    [SoundManager activateAudioSessionForBackgroundPlay];
+    [SoundManager startEngine:self.engine];
+}
+
+-(void)handleAppExit {
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(applicationWillResign)
+     name:UIApplicationWillResignActiveNotification
+     object:nil];
+}
+
+-(void)applicationWillResign {
+    [self stopPlayingAllNodes];
+    [self stopAllBGsongs];
+    [self.engine stop];
+}
+
+#pragma  mark - Share Activity
+-(void)presentActivityViewController {
+    //if iPhone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:self.activityVC animated:YES completion:nil];
+    } else { //if iPad
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:self.activityVC]; // Change Rect to position Popover
+        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
+
+-(void)setUpShareVC {
+    NSArray *textArray = @[kShareText1, kShareText2];
+    NSUInteger randomIndex = arc4random() % textArray.count;
+    NSString *shareText = [NSString stringWithFormat:@"♫ %@, %@", [textArray objectAtIndex:randomIndex], kShareTextSuffix];
+
+    NSURL *shareURL = [NSURL URLWithString:kAppLink];
+
+    NSArray *objectsToShare = @[shareText, shareURL];
+
+    self.activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+
+    self.activityVC.excludedActivityTypes = excludeActivities;
+}
+
+#pragma  mark - Gif
+-(void)setUpGif {
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+
+    NSURL *gifURL = [[NSBundle mainBundle] URLForResource:kGifFileName withExtension:@"gif"];
+    imageView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
+
+    self.collectionView.backgroundView = imageView; // insertSubview:imageView atIndex:0];
+
+    [imageView constrainToSuperview:self.view];
+}
+
+#pragma  mark - Orientation Support
+//Enables upside-down orientation
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#endif
+{
+    return UIInterfaceOrientationMaskAll;
 }
 
 @end
