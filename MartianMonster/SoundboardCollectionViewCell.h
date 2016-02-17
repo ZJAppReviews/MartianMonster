@@ -17,6 +17,10 @@
 
 @end
 
+/** The SoundboardCollectionViewCell is used for to house information about audio from a SoundItem instance. They populate the main collectionView.
+ *
+ *  @class SoundboardCollectionViewCell
+ */
 @interface SoundboardCollectionViewCell : UICollectionViewCell
 
 @property id<SoundboardCollectionViewCellDelegate> delegate;

@@ -38,13 +38,13 @@ NSString *const kFileExtensionKey = @"fileExtension";
 }
 
 -(void)setUpAudioWithEngine:(AVAudioEngine *)engine {
-    // Prepare Buffer Zero
+    // Prepare Buffer
     AVAudioFormat *audioFormatZero = self.audioFile.processingFormat;
     AVAudioFrameCount lengthZero = (AVAudioFrameCount)self.audioFile.length;
     self.audioPCMBuffer = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatZero frameCapacity:lengthZero];
     [self.audioFile readIntoBuffer:self.audioPCMBuffer error:nil];
 
-    // Prepare AVAudioPlayerNode Zero
+    // Prepare AVAudioPlayerNode
     self.playerNode = [AVAudioPlayerNode new];
     self.playerNode.volume = self.volume;
     [engine attachNode:self.playerNode];

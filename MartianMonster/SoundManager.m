@@ -11,6 +11,12 @@
 
 @implementation SoundManager
 
++(void)activateAudioSessionForBackgroundPlay {
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
+}
+
 +(NSMutableArray *)arrayOfSoundboardsFromPlist:(NSString *)plist forEngine:(AVAudioEngine *)engine {
     NSURL *path = [[NSBundle mainBundle] URLForResource:plist withExtension:@"plist"];
     NSArray *soundListsArray = [NSArray arrayWithContentsOfURL:path];
@@ -47,12 +53,6 @@
     if (error) {
         NSLog(@"error:%@", error);
     }
-}
-
-+(void)activateAudioSessionForBackgroundPlay {
-    NSError *sessionError = nil;
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "SoundItem.h"
 @class MenuCollectionViewCell;
 
+
 @protocol MenuCollectionViewCellDelegate <NSObject>
 
 @required
@@ -19,6 +20,10 @@
 
 @end
 
+/** The MenuCollectionViewCell is used for the looped background tracks at the top of the app. They populate the MenuCollectionView.
+ *
+ *  @class MenuCollectionViewCell
+ */
 @interface MenuCollectionViewCell : UICollectionViewCell
 
 @property id<MenuCollectionViewCellDelegate> delegate;

@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  A Soundboard has a simple responsibility: carry with it an array of soundItems. For each SoundboardCollectionViewCell will exist a correlating Soundboard object.
+ *  @class Soundboard
+ */
 @interface Soundboard : NSObject
 
+/**
+ *  The array of soundItems (to populate the SoundboardCollectionViewCell's with
+ */
 @property NSMutableArray *soundItems;
-
-- (instancetype)initWithDisplayTexts:(NSArray *)displayTexts;
 
 @end

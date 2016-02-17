@@ -10,9 +10,4 @@
 
 @implementation Soundboard
 
-- (instancetype)initWithDisplayTexts:(NSArray *)displayTexts {
-    self.soundItems = [NSMutableArray new];
-    return self;
-}
-
 @end
