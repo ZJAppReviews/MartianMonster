@@ -12,5 +12,5 @@
 
 + (BOOL)isIpad;
 + (BOOL)isIpadPro;
-
++ (BOOL)isIphone6Plus;
 @end

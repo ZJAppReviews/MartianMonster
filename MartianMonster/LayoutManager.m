@@ -57,6 +57,16 @@ CGFloat const iphone4Height = 480;
     return 74;
 }
 
++(CGFloat) menuMinLineSpacingIphoneLandscape {
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+
+    if ([UIDevice isIphone6Plus]) {
+        return screenHeight * 0.245;
+    }
+
+    return screenHeight * 0.2775;
+}
+
 +(float)minimumSpacingForMenuCellItemInPortrait {
     CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
 
@@ -66,7 +76,7 @@ CGFloat const iphone4Height = 480;
     }
 
     if ( IDIOM == IPAD ) {
-        return screenWidth * 0.069;
+        return screenWidth * 0.073;
     }
     return screenWidth * 0.02415;
 }

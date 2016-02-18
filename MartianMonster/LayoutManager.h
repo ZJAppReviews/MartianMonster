@@ -14,5 +14,6 @@
 +(UIEdgeInsets) edgeInsetsForMenuCellItem;
 
 +(CGFloat) menuMinLineSpacingIpad;
++(CGFloat) menuMinLineSpacingIphoneLandscape;
 
 @end

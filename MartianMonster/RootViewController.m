@@ -116,7 +116,7 @@ NSString *const kGifFileName = @"space";
         
         cell.delegate = self;
 
-        NSString *rowString = [NSString stringWithFormat:@"%ld", indexPath.row];
+        NSString *rowString = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
 
         if (indexPath.row < self.bgSoundItems.count) {
@@ -144,6 +144,10 @@ NSString *const kGifFileName = @"space";
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
 
+    if (collectionView.tag == 0) {
+        return 0;
+    }
+    
     if ([UIDevice isIpad]) {
         return [LayoutManager menuMinLineSpacingIpad];
     }
@@ -155,7 +159,7 @@ NSString *const kGifFileName = @"space";
 
     if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
     {
-        return 75;
+        return [LayoutManager menuMinLineSpacingIphoneLandscape];
     }
 
     return self.menuMinLineSpacingPortrait;

@@ -31,4 +31,15 @@
     return isIpad && hasIPadProHeight && hasIPadProWidth;
 }
 
++ (BOOL)isIphone6Plus
+{
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    CGFloat width = mainScreen.nativeBounds.size.width / mainScreen.nativeScale;
+    CGFloat height = mainScreen.nativeBounds.size.height / mainScreen.nativeScale;
+    BOOL has6PlusProHeight = fabs(width - 414.f) < DBL_EPSILON;
+    BOOL has6PlusWidth = fabs(height - 736.f) < DBL_EPSILON;
+    return has6PlusProHeight && has6PlusWidth;
+}
+
+
 @end
