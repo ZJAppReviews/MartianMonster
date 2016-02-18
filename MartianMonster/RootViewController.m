@@ -269,10 +269,7 @@ NSString *const kGifFileName = @"space";
     }
 
     //handle self.menuCollectionView:
-    NSArray *cells = [self.menuCollectionView allCells];
-    for (MenuCollectionViewCell *cell in cells) {
-        [cell.menuButton formatImageView];
-    }
+    [self.menuCollectionView reloadData];
 }
 
 -(void)updateCurrentRowBasedOnOrientation {
