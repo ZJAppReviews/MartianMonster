@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SoundManager.h"
+#import "iRate.h"
 
 @interface AppDelegate ()
 
@@ -15,6 +16,12 @@
 
 @implementation AppDelegate
 
++ (void)initialize
+{
+    //configure iRate
+    [iRate sharedInstance].daysUntilPrompt = 3;
+    [iRate sharedInstance].usesUntilPrompt = 3;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

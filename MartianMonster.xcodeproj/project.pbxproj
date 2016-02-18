@@ -26,6 +26,7 @@
 		9363219A1BA7E6E7004CB7D6 /* meowSoft.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321951BA7E6E7004CB7D6 /* meowSoft.m4a */; };
 		9363219B1BA7E6E7004CB7D6 /* yourCat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321961BA7E6E7004CB7D6 /* yourCat.m4a */; };
 		939FFCC51C756C1F00772B31 /* UIDevice+DeviceType.m in Sources */ = {isa = PBXBuildFile; fileRef = 939FFCC41C756C1F00772B31 /* UIDevice+DeviceType.m */; };
+		93AB37C51C76388000D88A54 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB37C41C76388000D88A54 /* iRate.m */; };
 		93AFC6841C6FBA280028F261 /* SHORE.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6831C6FBA280028F261 /* SHORE.wav */; };
 		93AFC6861C6FBAAB0028F261 /* SHOREBW.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */; };
 		93AFC68A1C6FC1AD0028F261 /* CHINESE.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6891C6FC1870028F261 /* CHINESE.m4a */; };
@@ -95,6 +96,8 @@
 		936321961BA7E6E7004CB7D6 /* yourCat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = yourCat.m4a; sourceTree = "<group>"; };
 		939FFCC31C756C1F00772B31 /* UIDevice+DeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceType.h"; sourceTree = "<group>"; };
 		939FFCC41C756C1F00772B31 /* UIDevice+DeviceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceType.m"; sourceTree = "<group>"; };
+		93AB37C31C76388000D88A54 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		93AB37C41C76388000D88A54 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		93AFC6831C6FBA280028F261 /* SHORE.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHORE.wav; sourceTree = "<group>"; };
 		93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHOREBW.wav; sourceTree = "<group>"; };
 		93AFC6891C6FC1870028F261 /* CHINESE.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CHINESE.m4a; sourceTree = "<group>"; };
@@ -247,6 +250,15 @@
 			name = Two;
 			sourceTree = "<group>";
 		};
+		93AB37C61C76388800D88A54 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				93AB37C31C76388000D88A54 /* iRate.h */,
+				93AB37C41C76388000D88A54 /* iRate.m */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		93AFC6911C6FEB670028F261 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +324,7 @@
 				9311C2EB1BBDB291003058AD /* Custom Views */,
 				93AFC6911C6FEB670028F261 /* Categories */,
 				93CA56981C74DB6600D3C430 /* Audio Resources */,
+				93AB37C61C76388800D88A54 /* Libraries */,
 				93B8E33B1B818926008ECB47 /* Supporting Files */,
 			);
 			path = MartianMonster;
@@ -511,6 +524,7 @@
 				936321881BA78C0B004CB7D6 /* Soundboard.m in Sources */,
 				93CA56911C74CC6000D3C430 /* CABasicAnimation+Pulsate.m in Sources */,
 				930175C71C70EA7D00B0C4CB /* LayoutManager.m in Sources */,
+				93AB37C51C76388000D88A54 /* iRate.m in Sources */,
 				9302748F1B8971E5007F7F18 /* UIImage+animatedGif.m in Sources */,
 				93CA56941C74CD5300D3C430 /* UIColor+Custom.m in Sources */,
 				93B8E3411B818926008ECB47 /* AppDelegate.m in Sources */,
