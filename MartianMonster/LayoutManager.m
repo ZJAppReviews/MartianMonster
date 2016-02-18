@@ -39,6 +39,10 @@ CGFloat const iphone4Height = 480;
 +(CGFloat) menuMinLineSpacingIpad {
     CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
 
+    if ([UIDevice isIpadSplitScreen]) {
+        return screenWidth * 0.027;
+    }
+
     if ([UIDevice isIpadPro]) {
         if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
             return screenWidth * 0.1625;
@@ -49,6 +53,7 @@ CGFloat const iphone4Height = 480;
     if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
         return screenWidth * 0.164;
     }
+
     return 74;
 }
 

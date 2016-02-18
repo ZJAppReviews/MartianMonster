@@ -51,4 +51,8 @@
     return hasIphone4height && hasIphone4width;
 }
 
++ (BOOL)isIpadSplitScreen {
+    return !CGRectEqualToRect([UIApplication sharedApplication].delegate.window.frame, [UIApplication sharedApplication].delegate.window.screen.bounds);
+}
+
 @end
