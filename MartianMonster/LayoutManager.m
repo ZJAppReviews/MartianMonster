@@ -7,7 +7,9 @@
 //
 
 #import "LayoutManager.h"
+#import "UIDevice+DeviceType.h"
 
+CGFloat const iPadProHeight = 1366;
 CGFloat const iphone6PlusWidth = 414;
 CGFloat const iphone6PlusZoomWidth = 375;
 CGFloat const iphone6Width = 375;
@@ -20,24 +22,6 @@ CGFloat const iphone4Height = 480;
 #define IPAD     UIUserInterfaceIdiomPad
 
 @implementation LayoutManager
-
-+(CGSize)sizeForMenuCellItem {
-    float screenWidth = [[UIScreen mainScreen] bounds].size.width;
-    float cellLength = screenWidth * 0.175;
-
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    if (screenHeight == iphone4Height) {
-        cellLength = screenWidth * 0.15;
-        return CGSizeMake(cellLength, cellLength);
-    }
-
-    if ( IDIOM == IPAD ) {
-        cellLength = screenWidth * 0.14;
-        return CGSizeMake(cellLength, cellLength);
-    }
-
-    return CGSizeMake(cellLength, cellLength);
-}
 
 +(UIEdgeInsets)edgeInsetsForMenuCellItem {
 
@@ -53,6 +37,24 @@ CGFloat const iphone4Height = 480;
     }
 
     return UIEdgeInsetsMake(10, 10, 0, 10);
+}
+
++(CGFloat) menuMinLineSpacingIpad {
+    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+
+    if ([UIDevice isIpadPro]) {
+        if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+        {
+            return screenWidth * 0.1625;
+        }
+        return 94;
+    }
+
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    {
+        return screenWidth * 0.164;
+    }
+    return 74;
 }
 
 +(float)minimumSpacingForMenuCellItemInPortrait {
@@ -71,7 +73,6 @@ CGFloat const iphone4Height = 480;
 
 +(float)minimumSpacingForMenuCellItemInLandscape {
     CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
-
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
 
     if (screenWidth == iphone4Height) {
@@ -88,23 +89,19 @@ CGFloat const iphone4Height = 480;
     return screenWidth * 0.121;
 }
 
-+(BOOL)deviceIsIphone4 {
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    if (screenHeight == iphone4Height) {
-        return YES;
-    }
-    return NO;
-}
-
-+(BOOL)deviceIsIpad {
+-(BOOL)deviceIsIpad {
     if ( IDIOM == IPAD ) {
         return YES;
     }
     return NO;
 }
 
-+(CGSize)iPhone4CellItemSize {
-    return CGSizeMake(53.815, 53.815);
+-(BOOL)deviceIsIphone4 {
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if (screenHeight == iphone4Height) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

@@ -11,16 +11,8 @@
 
 @interface LayoutManager : NSObject
 
-+(CGSize)sizeForMenuCellItem;
++(UIEdgeInsets) edgeInsetsForMenuCellItem;
 
-+(UIEdgeInsets)edgeInsetsForMenuCellItem;
-
-+(float)minimumSpacingForMenuCellItemInPortrait;
-+(float)minimumSpacingForMenuCellItemInLandscape;
-
-+(BOOL)deviceIsIphone4;
-+(BOOL)deviceIsIpad;
-
-+(CGSize)iPhone4CellItemSize;
++(CGFloat) menuMinLineSpacingIpad;
 
 @end

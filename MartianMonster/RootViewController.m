@@ -20,6 +20,7 @@
 #import "UIColor+Custom.h"
 #import "UIView+Layout.h"
 #import "LayoutManager.h"
+#import "UIDevice+DeviceType.h"
 
 @interface RootViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SoundboardCollectionViewCellDelegate, MenuCollectionViewCellDelegate>
 
@@ -30,13 +31,17 @@
 #pragma  mark - Audio
 @property (nonatomic, strong) AVAudioEngine *engine;
 
+#pragma  mark - Layout
+@property CGFloat menuMinLineSpacingPortrait;
+
+#pragma  mark - Controllers
+@property UIActivityViewController *activityVC;
+
 #pragma  mark - IBOutlets
 @property (strong, nonatomic) IBOutlet UICollectionView *soundboardCollectionView;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UICollectionView *menuCollectionView;
-
-@property UIActivityViewController *activityVC;
 
 @end
 
@@ -135,6 +140,25 @@ NSString *const kGifFileName = @"space";
         CGFloat cellLength = collectionView.frame.size.height - (flowLayout.sectionInset.top + flowLayout.sectionInset.bottom);
         return cell ? cell.frame.size : CGSizeMake(cellLength, cellLength);
     }
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+
+    if ([UIDevice isIpad]) {
+        return [LayoutManager menuMinLineSpacingIpad];
+    }
+
+    if (!self.menuMinLineSpacingPortrait) {
+        UICollectionViewFlowLayout *flowLayout = (id) collectionView.collectionViewLayout;
+        self.menuMinLineSpacingPortrait = flowLayout.minimumLineSpacing;
+    }
+
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    {
+        return 75;
+    }
+
+    return self.menuMinLineSpacingPortrait;
 }
 
 #pragma mark - MenuCollectionViewCellDelegate
