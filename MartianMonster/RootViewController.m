@@ -118,6 +118,7 @@ NSString *const kGifFileName = @"space";
 
         NSString *rowString = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
         [cell.menuButton setImage:[UIImage imageNamed:rowString] forState:UIControlStateNormal];
+        [cell.menuButton.imageView setAccessibilityIdentifier:rowString];
 
         if (indexPath.row < self.bgSoundItems.count) {
             SoundItem *soundItem = self.bgSoundItems[indexPath.row];
@@ -260,12 +261,6 @@ NSString *const kGifFileName = @"space";
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-//    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-//
-//    } else {
-//
-//    }
-
     //handle self.collectionView:
     if (lastPageBeforeRotate != -1) {
         self.soundboardCollectionView.contentOffset = CGPointMake(self.soundboardCollectionView.bounds.size.width * lastPageBeforeRotate, 0);
@@ -275,10 +270,8 @@ NSString *const kGifFileName = @"space";
 
     //handle self.menuCollectionView:
     NSArray *cells = [self.menuCollectionView allCells];
-
     for (MenuCollectionViewCell *cell in cells) {
-        RoundButton *button = cell.menuButton;
-        button.layer.cornerRadius = button.bounds.size.width / 2;
+        [cell.menuButton formatImageView];
     }
 }
 

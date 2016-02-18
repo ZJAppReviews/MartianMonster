@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "RoundButton.h"
 
 /** The LayoutManager is responsible for tweaking the layout of views (namely the MenuCollectionView). There are certain cases where the desired spacing could not be achieved solely in Storyboard. And so the LayoutManager provides information on spacing and insets for situations such as landscape mode, iPads, iPhone 4, and iPhone 6 plus. It leverages the Device Type Category on UIDevice to distinguish between devices.
  *  @class LayoutManager
@@ -41,5 +42,14 @@
  *  @return the proper minimumLineSpacing between menu items for the iPhone 4 when in landscape orientation
  */
 +(CGFloat)menuMinLineSpacingIphone4;
+
+/**
+ *  provides the specific egde insets for a certain RoundButton's imageView (i.e. adjust the button containing the sombrero image to have smaller insets)
+ *
+ *  @param button the RoundButton for which to generate the edgeInsets
+ *
+ *  @return the specific egde insets for a certain RoundButton's imageView
+ */
++(UIEdgeInsets)edgeInsetForRoundButton:(RoundButton *)button;
 
 @end

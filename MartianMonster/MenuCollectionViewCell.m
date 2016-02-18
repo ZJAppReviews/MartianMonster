@@ -33,6 +33,7 @@
     }
     self.menuButton.clipsToBounds = YES;
     self.menuButton.layer.cornerRadius = self.bounds.size.width / 2;
+    [self.menuButton formatImageView];
 }
 
 -(void)setIsPlaying:(BOOL)isPlaying {

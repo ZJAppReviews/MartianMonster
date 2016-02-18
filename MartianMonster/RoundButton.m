@@ -8,6 +8,7 @@
 
 #import "RoundButton.h"
 #import "UIColor+Custom.h"
+#import "LayoutManager.h"
 
 @implementation RoundButton
 
@@ -24,8 +25,7 @@
     self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     self.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
 
-    float edgeInset = self.bounds.size.width / 6;
-    self.imageEdgeInsets = UIEdgeInsetsMake(edgeInset, edgeInset, edgeInset, edgeInset);
+    self.imageEdgeInsets = [LayoutManager edgeInsetForRoundButton:self];                                                                                         
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 
     [self addTarget:self action:@selector(setBgColorForButton:) forControlEvents:UIControlEventTouchDown];

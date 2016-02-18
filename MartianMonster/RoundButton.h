@@ -12,5 +12,6 @@ IB_DESIGNABLE
 @interface RoundButton : UIButton
 
 @property BOOL isAnimating;
+-(void)formatImageView;
 
 @end
