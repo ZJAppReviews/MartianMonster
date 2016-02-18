@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "SoundManager.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 #import "iRate.h"
 
 @interface AppDelegate ()
@@ -25,6 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Fabric with:@[[Answers class], [Crashlytics class]]];
     [SoundManager activateAudioSessionForBackgroundPlay];
     return YES;
 }

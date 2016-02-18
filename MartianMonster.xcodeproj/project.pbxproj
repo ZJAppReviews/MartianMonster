@@ -27,6 +27,8 @@
 		9363219B1BA7E6E7004CB7D6 /* yourCat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321961BA7E6E7004CB7D6 /* yourCat.m4a */; };
 		939FFCC51C756C1F00772B31 /* UIDevice+DeviceType.m in Sources */ = {isa = PBXBuildFile; fileRef = 939FFCC41C756C1F00772B31 /* UIDevice+DeviceType.m */; };
 		93AB37C51C76388000D88A54 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB37C41C76388000D88A54 /* iRate.m */; };
+		93AB37CB1C763B8C00D88A54 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AB37C91C763B8C00D88A54 /* Fabric.framework */; };
+		93AB37CF1C763C8000D88A54 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AB37CE1C763C8000D88A54 /* Crashlytics.framework */; };
 		93AFC6841C6FBA280028F261 /* SHORE.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6831C6FBA280028F261 /* SHORE.wav */; };
 		93AFC6861C6FBAAB0028F261 /* SHOREBW.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */; };
 		93AFC68A1C6FC1AD0028F261 /* CHINESE.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93AFC6891C6FC1870028F261 /* CHINESE.m4a */; };
@@ -98,6 +100,8 @@
 		939FFCC41C756C1F00772B31 /* UIDevice+DeviceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceType.m"; sourceTree = "<group>"; };
 		93AB37C31C76388000D88A54 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		93AB37C41C76388000D88A54 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		93AB37C91C763B8C00D88A54 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		93AB37CE1C763C8000D88A54 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		93AFC6831C6FBA280028F261 /* SHORE.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHORE.wav; sourceTree = "<group>"; };
 		93AFC6851C6FBAAB0028F261 /* SHOREBW.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHOREBW.wav; sourceTree = "<group>"; };
 		93AFC6891C6FC1870028F261 /* CHINESE.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CHINESE.m4a; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93F1D7BF1B89BE8D00979365 /* AVFoundation.framework in Frameworks */,
+				93AB37CF1C763C8000D88A54 /* Crashlytics.framework in Frameworks */,
+				93AB37CB1C763B8C00D88A54 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +265,16 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		93AB37CD1C763B9800D88A54 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				93AB37CE1C763C8000D88A54 /* Crashlytics.framework */,
+				93AB37C91C763B8C00D88A54 /* Fabric.framework */,
+			);
+			name = Fabric;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		93AFC6911C6FEB670028F261 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +340,7 @@
 				9311C2EB1BBDB291003058AD /* Custom Views */,
 				93AFC6911C6FEB670028F261 /* Categories */,
 				93CA56981C74DB6600D3C430 /* Audio Resources */,
+				93AB37CD1C763B9800D88A54 /* Fabric */,
 				93AB37C61C76388800D88A54 /* Libraries */,
 				93B8E33B1B818926008ECB47 /* Supporting Files */,
 			);
@@ -401,6 +418,7 @@
 				93B8E3341B818925008ECB47 /* Sources */,
 				93B8E3351B818925008ECB47 /* Frameworks */,
 				93B8E3361B818925008ECB47 /* Resources */,
+				93AB37C81C763B5D00D88A54 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -513,6 +531,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93AB37C81C763B5D00D88A54 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 0ab16672c93474a83c728078cb9b8991188bb3ca b4a35c38831e6c0f4b760a3813633d5f1af80d88534389758f14b665c224d162";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		93B8E3341B818925008ECB47 /* Sources */ = {
@@ -669,6 +703,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MartianMonster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -684,6 +722,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MartianMonster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
