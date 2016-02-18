@@ -157,12 +157,22 @@ NSString *const kGifFileName = @"space";
         self.menuMinLineSpacingPortrait = flowLayout.minimumLineSpacing;
     }
 
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-    {
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
         return [LayoutManager menuMinLineSpacingIphoneLandscape];
     }
 
+    if ([UIDevice isIphone4]) {
+        return [LayoutManager menuMinLineSpacingIphone4];
+    }
+
     return self.menuMinLineSpacingPortrait;
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (collectionView.tag == 0) {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    return [LayoutManager edgeInsetsForMenu];
 }
 
 #pragma mark - MenuCollectionViewCellDelegate

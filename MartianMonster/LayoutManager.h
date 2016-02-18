@@ -11,9 +11,9 @@
 
 @interface LayoutManager : NSObject
 
-+(UIEdgeInsets) edgeInsetsForMenuCellItem;
-
++(UIEdgeInsets) edgeInsetsForMenu;
 +(CGFloat) menuMinLineSpacingIpad;
 +(CGFloat) menuMinLineSpacingIphoneLandscape;
++(CGFloat) menuMinLineSpacingIphone4;
 
 @end

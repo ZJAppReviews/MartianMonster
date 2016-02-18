@@ -41,5 +41,14 @@
     return has6PlusProHeight && has6PlusWidth;
 }
 
++ (BOOL)isIphone4
+{
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    CGFloat width = mainScreen.nativeBounds.size.width / mainScreen.nativeScale;
+    CGFloat height = mainScreen.nativeBounds.size.height / mainScreen.nativeScale;
+    BOOL hasIphone4height = fabs(width - 320.f) < DBL_EPSILON;
+    BOOL hasIphone4width = fabs(height - 480.f) < DBL_EPSILON;
+    return hasIphone4height && hasIphone4width;
+}
 
 @end
