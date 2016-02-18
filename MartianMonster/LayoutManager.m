@@ -90,7 +90,7 @@ NSString * const accessIdShareImage = @"4";
     }
     else if ([button.imageView.accessibilityIdentifier isEqualToString:accessIdShareImage]) {
         edgeInset = button.bounds.size.width / 3.75;
-        return UIEdgeInsetsMake(edgeInset, edgeInset, edgeInset, edgeInset);
+        return UIEdgeInsetsMake(edgeInset, edgeInset - 1.75, edgeInset, edgeInset);
     }
 
     return UIEdgeInsetsMake(edgeInset, edgeInset, edgeInset, edgeInset);
