@@ -108,7 +108,7 @@ NSString *const kGifFileName = @"space";
         cell.delegate = self;
 
         currentRow = indexPath.row;
-        [self setUpViewsForCell:cell atIndexPath:indexPath];
+        cell.soundItems = self.soundboardsArray[currentRow];
 
         return cell;
     } else {
@@ -209,33 +209,8 @@ NSString *const kGifFileName = @"space";
 
 
 #pragma mark - SoundboardCollectionViewCellDelegate
--(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button
-{
+-(void)soundboardCollectionViewCell:(SoundboardCollectionViewCell *)cell didTapButton:(UIButton *)button {
     [self playAudioForButton:button];
-}
-
-#pragma mark - SoundboardCollectionViewCell Helper
--(void)setUpViewsForCell:(SoundboardCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSArray *soundItems = self.soundboardsArray[currentRow];
-
-    UIView *cellSuperview = cell.contentView.subviews.lastObject;
-
-    for (UIView *view in cellSuperview.subviews) {
-        if ([view isKindOfClass:[UIButton class]]) {
-            UIButton *button = (UIButton *) view;
-            SoundItem *soundItem = soundItems[button.tag];
-            [button setTitle:soundItem.displayText forState:UIControlStateNormal];
-
-            if (soundItem.bufferOption == AVAudioPlayerNodeBufferLoops) {
-                if ([soundItem.playerNode isPlaying]) {
-                    [button setTitle:@"" forState:UIControlStateNormal];
-                } else {
-                    [button setTitle:soundItem.displayText forState:UIControlStateNormal];
-                    [button setImage:nil forState:UIControlStateNormal];
-                }
-            }
-        }
-    }
 }
 
 #pragma mark - Orientation Change
