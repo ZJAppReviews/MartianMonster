@@ -31,6 +31,7 @@
 
 @property id<SoundboardCollectionViewCellDelegate> delegate;
 
+@property (nonatomic) NSArray *soundItems;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 @end

@@ -25,6 +25,13 @@
 		936321991BA7E6E7004CB7D6 /* theyAttack.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321941BA7E6E7004CB7D6 /* theyAttack.m4a */; };
 		9363219A1BA7E6E7004CB7D6 /* meowSoft.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321951BA7E6E7004CB7D6 /* meowSoft.m4a */; };
 		9363219B1BA7E6E7004CB7D6 /* yourCat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 936321961BA7E6E7004CB7D6 /* yourCat.m4a */; };
+		9399E9001C76D19D00CE9CEF /* GREETED.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9399E8FE1C76D19D00CE9CEF /* GREETED.m4a */; };
+		9399E9011C76D19D00CE9CEF /* LANDS.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9399E8FF1C76D19D00CE9CEF /* LANDS.m4a */; };
+		9399E9051C76D1D000CE9CEF /* COUNTDOWN.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9399E9041C76D1D000CE9CEF /* COUNTDOWN.m4a */; };
+		9399E9071C76D4F400CE9CEF /* ROCKS.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9399E9061C76D38200CE9CEF /* ROCKS.m4a */; };
+		9399E90B1C76DACC00CE9CEF /* SHORELOUD.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9399E9091C76DACC00CE9CEF /* SHORELOUD.wav */; };
+		9399E90F1C76DD0100CE9CEF /* SHOREBWLOUD.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9399E90E1C76DD0100CE9CEF /* SHOREBWLOUD.wav */; };
+		9399E9111C76DEBF00CE9CEF /* MARSLOUD.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9399E9101C76DEBF00CE9CEF /* MARSLOUD.wav */; };
 		939FFCC51C756C1F00772B31 /* UIDevice+DeviceType.m in Sources */ = {isa = PBXBuildFile; fileRef = 939FFCC41C756C1F00772B31 /* UIDevice+DeviceType.m */; };
 		93AB37C51C76388000D88A54 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB37C41C76388000D88A54 /* iRate.m */; };
 		93AB37CB1C763B8C00D88A54 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AB37C91C763B8C00D88A54 /* Fabric.framework */; };
@@ -96,6 +103,13 @@
 		936321941BA7E6E7004CB7D6 /* theyAttack.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = theyAttack.m4a; sourceTree = "<group>"; };
 		936321951BA7E6E7004CB7D6 /* meowSoft.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = meowSoft.m4a; sourceTree = "<group>"; };
 		936321961BA7E6E7004CB7D6 /* yourCat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = yourCat.m4a; sourceTree = "<group>"; };
+		9399E8FE1C76D19D00CE9CEF /* GREETED.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = GREETED.m4a; sourceTree = "<group>"; };
+		9399E8FF1C76D19D00CE9CEF /* LANDS.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = LANDS.m4a; sourceTree = "<group>"; };
+		9399E9041C76D1D000CE9CEF /* COUNTDOWN.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = COUNTDOWN.m4a; sourceTree = "<group>"; };
+		9399E9061C76D38200CE9CEF /* ROCKS.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ROCKS.m4a; sourceTree = "<group>"; };
+		9399E9091C76DACC00CE9CEF /* SHORELOUD.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHORELOUD.wav; sourceTree = "<group>"; };
+		9399E90E1C76DD0100CE9CEF /* SHOREBWLOUD.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SHOREBWLOUD.wav; sourceTree = "<group>"; };
+		9399E9101C76DEBF00CE9CEF /* MARSLOUD.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MARSLOUD.wav; sourceTree = "<group>"; };
 		939FFCC31C756C1F00772B31 /* UIDevice+DeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceType.h"; sourceTree = "<group>"; };
 		939FFCC41C756C1F00772B31 /* UIDevice+DeviceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceType.m"; sourceTree = "<group>"; };
 		93AB37C31C76388000D88A54 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
@@ -237,6 +251,7 @@
 				93C6F20E1BC038F200276D1D /* firstAstronaut.m4a */,
 				93B8E3681B81AE61008ECB47 /* blip.m4a */,
 				93157A6A1B8A7F5F0095F25F /* ufo.m4a */,
+				9399E9041C76D1D000CE9CEF /* COUNTDOWN.m4a */,
 				93B8E36C1B81AE61008ECB47 /* blastOff.m4a */,
 				93B8E36A1B81AE61008ECB47 /* incredibleSpeed.m4a */,
 				93B8E36B1B81AE61008ECB47 /* tripIsShort.m4a */,
@@ -254,6 +269,16 @@
 				936321961BA7E6E7004CB7D6 /* yourCat.m4a */,
 			);
 			name = Two;
+			sourceTree = "<group>";
+		};
+		9399E8FD1C76D18700CE9CEF /* Four */ = {
+			isa = PBXGroup;
+			children = (
+				9399E9061C76D38200CE9CEF /* ROCKS.m4a */,
+				9399E8FE1C76D19D00CE9CEF /* GREETED.m4a */,
+				9399E8FF1C76D19D00CE9CEF /* LANDS.m4a */,
+			);
+			name = Four;
 			sourceTree = "<group>";
 		};
 		93AB37C61C76388800D88A54 /* Libraries */ = {
@@ -378,10 +403,14 @@
 		93B8E3611B818953008ECB47 /* Sound Bites */ = {
 			isa = PBXGroup;
 			children = (
+				9399E9101C76DEBF00CE9CEF /* MARSLOUD.wav */,
+				9399E9091C76DACC00CE9CEF /* SHORELOUD.wav */,
+				9399E90E1C76DD0100CE9CEF /* SHOREBWLOUD.wav */,
 				93BE3DC41BB36545009D603C /* Background */,
 				9363218F1BA7CEEF004CB7D6 /* One */,
 				936321901BA7CEFC004CB7D6 /* Two */,
 				93B5A5591C6EB706009DC43D /* Three */,
+				9399E8FD1C76D18700CE9CEF /* Four */,
 				9315822B1BB6EB0000EC9CA2 /* Notification Sounds */,
 			);
 			name = "Sound Bites";
@@ -493,11 +522,14 @@
 			files = (
 				9363219A1BA7E6E7004CB7D6 /* meowSoft.m4a in Resources */,
 				9302748C1B897169007F7F18 /* space.gif in Resources */,
+				9399E9051C76D1D000CE9CEF /* COUNTDOWN.m4a in Resources */,
 				93B8E36F1B81AE61008ECB47 /* incredibleSpeed.m4a in Resources */,
 				9363219B1BA7E6E7004CB7D6 /* yourCat.m4a in Resources */,
 				93BE3DC91BB3655A009D603C /* MMLoop.m4a in Resources */,
 				93C6F20F1BC038F200276D1D /* firstAstronaut.m4a in Resources */,
 				9315822E1BB6EB0E00EC9CA2 /* shortBlip.m4a in Resources */,
+				9399E90B1C76DACC00CE9CEF /* SHORELOUD.wav in Resources */,
+				9399E90F1C76DD0100CE9CEF /* SHOREBWLOUD.wav in Resources */,
 				93B5A5651C6ED186009DC43D /* TALONS.m4a in Resources */,
 				93B8E3701B81AE61008ECB47 /* tripIsShort.m4a in Resources */,
 				93B5A5571C6EA367009DC43D /* Orbitron Medium.ttf in Resources */,
@@ -506,17 +538,21 @@
 				93AFC6861C6FBAAB0028F261 /* SHOREBW.wav in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
 				930955401BB30951007F6EFC /* SoundInfo.plist in Resources */,
+				9399E9001C76D19D00CE9CEF /* GREETED.m4a in Resources */,
 				936321971BA7E6E7004CB7D6 /* spookyOh.m4a in Resources */,
 				93AFC68A1C6FC1AD0028F261 /* CHINESE.m4a in Resources */,
 				93B5A5671C6EEB11009DC43D /* MEXIJAMLOOP.m4a in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
+				9399E9011C76D19D00CE9CEF /* LANDS.m4a in Resources */,
 				936321991BA7E6E7004CB7D6 /* theyAttack.m4a in Resources */,
+				9399E9071C76D4F400CE9CEF /* ROCKS.m4a in Resources */,
 				93B8E3711B81AE61008ECB47 /* blastOff.m4a in Resources */,
 				93BE3DC81BB3655A009D603C /* GhostLoop.m4a in Resources */,
 				93AFC6841C6FBA280028F261 /* SHORE.wav in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
 				93B8E36D1B81AE61008ECB47 /* blip.m4a in Resources */,
 				936321981BA7E6E7004CB7D6 /* screamAh.m4a in Resources */,
+				9399E9111C76DEBF00CE9CEF /* MARSLOUD.wav in Resources */,
 				93157A6B1B8A7F5F0095F25F /* ufo.m4a in Resources */,
 				93BE3DCC1BB375FE009D603C /* PetCatLoop.m4a in Resources */,
 				93B5A5631C6ED033009DC43D /* FEAR.m4a in Resources */,

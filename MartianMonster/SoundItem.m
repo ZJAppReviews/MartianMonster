@@ -17,6 +17,7 @@ NSString *const kPitchEffectKey = @"pitchEffect";
 NSString *const kVolumeKey = @"volume";
 NSString *const kFileNameKey = @"fileName";
 NSString *const kFileExtensionKey = @"fileExtension";
+NSString *const kInvertTextKey = @"invertText";
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
     self.displayText = dict[kDisplayTextKey];
@@ -29,6 +30,7 @@ NSString *const kFileExtensionKey = @"fileExtension";
 
     self.pitchEffect = [dict[kPitchEffectKey] boolValue];
     self.volume = [dict[kVolumeKey] floatValue];
+    self.invertText = [dict[kInvertTextKey] floatValue];
 
     NSString *pathZero = [[NSBundle mainBundle] pathForResource:dict[kFileNameKey] ofType:dict[kFileExtensionKey]];
     self.audioFile = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]

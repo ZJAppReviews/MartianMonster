@@ -46,4 +46,9 @@
                                                            constant:0.0]];
 }
 
+-(void)invertHorizontally {
+    CGAffineTransform horizontalFlip = CGAffineTransformMakeScale(-1,1);
+    self.transform = horizontalFlip;
+}
+
 @end

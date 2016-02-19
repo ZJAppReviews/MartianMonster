@@ -56,6 +56,11 @@
 @property float volume;
 
 /**
+ *  Whether or not the text for the soundItem should be inverted vertically (for displaying SHORE backwards)
+ */
+@property BOOL invertText;
+
+/**
  *  Creates a new SoundItem, set with values from the provided dictionary
  *
  *  @param dict the dictionary containing info for the soundItem (the dictionaries are housed within .plist's)

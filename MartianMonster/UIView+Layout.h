@@ -12,4 +12,6 @@
 
 -(void)constrainToSuperview:(UIView *)superview;
 
+-(void)invertHorizontally;
+
 @end

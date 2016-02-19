@@ -15,13 +15,13 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.75</real>
+			<real>0.76</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>(ufo)</string>
+			<string>COUNT</string>
 			<key>fileName</key>
-			<string>ufo</string>
+			<string>COUNTDOWN</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -33,7 +33,7 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>BLAST</string>
+			<string>BLAST OFF</string>
 			<key>fileName</key>
 			<string>blastOff</string>
 			<key>fileExtension</key>
@@ -77,23 +77,9 @@
 	<array>
 		<dict>
 			<key>displayText</key>
-			<string>CAT</string>
+			<string>oOoOo</string>
 			<key>fileName</key>
-			<string>yourCat</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<true/>
-			<key>volume</key>
-			<real>0.77</real>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>MEOW</string>
-			<key>fileName</key>
-			<string>meowSoft</string>
+			<string>spookyOh</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -102,6 +88,20 @@
 			<true/>
 			<key>volume</key>
 			<real>0.65</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>ahhHH</string>
+			<key>fileName</key>
+			<string>screamAh</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>0.44</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -133,7 +133,7 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>TALONS</string>
+			<string>SHARP</string>
 			<key>fileName</key>
 			<string>TALONS</string>
 			<key>fileExtension</key>
@@ -143,15 +143,15 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.73</real>
+			<real>0.74</real>
 		</dict>
 	</array>
 	<array>
 		<dict>
 			<key>displayText</key>
-			<string>oOoOo</string>
+			<string>(blip)</string>
 			<key>fileName</key>
-			<string>spookyOh</string>
+			<string>blip</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -159,21 +159,21 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.65</real>
+			<real>0.75</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>ahhHH</string>
+			<string>MARS</string>
 			<key>fileName</key>
-			<string>screamAh</string>
+			<string>MARSLOUD</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>wav</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.44</real>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -191,9 +191,81 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
+			<string>CAT</string>
+			<key>fileName</key>
+			<string>yourCat</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>0.77</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>MEOW</string>
+			<key>fileName</key>
+			<string>meowSoft</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>0.65</real>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>displayText</key>
+			<string>(ufo)</string>
+			<key>fileName</key>
+			<string>ufo</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>0.75</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>GREET</string>
+			<key>fileName</key>
+			<string>GREETED</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>ROCKS</string>
+			<key>fileName</key>
+			<string>ROCKS</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>1</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
 			<string>SHORE</string>
 			<key>fileName</key>
-			<string>SHORE</string>
+			<string>SHORELOUD</string>
 			<key>fileExtension</key>
 			<string>wav</string>
 			<key>loops</key>
@@ -205,9 +277,9 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>EROHS</string>
+			<string>SHORE</string>
 			<key>fileName</key>
-			<string>SHOREBW</string>
+			<string>SHOREBWLOUD</string>
 			<key>fileExtension</key>
 			<string>wav</string>
 			<key>loops</key>
@@ -216,6 +288,8 @@
 			<true/>
 			<key>volume</key>
 			<real>1</real>
+			<key>invertText</key>
+			<true/>
 		</dict>
 	</array>
 </array>
