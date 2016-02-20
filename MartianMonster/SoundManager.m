@@ -43,10 +43,12 @@
     [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
                                   atTime:nil
                                  options:soundItem.bufferOption
-                       completionHandler:nil];
+                       completionHandler:^{
+                           [engine detachNode:soundItem.playerNode];
+                       }];
 
     [SoundManager startEngine:engine];
-    
+
     [soundItem.playerNode play];
 }
 

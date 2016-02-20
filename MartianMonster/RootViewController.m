@@ -391,4 +391,8 @@ NSString *const kGifFileName = @"space";
     return UIInterfaceOrientationMaskAll;
 }
 
+-(void)didReceiveMemoryWarning {
+    
+}
+
 @end
