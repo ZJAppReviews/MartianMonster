@@ -28,7 +28,7 @@
 
         for (NSDictionary *soundDict in soundList) {
             SoundItem *soundItem = [[SoundItem alloc] initWithDictionary:soundDict];
-            [soundItem setUpAudioWithEngine:engine];
+            [soundItem setUpAudio];
             [soundItemArray addObject:soundItem];
         }
         [soundboardsArray addObject:soundItemArray];
@@ -36,13 +36,17 @@
     return soundboardsArray;
 }
 
-+(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem {
++(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem forEngine:(AVAudioEngine *)engine {
+    [soundItem attachToEngine: engine];
+
     // Schedule playing audio buffer
     [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
                                   atTime:nil
                                  options:soundItem.bufferOption
                        completionHandler:nil];
 
+    [SoundManager startEngine:engine];
+    
     [soundItem.playerNode play];
 }
 

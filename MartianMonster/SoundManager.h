@@ -40,6 +40,6 @@
  */
 +(NSMutableArray *)arrayOfSoundboardsFromPlist:(NSString *)plist forEngine:(AVAudioEngine *)engine;
 
-+(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem;
++(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem forEngine:(AVAudioEngine *)engine;
 
 @end

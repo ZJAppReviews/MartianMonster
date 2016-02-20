@@ -74,6 +74,9 @@
  *
  *  @param engine the engine to bond the soundItem's audio-related properties to (i.e. its AVAudioPlayerNode, AVAudioUnitTimePitch, and AVAudioFile)
  */
--(void)setUpAudioWithEngine:(AVAudioEngine *)engine;
+-(void)setUpAudio;
+
+-(void)attachToEngine:(AVAudioEngine *)engine;
+
 
 @end

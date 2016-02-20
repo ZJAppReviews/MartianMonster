@@ -39,7 +39,7 @@ NSString *const kInvertTextKey = @"invertText";
     return self;
 }
 
--(void)setUpAudioWithEngine:(AVAudioEngine *)engine {
+-(void)setUpAudio {
     // Prepare Buffer
     AVAudioFormat *audioFormatZero = self.audioFile.processingFormat;
     AVAudioFrameCount lengthZero = (AVAudioFrameCount)self.audioFile.length;
@@ -49,6 +49,9 @@ NSString *const kInvertTextKey = @"invertText";
     // Prepare AVAudioPlayerNode
     self.playerNode = [AVAudioPlayerNode new];
     self.playerNode.volume = self.volume;
+}
+
+-(void)attachToEngine:(AVAudioEngine *)engine {
     [engine attachNode:self.playerNode];
 
     // Set pitch (if applicable) and connect nodes
@@ -62,16 +65,16 @@ NSString *const kInvertTextKey = @"invertText";
 
         //connect Nodes
         [engine connect:self.playerNode
-                          to:self.utPitch
-                      format:self.audioFile.processingFormat];
+                     to:self.utPitch
+                 format:self.audioFile.processingFormat];
         [engine connect:self.utPitch
-                          to:mixerNode
-                      format:self.audioFile.processingFormat];
+                     to:mixerNode
+                 format:self.audioFile.processingFormat];
     } else {
         //only connect nodes (no pitches)
         [engine connect:self.playerNode
-                          to:mixerNode
-                      format:self.audioFile.processingFormat];
+                     to:mixerNode
+                 format:self.audioFile.processingFormat];
     }
 }
 
