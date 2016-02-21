@@ -36,19 +36,36 @@
     return soundboardsArray;
 }
 
-+(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem forEngine:(AVAudioEngine *)engine {
++(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem forEngine:(AVAudioEngine *)engine withPitch:(float)pitch {
 
-    if (![soundItem.playerNode isPlaying]) {
+    @try {
         [soundItem attachToEngine: engine];
     }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception.reason);
+    }
 
+    NSDate *dateBefore = [NSDate date];
+
+    soundItem.utPitch.pitch = pitch;
     // Schedule playing audio buffer
     [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
                                   atTime:nil
                                  options:soundItem.bufferOption
                        completionHandler:^{
-                           if (![soundItem.playerNode isPlaying]) {
+
+                           NSTimeInterval timePassed = [[NSDate date] timeIntervalSinceDate:dateBefore];
+                           NSLog(@"audio length: %f", soundItem.duration);
+                           NSLog(@"time passed: %f", timePassed);
+                           float audioTimeRemaining = soundItem.duration - timePassed;
+                           NSLog(@"Difference: %f", audioTimeRemaining);
+
+                           if (audioTimeRemaining < 0.05) {
                                [engine detachNode:soundItem.playerNode];
+
+                               if (soundItem.utPitch) {
+                                   [engine detachNode:soundItem.utPitch];
+                               }
                            }
                        }];
 

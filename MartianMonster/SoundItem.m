@@ -36,6 +36,10 @@ NSString *const kInvertTextKey = @"invertText";
     self.audioFile = [[AVAudioFile alloc] initForReading:[NSURL fileURLWithPath:pathZero]
                                          error:nil];
 
+    AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:pathZero] options:nil];
+    CMTime audioDuration = audioAsset.duration;
+    self.duration = CMTimeGetSeconds(audioDuration);
+
     return self;
 }
 

@@ -78,5 +78,6 @@
 
 -(void)attachToEngine:(AVAudioEngine *)engine;
 
+@property float duration;
 
 @end

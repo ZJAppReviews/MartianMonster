@@ -197,7 +197,7 @@ NSString *const kGifFileName = @"space";
     if (![soundItem.playerNode isPlaying])
     {
         [self stopAllBGsongs];
-        [SoundManager scheduleAndPlaySoundItem:soundItem forEngine:self.engine];
+        [SoundManager scheduleAndPlaySoundItem:soundItem forEngine:self.engine withPitch:self.slider.value];
         cell.isPlaying = YES;
     }
     else {
@@ -261,7 +261,7 @@ NSString *const kGifFileName = @"space";
 
     NSArray *soundItems = self.soundboardsArray[currentRow];
     SoundItem *soundItem = soundItems[button.tag];
-    [SoundManager scheduleAndPlaySoundItem:soundItem forEngine:self.engine];
+    [SoundManager scheduleAndPlaySoundItem:soundItem forEngine:self.engine withPitch:self.slider.value];
 }
 
 -(void)stopPlayingAllNodes {
