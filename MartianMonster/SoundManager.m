@@ -37,14 +37,19 @@
 }
 
 +(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem forEngine:(AVAudioEngine *)engine {
-    [soundItem attachToEngine: engine];
+
+    if (![soundItem.playerNode isPlaying]) {
+        [soundItem attachToEngine: engine];
+    }
 
     // Schedule playing audio buffer
     [soundItem.playerNode scheduleBuffer:soundItem.audioPCMBuffer
                                   atTime:nil
                                  options:soundItem.bufferOption
                        completionHandler:^{
-                           [engine detachNode:soundItem.playerNode];
+                           if (![soundItem.playerNode isPlaying]) {
+                               [engine detachNode:soundItem.playerNode];
+                           }
                        }];
 
     [SoundManager startEngine:engine];

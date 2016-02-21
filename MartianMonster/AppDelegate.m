@@ -27,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Fabric with:@[[Answers class], [Crashlytics class]]];
+//    [Fabric with:@[[Answers class], [Crashlytics class]]];
     [SoundManager activateAudioSessionForBackgroundPlay];
     NSSetUncaughtExceptionHandler(&exceptionHandler);
     return YES;

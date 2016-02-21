@@ -46,12 +46,18 @@ NSString *const kInvertTextKey = @"invertText";
     self.audioPCMBuffer = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatZero frameCapacity:lengthZero];
     [self.audioFile readIntoBuffer:self.audioPCMBuffer error:nil];
 
-    // Prepare AVAudioPlayerNode
-    self.playerNode = [AVAudioPlayerNode new];
-    self.playerNode.volume = self.volume;
+//    // Prepare AVAudioPlayerNode
+//    self.playerNode = [AVAudioPlayerNode new];
+//    self.playerNode.volume = self.volume;
 }
 
 -(void)attachToEngine:(AVAudioEngine *)engine {
+    // Prepare AVAudioPlayerNode
+    if (!self.playerNode) {
+        self.playerNode = [AVAudioPlayerNode new];
+    }
+    self.playerNode.volume = self.volume;
+    
     [engine attachNode:self.playerNode];
 
     // Set pitch (if applicable) and connect nodes
