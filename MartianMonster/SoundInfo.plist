@@ -27,7 +27,7 @@
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
-			<false/>
+			<true/>
 			<key>volume</key>
 			<real>0.77</real>
 		</dict>
@@ -121,9 +121,9 @@
 			<key>displayText</key>
 			<string>FEAR</string>
 			<key>fileName</key>
-			<string>FEAR</string>
+			<string>FEAR_LONGER</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -135,9 +135,9 @@
 			<key>displayText</key>
 			<string>SHARP</string>
 			<key>fileName</key>
-			<string>TALONS</string>
+			<string>SHARP</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -157,7 +157,7 @@
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
-			<true/>
+			<false/>
 			<key>volume</key>
 			<real>0.75</real>
 		</dict>
@@ -181,7 +181,7 @@
 			<key>fileName</key>
 			<string>CHINESELOUD</string>
 			<key>fileExtension</key>
-			<string>wav</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -229,7 +229,7 @@
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
-			<true/>
+			<false/>
 			<key>volume</key>
 			<real>0.75</real>
 		</dict>
@@ -265,9 +265,9 @@
 			<key>displayText</key>
 			<string>SHORE</string>
 			<key>fileName</key>
-			<string>SHORELOUD</string>
+			<string>SHORE_LONGER_LOUDER</string>
 			<key>fileExtension</key>
-			<string>wav</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
