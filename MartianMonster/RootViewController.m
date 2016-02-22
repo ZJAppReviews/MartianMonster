@@ -101,8 +101,7 @@ NSString *const kGifFileName = @"space";
     }
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag == 0) {
         SoundboardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellSample forIndexPath:indexPath];
         cell.delegate = self;
@@ -131,8 +130,7 @@ NSString *const kGifFileName = @"space";
 }
 
 #pragma mark - Flow Layout Delegate
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag == 0) {
         return self.view.frame.size;
     } else {

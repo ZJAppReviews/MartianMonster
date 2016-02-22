@@ -18,18 +18,15 @@
 
 @implementation AppDelegate
 
-+ (void)initialize
-{
++ (void)initialize {
     //configure iRate
     [iRate sharedInstance].daysUntilPrompt = 3;
     [iRate sharedInstance].usesUntilPrompt = 3;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-//    [Fabric with:@[[Answers class], [Crashlytics class]]];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[[Answers class], [Crashlytics class]]];
     [SoundManager activateAudioSessionForBackgroundPlay];
-    NSSetUncaughtExceptionHandler(&exceptionHandler);
     return YES;
 }
 
@@ -49,15 +46,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-void exceptionHandler(NSException *exception)
-{
-    NSLog(@"%@",[exception name]);
-    NSLog(@"%@",[exception reason]);
-    NSLog(@"%@",[exception userInfo]);
-    NSLog(@"%@",[exception callStackSymbols]);
-    NSLog(@"%@",[exception callStackReturnAddresses]);
 }
 
 @end

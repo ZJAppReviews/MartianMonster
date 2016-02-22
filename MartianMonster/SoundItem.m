@@ -50,10 +50,6 @@ NSString *const kInvertTextKey = @"invertText";
     AVAudioFrameCount lengthZero = (AVAudioFrameCount)self.audioFile.length;
     self.audioPCMBuffer = [[AVAudioPCMBuffer alloc]initWithPCMFormat:audioFormatZero frameCapacity:lengthZero];
     [self.audioFile readIntoBuffer:self.audioPCMBuffer error:nil];
-
-//    // Prepare AVAudioPlayerNode
-//    self.playerNode = [AVAudioPlayerNode new];
-//    self.playerNode.volume = self.volume;
 }
 
 -(void)attachToEngine:(AVAudioEngine *)engine {
