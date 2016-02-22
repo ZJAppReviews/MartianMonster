@@ -7,7 +7,7 @@
 			<key>displayText</key>
 			<string>MM</string>
 			<key>fileName</key>
-			<string>MMLoop</string>
+			<string>mmloop</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -21,7 +21,7 @@
 			<key>displayText</key>
 			<string>YPC</string>
 			<key>fileName</key>
-			<string>PetCatLoop</string>
+			<string>petcatloop</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -35,7 +35,7 @@
 			<key>displayText</key>
 			<string>GST</string>
 			<key>fileName</key>
-			<string>GhostLoop</string>
+			<string>ghostloop</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>
@@ -47,9 +47,9 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>MEX</string>
+			<string>mexiloop</string>
 			<key>fileName</key>
-			<string>MEXIJAMLOOP</string>
+			<string>mexiloop</string>
 			<key>fileExtension</key>
 			<string>m4a</string>
 			<key>loops</key>

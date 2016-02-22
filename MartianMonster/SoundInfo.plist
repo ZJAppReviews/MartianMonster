@@ -7,9 +7,9 @@
 			<key>displayText</key>
 			<string>1ST</string>
 			<key>fileName</key>
-			<string>firstAstronaut</string>
+			<string>first</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -21,9 +21,9 @@
 			<key>displayText</key>
 			<string>COUNT</string>
 			<key>fileName</key>
-			<string>COUNTDOWN</string>
+			<string>countdown</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -35,9 +35,9 @@
 			<key>displayText</key>
 			<string>BLAST OFF</string>
 			<key>fileName</key>
-			<string>blastOff</string>
+			<string>blast</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -49,9 +49,9 @@
 			<key>displayText</key>
 			<string>SPEED</string>
 			<key>fileName</key>
-			<string>incredibleSpeed</string>
+			<string>speed</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -63,9 +63,9 @@
 			<key>displayText</key>
 			<string>TRIP</string>
 			<key>fileName</key>
-			<string>tripIsShort</string>
+			<string>trip</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -79,9 +79,9 @@
 			<key>displayText</key>
 			<string>oOoOo</string>
 			<key>fileName</key>
-			<string>spookyOh</string>
+			<string>oh</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -93,9 +93,9 @@
 			<key>displayText</key>
 			<string>ahhHH</string>
 			<key>fileName</key>
-			<string>screamAh</string>
+			<string>ah</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -107,9 +107,9 @@
 			<key>displayText</key>
 			<string>THEY ATTACK</string>
 			<key>fileName</key>
-			<string>theyAttack</string>
+			<string>attack</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -121,7 +121,7 @@
 			<key>displayText</key>
 			<string>FEAR</string>
 			<key>fileName</key>
-			<string>FEAR_LONGER</string>
+			<string>fear</string>
 			<key>fileExtension</key>
 			<string>mp3</string>
 			<key>loops</key>
@@ -135,7 +135,7 @@
 			<key>displayText</key>
 			<string>SHARP</string>
 			<key>fileName</key>
-			<string>SHARP</string>
+			<string>sharp</string>
 			<key>fileExtension</key>
 			<string>mp3</string>
 			<key>loops</key>
@@ -153,7 +153,7 @@
 			<key>fileName</key>
 			<string>blip</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -165,9 +165,9 @@
 			<key>displayText</key>
 			<string>MARS</string>
 			<key>fileName</key>
-			<string>MARSLOUD</string>
+			<string>lands</string>
 			<key>fileExtension</key>
-			<string>wav</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -179,7 +179,7 @@
 			<key>displayText</key>
 			<string>中国古代</string>
 			<key>fileName</key>
-			<string>CHINESELOUD</string>
+			<string>chinese</string>
 			<key>fileExtension</key>
 			<string>mp3</string>
 			<key>loops</key>
@@ -193,9 +193,9 @@
 			<key>displayText</key>
 			<string>CAT</string>
 			<key>fileName</key>
-			<string>yourCat</string>
+			<string>yourcat</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -207,9 +207,9 @@
 			<key>displayText</key>
 			<string>MEOW</string>
 			<key>fileName</key>
-			<string>meowSoft</string>
+			<string>meow</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -225,7 +225,7 @@
 			<key>fileName</key>
 			<string>ufo</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -237,9 +237,9 @@
 			<key>displayText</key>
 			<string>GREET</string>
 			<key>fileName</key>
-			<string>GREETED</string>
+			<string>greet</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -249,23 +249,9 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>ROCKS</string>
+			<string>CRASH</string>
 			<key>fileName</key>
-			<string>ROCKSLOUD</string>
-			<key>fileExtension</key>
-			<string>wav</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<true/>
-			<key>volume</key>
-			<real>1</real>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>SHORE</string>
-			<key>fileName</key>
-			<string>SHORE_LONGER_LOUDER</string>
+			<string>crash</string>
 			<key>fileExtension</key>
 			<string>mp3</string>
 			<key>loops</key>
@@ -279,9 +265,23 @@
 			<key>displayText</key>
 			<string>SHORE</string>
 			<key>fileName</key>
-			<string>SHOREBWLOUD</string>
+			<string>shore</string>
 			<key>fileExtension</key>
-			<string>wav</string>
+			<string>mp3</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
+			<key>volume</key>
+			<real>1</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>SHORE</string>
+			<key>fileName</key>
+			<string>shorebw</string>
+			<key>fileExtension</key>
+			<string>mp3</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
