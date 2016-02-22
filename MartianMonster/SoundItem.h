@@ -41,7 +41,7 @@
 @property AVAudioPlayerNode *playerNode;
 
 /**
- *  T
+ *  The unit time pitch object to provide pitch shifting functionality for the soundItem
  */
 @property AVAudioUnitTimePitch *utPitch;
 
@@ -54,6 +54,11 @@
  *  The volume level of the soundItem (between 0 and 1).
  */
 @property float volume;
+
+/**
+ *  The approximate duration of the soundItem's
+ */
+@property float duration;
 
 /**
  *  Whether or not the text for the soundItem should be inverted vertically (for displaying SHORE backwards)
@@ -76,8 +81,11 @@
  */
 -(void)setUpAudio;
 
+/**
+ *  Attaches and connects the soundItem's nodes to the specified engine
+ *
+ *  @param engine the engine to attach and connect the soundItem's nodes to
+ */
 -(void)attachToEngine:(AVAudioEngine *)engine;
-
-@property float duration;
 
 @end

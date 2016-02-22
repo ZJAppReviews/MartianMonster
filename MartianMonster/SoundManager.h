@@ -40,6 +40,13 @@
  */
 +(NSMutableArray *)arrayOfSoundboardsFromPlist:(NSString *)plist forEngine:(AVAudioEngine *)engine;
 
+/**
+ *  Attaches and connects a specified soundItem's nodes to the specified engine (if necessary), and then schedules and plays the sound. Upon completion of playing, the nodes are detached from the engine; this avoids a critical issue where too many nodes attached to the engine overloaded the CPU and broke the sound from playing.
+ *
+ *  @param soundItem the SoundItem whose audio will be played
+ *  @param engine    the audio engine that the soundItem's nodes will be connected to
+ *  @param pitch     the pitch level to initially set the sound to (i.e. based on the slider position)
+ */
 +(void)scheduleAndPlaySoundItem:(SoundItem *)soundItem forEngine:(AVAudioEngine *)engine withPitch:(float)pitch;
 
 @end
