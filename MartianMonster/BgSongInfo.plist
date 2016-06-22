@@ -59,6 +59,48 @@
 			<key>volume</key>
 			<real>0.5</real>
 		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>wombatloop</string>
+			<key>fileName</key>
+			<string>wombatloop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+			<key>volume</key>
+			<real>0.5</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>dogsloop</string>
+			<key>fileName</key>
+			<string>dogsloop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+			<key>volume</key>
+			<real>0.45</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>jibbooloop</string>
+			<key>fileName</key>
+			<string>jibbooloop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+			<key>volume</key>
+			<real>0.75</real>
+		</dict>
 	</array>
 </array>
 </plist>

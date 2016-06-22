@@ -21,7 +21,7 @@ CGFloat const iphone4Height = 480;
 
 #pragma mark - Image Constants
 NSString * const accessIdSombreroImage = @"3";
-NSString * const accessIdShareImage = @"4";
+NSString * const accessIdShareImage = @"7";
 
 #define IDIOM    UI_USER_INTERFACE_IDIOM()
 #define IPAD     UIUserInterfaceIdiomPad
