@@ -87,7 +87,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.7</real>
+			<real>0.77</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -101,7 +101,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>0.4025</real>
+			<real>0.525</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
@@ -295,20 +295,6 @@
 	<array>
 		<dict>
 			<key>displayText</key>
-			<string>🐋</string>
-			<key>fileName</key>
-			<string>whale</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<false/>
-			<key>pitchEffect</key>
-			<true/>
-			<key>volume</key>
-			<real>0.9</real>
-		</dict>
-		<dict>
-			<key>displayText</key>
 			<string>🎸</string>
 			<key>fileName</key>
 			<string>jib</string>
@@ -318,6 +304,20 @@
 			<false/>
 			<key>pitchEffect</key>
 			<false/>
+			<key>volume</key>
+			<real>0.75</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>🐋</string>
+			<key>fileName</key>
+			<string>whale</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<false/>
+			<key>pitchEffect</key>
+			<true/>
 			<key>volume</key>
 			<real>0.75</real>
 		</dict>
@@ -333,7 +333,7 @@
 			<key>pitchEffect</key>
 			<true/>
 			<key>volume</key>
-			<real>1</real>
+			<real>0.765</real>
 		</dict>
 		<dict>
 			<key>displayText</key>
