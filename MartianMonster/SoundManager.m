@@ -55,10 +55,7 @@
                        completionHandler:^{
 
                            NSTimeInterval timePassed = [[NSDate date] timeIntervalSinceDate:dateBefore];
-                           NSLog(@"audio length: %f", soundItem.duration);
-                           NSLog(@"time passed: %f", timePassed);
                            float audioTimeRemaining = soundItem.duration - timePassed;
-                           NSLog(@"Difference: %f", audioTimeRemaining);
 
                            if (audioTimeRemaining < 0.05) {
                                [engine detachNode:soundItem.playerNode];
