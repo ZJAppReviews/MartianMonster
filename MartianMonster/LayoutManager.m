@@ -21,6 +21,7 @@ CGFloat const iphone4Height = 480;
 
 #pragma mark - Image Constants
 NSString * const accessIdSombreroImage = @"3";
+NSString * const accessIdDogImage = @"5";
 NSString * const accessIdShareImage = @"7";
 
 #define IDIOM    UI_USER_INTERFACE_IDIOM()
@@ -87,9 +88,11 @@ NSString * const accessIdShareImage = @"7";
     if ([button.imageView.accessibilityIdentifier isEqualToString:accessIdSombreroImage]) {
         edgeInset = button.bounds.size.width / 7.25;
         return UIEdgeInsetsMake(edgeInset, edgeInset, edgeInset, edgeInset);
-    }
-    else if ([button.imageView.accessibilityIdentifier isEqualToString:accessIdShareImage]) {
+    } else if ([button.imageView.accessibilityIdentifier isEqualToString:accessIdShareImage]) {
         edgeInset = button.bounds.size.width / 3.75;
+        return UIEdgeInsetsMake(edgeInset, edgeInset - 1.75, edgeInset, edgeInset);
+    } else if ([button.imageView.accessibilityIdentifier isEqualToString:accessIdDogImage]) {
+        edgeInset = button.bounds.size.width / 4.5;
         return UIEdgeInsetsMake(edgeInset, edgeInset - 1.75, edgeInset, edgeInset);
     }
 

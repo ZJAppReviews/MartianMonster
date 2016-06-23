@@ -48,7 +48,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uC-rO-tYU">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                     <subviews>
-                                                        <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scI-5W-0x3">
+                                                        <button opaque="NO" alpha="0.77000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scI-5W-0x3">
                                                             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                                             <color key="backgroundColor" red="0.23921568630000001" green="0.58039215690000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="Orbitron-Medium" family="Orbitron" pointSize="50"/>
@@ -60,7 +60,7 @@
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="oCZ-Ba-gJx"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" alpha="0.75" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-qh-6SR">
+                                                        <button opaque="NO" alpha="0.77000000000000002" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-qh-6SR">
                                                             <rect key="frame" x="299" y="0.0" width="300" height="200"/>
                                                             <color key="backgroundColor" red="0.83529411760000005" green="0.0" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="Orbitron-Medium" family="Orbitron" pointSize="50"/>
@@ -84,7 +84,7 @@
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="9E1-EE-5p7"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" alpha="0.75" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-rt-8dG">
+                                                        <button opaque="NO" alpha="0.77000000000000002" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-rt-8dG">
                                                             <rect key="frame" x="0.0" y="400" width="300" height="200"/>
                                                             <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="Orbitron-Medium" family="Orbitron" pointSize="50"/>
@@ -96,7 +96,7 @@
                                                                 <action selector="didTapButton:" destination="96M-fY-PFM" eventType="touchUpInside" id="i27-3p-HfB"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" alpha="0.75" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbx-Hv-5DT">
+                                                        <button opaque="NO" alpha="0.77000000000000002" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbx-Hv-5DT">
                                                             <rect key="frame" x="299" y="400" width="300" height="200"/>
                                                             <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="Orbitron-Medium" family="Orbitron" pointSize="50"/>
