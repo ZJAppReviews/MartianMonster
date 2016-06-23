@@ -161,10 +161,10 @@ NSString *const kGifFileName = @"space";
     }
 
     if ([UIDevice isIphone4]) {
-        return [LayoutManager menuMinLineSpacingIphone4];
+        return [LayoutManager menuMinLineSpacingIphone4] + 6;
     }
 
-    return self.menuMinLineSpacingPortrait;
+    return self.menuMinLineSpacingPortrait + 7.8;
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
