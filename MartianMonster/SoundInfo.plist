@@ -341,7 +341,7 @@
 			<key>fileName</key>
 			<string>howl</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>wav</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
@@ -355,7 +355,7 @@
 			<key>fileName</key>
 			<string>bark</string>
 			<key>fileExtension</key>
-			<string>m4a</string>
+			<string>wav</string>
 			<key>loops</key>
 			<false/>
 			<key>pitchEffect</key>
