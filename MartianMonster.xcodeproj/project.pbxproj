@@ -19,6 +19,11 @@
 		9329FACE1D1A5DA800E24E5B /* dogsloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FACB1D1A5DA800E24E5B /* dogsloop.m4a */; };
 		9329FAD01D1A5DA800E24E5B /* wombatloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FACD1D1A5DA800E24E5B /* wombatloop.m4a */; };
 		9329FAD21D1A618E00E24E5B /* jibbooloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FAD11D1A618E00E24E5B /* jibbooloop.m4a */; };
+		9329FAD91D1B950300E24E5B /* bark.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FAD41D1B950300E24E5B /* bark.m4a */; };
+		9329FADA1D1B950300E24E5B /* groan.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FAD51D1B950300E24E5B /* groan.m4a */; };
+		9329FADB1D1B950300E24E5B /* howl.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FAD61D1B950300E24E5B /* howl.m4a */; };
+		9329FADC1D1B950300E24E5B /* jib.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FAD71D1B950300E24E5B /* jib.m4a */; };
+		9329FADD1D1B950300E24E5B /* whale.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9329FAD81D1B950300E24E5B /* whale.m4a */; };
 		935D44341BA510F7005A024A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D44331BA510F7005A024A /* RootViewController.m */; };
 		936321881BA78C0B004CB7D6 /* Soundboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 936321871BA78C0B004CB7D6 /* Soundboard.m */; };
 		9363218B1BA78C1D004CB7D6 /* SoundItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363218A1BA78C1D004CB7D6 /* SoundItem.m */; };
@@ -94,6 +99,11 @@
 		9329FACB1D1A5DA800E24E5B /* dogsloop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = dogsloop.m4a; path = ../../tour16update/dogsloop.m4a; sourceTree = "<group>"; };
 		9329FACD1D1A5DA800E24E5B /* wombatloop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = wombatloop.m4a; path = ../../tour16update/wombatloop.m4a; sourceTree = "<group>"; };
 		9329FAD11D1A618E00E24E5B /* jibbooloop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = jibbooloop.m4a; path = ../../../../Desktop/jibbooloop.m4a; sourceTree = "<group>"; };
+		9329FAD41D1B950300E24E5B /* bark.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = bark.m4a; path = ../../tour16update/bark.m4a; sourceTree = "<group>"; };
+		9329FAD51D1B950300E24E5B /* groan.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = groan.m4a; path = ../../tour16update/groan.m4a; sourceTree = "<group>"; };
+		9329FAD61D1B950300E24E5B /* howl.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = howl.m4a; path = ../../tour16update/howl.m4a; sourceTree = "<group>"; };
+		9329FAD71D1B950300E24E5B /* jib.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = jib.m4a; path = ../../tour16update/jib.m4a; sourceTree = "<group>"; };
+		9329FAD81D1B950300E24E5B /* whale.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = whale.m4a; path = ../../tour16update/whale.m4a; sourceTree = "<group>"; };
 		935D44321BA510F7005A024A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		935D44331BA510F7005A024A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		936321861BA78C0B004CB7D6 /* Soundboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Soundboard.h; sourceTree = "<group>"; };
@@ -230,6 +240,18 @@
 				93AFC68C1C6FD0B70028F261 /* MenuCollectionViewCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		9329FAD31D1B94F000E24E5B /* Five */ = {
+			isa = PBXGroup;
+			children = (
+				9329FAD41D1B950300E24E5B /* bark.m4a */,
+				9329FAD51D1B950300E24E5B /* groan.m4a */,
+				9329FAD61D1B950300E24E5B /* howl.m4a */,
+				9329FAD71D1B950300E24E5B /* jib.m4a */,
+				9329FAD81D1B950300E24E5B /* whale.m4a */,
+			);
+			name = Five;
 			sourceTree = "<group>";
 		};
 		9363218C1BA78C23004CB7D6 /* Model */ = {
@@ -408,6 +430,7 @@
 				936321901BA7CEFC004CB7D6 /* Two */,
 				93B5A5591C6EB706009DC43D /* Three */,
 				9399E8FD1C76D18700CE9CEF /* Four */,
+				9329FAD31D1B94F000E24E5B /* Five */,
 				9315822B1BB6EB0000EC9CA2 /* Notification Sounds */,
 			);
 			name = "Sound Bites";
@@ -520,6 +543,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9329FADA1D1B950300E24E5B /* groan.m4a in Resources */,
 				9302748C1B897169007F7F18 /* space.gif in Resources */,
 				9329FACE1D1A5DA800E24E5B /* dogsloop.m4a in Resources */,
 				93BE3DC91BB3655A009D603C /* mmloop.m4a in Resources */,
@@ -537,18 +561,22 @@
 				93730B3F1C7AA280006DFE80 /* speed.mp3 in Resources */,
 				93730B4B1C7AA2C2006DFE80 /* blip.mp3 in Resources */,
 				930955401BB30951007F6EFC /* SoundInfo.plist in Resources */,
+				9329FADD1D1B950300E24E5B /* whale.m4a in Resources */,
 				93730B3E1C7AA280006DFE80 /* first.mp3 in Resources */,
 				93730B301C7A86F2006DFE80 /* sharp.mp3 in Resources */,
 				93B5A5671C6EEB11009DC43D /* mexiloop.m4a in Resources */,
+				9329FAD91D1B950300E24E5B /* bark.m4a in Resources */,
 				93730B451C7AA2A9006DFE80 /* oh.mp3 in Resources */,
 				9329FAD01D1A5DA800E24E5B /* wombatloop.m4a in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
 				93BE3DC81BB3655A009D603C /* ghostloop.m4a in Resources */,
 				93730B541C7AA2E9006DFE80 /* crash.mp3 in Resources */,
 				93730B531C7AA2E9006DFE80 /* greet.mp3 in Resources */,
+				9329FADC1D1B950300E24E5B /* jib.m4a in Resources */,
 				93730B2E1C7A85E5006DFE80 /* chinese.mp3 in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
 				93730B321C7A87AE006DFE80 /* fear.mp3 in Resources */,
+				9329FADB1D1B950300E24E5B /* howl.m4a in Resources */,
 				9329FAD21D1A618E00E24E5B /* jibbooloop.m4a in Resources */,
 				93730B401C7AA280006DFE80 /* trip.mp3 in Resources */,
 				93730B551C7AA2E9006DFE80 /* shorebw.mp3 in Resources */,
