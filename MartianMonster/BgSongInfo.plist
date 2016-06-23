@@ -33,48 +33,6 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
-			<string>GST</string>
-			<key>fileName</key>
-			<string>ghostloop</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<true/>
-			<key>pitchEffect</key>
-			<false/>
-			<key>volume</key>
-			<real>0.76</real>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>mexiloop</string>
-			<key>fileName</key>
-			<string>mexiloop</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<true/>
-			<key>pitchEffect</key>
-			<false/>
-			<key>volume</key>
-			<real>0.5</real>
-		</dict>
-		<dict>
-			<key>displayText</key>
-			<string>wombatloop</string>
-			<key>fileName</key>
-			<string>wombatloop</string>
-			<key>fileExtension</key>
-			<string>m4a</string>
-			<key>loops</key>
-			<true/>
-			<key>pitchEffect</key>
-			<false/>
-			<key>volume</key>
-			<real>0.5</real>
-		</dict>
-		<dict>
-			<key>displayText</key>
 			<string>dogsloop</string>
 			<key>fileName</key>
 			<string>dogsloop</string>
@@ -89,6 +47,20 @@
 		</dict>
 		<dict>
 			<key>displayText</key>
+			<string>GST</string>
+			<key>fileName</key>
+			<string>ghostloop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+			<key>volume</key>
+			<real>0.76</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
 			<string>jibbooloop</string>
 			<key>fileName</key>
 			<string>jibbooloop</string>
@@ -100,6 +72,34 @@
 			<false/>
 			<key>volume</key>
 			<real>0.75</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>wombatloop</string>
+			<key>fileName</key>
+			<string>wombatloop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+			<key>volume</key>
+			<real>0.5</real>
+		</dict>
+		<dict>
+			<key>displayText</key>
+			<string>mexiloop</string>
+			<key>fileName</key>
+			<string>mexiloop</string>
+			<key>fileExtension</key>
+			<string>m4a</string>
+			<key>loops</key>
+			<true/>
+			<key>pitchEffect</key>
+			<false/>
+			<key>volume</key>
+			<real>0.5</real>
 		</dict>
 	</array>
 </array>
