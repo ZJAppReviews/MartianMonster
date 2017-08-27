@@ -68,6 +68,7 @@
 		F513C6331F52544C0052BCFF /* wombatloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C62A1F5250FC0052BCFF /* wombatloop.m4a */; };
 		F513C6341F52544E0052BCFF /* dogsloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C62B1F5250FC0052BCFF /* dogsloop.m4a */; };
 		F513C6351F5254500052BCFF /* jibbooloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C62C1F5250FC0052BCFF /* jibbooloop.m4a */; };
+		F513C6361F5254730052BCFF /* Orbitron Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F513C62D1F5251770052BCFF /* Orbitron Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -574,6 +575,7 @@
 				93730B531C7AA2E9006DFE80 /* greet.mp3 in Resources */,
 				93730B2E1C7A85E5006DFE80 /* chinese.mp3 in Resources */,
 				93B8E3491B818926008ECB47 /* Images.xcassets in Resources */,
+				F513C6361F5254730052BCFF /* Orbitron Medium.ttf in Resources */,
 				93730B321C7A87AE006DFE80 /* fear.mp3 in Resources */,
 				93730B401C7AA280006DFE80 /* trip.mp3 in Resources */,
 				93730B551C7AA2E9006DFE80 /* shorebw.mp3 in Resources */,
