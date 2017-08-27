@@ -56,14 +56,16 @@
 
                            NSTimeInterval timePassed = [[NSDate date] timeIntervalSinceDate:dateBefore];
                            float audioTimeRemaining = soundItem.duration - timePassed;
-
-                           if (audioTimeRemaining < 0.05) {
-                               [engine detachNode:soundItem.playerNode];
-
-                               if (soundItem.utPitch) {
-                                   [engine detachNode:soundItem.utPitch];
+                           
+                           dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                               if (audioTimeRemaining < 0.05) {
+                                   [engine detachNode:soundItem.playerNode];
+                                   
+                                   if (soundItem.utPitch) {
+                                       [engine detachNode:soundItem.utPitch];
+                                   }
                                }
-                           }
+                           });
                        }];
 
     [SoundManager startEngine:engine];
