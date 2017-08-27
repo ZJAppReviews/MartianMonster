@@ -1,4 +1,4 @@
-#import "UIImage+animatedGIF.h"
+#import "UIImage+animatedGif.h"
 #import <ImageIO/ImageIO.h>
 
 #if __has_feature(objc_arc)

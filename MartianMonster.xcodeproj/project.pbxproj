@@ -60,6 +60,14 @@
 		93CA56941C74CD5300D3C430 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CA56931C74CD5300D3C430 /* UIColor+Custom.m */; };
 		93CA56971C74D13100D3C430 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CA56961C74D13100D3C430 /* UIView+Layout.m */; };
 		93F1D7BF1B89BE8D00979365 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F1D7BE1B89BE8D00979365 /* AVFoundation.framework */; };
+		F513C62E1F52543F0052BCFF /* bark.wav in Resources */ = {isa = PBXBuildFile; fileRef = F513C6261F5250D10052BCFF /* bark.wav */; };
+		F513C62F1F5254410052BCFF /* groan.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C6281F5250D10052BCFF /* groan.m4a */; };
+		F513C6301F5254430052BCFF /* howl.wav in Resources */ = {isa = PBXBuildFile; fileRef = F513C6291F5250D10052BCFF /* howl.wav */; };
+		F513C6311F5254440052BCFF /* jib.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C6271F5250D10052BCFF /* jib.m4a */; };
+		F513C6321F5254460052BCFF /* whale.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C6251F5250D00052BCFF /* whale.m4a */; };
+		F513C6331F52544C0052BCFF /* wombatloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C62A1F5250FC0052BCFF /* wombatloop.m4a */; };
+		F513C6341F52544E0052BCFF /* dogsloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C62B1F5250FC0052BCFF /* dogsloop.m4a */; };
+		F513C6351F5254500052BCFF /* jibbooloop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F513C62C1F5250FC0052BCFF /* jibbooloop.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -534,9 +542,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F513C6311F5254440052BCFF /* jib.m4a in Resources */,
 				9302748C1B897169007F7F18 /* space.gif in Resources */,
 				93BE3DC91BB3655A009D603C /* mmloop.m4a in Resources */,
 				93730B3D1C7AA280006DFE80 /* countdown.mp3 in Resources */,
+				F513C6331F52544C0052BCFF /* wombatloop.m4a in Resources */,
 				93730B561C7AA2E9006DFE80 /* ufo.mp3 in Resources */,
 				9315822E1BB6EB0E00EC9CA2 /* shortBlip.m4a in Resources */,
 				93730B4C1C7AA2C2006DFE80 /* lands.mp3 in Resources */,
@@ -545,16 +555,21 @@
 				9315822F1BB6EB0E00EC9CA2 /* poof.m4a in Resources */,
 				93BE3DC31BB36520009D603C /* BgSongInfo.plist in Resources */,
 				93730B4D1C7AA2C2006DFE80 /* meow.mp3 in Resources */,
+				F513C6351F5254500052BCFF /* jibbooloop.m4a in Resources */,
 				93B8E3471B818926008ECB47 /* Main.storyboard in Resources */,
+				F513C62E1F52543F0052BCFF /* bark.wav in Resources */,
 				93730B3F1C7AA280006DFE80 /* speed.mp3 in Resources */,
 				93730B4B1C7AA2C2006DFE80 /* blip.mp3 in Resources */,
+				F513C6301F5254430052BCFF /* howl.wav in Resources */,
 				930955401BB30951007F6EFC /* SoundInfo.plist in Resources */,
 				93730B3E1C7AA280006DFE80 /* first.mp3 in Resources */,
 				93730B301C7A86F2006DFE80 /* sharp.mp3 in Resources */,
+				F513C6321F5254460052BCFF /* whale.m4a in Resources */,
 				93B5A5671C6EEB11009DC43D /* mexiloop.m4a in Resources */,
 				93730B451C7AA2A9006DFE80 /* oh.mp3 in Resources */,
 				93B8E34C1B818926008ECB47 /* LaunchScreen.xib in Resources */,
 				93BE3DC81BB3655A009D603C /* ghostloop.m4a in Resources */,
+				F513C6341F52544E0052BCFF /* dogsloop.m4a in Resources */,
 				93730B541C7AA2E9006DFE80 /* crash.mp3 in Resources */,
 				93730B531C7AA2E9006DFE80 /* greet.mp3 in Resources */,
 				93730B2E1C7A85E5006DFE80 /* chinese.mp3 in Resources */,
@@ -565,6 +580,7 @@
 				93730B361C7A89A7006DFE80 /* shore.mp3 in Resources */,
 				93BE3DCC1BB375FE009D603C /* petcatloop.m4a in Resources */,
 				93730B461C7AA2A9006DFE80 /* attack.mp3 in Resources */,
+				F513C62F1F5254410052BCFF /* groan.m4a in Resources */,
 				93730B441C7AA2A9006DFE80 /* ah.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
